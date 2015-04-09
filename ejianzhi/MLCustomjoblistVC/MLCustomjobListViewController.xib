@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MLCustomjobListViewController">
+            <connections>
+                <outlet property="tableView" destination="dP4-SQ-30b" id="elc-Pp-wh6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dP4-SQ-30b">
+                    <rect key="frame" x="0.0" y="33" width="600" height="567"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Qae-m3-fjy"/>
+                        <outlet property="delegate" destination="-1" id="kGH-x3-4Lk"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按列表某项，能够与好友组队，取消申请，留言重投" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7a-dn-qAG">
+                    <rect key="frame" x="8" y="9" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="3yh-bm-eIP"/>
+                        <constraint firstAttribute="width" constant="320" id="Ozg-fd-5XZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.91998208299999995" green="0.94209685769999996" blue="0.87839826239999996" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="O7a-dn-qAG" secondAttribute="trailing" constant="236" id="0wq-3h-WTT"/>
+                <constraint firstItem="dP4-SQ-30b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1uy-bd-e4n"/>
+                <constraint firstItem="dP4-SQ-30b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="Amx-Pa-C6X"/>
+                <constraint firstAttribute="bottom" secondItem="dP4-SQ-30b" secondAttribute="bottom" id="L7W-RX-wLP"/>
+                <constraint firstItem="O7a-dn-qAG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="9" id="Q5q-xU-0Mu"/>
+                <constraint firstItem="dP4-SQ-30b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="38" id="hPH-BC-yad"/>
+                <constraint firstItem="O7a-dn-qAG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hR6-je-ga6"/>
+                <constraint firstItem="dP4-SQ-30b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="itM-Ev-NJc"/>
+                <constraint firstAttribute="trailing" secondItem="dP4-SQ-30b" secondAttribute="trailing" id="rNe-vB-Dw8"/>
+                <constraint firstItem="O7a-dn-qAG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="9" id="rbG-jM-mLL"/>
+                <constraint firstItem="O7a-dn-qAG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="rng-1g-GpX"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0wq-3h-WTT"/>
+                    <exclude reference="Q5q-xU-0Mu"/>
+                    <exclude reference="rng-1g-GpX"/>
+                    <exclude reference="hPH-BC-yad"/>
+                    <exclude reference="itM-Ev-NJc"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="238" y="236"/>
+        </view>
+    </objects>
+</document>

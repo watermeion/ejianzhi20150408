@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SRNavigationDetail">
+            <connections>
+                <outlet property="destinationName" destination="0aK-fR-jNt" id="MLc-u7-0nN"/>
+                <outlet property="headView" destination="sEE-6N-2nu" id="2hL-kv-bCq"/>
+                <outlet property="segment" destination="knD-eH-Avh" id="Csf-Ce-lwG"/>
+                <outlet property="tableView" destination="0fZ-3b-BP9" id="UsV-C8-Rl3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0fZ-3b-BP9">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="0fZ-3b-BP9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jss-xu-E0L"/>
+                <constraint firstAttribute="trailing" secondItem="0fZ-3b-BP9" secondAttribute="trailing" id="Mmw-w9-cc2"/>
+                <constraint firstItem="0fZ-3b-BP9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NsF-Rv-caG"/>
+                <constraint firstAttribute="bottom" secondItem="0fZ-3b-BP9" secondAttribute="bottom" constant="-20" id="Nuj-rK-kw6"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="221" y="369"/>
+        </view>
+        <view contentMode="scaleToFill" id="sEE-6N-2nu">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-J2-qzA">
+                    <rect key="frame" x="17" y="14" width="15" height="15"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_line_dot.png" translatesAutoresizingMaskIntoConstraints="NO" id="fUr-Zt-4Qc">
+                    <rect key="frame" x="21" y="63" width="8" height="8"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="huihui_dot_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-4Q-6sg">
+                    <rect key="frame" x="55" y="40" width="219" height="2"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze9-kv-YJi">
+                    <rect key="frame" x="55" y="14" width="67" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <state key="normal" title="我的位置">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="more_arrow_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="gSe-Ia-jZy">
+                    <rect key="frame" x="118" y="19" width="10" height="7"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="天津狗不理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aK-fR-jNt">
+                    <rect key="frame" x="63" y="59" width="130" height="16"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_line_up.png" translatesAutoresizingMaskIntoConstraints="NO" id="M7V-kO-9cC">
+                    <rect key="frame" x="23" y="33" width="3" height="24"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-Fe-IzH">
+                    <rect key="frame" x="282" y="25" width="30" height="30"/>
+                    <state key="normal" image="map_change.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="knD-eH-Avh">
+                    <rect key="frame" x="31" y="88" width="266" height="29"/>
+                    <segments>
+                        <segment title="公交"/>
+                        <segment title="驾车"/>
+                        <segment title="步行"/>
+                    </segments>
+                    <color key="tintColor" red="0.90196078430000004" green="0.3803921569" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="changeTransit:" destination="-1" eventType="valueChanged" id="aUF-UI-mkz"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="590" y="138.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="huihui_dot_line.png" width="610" height="1"/>
+        <image name="icon_location.png" width="34" height="34"/>
+        <image name="map_change.png" width="48" height="48"/>
+        <image name="map_line_dot.png" width="20" height="20"/>
+        <image name="map_line_up.png" width="5" height="44"/>
+        <image name="more_arrow_down.png" width="13" height="7"/>
+    </resources>
+</document>

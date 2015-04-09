@@ -1,45 +1,225 @@
 //
 //  AppDelegate.m
-//  ejianzhi
+//  EJianZhi
 //
-//  Created by Mac on 4/8/15.
-//  Copyright (c) 2015 Studio Of Spicy Hot. All rights reserved.
+//  Created by RAY on 14/12/23.
+//  Copyright (c) 2014年 麻辣工作室. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import "SMS_SDK/SMS_SDK.h"
+
+//#import "MobClick.h"
+#import "MLTabbarVC.h"
+
+
+#import "MLLoginManger.h"
+
+//子类化
+#import "User.h"
+#import "JianZhi.h"
+#import "UserDetail.h"
+
+#define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
 @interface AppDelegate ()
 
+@property (strong,nonatomic)MLTabbarVC *mainTabViewController;
+@property (strong,nonatomic)MLLoginManger *loginManager;
 @end
 
 @implementation AppDelegate
 
 
+-(MLTabbarVC*)mainTabViewController
+{
+   if(_mainTabViewController==nil)
+   {
+       _mainTabViewController=[[MLTabbarVC alloc]init];
+   }
+    return _mainTabViewController;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:1];
+    
+//####AVOS Regist App Key
+    [AVOSCloud setApplicationId:@"owqomw6mc9jlqcj7xc2p3mdk7h4hqe2at944fzt0zb8jholj"
+                      clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
+//####AVOS Analystics 
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.mainTabViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+
+    
+//    //1、注册登录变化通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(loginStateChange:)
+//                                                 name:KNOTIFICATION_LOGINCHANGE
+//                                               object:nil];
+//    //
+//    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
+//        [[UINavigationBar appearance] setBarTintColor:RGBACOLOR(78, 188, 211, 1)];
+//        [[UINavigationBar appearance] setTitleTextAttributes:
+//         [NSDictionary dictionaryWithObjectsAndKeys:RGBACOLOR(245, 245, 245, 1), NSForegroundColorAttributeName, [UIFont fontWithName:@ "HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+//    }
+
+    
+//    //友盟
+//    NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+//    NSLog(@"bundleID=%@",bundleID);
+//    if ([bundleID isEqualToString:@"com.easemob.enterprise.demo.ui"]) {
+//        [MobClick startWithAppkey:@"5389bb7f56240ba94208ac97"
+//                     reportPolicy:BATCH
+//                        channelId:Nil];
+//#if DEBUG
+//        [MobClick setLogEnabled:YES];
+//#else
+//        [MobClick setLogEnabled:NO];
+//#endif
+//    }
+//    [MobClick startWithAppkey:@"54d0c830fd98c594f4000961"
+//                 reportPolicy:BATCH
+//                    channelId:Nil];
+//#if DEBUG
+//    [MobClick setLogEnabled:YES];
+//#else
+//    [MobClick setLogEnabled:NO];
+//#endif
+    
+  
+    //for ShareSDK
+//    [ShareSDK registerApp:@"50de98338b9f"];
+//    [ShareSDK connectSinaWeiboWithAppKey:@"568898243"
+//                               appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+//                             redirectUri:@"http://www.sharesdk.cn"];
+    
+    //短信验证模块
+    [SMS_SDK registerApp:@"56454b8585da" withSecret:@"17e36cd8f741167baa78e940456c238c"];
+
+    
+    
+    //初始化各类控制器
+    self.loginManager=[MLLoginManger shareInstance];
+    
+    
+    //Enabling keyboard manager
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:15];
+    //Enabling autoToolbar behaviour. If It is set to NO. You have to manually create UIToolbar for keyboard.
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
+    //Setting toolbar behavious to IQAutoToolbarBySubviews. Set it to IQAutoToolbarByTag to manage previous/next according to UITextField's tag property in increasing order.
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+    
+    //Resign textField if touched outside of UITextField/UITextView.
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    
+    
+    //注册子类化
+    [JianZhi registerSubclass];
+    [User registerSubclass];
+    [UserDetail registerSubclass];
+    
+    
+    if (SYSTEM_VERSION < 8.0) {
+        [application registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeAlert |
+         UIRemoteNotificationTypeSound];
+    } else {
+        [application performSelector:@selector(registerForRemoteNotifications)];
+    }
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url wxDelegate:nil];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url sourceApplication:sourceApplication annotation:annotation wxDelegate:nil];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    //聊天接收推送消息必需
+    AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            [self showErrorWithTitle:@"Installation保存失败" error:error];
+        }
+    }];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+//    [self showErrorWithTitle:@"开启推送失败" error:error];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+
+}
+
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+
+}
+
+- (void)showErrorWithTitle:(NSString *)title error:(NSError *)error {
+    NSString *content = [NSString stringWithFormat:@"%@", error];
+    NSLog(@"%@\n%@", title, content);
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title
+                                                   message:content
+                                                  delegate:nil
+                                         cancelButtonTitle:@"知道了"
+                                         otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 
 @end
