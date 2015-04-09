@@ -1,0 +1,28 @@
+PODS:
+  - AMap2DMap (2.4.2)
+  - AMapSearch (2.4.1)
+  - AVOSCloud (3.0.2)
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
+    - ReactiveCocoa/Core
+  - UIAlertView-Blocks (1.0)
+
+DEPENDENCIES:
+  - AMap2DMap
+  - AMapSearch
+  - AVOSCloud
+  - ReactiveCocoa
+  - UIAlertView-Blocks
+
+SPEC CHECKSUMS:
+  AMap2DMap: 6f19f93b3410c8105c34ef93dd9dbb537f7ea897
+  AMapSearch: e48c562fc7713f7e5f719863a15141a847e16c04
+  AVOSCloud: eeacd471d18b3e24c3cb0d089110453261084489
+  ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
+  UIAlertView-Blocks: 7904744fca618afbd2ec646608924f5e69d5acd1
+
+COCOAPODS: 0.36.0
