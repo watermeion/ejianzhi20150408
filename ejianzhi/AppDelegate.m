@@ -45,10 +45,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:1];
     
-//####AVOS Regist App Key
+//AVOS Regist App Key
     [AVOSCloud setApplicationId:@"owqomw6mc9jlqcj7xc2p3mdk7h4hqe2at944fzt0zb8jholj"
                       clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
-//####AVOS Analystics 
+
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     
@@ -104,22 +104,21 @@
     [SMS_SDK registerApp:@"56454b8585da" withSecret:@"17e36cd8f741167baa78e940456c238c"];
 
     
-    
     //初始化各类控制器
     self.loginManager=[MLLoginManger shareInstance];
     
     
-    //Enabling keyboard manager
-    [[IQKeyboardManager sharedManager] setEnable:YES];
-    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:15];
-    //Enabling autoToolbar behaviour. If It is set to NO. You have to manually create UIToolbar for keyboard.
-    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
-    
-    //Setting toolbar behavious to IQAutoToolbarBySubviews. Set it to IQAutoToolbarByTag to manage previous/next according to UITextField's tag property in increasing order.
-    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
-    
-    //Resign textField if touched outside of UITextField/UITextView.
-    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+//    //Enabling keyboard manager
+//    [[IQKeyboardManager sharedManager] setEnable:YES];
+//    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:15];
+//    //Enabling autoToolbar behaviour. If It is set to NO. You have to manually create UIToolbar for keyboard.
+//    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+//    
+//    //Setting toolbar behavious to IQAutoToolbarBySubviews. Set it to IQAutoToolbarByTag to manage previous/next according to UITextField's tag property in increasing order.
+//    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+//    
+//    //Resign textField if touched outside of UITextField/UITextView.
+//    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     
     
     //注册子类化
@@ -134,7 +133,12 @@
          UIRemoteNotificationTypeAlert |
          UIRemoteNotificationTypeSound];
     } else {
-        [application performSelector:@selector(registerForRemoteNotifications)];
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert
+                                                | UIUserNotificationTypeBadge
+                                                | UIUserNotificationTypeSound
+                                                                                 categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
     }
 
     return YES;
@@ -151,7 +155,6 @@
     return [ShareSDK handleOpenURL:url sourceApplication:sourceApplication annotation:annotation wxDelegate:nil];
 }
 
-
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     //聊天接收推送消息必需
@@ -165,7 +168,7 @@
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
-//    [self showErrorWithTitle:@"开启推送失败" error:error];
+    [self showErrorWithTitle:@"开启推送失败" error:error];
 }
 
 

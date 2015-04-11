@@ -30,7 +30,6 @@
 #import "JobListWithDropDownListVCViewController.h"
 #import "AJLocationManager.h"
 
-
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
 
 @interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -90,6 +89,7 @@
     RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
     [self.viewModel startLocatingToGetCity];
     [self searchCity];
+    
 }
 
 

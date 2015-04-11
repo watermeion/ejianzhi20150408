@@ -9,6 +9,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "AVObject+SubClass.h"
 #import "JianZhiPointEntity.h"
+
 @interface JianZhi : AVObject<AVSubclassing>
 
 @property (nonatomic,strong) NSNumber *jianZhiQiYeLuYongValue;
@@ -41,8 +42,5 @@
 @property (nonatomic,strong) NSString *jianZhiTitle;
 
 @property (nonatomic,strong) NSString *qiYeInfoId;
-
-
-
 
 @end
