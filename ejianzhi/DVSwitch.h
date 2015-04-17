@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+static enum{
+    blockSlider=0,
+    lineSlider=1,
+}sliderType;
+
 @interface DVSwitch : UIControl
 
 @property (strong, nonatomic) UIColor *backgroundColor; // defaults to gray
@@ -17,7 +22,7 @@
 @property (strong, nonatomic) UIFont *font;
 @property (nonatomic) CGFloat cornerRadius; // defaults to 12
 @property (nonatomic) CGFloat sliderOffset; // slider offset from background, top, bottom, left, right
-
+@property (nonatomic) int sliderType;
 + (instancetype)switchWithStringsArray:(NSArray *)strings;
 - (instancetype)initWithStringsArray:(NSArray *)strings;
 

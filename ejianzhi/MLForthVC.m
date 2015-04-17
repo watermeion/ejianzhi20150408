@@ -9,7 +9,7 @@
 #import "MLForthVC.h"
 #import "SRLoginVC.h"
 #import "MLJobListViewController.h"
-#import "MLCustomjobListViewController.h"
+#import "MLApplicationList.h"
 #import "MLLoginManger.h"
 #import "MLResumePreviewVC.h"
 
@@ -29,12 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
-
-- (IBAction)showResumeAction:(id)sender;
-
-- (IBAction)showMyAppliedJob:(id)sender;
-
-- (IBAction)showMyFavoriteAction:(id)sender;
 
 @end
 
@@ -143,30 +137,22 @@
     self.navigationItem.backBarButtonItem = backItem;
     pushing=YES;
     [self.navigationController pushViewController:previewVC animated:YES];
+    
+
 }
 
-
-
-#pragma --mark  显示我的申请界面
-- (IBAction)showMyAppliedJob:(id)sender {
-    //自定义列表
-    
-//    MLCustomjobListViewController *myAppliedJobListVC=[[MLCustomjobListViewController alloc]init];
-//    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
-//    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
-    
+- (IBAction)showMyApplication:(UIButton *)sender {
+    MLApplicationList *myAppliedJobListVC=[[MLApplicationList alloc]init];
+    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    pushing=YES;
+    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
 }
-
 
 #pragma --mark  显示我的收藏
-- (IBAction)showMyFavoriteAction:(id)sender {
 
-//    MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
-//    myFavoriteListVC.navigationController.navigationItem.title=@"我的收藏";
-//    myFavoriteListVC.hidesBottomBarWhenPushed=YES;
-//    myFavoriteListVC.navigationController.navigationBar.hidden=NO;
-//    [self.navigationController pushViewController:myFavoriteListVC animated:YES];
-}
 
 
 @end

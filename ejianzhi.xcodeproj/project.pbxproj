@@ -625,6 +625,8 @@
 		3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */; };
 		3BCC6D621AD804F1000CB950 /* LeanChatLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; };
 		3BCC6D631AD804F1000CB950 /* LeanChatLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BDDF0FC1ADF9F0300C5BD45 /* MLApplicationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDDF0FA1ADF9F0300C5BD45 /* MLApplicationList.m */; };
+		3BDDF0FD1ADF9F0300C5BD45 /* MLApplicationList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BDDF0FB1ADF9F0300C5BD45 /* MLApplicationList.xib */; };
 		F35BA087EEF41E814C4DE314 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D949AFCA703C27F1EB6696F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1436,6 +1438,9 @@
 		3BBF70911AD6D22A00A33F5A /* MLTabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbarVC.h; sourceTree = "<group>"; };
 		3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTabbarVC.m; sourceTree = "<group>"; };
 		3BCC6D591AD804AF000CB950 /* LeanChatLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LeanChatLib.xcodeproj; path = LeanChatLib/LeanChatLib.xcodeproj; sourceTree = "<group>"; };
+		3BDDF0F91ADF9F0300C5BD45 /* MLApplicationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLApplicationList.h; sourceTree = "<group>"; };
+		3BDDF0FA1ADF9F0300C5BD45 /* MLApplicationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLApplicationList.m; sourceTree = "<group>"; };
+		3BDDF0FB1ADF9F0300C5BD45 /* MLApplicationList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLApplicationList.xib; sourceTree = "<group>"; };
 		4D7B0DB645FE063645795595 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5D949AFCA703C27F1EB6696F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42360BA5E928BF1053A5BC4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1494,6 +1499,7 @@
 		0443C12C1AD5531D004F29A5 /* ejianzhi */ = {
 			isa = PBXGroup;
 			children = (
+				3BDDF0F71ADF9C0E00C5BD45 /* MyApplication */,
 				3BBF708B1AD6D1FE00A33F5A /* ForthVC */,
 				3BBF6F6B1AD6D13600A33F5A /* MLChat */,
 				3BBF6F1B1AD6D0D900A33F5A /* Resume */,
@@ -2727,6 +2733,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3BDDF0F71ADF9C0E00C5BD45 /* MyApplication */ = {
+			isa = PBXGroup;
+			children = (
+				3BDDF0F91ADF9F0300C5BD45 /* MLApplicationList.h */,
+				3BDDF0FA1ADF9F0300C5BD45 /* MLApplicationList.m */,
+				3BDDF0FB1ADF9F0300C5BD45 /* MLApplicationList.xib */,
+			);
+			name = MyApplication;
+			sourceTree = "<group>";
+		};
 		AEECAB4102EFBDB4F800C5C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3344,6 +3360,7 @@
 				045625251AD6211D006E159C /* eve.png in Resources */,
 				0443C1D11AD55572004F29A5 /* SelectPOIViewController.xib in Resources */,
 				045625431AD6211D006E159C /* iTunesArtwork in Resources */,
+				3BDDF0FD1ADF9F0300C5BD45 /* MLApplicationList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3454,6 +3471,7 @@
 				0443C1821AD55492004F29A5 /* MLSecondVC.m in Sources */,
 				045622F21AD61A33006E159C /* CustomAnnotationView.m in Sources */,
 				0443C2281AD5560F004F29A5 /* LineDashPolyline.m in Sources */,
+				3BDDF0FC1ADF9F0300C5BD45 /* MLApplicationList.m in Sources */,
 				045622DF1AD61644006E159C /* UIScrollView+MJRefresh.m in Sources */,
 				3BBF6F671AD6D0F200A33F5A /* HZAreaPickerView.m in Sources */,
 				0443C19A1AD554FF004F29A5 /* MLJobListViewController.m in Sources */,

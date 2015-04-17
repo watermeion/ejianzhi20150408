@@ -301,6 +301,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     switcher.labelTextColorInsideSlider = [UIColor whiteColor];
     switcher.labelTextColorOutsideSlider = [UIColor blackColor];
     switcher.cornerRadius = 0;
+    switcher.sliderType=blockSlider;
     
     __weak typeof(self) weakSelf = self;
     

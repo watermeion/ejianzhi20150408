@@ -151,8 +151,12 @@
     
     CGFloat sliderWidth = self.frame.size.width / [self.strings count];
     
-    self.sliderView.frame = CGRectMake(sliderWidth * self.selectedIndex + self.sliderOffset, self.backgroundView.frame.origin.y + self.sliderOffset, sliderWidth - self.sliderOffset * 2, self.frame.size.height - self.sliderOffset * 2);
-    
+    if (self.sliderType==lineSlider) {
+        self.sliderView.frame = CGRectMake(sliderWidth * self.selectedIndex + self.sliderOffset, self.backgroundView.frame.origin.y + self.backgroundView.frame.size.height-2, sliderWidth - self.sliderOffset * 2, 2);
+    }else{
+        self.sliderView.frame = CGRectMake(sliderWidth * self.selectedIndex + self.sliderOffset, self.backgroundView.frame.origin.y + self.sliderOffset, sliderWidth - self.sliderOffset * 2, self.frame.size.height - self.sliderOffset * 2);
+    }
+
     for (int i = 0; i < [self.labels count]; i++) {
         
         UILabel *label = self.labels[i];
