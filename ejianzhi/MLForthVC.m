@@ -15,8 +15,16 @@
 #import "MyFavorVC.h"
 #import "settingVC.h"
 #import "ResumeVC.h"
+#import "MLTextUtils.h"
 
-@interface MLForthVC ()<finishLogin,UIAlertViewDelegate>{
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
+#import "UIImageView+EMWebCache.h"
+
+#define  PIC_WIDTH 80
+#define  PIC_HEIGHT 80
+
+@interface MLForthVC ()<finishLogin,UIAlertViewDelegate,UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     BOOL pushing;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -30,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (strong, nonatomic) IBOutlet UIImageView *userAvatarView;
 
 @end
 
@@ -37,19 +46,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.edgesForExtendedLayout=UIRectEdgeNone;
+    
     [self setNeedsStatusBarAppearanceUpdate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
-    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        // 登录button 处理函数
-        UIViewController *vc=[self.loginManager showLoginVC];
-        [self presentViewController:vc animated:YES completion:nil];
-    }];
     
-     self.loginManager=[MLLoginManger shareInstance];
+    self.loginManager=[MLLoginManger shareInstance];
     
     pushing=NO;
+    
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseAvatar)];
+    tapGesture.delegate=self;
+    [self.userAvatarView addGestureRecognizer:tapGesture];
+    self.userAvatarView.userInteractionEnabled=YES;
+    
+    [self.userAvatarView.layer setCornerRadius:40.0f];
+    [self.userAvatarView.layer setMasksToBounds:YES];
+    
+    [self.logoutButton.layer setBorderWidth:1.0f];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 247/255.0, 79/255.0, 92/255.0, 1.0 });
+    [self.logoutButton.layer setBorderColor:colorref];//边框颜色
+    [self.logoutButton.layer setCornerRadius:5.0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -79,6 +98,58 @@
     }
 }
 
+- (void)chooseAvatar{
+    if ([AVUser currentUser]!=nil) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:Nil
+                                      delegate:self
+                                      cancelButtonTitle:@"取消"
+                                      destructiveButtonTitle:Nil
+                                      otherButtonTitles:@"从相册选择",@"拍照",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.tag = 0;
+        [actionSheet showInView:self.view];
+    }else{
+        UIViewController *vc=[self.loginManager showLoginVC];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = TRUE;
+        [self presentViewController:imagePickerController animated:YES completion:^{}];
+        return;
+    }
+    if (buttonIndex == 1) {
+        UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePickerController.delegate = self;
+            imagePickerController.allowsEditing = TRUE;
+            [self presentViewController:imagePickerController animated:YES completion:^{}];
+        }else{
+            UIAlertView *alterTittle = [[UIAlertView alloc] initWithTitle:ALERTVIEW_TITLE message:ALERTVIEW_CAMERAWRONG delegate:nil cancelButtonTitle:ALERTVIEW_KNOWN otherButtonTitles:nil];
+            [alterTittle show];
+        }
+        return;
+    }
+
+}
+
+- (IBAction)touchLogin:(id)sender {
+    if ([AVUser currentUser]==nil) {
+
+        UIViewController *vc=[self.loginManager showLoginVC];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+
 - (IBAction)logout:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消",nil];
     alert.delegate=self;
@@ -97,8 +168,8 @@
 
 - (void)finishLogout{
     
-    self.buttonLabel.text=[NSString stringWithFormat:@"点击登录"];
-    
+    self.buttonLabel.text=@"点击登录";
+    self.userAvatarView.image=[UIImage imageNamed:@"placeholder"];
     self.logoutButton.hidden=YES;
     //动态绑定LoginButton响应函数
     self.logoutButton.tag=10000;
@@ -111,7 +182,11 @@
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     
     self.buttonLabel.text=[NSString stringWithFormat:@"%@",[mySettingData objectForKey:@"currentUserName"]];
-    
+
+    if ([mySettingData objectForKey:@"userAvatar"]) {
+        [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:[mySettingData objectForKey:@"userAvatar"]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+
     self.logoutButton.hidden=NO;
     //动态绑定LoginButton响应函数
     self.logoutButton.tag=20000;
@@ -138,7 +213,6 @@
     self.navigationItem.backBarButtonItem = backItem;
     pushing=YES;
     [self.navigationController pushViewController:previewVC animated:YES];
-    
 
 }
 
@@ -173,8 +247,61 @@
     [self.navigationController pushViewController:setting animated:YES];
 }
 
-#pragma --mark  显示我的收藏
+//图片获取
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+    
+    picker = Nil;
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    self.userAvatarView.image=image;
+    
+    //上传图片
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    
+    AVFile *imageFile = [AVFile fileWithName:@"AvatarImage" data:imageData];
+   
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded) {
+            if (imageFile.url != Nil) {
+                AVQuery *query=[AVUser query];
+                [query whereKey:@"objectId" equalTo:[AVUser currentUser].objectId];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    
+                    [MBProgressHUD showError:UPLOADSUCCESS toView:self.view];
+                    NSUserDefaults *defaultData=[NSUserDefaults standardUserDefaults];
+                    [defaultData setObject:imageFile.url forKey:@"userAvatar"];
+                    [defaultData synchronize];
+                    
+                    AVUser *currentUser=[objects objectAtIndex:0];
+                    [currentUser setObject:imageFile forKey:@"avatar"];
+                    [currentUser saveEventually];
+                }];
 
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+
+                    [MBProgressHUD showError:UPLOADFAIL toView:self.view];
+                });
+            }
+            
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [MBProgressHUD showError:UPLOADFAIL toView:self.view];
+            });
+        }
+        
+    } progressBlock:^(NSInteger percentDone) {
+       
+    }];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    picker = Nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

@@ -607,7 +607,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                                       delegate:self
                                       cancelButtonTitle:@"取消"
                                       destructiveButtonTitle:Nil
-                                      otherButtonTitles:@"从图库选择",@"拍照",nil];
+                                      otherButtonTitles:@"从相册选择",@"拍照",nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         actionSheet.tag = 0;
         [actionSheet showInView:self.view];

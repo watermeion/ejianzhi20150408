@@ -34,12 +34,16 @@
 }
 
 - (IBAction)showIntroduction:(id)sender {
+    
 }
 - (IBAction)showAboutUs:(id)sender {
+    
 }
 - (IBAction)modifyPhone:(id)sender {
+    
 }
 - (IBAction)modifyPassword:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {

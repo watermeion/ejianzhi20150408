@@ -434,6 +434,7 @@
 		3B8D4AFC1AE280B7001F5E7F /* MyFavorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFA1AE280B7001F5E7F /* MyFavorVC.m */; };
 		3B8D4AFD1AE280B7001F5E7F /* MyFavorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */; };
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
+		3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
 		3BB8881D1AE37B100046DAD2 /* settingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8881B1AE37B100046DAD2 /* settingVC.xib */; };
 		3BBF6D881AD6C9A400A33F5A /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF6D871AD6C9A400A33F5A /* CDUserFactory.m */; };
@@ -1203,6 +1204,8 @@
 		3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavorVC.xib; sourceTree = "<group>"; };
 		3B97F3D71AD9203600D5F0B5 /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
 		3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
+		3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKProgressTimer.h; sourceTree = "<group>"; };
+		3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKProgressTimer.m; sourceTree = "<group>"; };
 		3BB888191AE37B100046DAD2 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		3BB8881A1AE37B100046DAD2 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
 		3BB8881B1AE37B100046DAD2 /* settingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingVC.xib; sourceTree = "<group>"; };
@@ -1211,8 +1214,8 @@
 		3BBF6D871AD6C9A400A33F5A /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
 		3BBF6D8A1AD6CA6600A33F5A /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		3BBF6D8B1AD6CA6600A33F5A /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
-		3BBF6ED81AD6CD7700A33F5A /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
-		3BBF6ED91AD6CD7700A33F5A /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
+		3BBF6ED81AD6CD7700A33F5A /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = ejianzhi/AVOSCloud.framework; sourceTree = "<group>"; };
+		3BBF6ED91AD6CD7700A33F5A /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloudIM.framework; path = ejianzhi/AVOSCloudIM.framework; sourceTree = "<group>"; };
 		3BBF6EDF1AD6D0C900A33F5A /* EMSDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSDImageCache.h; sourceTree = "<group>"; };
 		3BBF6EE01AD6D0C900A33F5A /* EMSDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMSDImageCache.m; sourceTree = "<group>"; };
 		3BBF6EE11AD6D0C900A33F5A /* EMSDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSDWebImageCompat.h; sourceTree = "<group>"; };
@@ -1554,8 +1557,6 @@
 				0443C1D31AD5557C004F29A5 /* commonMacro.h */,
 				0443C13A1AD5531D004F29A5 /* Images.xcassets */,
 				0443C13C1AD5531D004F29A5 /* LaunchScreen.xib */,
-				3BBF6ED81AD6CD7700A33F5A /* AVOSCloud.framework */,
-				3BBF6ED91AD6CD7700A33F5A /* AVOSCloudIM.framework */,
 				0443C12D1AD5531D004F29A5 /* Supporting Files */,
 			);
 			path = ejianzhi;
@@ -2423,6 +2424,15 @@
 			path = JSBadgeView;
 			sourceTree = "<group>";
 		};
+		3BA76E261AE4D44300A2FF26 /* ProgressTimer */ = {
+			isa = PBXGroup;
+			children = (
+				3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */,
+				3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */,
+			);
+			name = ProgressTimer;
+			sourceTree = "<group>";
+		};
 		3BB888171AE37AC40046DAD2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2436,6 +2446,7 @@
 		3BBF6EDD1AD6D0B000A33F5A /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				3BA76E261AE4D44300A2FF26 /* ProgressTimer */,
 				3B8D4AD81AE257A9001F5E7F /* MJRefresh */,
 				3B97F3D61AD9203600D5F0B5 /* JSBadgeView */,
 				3BBF6EDE1AD6D0C900A33F5A /* EMSDWebImage */,
@@ -2781,6 +2792,8 @@
 		AEECAB4102EFBDB4F800C5C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BBF6ED81AD6CD7700A33F5A /* AVOSCloud.framework */,
+				3BBF6ED91AD6CD7700A33F5A /* AVOSCloudIM.framework */,
 				3BBF6D8A1AD6CA6600A33F5A /* AVOSCloud.framework */,
 				3BBF6D8B1AD6CA6600A33F5A /* AVOSCloudIM.framework */,
 				3BBF6D7E1AD6C8C600A33F5A /* LeanChatLib.framework */,
@@ -3492,6 +3505,7 @@
 				0443C1B21AD5553F004F29A5 /* AOImageView.m in Sources */,
 				045626471AD6214D006E159C /* AsyncImageView.m in Sources */,
 				3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */,
+				3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */,
 				3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */,
 				3BBF70891AD6D1ED00A33F5A /* CDUserService.m in Sources */,
 				3BBF6F561AD6D0E800A33F5A /* MLDatePickerView.m in Sources */,
