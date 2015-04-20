@@ -100,5 +100,12 @@ static long long daySeconds = 60*60*24;
     return [NSString stringWithFormat:@"%d岁",age];
 }
 
++(NSString *)stringFromDate2:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
+}
+
 
 @end

@@ -9,12 +9,13 @@
 #import "MLForthVC.h"
 #import "SRLoginVC.h"
 #import "MLJobListViewController.h"
-#import "MLApplicationList.h"
+#import "MyApplicationList.h"
 #import "MLLoginManger.h"
 #import "MLResumePreviewVC.h"
-
-//子视图控制器
+#import "MyFavorVC.h"
+#import "settingVC.h"
 #import "ResumeVC.h"
+
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate>{
     BOOL pushing;
 }
@@ -142,13 +143,34 @@
 }
 
 - (IBAction)showMyApplication:(UIButton *)sender {
-    MLApplicationList *myAppliedJobListVC=[[MLApplicationList alloc]init];
+    MyApplicationList *myAppliedJobListVC=[[MyApplicationList alloc]init];
     myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"";
     self.navigationItem.backBarButtonItem = backItem;
     pushing=YES;
     [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
+}
+
+- (IBAction)showMyFavor:(id)sender {
+    
+    MyFavorVC *myFavorVC=[[MyFavorVC alloc]init];
+    myFavorVC.hidesBottomBarWhenPushed=YES;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    pushing=YES;
+    [self.navigationController pushViewController:myFavorVC animated:YES];
+}
+
+- (IBAction)showSettingVC:(id)sender {
+    settingVC *setting=[[settingVC alloc]init];
+    setting.hidesBottomBarWhenPushed=YES;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    pushing=YES;
+    [self.navigationController pushViewController:setting animated:YES];
 }
 
 #pragma --mark  显示我的收藏

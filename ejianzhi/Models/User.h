@@ -21,6 +21,10 @@
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *email;
+@property (nonatomic,strong) AVFile *avatar;
+@property (nonatomic,strong) NSString *installationId;
+@property (nonatomic,strong) AVGeoPoint *location;
+
 
 //@property (nonatomic,strong) NSString *createdAt;
 //@property (nonatomic,strong) NSString *updatedAt;

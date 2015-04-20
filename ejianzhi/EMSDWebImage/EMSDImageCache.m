@@ -363,7 +363,7 @@ BOOL EMImageDataHasPNGPreffix(NSData *data) {
     [self.memCache removeAllObjects];
 }
 
-- (void)clearDisk {
+- (void)clearDisk{
     [self clearDiskOnCompletion:nil];
 }
 

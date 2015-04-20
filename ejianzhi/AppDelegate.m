@@ -13,14 +13,15 @@
 
 //#import "MobClick.h"
 #import "MLTabbarVC.h"
-
-
 #import "MLLoginManger.h"
 
 //子类化
 #import "User.h"
 #import "JianZhi.h"
 #import "UserDetail.h"
+#import "JianZhiShenQing.h"
+#import "QiYeInfo.h"
+
 
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
@@ -44,6 +45,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:1];
+    
+    //注册子类化
+    [JianZhi registerSubclass];
+    [User registerSubclass];
+    [UserDetail registerSubclass];
+    //[JianZhiShenQing registerSubclass];
+    //[QiYeInfo registerSubclass];
+
     
 //AVOS Regist App Key
     [AVOSCloud setApplicationId:@"owqomw6mc9jlqcj7xc2p3mdk7h4hqe2at944fzt0zb8jholj"
@@ -120,11 +129,6 @@
 //    //Resign textField if touched outside of UITextField/UITextView.
 //    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     
-    
-    //注册子类化
-    [JianZhi registerSubclass];
-    [User registerSubclass];
-    [UserDetail registerSubclass];
     
     
     if (SYSTEM_VERSION < 8.0) {

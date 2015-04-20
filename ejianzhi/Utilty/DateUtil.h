@@ -17,4 +17,5 @@
 +(NSString *)msgTimetoCurrent:(NSDate *)date;
 +(NSDate *)BirthdateFromString:(NSString *)dateString;
 + (NSString*)ageFromBirthToNow:(NSDate*)birthday;
++(NSString *)stringFromDate2:(NSDate *)date;
 @end
