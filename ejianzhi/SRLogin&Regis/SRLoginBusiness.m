@@ -101,54 +101,13 @@
     
             [mySettingData removeObjectForKey: @"currentUserName"];
     
+            [mySettingData removeObjectForKey: @"userAvatar"];
+            
             [mySettingData synchronize];
             return YES;
         }
         else
             return NO;
-    
-    
-//    [BmobUser logout];  //清除缓存用户对象
-//    
-//    if ([BmobUser getCurrentUser]==nil) {
-//        //设置NSUserdefault
-//        
-//        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-//        
-//        [mySettingData setBool:NO forKey:@"auto_login"];
-//        
-//        [mySettingData removeObjectForKey: @"currentUserName"];
-//        
-//        [mySettingData synchronize];
-//        
-//        return YES;
-//    }
-//    else
-//        return NO;
 }
-
-//-(void)dragUserDataFromBmob
-//{
-//    BmobQuery *query  = [BmobUser query];
-//    BmobUser *currentUser=[BmobUser getCurrentObject];
-//    
-//    [query getObjectInBackgroundWithId:[currentUser objectId] block:^(BmobObject *object, NSError *error) {
-//        if (error == nil) {
-//            SRUserInfo *user=[SRUserInfo shareInstance];
-//            user.username=[object objectForKey:@"username"];
-//            user.email=[object objectForKey:@"email"];
-//            user.phone=[object objectForKey:@"phone"];
-//            
-//            //本地化
-//            [self saveUserInfoLocally:user];
-//            
-//            [self loginIsSucceed:YES];
-//            
-//        } else {
-//            
-//            [self loginIsSucceed:NO];
-//        }
-//    }];
-//}
 
 @end

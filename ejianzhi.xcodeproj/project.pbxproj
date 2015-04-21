@@ -435,6 +435,7 @@
 		3B8D4AFD1AE280B7001F5E7F /* MyFavorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */; };
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
 		3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */; };
+		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
 		3BB8881D1AE37B100046DAD2 /* settingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8881B1AE37B100046DAD2 /* settingVC.xib */; };
 		3BBF6D881AD6C9A400A33F5A /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF6D871AD6C9A400A33F5A /* CDUserFactory.m */; };
@@ -1206,6 +1207,8 @@
 		3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
 		3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKProgressTimer.h; sourceTree = "<group>"; };
 		3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKProgressTimer.m; sourceTree = "<group>"; };
+		3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbar1.h; sourceTree = "<group>"; };
+		3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTabbar1.m; sourceTree = "<group>"; };
 		3BB888191AE37B100046DAD2 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		3BB8881A1AE37B100046DAD2 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
 		3BB8881B1AE37B100046DAD2 /* settingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingVC.xib; sourceTree = "<group>"; };
@@ -1494,6 +1497,7 @@
 			children = (
 				3BCC6D591AD804AF000CB950 /* LeanChatLib.xcodeproj */,
 				0443C12C1AD5531D004F29A5 /* ejianzhi */,
+				3BA76E2B1AE4F8C300A2FF26 /* Enterprise */,
 				0443C1461AD5531E004F29A5 /* ejianzhiTests */,
 				0443C12B1AD5531D004F29A5 /* Products */,
 				D195FE99835520BD2FEB1CC0 /* Pods */,
@@ -2431,6 +2435,15 @@
 				3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */,
 			);
 			name = ProgressTimer;
+			sourceTree = "<group>";
+		};
+		3BA76E2B1AE4F8C300A2FF26 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */,
+				3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */,
+			);
+			name = Enterprise;
 			sourceTree = "<group>";
 		};
 		3BB888171AE37AC40046DAD2 /* Settings */ = {
@@ -3505,6 +3518,7 @@
 				0443C1B21AD5553F004F29A5 /* AOImageView.m in Sources */,
 				045626471AD6214D006E159C /* AsyncImageView.m in Sources */,
 				3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */,
+				3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */,
 				3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */,
 				3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */,
 				3BBF70891AD6D1ED00A33F5A /* CDUserService.m in Sources */,

@@ -73,6 +73,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         [self initDataFromNet];
         loaded=YES;
     }
+    
     if (self.type== type_preview_edit) {
         self.title=@"简历预览";
         self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(returnResume)];
@@ -82,7 +83,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         [self.navigationItem.rightBarButtonItem setTitle:@"保存"];
         [self initData];
     }
-
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -248,8 +248,14 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (!error) {
-            self.userDetailModel=[objects objectAtIndex:0];
-            [self initData];
+            if ([objects count]>0) {
+                self.userDetailModel=[objects objectAtIndex:0];
+                [self initData];
+            }else{
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"您还没有创建简历哦" message:nil delegate:self cancelButtonTitle:@"再看看" otherButtonTitles:@"立刻创建", nil];
+                alert.tag=1001;
+                [alert show];
+            }
         }else{
             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"简历加载失败" message:@"是否重新加载" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             [alert show];
@@ -258,8 +264,14 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==1) {
-        [self initDataFromNet];
+    if (alertView.tag==1001) {
+        if (buttonIndex==1) {
+            [self editResume];
+        }
+    }else{
+        if (buttonIndex==1) {
+            [self initDataFromNet];
+        }
     }
 }
 
