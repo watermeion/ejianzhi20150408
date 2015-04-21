@@ -412,6 +412,13 @@
 		045626481AD6214D006E159C /* imageSaveAndReadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 045626461AD6214D006E159C /* imageSaveAndReadUtil.m */; };
 		0456264F1AD621AC006E159C /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456264B1AD621AC006E159C /* DateUtil.m */; };
 		045626501AD621AC006E159C /* stringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456264E1AD621AC006E159C /* stringUtil.m */; };
+		04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */; };
+		04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */; };
+		04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */; };
+		04F5C9931AE547F500341491 /* tousuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9911AE547F500341491 /* tousuViewController.m */; };
+		04F5C9941AE547F500341491 /* tousuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9921AE547F500341491 /* tousuViewController.xib */; };
+		04F5C9991AE54D9F00341491 /* SubIconCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */; };
+		04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */; };
 		3B8D4AA81AE20489001F5E7F /* JianZhiShenQing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */; };
 		3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAA1AE20533001F5E7F /* QiYeInfo.m */; };
 		3B8D4AAF1AE23432001F5E7F /* applistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAD1AE23432001F5E7F /* applistCell.m */; };
@@ -1168,6 +1175,15 @@
 		0456264C1AD621AC006E159C /* MLTextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextUtils.h; sourceTree = "<group>"; };
 		0456264D1AD621AC006E159C /* stringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringUtil.h; sourceTree = "<group>"; };
 		0456264E1AD621AC006E159C /* stringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringUtil.m; sourceTree = "<group>"; };
+		04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_bus.png; sourceTree = "<group>"; };
+		04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_steer.png; sourceTree = "<group>"; };
+		04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_walker.png; sourceTree = "<group>"; };
+		04F5C9901AE547F500341491 /* tousuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tousuViewController.h; sourceTree = "<group>"; };
+		04F5C9911AE547F500341491 /* tousuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tousuViewController.m; sourceTree = "<group>"; };
+		04F5C9921AE547F500341491 /* tousuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tousuViewController.xib; sourceTree = "<group>"; };
+		04F5C9961AE54D9F00341491 /* SubIconCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubIconCollectionViewController.h; sourceTree = "<group>"; };
+		04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubIconCollectionViewController.m; sourceTree = "<group>"; };
+		04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubIconCollectionViewController.xib; sourceTree = "<group>"; };
 		3B8D4AA61AE20489001F5E7F /* JianZhiShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianZhiShenQing.h; sourceTree = "<group>"; };
 		3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianZhiShenQing.m; sourceTree = "<group>"; };
 		3B8D4AA91AE20533001F5E7F /* QiYeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiYeInfo.h; sourceTree = "<group>"; };
@@ -1513,6 +1529,8 @@
 		0443C12C1AD5531D004F29A5 /* ejianzhi */ = {
 			isa = PBXGroup;
 			children = (
+				04F5C9951AE54D7500341491 /* SubIconCollectionView */,
+				04F5C9881AE5404600341491 /* tousuViewController */,
 				3BB888171AE37AC40046DAD2 /* Settings */,
 				3B8D4AF71AE2806E001F5E7F /* MyFavor */,
 				3BDDF0F71ADF9C0E00C5BD45 /* MyApplication */,
@@ -1565,6 +1583,9 @@
 		0443C12D1AD5531D004F29A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */,
+				04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */,
+				04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */,
 				045625D71AD62129006E159C /* image */,
 				045623D41AD6211D006E159C /* icon */,
 				045623CF1AD6210B006E159C /* LaunchViewController.h */,
@@ -2382,6 +2403,26 @@
 			path = Utilty;
 			sourceTree = "<group>";
 		};
+		04F5C9881AE5404600341491 /* tousuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04F5C9901AE547F500341491 /* tousuViewController.h */,
+				04F5C9911AE547F500341491 /* tousuViewController.m */,
+				04F5C9921AE547F500341491 /* tousuViewController.xib */,
+			);
+			name = tousuViewController;
+			sourceTree = "<group>";
+		};
+		04F5C9951AE54D7500341491 /* SubIconCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				04F5C9961AE54D9F00341491 /* SubIconCollectionViewController.h */,
+				04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */,
+				04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */,
+			);
+			name = SubIconCollectionView;
+			sourceTree = "<group>";
+		};
 		3B8D4AD81AE257A9001F5E7F /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -3015,6 +3056,7 @@
 				3BBF70691AD6D1CB00A33F5A /* sharemore_pic@2x.png in Resources */,
 				3BBF70461AD6D1CB00A33F5A /* RecordingSignal001@2x.png in Resources */,
 				045625391AD6211D006E159C /* attendance.png in Resources */,
+				04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */,
 				3BBF70071AD6D1CB00A33F5A /* u1f613.png in Resources */,
 				045626231AD62129006E159C /* logo.png in Resources */,
 				0456256C1AD6211D006E159C /* message1@2x.png in Resources */,
@@ -3023,6 +3065,7 @@
 				0456261F1AD62129006E159C /* home.png in Resources */,
 				045622C61AD6162D006E159C /* IQButtonBarArrowRight@2x.png in Resources */,
 				045625C81AD6211D006E159C /* protait5-Small@2x.png in Resources */,
+				04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */,
 				3BBF6F741AD6D1B600A33F5A /* MLChatVC.xib in Resources */,
 				3BBF705F1AD6D1CB00A33F5A /* section0_emotion9@2x.png in Resources */,
 				3BBF705E1AD6D1CB00A33F5A /* section0_emotion8@2x.png in Resources */,
@@ -3161,6 +3204,7 @@
 				045625421AD6211D006E159C /* release.png in Resources */,
 				045625161AD6211D006E159C /* color3.9.png in Resources */,
 				045625BE1AD6211D006E159C /* protait4-Small@3x.png in Resources */,
+				04F5C9941AE547F500341491 /* tousuViewController.xib in Resources */,
 				045625671AD6211D006E159C /* label_zm.png in Resources */,
 				3BBF70201AD6D1CB00A33F5A /* CellGraySelected@2x.png in Resources */,
 				045625481AD6211D006E159C /* btn_td.jpg in Resources */,
@@ -3189,6 +3233,7 @@
 				0443C1CC1AD55572004F29A5 /* MapViewController.xib in Resources */,
 				0456256D1AD6211D006E159C /* message1@3x.png in Resources */,
 				045625771AD6211D006E159C /* huodong.png in Resources */,
+				04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */,
 				045625741AD6211D006E159C /* mine@2x.png in Resources */,
 				3BBF70191AD6D1CB00A33F5A /* u1f632.png in Resources */,
 				3BBF70711AD6D1CB00A33F5A /* VoiceBtn_Black@2x.png in Resources */,
@@ -3294,6 +3339,7 @@
 				045625BD1AD6211D006E159C /* protait4-Small@2x.png in Resources */,
 				3BBF702E1AD6D1CB00A33F5A /* input-bar-background@2x.png in Resources */,
 				3BBF70341AD6D1CB00A33F5A /* keyborad_HL@2x.png in Resources */,
+				04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */,
 				3BBF70551AD6D1CB00A33F5A /* section0_emotion14@2x.png in Resources */,
 				045625AC1AD6211D006E159C /* protait2.png in Resources */,
 				3BBF6F551AD6D0E800A33F5A /* MLCell4.xib in Resources */,
@@ -3481,6 +3527,7 @@
 				3BBF6F461AD6D0E800A33F5A /* DVSwitch.m in Sources */,
 				3BBF6F4F1AD6D0E800A33F5A /* QRadioButton.m in Sources */,
 				3BBF6F171AD6D0C900A33F5A /* UIView+EMWebCacheOperation.m in Sources */,
+				04F5C9991AE54D9F00341491 /* SubIconCollectionViewController.m in Sources */,
 				3BBF6F191AD6D0C900A33F5A /* SDPhotoBrowser.m in Sources */,
 				0443C1B81AD5553F004F29A5 /* UrlImageButton.m in Sources */,
 				045623041AD61ABC006E159C /* SRLoginVC.m in Sources */,
@@ -3516,6 +3563,7 @@
 				3BBF6F0B1AD6D0C900A33F5A /* EMSDWebImageDownloader.m in Sources */,
 				0443C2051AD5559E004F29A5 /* JianZhi.m in Sources */,
 				045622F31AD61A33006E159C /* MLMapView.m in Sources */,
+				04F5C9931AE547F500341491 /* tousuViewController.m in Sources */,
 				3B8D4ABD1AE254F1001F5E7F /* MyApplicationList.m in Sources */,
 				3B8D4AEE1AE257A9001F5E7F /* UIScrollView+Extension.m in Sources */,
 				0456264F1AD621AC006E159C /* DateUtil.m in Sources */,

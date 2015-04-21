@@ -40,7 +40,6 @@
         [self.tableView reloadData];
     }];
     
-    
     [RACObserve(self.viewModel, error) subscribeNext:^(id x) {
         @strongify(self)
         [self.tableView headerEndRefreshing];
@@ -122,6 +121,10 @@
     cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
     cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
     //兼职的IconView
+    
+    
+    //FIXME:兼职小图标动态显示
+    
     return cell;
 }
 

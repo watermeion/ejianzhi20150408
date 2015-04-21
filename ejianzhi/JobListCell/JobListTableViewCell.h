@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "listBadgeView.h"
 @interface JobListTableViewCell : UITableViewCell
+{
+
+
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *countNumbersWithinUnitsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabelWithinUnitLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *Icon3ImageView;
@@ -21,4 +26,10 @@
 @property (weak, nonatomic) IBOutlet listBadgeView *IconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+
+
+- (void)setInsuranceImageShow:(BOOL)ishidden;
+- (void)setWeekendImageShow:(BOOL)ishidden;
+- (void)setotherImageShow:(BOOL)ishidden;
+
 @end

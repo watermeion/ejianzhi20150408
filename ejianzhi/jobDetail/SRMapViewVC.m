@@ -8,7 +8,7 @@
 
 #import "SRMapViewVC.h"
 #import "SRNavigationDetail.h"
-
+#import "MLMapManager.h"
 @interface SRMapViewVC ()
 
 @end
@@ -63,7 +63,8 @@
 
 
 - (void)KeyCheck{
-    [MAMapServices sharedServices].apiKey =@"41f0145aa2a77c39924ee9aa0664701f";
+    MLMapManager *mapManager=[MLMapManager shareInstance];
+    [mapManager checkMapKey];
 }
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation

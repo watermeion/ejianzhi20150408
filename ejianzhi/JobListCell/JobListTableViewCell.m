@@ -13,7 +13,6 @@
 - (void)awakeFromNib {
     // Initialization code
     self.IconView.type=WithBadge;
-//    self.IconView.badgeText=@"有校友";
     
     self.IconView.backgroundColor=GreenFillColor;
     //设置圆角
@@ -23,8 +22,29 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
+
+
+- (void)setInsuranceImageShow:(BOOL)ishidden
+{
+    self.Icon1ImageView.hidden=ishidden;
+}
+
+
+- (void)setWeekendImageShow:(BOOL)ishidden
+{
+    self.Icon2ImageView.hidden=ishidden;
+    
+}
+- (void)setotherImageShow:(BOOL)ishidden
+{
+    
+    self.Icon3ImageView.hidden=ishidden;
+    
+}
+
+
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -33,14 +33,14 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_zm.png" translatesAutoresizingMaskIntoConstraints="NO" id="gcP-KW-beT">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_zm.png" translatesAutoresizingMaskIntoConstraints="NO" id="gcP-KW-beT">
                                 <rect key="frame" x="250" y="76" width="27" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="ED3-LS-OSe"/>
                                     <constraint firstAttribute="width" constant="27" id="zsR-ia-Dhq"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_bx.png" translatesAutoresizingMaskIntoConstraints="NO" id="AYY-7c-TuR">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_bx.png" translatesAutoresizingMaskIntoConstraints="NO" id="AYY-7c-TuR">
                                 <rect key="frame" x="285" y="76" width="27" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="IzJ-0J-arw"/>
@@ -55,7 +55,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_yy.png" translatesAutoresizingMaskIntoConstraints="NO" id="CoG-1R-odP">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_yy.png" translatesAutoresizingMaskIntoConstraints="NO" id="CoG-1R-odP">
                                 <rect key="frame" x="215" y="76" width="27" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="2Bb-zp-2Jt"/>
@@ -71,7 +71,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locate.png" translatesAutoresizingMaskIntoConstraints="NO" id="Aps-eR-Rra">
-                                <rect key="frame" x="151" y="75" width="19" height="17"/>
+                                <rect key="frame" x="160" y="75" width="19" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="4kM-61-JwU"/>
                                     <constraint firstAttribute="height" constant="17" id="FdZ-BE-aQ1"/>
@@ -134,10 +134,10 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/68人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kq-6a-jpz">
-                                <rect key="frame" x="90" y="73" width="44" height="21"/>
+                                <rect key="frame" x="90" y="73" width="53" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CyS-lh-hP2"/>
-                                    <constraint firstAttribute="width" constant="44" id="NJy-ce-yzW"/>
+                                    <constraint firstAttribute="width" constant="53" id="NJy-ce-yzW"/>
                                     <constraint firstAttribute="width" constant="53" id="ygQ-Ln-gTU"/>
                                     <constraint firstAttribute="height" constant="21" id="ygp-oJ-ZSJ"/>
                                 </constraints>
@@ -151,7 +151,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksL-YU-gky">
-                                <rect key="frame" x="171" y="73" width="44" height="20"/>
+                                <rect key="frame" x="180" y="73" width="35" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9PD-cY-T9M"/>
                                     <constraint firstAttribute="height" constant="20" id="vmN-Vq-hCR"/>
