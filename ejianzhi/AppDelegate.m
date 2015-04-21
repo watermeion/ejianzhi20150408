@@ -22,12 +22,14 @@
 #import "JianZhiShenQing.h"
 #import "QiYeInfo.h"
 
+#import "MLTabbar1.h"
 
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
 @interface AppDelegate ()
 
 @property (strong,nonatomic)MLTabbarVC *mainTabViewController;
+@property (strong,nonatomic)MLTabbar1 *qiyeTabViewController;
 @property (strong,nonatomic)MLLoginManger *loginManager;
 @end
 
@@ -43,6 +45,15 @@
     return _mainTabViewController;
 }
 
+-(MLTabbar1*)qiyeTabViewController
+{
+    if(_qiyeTabViewController==nil)
+    {
+        _qiyeTabViewController=[[MLTabbar1 alloc]init];
+    }
+    return _qiyeTabViewController;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:1];
     
@@ -50,10 +61,7 @@
     [JianZhi registerSubclass];
     [User registerSubclass];
     [UserDetail registerSubclass];
-    //[JianZhiShenQing registerSubclass];
-    //[QiYeInfo registerSubclass];
 
-    
 //AVOS Regist App Key
     [AVOSCloud setApplicationId:@"owqomw6mc9jlqcj7xc2p3mdk7h4hqe2at944fzt0zb8jholj"
                       clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
@@ -129,8 +137,7 @@
 //    //Resign textField if touched outside of UITextField/UITextView.
 //    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     
-    
-    
+ 
     if (SYSTEM_VERSION < 8.0) {
         [application registerForRemoteNotificationTypes:
          UIRemoteNotificationTypeBadge |
