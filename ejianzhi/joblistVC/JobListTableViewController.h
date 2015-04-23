@@ -11,13 +11,12 @@
 @interface JobListTableViewController : UITableViewController
 
 @property (strong,nonatomic) MLJianZhiViewModel *viewModel;
-
-
+@property BOOL isAutoLoad;
 - (NSArray*)getViewModelResultsList;
 
-
+-(void)firstLoad;
 - (void)addFooterRefresher;
 
 - (void)addHeaderRefresher;
-
+- (instancetype)initWithAutoLoad:(BOOL)autoload;
 @end

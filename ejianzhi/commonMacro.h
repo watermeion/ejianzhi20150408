@@ -41,3 +41,8 @@
 
 #define CHATVIEWBACKGROUNDCOLOR [UIColor colorWithRed:0.936 green:0.932 blue:0.907 alpha:1]
 
+
+//自定义
+#define FliterType @"filterType"
+#define FliterReDu @"filterReDu"
+#define FliterSettlementWay @"filterSettlementWay"

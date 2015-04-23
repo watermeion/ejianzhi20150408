@@ -111,7 +111,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)setViewModelJianZhi:(id)data
 {
     if ([data isKindOfClass:[JianZhi class]]) {
-        
+        JianZhi *jianzhi=data;
+        //加入浏览量统计
+        [jianzhi incrementKey:@"jianZhiBrowseTime"];
+        [jianzhi saveInBackground];
         self.viewModel=[[MLJobDetailViewModel alloc]initWithData:data];
     }
 }
@@ -126,6 +129,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
+
     
     //创建监听
     @weakify(self)
@@ -161,7 +165,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
 #warning 绑定按钮事件
     self.jobDetailApplyBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        
         [self.viewModel applyThisJob];
         //        //点击申请button
         //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
@@ -194,6 +197,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         //        [alertView show];
         return [RACSignal empty];
     }];
+    
+    //添加浏览量统计
+    
+    
     
 }
 /**

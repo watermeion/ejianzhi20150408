@@ -16,7 +16,7 @@
 #import "MLForthVC.h"
 
 #import "JobListTableViewController.h"
-
+#import "JobListWithDropDownListVCViewController.h"
 @interface MLTabbarVC ()
 
 @property (strong,nonatomic)MLFirstVC *firstVC;
@@ -80,10 +80,11 @@
 {
 
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
-    JobListTableViewController *myJobVC=[[JobListTableViewController alloc]init];
+    
+    JobListWithDropDownListVCViewController *myJobVC=[[JobListWithDropDownListVCViewController alloc]init];
      UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
     
-    pageTwoVC.title=@"申请";
+    pageTwoVC.title=@"列表";
 
     UIViewController *pageThreeVC=[self makeRootByNavigationController:self.chatVC];
     pageTwoVC.title=@"消息";
@@ -110,11 +111,11 @@
     
     tabBarItem1.title=@"首页";
     
-    tabBarItem2.title=@"申请";
+    tabBarItem2.title=@"列表";
     
     tabBarItem3.title=@"消息";
     
-    tabBarItem4.title=@"我的";
+    tabBarItem4.title=@"我";
     
 
     [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:[[UIImage imageNamed:@"releas1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"release"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

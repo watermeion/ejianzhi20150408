@@ -386,7 +386,7 @@
                                         </mask>
                                     </variation>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgo-8l-OGR">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgo-8l-OGR">
                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="k9W-th-iXL"/>
@@ -410,7 +410,7 @@
                                         </mask>
                                     </variation>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的时间与其冲突，请注意！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycm-RW-Cv1">
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的时间与其冲突，请注意！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycm-RW-Cv1">
                                     <rect key="frame" x="76" y="6" width="195" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="IVz-WU-DHa"/>
@@ -533,7 +533,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IFM-o0-fnK">
+                                <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IFM-o0-fnK">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -1411,7 +1411,7 @@
                         <constraint firstAttribute="height" constant="30" id="5eP-NR-nBi"/>
                         <constraint firstAttribute="width" constant="30" id="Jg9-iP-zRU"/>
                     </constraints>
-                    <state key="normal" image="DD63FB82-072B-4038-8BCE-548C97972CB4">
+                    <state key="normal" image="19F7BFE9-7B21-4629-A9E7-9B02FCFCF085">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -1583,7 +1583,7 @@
                         <constraint firstAttribute="height" constant="30" id="mGD-ll-beF"/>
                         <constraint firstAttribute="height" constant="30" id="o77-gK-nzv"/>
                     </constraints>
-                    <state key="normal" image="58AF42A3-65D3-4CBB-A0D3-77FB86A87B3A">
+                    <state key="normal" image="34FCBB81-9F8E-4EE2-8C91-5D65A28CE008">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -1950,7 +1950,7 @@
         </view>
     </objects>
     <resources>
-        <image name="58AF42A3-65D3-4CBB-A0D3-77FB86A87B3A" width="70" height="70">
+        <image name="19F7BFE9-7B21-4629-A9E7-9B02FCFCF085" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2327,7 +2327,7 @@ sgC1ALcAuQC7AL0AwgDZANsA3VXfVeRV71X4VgtWD1YiVi1WNlY7VkNWRlZLVlpWXlZlVm1WelZ/VoFW
 g1aIVpBWk1aYVqBWo1a1VrhWvQAAAAAAAAIBAAAAAAAAAEIAAAAAAAAAAAAAAAAAAFa/A
 </mutableData>
         </image>
-        <image name="DD63FB82-072B-4038-8BCE-548C97972CB4" width="70" height="70">
+        <image name="34FCBB81-9F8E-4EE2-8C91-5D65A28CE008" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
