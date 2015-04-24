@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  默认非自动导入
+ */
 @interface JobListWithDropDownListVCViewController : UIViewController
+@property (strong, nonatomic)NSString *currentType;
+@property (strong, nonatomic)NSString *currentSettlement;
+@property (strong, nonatomic)NSString *currentFilterWay;
+
 
 @end

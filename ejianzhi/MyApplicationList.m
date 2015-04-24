@@ -14,7 +14,7 @@
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
 #import "DateUtil.h"
-
+#import "JobDetailVC.h"
 @interface MyApplicationList ()<UITableViewDataSource,UITableViewDelegate>{
     DVSwitch *switcher;
     BOOL headerRefreshing;
@@ -270,6 +270,15 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    AVObject *object=[recordArray objectAtIndex:indexPath.row];
+    JianZhi *jianzhi=[object objectForKey:@"jianZhi"];
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
+    detailVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    
     
 }
 

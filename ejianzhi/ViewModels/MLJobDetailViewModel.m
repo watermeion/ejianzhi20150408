@@ -12,8 +12,8 @@
 #import "MLMapManager.h"
 #import "AJLocationManager.h"
 #import "MapViewController.h"
-
-@interface MLJobDetailViewModel()
+#import "tousuViewController.h"
+@interface MLJobDetailViewModel()<tousuViewControllerDelegate>
 
 @property (weak,nonatomic) MLMapManager *mapManager;
 @property (weak,nonatomic) AJLocationManager *locationManager;
@@ -137,7 +137,7 @@
 -(UIImage*)getJobTypeImage
 {
     NSArray *imageArray=@[@"protait1",@"protait2",@"protait3",@"protait4",@"protait5"];
-    
+    //ToDo:aad
     int j=(int)(4.0*rand()/(RAND_MAX+1.0));
     NSString *name=[imageArray objectAtIndex:j];
 
@@ -208,24 +208,38 @@
 {
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
-    
         //FIXME: 子类化后修改
-        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShouCang"];
-        [shoucang setObject:self.jianZhi.objectId forKey:@"jianZhi"];
-        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
-        [shoucang setObject:currentUser.objectId forKey:@"userDetail"];
-        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded==YES) {
+        
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId};
+        [AVCloud callFunctionInBackground:@"add_shoucang" withParameters:parameters block:^(id object, NSError *error) {
+            // 执行结果
+            if (error==nil) {
                 TTAlert(@"收藏成功");
                 //FIXME: 做一些跟新ui的操作 设置信号
-                
-                
             }else
             {
-                TTAlert(@"收藏失败");
+                NSString *errorMsg=error.description;
+                TTAlert(errorMsg);
             }
-        }];
+         }];
         
+//        
+//        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShouCang"];
+//        [shoucang setObject:self.jianZhi forKey:@"jianZhi"];
+//        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
+//        [shoucang setObject:currentUser forKey:@"userDetail"];
+//        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded==YES) {
+//                TTAlert(@"收藏成功");
+//                //FIXME: 做一些跟新ui的操作 设置信号
+//                
+//                
+//            }else
+//            {
+//                TTAlert(@"收藏失败");
+//            }
+//        }];
+//        
         
     
     }else
@@ -236,27 +250,27 @@
 }
 
 
-- (void)applyThisJob
+
+
+
+- (void)tousuAction: (NSString*)tousuContent
 {
-    
-    
+
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
         
-    //FIXME: 子类化后修改
-        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShenQing"];
-        [shoucang setObject:self.jianZhi.objectId forKey:@"jianZhi"];
-        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
-        [shoucang setObject:currentUser.objectId forKey:@"userDetail"];
-        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded==YES) {
-                TTAlert(@"收藏成功");
-                //做一些跟新ui的操作 设置信号
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
+        
+        [AVCloud callFunctionInBackground:@"add_tousu" withParameters:parameters block:^(id object, NSError *error) {
+            // 执行结果
+            if (error==nil) {
+                TTAlert(@"投诉成功");
+                //FIXME: 做一些跟新ui的操作 设置信号
                 
             }else
             {
-                NSLog(@"%@",error.description);
-                TTAlert(@"收藏失败");
+                NSString *errorMsg=error.description;
+                TTAlert(errorMsg);
             }
         }];
     }else
@@ -264,8 +278,61 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"你还未登录，请先登录再申请" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
         [alert show];
     }
+
+
+
 }
 
+- (void)applyThisJob
+{
+    
+    
+    AVUser *currentUser=[AVUser currentUser];
+    if (currentUser!=nil) {
+    
+    //FIXME: 子类化后修改
+        
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId};
+        
+        [AVCloud callFunctionInBackground:@"add_shenqing" withParameters:parameters block:^(id object, NSError *error) {
+            // 执行结果
+            if (error==nil) {
+                TTAlert(@"申请成功");
+                //FIXME: 做一些跟新ui的操作 设置信号
+                
+            }else
+            {
+                NSString *errorMsg=error.description;
+                TTAlert(errorMsg);
+            }
+        }];
+//        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShenQing"];
+//        [shoucang setObject:self.jianZhi.objectId forKey:@"jianZhi"];
+//        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
+//        [shoucang setObject:currentUser.objectId forKey:@"userDetail"];
+//        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded==YES) {
+//                TTAlert(@"收藏成功");
+//                //做一些跟新ui的操作 设置信号
+//                
+//            }else
+//            {
+//                NSLog(@"%@",error.description);
+//                TTAlert(@"收藏失败");
+//            }
+//        }];
+    }else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"你还未登录，请先登录再申请" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+
+-(void)commitTousu:(NSString *)tousuliyou
+{
+    [self tousuAction:tousuliyou];
+}
 
 
 #warning 完善显示信息

@@ -20,6 +20,28 @@
 
 @implementation JobListTableViewController
 
+
+- (instancetype)initWithAutoLoad:(BOOL)autoload
+{
+    if (self=[super init]) {
+        self.isAutoLoad=autoload;
+        self.viewModel=[[MLJianZhiViewModel alloc]init];
+        return self;
+    }
+    return nil;
+}
+
+- (instancetype)init
+{
+    if (self=[super init]) {
+        self.isAutoLoad=NO;
+        self.viewModel=[[MLJianZhiViewModel alloc]init];
+        return self;
+    }
+    return nil;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -29,9 +51,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    self.viewModel=[[MLJianZhiViewModel alloc]init];
-    
-    
     @weakify(self)
     [RACObserve(self.viewModel, resultsList) subscribeNext:^(NSArray *x) {
         @strongify(self)
@@ -40,27 +59,29 @@
         [self.tableView reloadData];
     }];
     
-    
     [RACObserve(self.viewModel, error) subscribeNext:^(id x) {
         @strongify(self)
         [self.tableView headerEndRefreshing];
         [self.tableView footerEndRefreshing];
         //提示错误 交给self.viewModel 完成
     }];
-    
     [self tableViewInit];
+    //自动载入
+    if (self.isAutoLoad) {
+         [self.viewModel firstLoad];
+    }
 }
 
 - (void)tableViewInit{
 
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     self.tableView.scrollEnabled=YES;
-//    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
-//    [self.tableView setTableHeaderView:_tableHeadView];
-    //为tableView 添加下拉刷新
-//    [self.tableView addFooterWithTarget:self.viewModel action:@selector(footerRefresh)];
 }
 
+-(void)firstLoad
+{
+[self.viewModel firstLoad];
+}
 
 - (void)addFooterRefresher
 {
@@ -69,7 +90,7 @@
 
 - (void)addHeaderRefresher
 {
-  [self.tableView addFooterWithTarget:self.viewModel action:@selector(headerRefresh)];
+  [self.tableView addHeaderWithTarget:self.viewModel action:@selector(headerRefresh)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +106,7 @@
 
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 103;
+    return 101;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -122,13 +143,18 @@
     cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
     cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
     //兼职的IconView
+    
+    
+    //FIXME:兼职小图标动态显示
+    
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.viewModel.resultsList objectAtIndex:indexPath.row]];
+    JianZhi *jianzhi=[self.viewModel.resultsList objectAtIndex:indexPath.row];
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
     detailVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:detailVC animated:YES];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];

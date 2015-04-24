@@ -19,15 +19,12 @@
  */
 - (void) queryJianZhiFromAVOSWithKey:(NSString*) key
                                Value:(NSString*) value;
-
-
-
 - (void) queryJianZhiFromAVOSWithSkip:(NSUInteger)skip
                                 Limit:(NSUInteger)limit;
-
-
-
-
+-(AVQuery*)setFliterSubQueryParams:(NSString*)fliterContent objectKey:(NSString*)keyword;
+-(void)setOtherQuery:(NSString*)keyword;
+-(void)setTypeQuery:(NSString*)keyword;
+-(void)setSettlementQuery:(NSString*)keyword;
 /**
  *  将resultsList中的Model 映射成前端View可以显示的内容
  *  暂时不用
@@ -35,6 +32,12 @@
 - (void) mapResultsList;
 
 - (instancetype)init;
+
+/**
+ *  第一次加载
+ */
+- (void) firstLoad;
+
 
 - (void) footerRefresh;
 

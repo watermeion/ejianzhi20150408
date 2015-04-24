@@ -16,6 +16,8 @@
 //#import "ASDepthModalViewController.h"
 #import "MLJobDetailViewModel.h"
 #import "SRMapViewVC.h"
+#import "tousuViewController.h"
+
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -109,7 +111,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)setViewModelJianZhi:(id)data
 {
     if ([data isKindOfClass:[JianZhi class]]) {
-        
+        JianZhi *jianzhi=data;
+        //加入浏览量统计
+        [jianzhi incrementKey:@"jianZhiBrowseTime"];
+        [jianzhi saveInBackground];
         self.viewModel=[[MLJobDetailViewModel alloc]initWithData:data];
     }
 }
@@ -124,19 +129,19 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
+
     
     //创建监听
     @weakify(self)
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
         @strongify(self)
         NSArray *workTimeArray=self.viewModel.worktime;
-            for (int i = 0; i < [workTimeArray count]; i++) {
-                NSLog(@"string:%@", [workTimeArray objectAtIndex:i]);
-                int num=[[workTimeArray objectAtIndex:i]integerValue];
-                if (num>0 && num <21) selectFreeData[num]=true;
-            }
+        for (int i = 0; i < [workTimeArray count]; i++) {
+            NSLog(@"string:%@", [workTimeArray objectAtIndex:i]);
+            int num=[[workTimeArray objectAtIndex:i]integerValue];
+            if (num>0 && num <21) selectFreeData[num]=true;
+        }
         [self.selectfreeCollectionOutlet reloadData];
-        
     }];
     
     RAC(self.jobDetailTitleLabel,text)=RACObserve(self.viewModel, jobTitle);
@@ -160,18 +165,22 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
 #warning 绑定按钮事件
     self.jobDetailApplyBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        
         [self.viewModel applyThisJob];
-//        //点击申请button
-//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-//        [alertView show];
+        //        //点击申请button
+        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        //        [alertView show];
         return [RACSignal empty];
     }];
     
     self.jobDetailComplainBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         //点击申请button
-        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-         [alertView show];
+//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+//        [alertView show];
+        tousuViewController *tousuVC=[[tousuViewController alloc]init];
+        tousuVC.delegate=self.viewModel;
+        
+        [self.navigationController pushViewController:tousuVC animated:YES];
+        
         return [RACSignal empty];
     }];
     
@@ -180,14 +189,18 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         [self.viewModel addFavirateAction];
         
         
-//        //展示地图
-//        [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
+        //        //展示地图
+        //        [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
         
-//        //点击申请button
-//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-//        [alertView show];
+        //        //点击申请button
+        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        //        [alertView show];
         return [RACSignal empty];
     }];
+    
+    //添加浏览量统计
+    
+    
     
 }
 /**
@@ -199,12 +212,12 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (void)updateConstraintsforJobContentLabelWithString:(NSString*) str{
-
+    
     if (str==nil) return;
     self.jobDetailJobXiangQingLabel.text=str;
     float stringHeight=[self heightForString:str fontSize:14 andWidth:([[UIScreen mainScreen] bounds].size.width-16)];
     self.jobContentViewHeightConstraint.constant=stringHeight;
-
+    
     self.containerViewConstraint.constant=608+stringHeight;
 }
 
@@ -333,41 +346,43 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 -(void)makeContactAction
 {
-  //添加联系
+    //添加联系
+    //FIXME:换控件
     self.popUpView.layer.cornerRadius=2;
-    self.popUpView.frame=CGRectMake((MainScreenWidth/2-150), (MainScreenHeight/2-140-64), 300, 280);
-    [PopoverView showPopoverAtPoint:CGPointMake(0, 0) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
- }
+    self.popUpView.autoresizingMask=UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    self.popUpView.frame=CGRectMake(0, 0, (300/320)*MainScreenWidth, (280/468)*MainScreenHeight);
+    [PopoverView showPopoverAtPoint:CGPointMake(190, ((MainScreenHeight-280-64-44-200)/2)) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
+}
 
 - (IBAction)callAction:(id)sender {
     //打电话
-//    UIWebView* callWebview =[[UIWebView alloc] init];
-//    
+    //    UIWebView* callWebview =[[UIWebView alloc] init];
+    //
     NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.viewModel.jobPhone];
-//
-//    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
-//    
-//    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-//    
-//    //记得添加到view上
-//    [self.view addSubview:callWebview];
+    //
+    //    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
+    //
+    //    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //
+    //    //记得添加到view上
+    //    [self.view addSubview:callWebview];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
 }
 
 - (IBAction)messageAction:(id)sender {
-   //发短信
+    //发短信
     UIWebView*callWebview =[[UIWebView alloc] init];
     
     NSString *telUrl = [NSString stringWithFormat:@"sms://%@",self.viewModel.jobPhone];
@@ -387,8 +402,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 
-
-
 - (IBAction)showInMapAction:(id)sender {
     
     if (self.viewModel.jianZhi.jianZhiPoint) {
@@ -401,6 +414,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"对不起，该用户暂未提供位置信息" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil,nil];
         [alert show];
     }
-//    [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
+    //    [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
 }
 @end

@@ -24,10 +24,24 @@
 @property (strong,nonatomic)UITableViewController *searchResultsTableVC;
 
 @property (strong,nonatomic)NSArray *searchResultsArray;
+@property (strong, nonatomic) IBOutlet UIButton *footerRefreshButton;
 
 @end
 
 @implementation MapViewController
+
+
+
+-(void)setfooterRefreshButtonStyle
+{
+    //设置Btn信息
+    [self.footerRefreshButton.layer setBorderWidth:1.0f];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 247/255.0, 79/255.0, 92/255.0, 1.0 });
+    [self.footerRefreshButton.layer setBorderColor:colorref];//边框颜色
+    [self.footerRefreshButton.layer setCornerRadius:self.footerRefreshButton.frame.size.width/4];
+}
+
 
 
 -(instancetype)init
@@ -41,6 +55,9 @@
         self.mapViewModel=[[MapJobViewModal alloc]init];
         self.mapViewModel.handleView=self.mapView;
         self.mapView.showDetailDelegate=self;
+       
+        
+        
         return self;
     }
     return nil;
@@ -58,27 +75,33 @@
     Lpress.allowableMovement=50.0;
     [self.mapView addGestureRecognizer:Lpress];
 
-    self.selectPOIViewController=[[SelectPOIViewController alloc]init];
-    self.selectPOIViewController.delegate=self;
-    [self addChildViewController:self.selectPOIViewController];
     
-    self.searchResultsTableVC=[[UITableViewController alloc]init];
-    self.searchResultsTableVC.tableView.delegate=self;
-    self.searchResultsTableVC.tableView.dataSource=self;
-    
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-//    self.searchController.searchResultsUpdater=self;
-    self.searchController.dimsBackgroundDuringPresentation = YES;
-    [self.searchController.searchBar sizeToFit];
-    self.searchController.hidesNavigationBarDuringPresentation=NO;
-//    self.searchBar=[[UISearchBar alloc]init];
-    self.navigationItem.titleView =self.searchController.searchBar;
-    self.searchController.searchBar.delegate=self;
-    self.searchController.searchBar.placeholder=@"搜地点";
+    //点选地址
+//    self.selectPOIViewController=[[SelectPOIViewController alloc]init];
+//    self.selectPOIViewController.delegate=self;
+//    [self addChildViewController:self.selectPOIViewController];
+    //取消地图搜索
+//    self.searchResultsTableVC=[[UITableViewController alloc]init];
+//    self.searchResultsTableVC.tableView.delegate=self;
+//    self.searchResultsTableVC.tableView.dataSource=self;
+//    
+//    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+////    self.searchController.searchResultsUpdater=self;
+//    self.searchController.dimsBackgroundDuringPresentation = YES;
+//    [self.searchController.searchBar sizeToFit];
+//    self.searchController.hidesNavigationBarDuringPresentation=NO;
+////    self.searchBar=[[UISearchBar alloc]init];
+//    self.navigationItem.titleView =self.searchController.searchBar;
+//    self.searchController.searchBar.delegate=self;
+//    self.searchController.searchBar.placeholder=@"搜地点";
     //监听searchBar text;
 //    self.searchBar.delegate=self;
 //    self.searchBar.placeholder=@"搜地点";
 //    self.searchBar.showsCancelButton=YES;
+    [self setfooterRefreshButtonStyle];
+    self.footerRefreshButton.frame=CGRectMake(MainScreenWidth-50, MainScreenHeight-50, 50, 50);
+    self.mapView.frame=CGRectMake(0, 21,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    [self.mapView addSubview:self.footerRefreshButton];
     [self.view addSubview:self.mapView];
 //    [self.mapView setShowUserLocation:YES];
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
-
+@class MLMapManager;
 @interface SRMapViewVC : UIViewController<MAMapViewDelegate,UIGestureRecognizerDelegate,AMapSearchDelegate>
 {
     CLLocationManager * locationManager;

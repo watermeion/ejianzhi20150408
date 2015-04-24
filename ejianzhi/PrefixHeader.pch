@@ -34,5 +34,6 @@
 //    #import "EMSDKFull.h"
 //    #import "EMCallSession.h"
 
+#import "commonMacro.h"
 #endif
 

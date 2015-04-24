@@ -14,7 +14,7 @@
 //#import "MobClick.h"
 #import "MLTabbarVC.h"
 #import "MLLoginManger.h"
-
+#import "PullServerManager.h"
 //子类化
 #import "User.h"
 #import "JianZhi.h"
@@ -123,7 +123,8 @@
     
     //初始化各类控制器
     self.loginManager=[MLLoginManger shareInstance];
-    
+    PullServerManager *pullServerManager=[PullServerManager sharedIntance];
+    [pullServerManager rewriteUserDefaults];
     
 //    //Enabling keyboard manager
 //    [[IQKeyboardManager sharedManager] setEnable:YES];

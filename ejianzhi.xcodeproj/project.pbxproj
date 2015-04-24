@@ -42,8 +42,6 @@
 		0443C1CB1AD55572004F29A5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C1BE1AD55572004F29A5 /* MapViewController.m */; };
 		0443C1CC1AD55572004F29A5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C1BF1AD55572004F29A5 /* MapViewController.xib */; };
 		0443C1CD1AD55572004F29A5 /* POIDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C1C11AD55572004F29A5 /* POIDataModel.m */; };
-		0443C1CE1AD55572004F29A5 /* searchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C1C31AD55572004F29A5 /* searchViewController.m */; };
-		0443C1CF1AD55572004F29A5 /* searchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C1C41AD55572004F29A5 /* searchViewController.xib */; };
 		0443C1D01AD55572004F29A5 /* SelectPOIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C1C61AD55572004F29A5 /* SelectPOIViewController.m */; };
 		0443C1D11AD55572004F29A5 /* SelectPOIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C1C71AD55572004F29A5 /* SelectPOIViewController.xib */; };
 		0443C1D21AD55572004F29A5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C1C91AD55572004F29A5 /* TableViewController.m */; };
@@ -412,6 +410,19 @@
 		045626481AD6214D006E159C /* imageSaveAndReadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 045626461AD6214D006E159C /* imageSaveAndReadUtil.m */; };
 		0456264F1AD621AC006E159C /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456264B1AD621AC006E159C /* DateUtil.m */; };
 		045626501AD621AC006E159C /* stringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456264E1AD621AC006E159C /* stringUtil.m */; };
+		045AA7411AE936FD00ED20F1 /* moreJobs.png in Resources */ = {isa = PBXBuildFile; fileRef = 045AA7401AE936FD00ED20F1 /* moreJobs.png */; };
+		045AA7441AE93A6600ED20F1 /* firstSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7431AE93A6600ED20F1 /* firstSearchDisplayController.m */; };
+		045AA7481AE93CC700ED20F1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7461AE93CC700ED20F1 /* SearchViewController.m */; };
+		045AA7491AE93CC700ED20F1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045AA7471AE93CC700ED20F1 /* SearchViewController.xib */; };
+		04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */; };
+		04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */; };
+		04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */; };
+		04F5C9931AE547F500341491 /* tousuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9911AE547F500341491 /* tousuViewController.m */; };
+		04F5C9941AE547F500341491 /* tousuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9921AE547F500341491 /* tousuViewController.xib */; };
+		04F5C9991AE54D9F00341491 /* SubIconCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */; };
+		04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */; };
+		04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */; };
+		04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */; };
 		3B8D4AA81AE20489001F5E7F /* JianZhiShenQing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */; };
 		3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAA1AE20533001F5E7F /* QiYeInfo.m */; };
 		3B8D4AAF1AE23432001F5E7F /* applistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAD1AE23432001F5E7F /* applistCell.m */; };
@@ -747,9 +758,6 @@
 		0443C1BF1AD55572004F29A5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		0443C1C01AD55572004F29A5 /* POIDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDataModel.h; sourceTree = "<group>"; };
 		0443C1C11AD55572004F29A5 /* POIDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDataModel.m; sourceTree = "<group>"; };
-		0443C1C21AD55572004F29A5 /* searchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchViewController.h; sourceTree = "<group>"; };
-		0443C1C31AD55572004F29A5 /* searchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchViewController.m; sourceTree = "<group>"; };
-		0443C1C41AD55572004F29A5 /* searchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchViewController.xib; sourceTree = "<group>"; };
 		0443C1C51AD55572004F29A5 /* SelectPOIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPOIViewController.h; sourceTree = "<group>"; };
 		0443C1C61AD55572004F29A5 /* SelectPOIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPOIViewController.m; sourceTree = "<group>"; };
 		0443C1C71AD55572004F29A5 /* SelectPOIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPOIViewController.xib; sourceTree = "<group>"; };
@@ -1169,6 +1177,24 @@
 		0456264C1AD621AC006E159C /* MLTextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTextUtils.h; sourceTree = "<group>"; };
 		0456264D1AD621AC006E159C /* stringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringUtil.h; sourceTree = "<group>"; };
 		0456264E1AD621AC006E159C /* stringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringUtil.m; sourceTree = "<group>"; };
+		045AA7401AE936FD00ED20F1 /* moreJobs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moreJobs.png; sourceTree = "<group>"; };
+		045AA7421AE93A6600ED20F1 /* firstSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstSearchDisplayController.h; sourceTree = "<group>"; };
+		045AA7431AE93A6600ED20F1 /* firstSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstSearchDisplayController.m; sourceTree = "<group>"; };
+		045AA7451AE93CC700ED20F1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		045AA7461AE93CC700ED20F1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		045AA7471AE93CC700ED20F1 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_bus.png; sourceTree = "<group>"; };
+		04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_steer.png; sourceTree = "<group>"; };
+		04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_walker.png; sourceTree = "<group>"; };
+		04F5C9901AE547F500341491 /* tousuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tousuViewController.h; sourceTree = "<group>"; };
+		04F5C9911AE547F500341491 /* tousuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tousuViewController.m; sourceTree = "<group>"; };
+		04F5C9921AE547F500341491 /* tousuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tousuViewController.xib; sourceTree = "<group>"; };
+		04F5C9961AE54D9F00341491 /* SubIconCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubIconCollectionViewController.h; sourceTree = "<group>"; };
+		04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubIconCollectionViewController.m; sourceTree = "<group>"; };
+		04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubIconCollectionViewController.xib; sourceTree = "<group>"; };
+		04F5C9AF1AE6A89D00341491 /* FliterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FliterTableViewController.h; sourceTree = "<group>"; };
+		04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FliterTableViewController.m; sourceTree = "<group>"; };
+		04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FliterTableViewController.xib; sourceTree = "<group>"; };
 		3B8D4AA61AE20489001F5E7F /* JianZhiShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianZhiShenQing.h; sourceTree = "<group>"; };
 		3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianZhiShenQing.m; sourceTree = "<group>"; };
 		3B8D4AA91AE20533001F5E7F /* QiYeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiYeInfo.h; sourceTree = "<group>"; };
@@ -1517,6 +1543,9 @@
 		0443C12C1AD5531D004F29A5 /* ejianzhi */ = {
 			isa = PBXGroup;
 			children = (
+				045AA73A1AE936DD00ED20F1 /* SearchVC */,
+				04F5C9951AE54D7500341491 /* SubIconCollectionView */,
+				04F5C9881AE5404600341491 /* tousuViewController */,
 				3BB888171AE37AC40046DAD2 /* Settings */,
 				3B8D4AF71AE2806E001F5E7F /* MyFavor */,
 				3BDDF0F71ADF9C0E00C5BD45 /* MyApplication */,
@@ -1569,6 +1598,9 @@
 		0443C12D1AD5531D004F29A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */,
+				04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */,
+				04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */,
 				045625D71AD62129006E159C /* image */,
 				045623D41AD6211D006E159C /* icon */,
 				045623CF1AD6210B006E159C /* LaunchViewController.h */,
@@ -1614,6 +1646,7 @@
 		0443C1671AD5541D004F29A5 /* JoblistWithDropDown */ = {
 			isa = PBXGroup;
 			children = (
+				04F5C9AE1AE6A89D00341491 /* subclass */,
 				0443C1681AD5541D004F29A5 /* JobListWithDropDownListVCViewController.h */,
 				0443C1691AD5541D004F29A5 /* JobListWithDropDownListVCViewController.m */,
 				0443C16A1AD5541D004F29A5 /* JobListWithDropDownListVCViewController.xib */,
@@ -1711,9 +1744,6 @@
 				0443C1BF1AD55572004F29A5 /* MapViewController.xib */,
 				0443C1C01AD55572004F29A5 /* POIDataModel.h */,
 				0443C1C11AD55572004F29A5 /* POIDataModel.m */,
-				0443C1C21AD55572004F29A5 /* searchViewController.h */,
-				0443C1C31AD55572004F29A5 /* searchViewController.m */,
-				0443C1C41AD55572004F29A5 /* searchViewController.xib */,
 				0443C1C51AD55572004F29A5 /* SelectPOIViewController.h */,
 				0443C1C61AD55572004F29A5 /* SelectPOIViewController.m */,
 				0443C1C71AD55572004F29A5 /* SelectPOIViewController.xib */,
@@ -2316,6 +2346,7 @@
 		045625D71AD62129006E159C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				045AA7401AE936FD00ED20F1 /* moreJobs.png */,
 				045625D81AD62129006E159C /* about_us.png */,
 				045625D91AD62129006E159C /* activity.png */,
 				045625DA1AD62129006E159C /* activity@2x.png */,
@@ -2384,6 +2415,48 @@
 				0456264E1AD621AC006E159C /* stringUtil.m */,
 			);
 			path = Utilty;
+			sourceTree = "<group>";
+		};
+		045AA73A1AE936DD00ED20F1 /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				045AA7421AE93A6600ED20F1 /* firstSearchDisplayController.h */,
+				045AA7431AE93A6600ED20F1 /* firstSearchDisplayController.m */,
+				045AA7451AE93CC700ED20F1 /* SearchViewController.h */,
+				045AA7461AE93CC700ED20F1 /* SearchViewController.m */,
+				045AA7471AE93CC700ED20F1 /* SearchViewController.xib */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		04F5C9881AE5404600341491 /* tousuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04F5C9901AE547F500341491 /* tousuViewController.h */,
+				04F5C9911AE547F500341491 /* tousuViewController.m */,
+				04F5C9921AE547F500341491 /* tousuViewController.xib */,
+			);
+			name = tousuViewController;
+			sourceTree = "<group>";
+		};
+		04F5C9951AE54D7500341491 /* SubIconCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				04F5C9961AE54D9F00341491 /* SubIconCollectionViewController.h */,
+				04F5C9971AE54D9F00341491 /* SubIconCollectionViewController.m */,
+				04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */,
+			);
+			name = SubIconCollectionView;
+			sourceTree = "<group>";
+		};
+		04F5C9AE1AE6A89D00341491 /* subclass */ = {
+			isa = PBXGroup;
+			children = (
+				04F5C9AF1AE6A89D00341491 /* FliterTableViewController.h */,
+				04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */,
+				04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */,
+			);
+			path = subclass;
 			sourceTree = "<group>";
 		};
 		3B8D4AD81AE257A9001F5E7F /* MJRefresh */ = {
@@ -2992,6 +3065,7 @@
 				3BBF702F1AD6D1CB00A33F5A /* input-bar-flat.png in Resources */,
 				0456256B1AD6211D006E159C /* message1.png in Resources */,
 				3BBF70731AD6D1CB00A33F5A /* weChatBubble_Receiving_Cavern@2x.png in Resources */,
+				045AA7491AE93CC700ED20F1 /* SearchViewController.xib in Resources */,
 				045625551AD6211D006E159C /* label_more.png in Resources */,
 				3BBF70611AD6D1CB00A33F5A /* SenderVoiceNodePlaying001@2x.png in Resources */,
 				045625611AD6211D006E159C /* btnRight.png in Resources */,
@@ -3028,6 +3102,7 @@
 				3BBF70691AD6D1CB00A33F5A /* sharemore_pic@2x.png in Resources */,
 				3BBF70461AD6D1CB00A33F5A /* RecordingSignal001@2x.png in Resources */,
 				045625391AD6211D006E159C /* attendance.png in Resources */,
+				04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */,
 				3BBF70071AD6D1CB00A33F5A /* u1f613.png in Resources */,
 				045626231AD62129006E159C /* logo.png in Resources */,
 				0456256C1AD6211D006E159C /* message1@2x.png in Resources */,
@@ -3036,6 +3111,7 @@
 				0456261F1AD62129006E159C /* home.png in Resources */,
 				045622C61AD6162D006E159C /* IQButtonBarArrowRight@2x.png in Resources */,
 				045625C81AD6211D006E159C /* protait5-Small@2x.png in Resources */,
+				04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */,
 				3BBF6F741AD6D1B600A33F5A /* MLChatVC.xib in Resources */,
 				3BBF705F1AD6D1CB00A33F5A /* section0_emotion9@2x.png in Resources */,
 				3BBF705E1AD6D1CB00A33F5A /* section0_emotion8@2x.png in Resources */,
@@ -3095,7 +3171,6 @@
 				045625AE1AD6211D006E159C /* protait3-60.png in Resources */,
 				0456257D1AD6211D006E159C /* shou.png in Resources */,
 				3BBF705B1AD6D1CB00A33F5A /* section0_emotion5@2x.png in Resources */,
-				0443C1CF1AD55572004F29A5 /* searchViewController.xib in Resources */,
 				0456257C1AD6211D006E159C /* moreTop.png in Resources */,
 				045623131AD61AC9006E159C /* checkbox1_unchecked@2x.png in Resources */,
 				0443C2251AD5560F004F29A5 /* JobDetailVC.xib in Resources */,
@@ -3174,6 +3249,7 @@
 				045625421AD6211D006E159C /* release.png in Resources */,
 				045625161AD6211D006E159C /* color3.9.png in Resources */,
 				045625BE1AD6211D006E159C /* protait4-Small@3x.png in Resources */,
+				04F5C9941AE547F500341491 /* tousuViewController.xib in Resources */,
 				045625671AD6211D006E159C /* label_zm.png in Resources */,
 				3BBF70201AD6D1CB00A33F5A /* CellGraySelected@2x.png in Resources */,
 				045625481AD6211D006E159C /* btn_td.jpg in Resources */,
@@ -3202,6 +3278,7 @@
 				0443C1CC1AD55572004F29A5 /* MapViewController.xib in Resources */,
 				0456256D1AD6211D006E159C /* message1@3x.png in Resources */,
 				045625771AD6211D006E159C /* huodong.png in Resources */,
+				04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */,
 				045625741AD6211D006E159C /* mine@2x.png in Resources */,
 				3BBF70191AD6D1CB00A33F5A /* u1f632.png in Resources */,
 				3BBF70711AD6D1CB00A33F5A /* VoiceBtn_Black@2x.png in Resources */,
@@ -3307,8 +3384,10 @@
 				045625BD1AD6211D006E159C /* protait4-Small@2x.png in Resources */,
 				3BBF702E1AD6D1CB00A33F5A /* input-bar-background@2x.png in Resources */,
 				3BBF70341AD6D1CB00A33F5A /* keyborad_HL@2x.png in Resources */,
+				04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */,
 				3BBF70551AD6D1CB00A33F5A /* section0_emotion14@2x.png in Resources */,
 				045625AC1AD6211D006E159C /* protait2.png in Resources */,
+				045AA7411AE936FD00ED20F1 /* moreJobs.png in Resources */,
 				3BBF6F551AD6D0E800A33F5A /* MLCell4.xib in Resources */,
 				045624F91AD6211D006E159C /* use.jpg in Resources */,
 				3BBF706B1AD6D1CB00A33F5A /* sharemore_videovoip@2x.png in Resources */,
@@ -3343,6 +3422,7 @@
 				3BBF6F4A1AD6D0E800A33F5A /* MLSelectInffShow.xib in Resources */,
 				3BBF704B1AD6D1CB00A33F5A /* RecordingSignal006@2x.png in Resources */,
 				045624E31AD6211D006E159C /* checkbox1.png in Resources */,
+				04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */,
 				045624E21AD6211D006E159C /* back.png in Resources */,
 				3BBF70371AD6D1CB00A33F5A /* MoreFunctionFrame@2x.png in Resources */,
 				045625041AD6211D006E159C /* partner.png in Resources */,
@@ -3494,6 +3574,7 @@
 				3BBF6F461AD6D0E800A33F5A /* DVSwitch.m in Sources */,
 				3BBF6F4F1AD6D0E800A33F5A /* QRadioButton.m in Sources */,
 				3BBF6F171AD6D0C900A33F5A /* UIView+EMWebCacheOperation.m in Sources */,
+				04F5C9991AE54D9F00341491 /* SubIconCollectionViewController.m in Sources */,
 				3BBF6F191AD6D0C900A33F5A /* SDPhotoBrowser.m in Sources */,
 				0443C1B81AD5553F004F29A5 /* UrlImageButton.m in Sources */,
 				045623041AD61ABC006E159C /* SRLoginVC.m in Sources */,
@@ -3530,6 +3611,8 @@
 				3BBF6F0B1AD6D0C900A33F5A /* EMSDWebImageDownloader.m in Sources */,
 				0443C2051AD5559E004F29A5 /* JianZhi.m in Sources */,
 				045622F31AD61A33006E159C /* MLMapView.m in Sources */,
+				045AA7481AE93CC700ED20F1 /* SearchViewController.m in Sources */,
+				04F5C9931AE547F500341491 /* tousuViewController.m in Sources */,
 				3B8D4ABD1AE254F1001F5E7F /* MyApplicationList.m in Sources */,
 				3B8D4AEE1AE257A9001F5E7F /* UIScrollView+Extension.m in Sources */,
 				0456264F1AD621AC006E159C /* DateUtil.m in Sources */,
@@ -3537,6 +3620,7 @@
 				0443C1821AD55492004F29A5 /* MLSecondVC.m in Sources */,
 				045622F21AD61A33006E159C /* CustomAnnotationView.m in Sources */,
 				0443C2281AD5560F004F29A5 /* LineDashPolyline.m in Sources */,
+				045AA7441AE93A6600ED20F1 /* firstSearchDisplayController.m in Sources */,
 				3BBF6F671AD6D0F200A33F5A /* HZAreaPickerView.m in Sources */,
 				0443C19A1AD554FF004F29A5 /* MLJobListViewController.m in Sources */,
 				3B8D4AA81AE20489001F5E7F /* JianZhiShenQing.m in Sources */,
@@ -3595,8 +3679,8 @@
 				3BBF6F181AD6D0C900A33F5A /* SDBrowserImageView.m in Sources */,
 				0443C1F61AD55591004F29A5 /* MLJobDetailViewModel.m in Sources */,
 				0443C1E31AD55589004F29A5 /* AJLocationManager.m in Sources */,
-				0443C1CE1AD55572004F29A5 /* searchViewController.m in Sources */,
 				3BBF6F0F1AD6D0C900A33F5A /* MKAnnotationView+EMWebCache.m in Sources */,
+				04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */,
 				0443C1D21AD55572004F29A5 /* TableViewController.m in Sources */,
 				0443C1F81AD55591004F29A5 /* MLMainPageViewModel.m in Sources */,
 				0443C2241AD5560F004F29A5 /* JobDetailVC.m in Sources */,
@@ -3732,7 +3816,9 @@
 			baseConfigurationReference = 4D7B0DB645FE063645795595 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3755,7 +3841,9 @@
 			baseConfigurationReference = E42360BA5E928BF1053A5BC4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
