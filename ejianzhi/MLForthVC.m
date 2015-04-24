@@ -20,6 +20,8 @@
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
 #import "UIImageView+EMWebCache.h"
+#import "AppDelegate.h"
+
 
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
@@ -67,7 +69,7 @@
     [self.logoutButton.layer setBorderWidth:1.0f];
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 247/255.0, 79/255.0, 92/255.0, 1.0 });
-    [self.logoutButton.layer setBorderColor:colorref];//边框颜色
+    [self.logoutButton.layer setBorderColor:colorref];
     [self.logoutButton.layer setCornerRadius:5.0];
 }
 
@@ -90,12 +92,12 @@
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
 
-    if ([AVUser currentUser]!=nil) {
-        [self finishLogin];
-    }
-    else {
-        [self finishLogout];
-    }
+//    if ([AVUser currentUser]!=nil) {
+//        [self finishLogin];
+//    }
+//    else {
+//        [self finishLogout];
+//    }
 }
 
 - (void)chooseAvatar{
@@ -157,12 +159,14 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
     if (buttonIndex==0) {
         
         BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
         if (isLogout) {
             [self finishLogout];
         }
+    
     }
 }
 
@@ -175,6 +179,11 @@
     self.logoutButton.tag=10000;
     
     self.bottomConstraint.constant=-60;
+    
+    UIWindow *window = [[UIApplication sharedApplication].delegate window] ;
+    UIViewController *vc=[self.loginManager showLoginVC];
+    window.rootViewController = vc;
+
 }
 
 - (void)finishLogin{
@@ -185,6 +194,20 @@
 
     if ([mySettingData objectForKey:@"userAvatar"]) {
         [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:[mySettingData objectForKey:@"userAvatar"]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }else{
+        AVQuery *userQuery=[AVUser query];
+        [userQuery whereKey:@"objectId" equalTo:[AVUser currentUser].objectId];
+        [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                if ([objects count]>0) {
+                    AVUser *_user=[objects objectAtIndex:0];
+                    AVFile *imageFile=[_user objectForKey:@"avatar"];
+                    [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                    [mySettingData setObject:imageFile.url forKey:@"userAvatar"];
+                    [mySettingData synchronize];
+                }
+            }
+        }];
     }
 
     self.logoutButton.hidden=NO;

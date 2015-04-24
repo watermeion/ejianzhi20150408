@@ -28,6 +28,13 @@
 
 @implementation MLTabbarVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
 
 -(MLFirstVC*)firstVC
 {
@@ -73,6 +80,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     [self viewControllersInit];
 }
 

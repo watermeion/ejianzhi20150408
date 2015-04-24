@@ -23,6 +23,7 @@
 #import "QiYeInfo.h"
 
 #import "MLTabbar1.h"
+#import "SRLoginVC.h"
 
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
@@ -67,10 +68,9 @@
                       clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
 
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.mainTabViewController;
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[SRLoginVC shareLoginVC]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
