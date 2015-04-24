@@ -414,6 +414,7 @@
 		045AA7441AE93A6600ED20F1 /* firstSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7431AE93A6600ED20F1 /* firstSearchDisplayController.m */; };
 		045AA7481AE93CC700ED20F1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7461AE93CC700ED20F1 /* SearchViewController.m */; };
 		045AA7491AE93CC700ED20F1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045AA7471AE93CC700ED20F1 /* SearchViewController.xib */; };
+		04B346871AEA785A00A8A180 /* UIColor+ColorFromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */; };
 		04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */; };
 		04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */; };
 		04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */; };
@@ -1183,6 +1184,8 @@
 		045AA7451AE93CC700ED20F1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		045AA7461AE93CC700ED20F1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		045AA7471AE93CC700ED20F1 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		04B346851AEA785A00A8A180 /* UIColor+ColorFromArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorFromArray.h"; sourceTree = "<group>"; };
+		04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorFromArray.m"; sourceTree = "<group>"; };
 		04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_bus.png; sourceTree = "<group>"; };
 		04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_steer.png; sourceTree = "<group>"; };
 		04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_walker.png; sourceTree = "<group>"; };
@@ -1543,6 +1546,7 @@
 		0443C12C1AD5531D004F29A5 /* ejianzhi */ = {
 			isa = PBXGroup;
 			children = (
+				04B346841AEA785A00A8A180 /* Category */,
 				045AA73A1AE936DD00ED20F1 /* SearchVC */,
 				04F5C9951AE54D7500341491 /* SubIconCollectionView */,
 				04F5C9881AE5404600341491 /* tousuViewController */,
@@ -2427,6 +2431,15 @@
 				045AA7471AE93CC700ED20F1 /* SearchViewController.xib */,
 			);
 			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		04B346841AEA785A00A8A180 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				04B346851AEA785A00A8A180 /* UIColor+ColorFromArray.h */,
+				04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		04F5C9881AE5404600341491 /* tousuViewController */ = {
@@ -3657,6 +3670,7 @@
 				3BBF6F691AD6D0F200A33F5A /* HZLocation.m in Sources */,
 				0443C1B61AD5553F004F29A5 /* SDWebImageManager.m in Sources */,
 				045623061AD61ABC006E159C /* SRRegisterVC.m in Sources */,
+				04B346871AEA785A00A8A180 /* UIColor+ColorFromArray.m in Sources */,
 				3BBF6F5C1AD6D0E800A33F5A /* imageWithUrlObject.m in Sources */,
 				0443C2081AD5559E004F29A5 /* UserDetail.m in Sources */,
 				045623251AD61B4B006E159C /* MLCustomjobListViewController.m in Sources */,

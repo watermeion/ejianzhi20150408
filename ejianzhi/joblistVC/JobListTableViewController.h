@@ -14,8 +14,6 @@
 @property BOOL isAutoLoad;
 
 
-
-
 - (NSArray*)getViewModelResultsList;
 
 -(void)firstLoad;

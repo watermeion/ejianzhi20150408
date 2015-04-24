@@ -118,42 +118,30 @@
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     
     self.viewModel=[[MLMainPageViewModel alloc]init];
-    
     [self addChildViewController:self.joblistTableVC];
-    
     //collectiveViewCell
     collectionViewCellArray=[NSArray arrayWithObjects:self.modelView,self.ItView,self.homeTeachweView,self.moreView,nil];
     [self addViewToScrollView];
     [self addHeaderAndFooterToTableView];
     [self.view addSubview: self.joblistTableVC.tableView];
     [self advertisementInit];
-    
     //监听城市信息
     RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
     [self.viewModel startLocatingToGetCity];
     [self searchCity];
-    
-    
 }
-
-
-
 
 -(void)searchBarTapped
 {
     SearchViewController *searchVC=[[SearchViewController alloc]init];
     searchVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:searchVC animated:YES];
-
 }
-
-
-
 -(void)addViewToScrollView
 {
     CGFloat edgewidth=2.0;
     CGFloat width = 60.0f;
-    CGFloat marginwidth=(MainScreenWidth-(2*edgewidth)-4*width)/3;
+    CGFloat marginwidth=(MainScreenWidth-(4*edgewidth)-4*width)/3;
     int count=[collectionViewCellArray count];
     for (int i=0; i<[collectionViewCellArray count]; i++) {
         UIView *view=[collectionViewCellArray objectAtIndex:i];

@@ -32,4 +32,6 @@
 - (void)setWeekendImageShow:(BOOL)ishidden;
 - (void)setotherImageShow:(BOOL)ishidden;
 
+- (void)setIconBackgroundColor:(UIColor*)color;
+
 @end

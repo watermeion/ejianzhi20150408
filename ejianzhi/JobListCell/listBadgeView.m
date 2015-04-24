@@ -73,12 +73,12 @@
 -(void)drawWithoutBadge
 {
     //// Color Declarations
-    UIColor* color3 = GreenFillColor;
-    
-    //// backgroud Drawing
-    UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
-    [color3 setFill];
-    [backgroudPath fill];
+//    UIColor* color3 = GreenFillColor;
+//    
+//    //// backgroud Drawing
+//    UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
+//    [color3 setFill];
+//    [backgroudPath fill];
     
     
     //// CategoryText Drawing
@@ -109,12 +109,12 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Color Declarations
-    UIColor* color3 = GreenFillColor;
-    
-    //// backgroud Drawing
-    UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
-    [color3 setFill];
-    [backgroudPath fill];
+//    UIColor* color3 = GreenFillColor;
+//    
+//    //// backgroud Drawing
+//    UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
+//    [color3 setFill];
+//    [backgroudPath fill];
     
     
     //// Badge Drawing

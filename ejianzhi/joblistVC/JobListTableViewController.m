@@ -12,7 +12,8 @@
 #import "JianZhi.h"
 #import "JobDetailVC.h"
 #import "MJRefresh.h"
-
+#import "UIColor+ColorFromArray.h"
+#import "PullServerManager.h"
 @interface JobListTableViewController ()
 
 
@@ -134,6 +135,11 @@
     
     cell.titleLabel.text=jianzhi.jianZhiTitle;
     cell.categoryLabel.text=jianzhi.jianZhiType;
+    //根据兼职信息设置兼职色块颜色
+    
+    [cell setIconBackgroundColor:[self colorForType:jianzhi.jianZhiType]];
+    
+    
     cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
     cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
     cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
@@ -143,6 +149,8 @@
     cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
     cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
     //兼职的IconView
+    
+    
     
     
     //FIXME:兼职小图标动态显示
@@ -164,6 +172,25 @@
 {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
+
+
+-(UIColor*)colorForType:(NSString*)type
+{
+   NSUserDefaults *mysetting=[NSUserDefaults standardUserDefaults];
+   NSDictionary *typeAndColorDict=[mysetting objectForKey:TypeListAndColor];
+    NSArray *typeArray=[typeAndColorDict allKeys];
+    if ([typeArray containsObject:type]) {
+        UIColor *color=[UIColor colorRGBFromArray:[typeAndColorDict objectForKey:type]];
+        return  color;
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+
+
 
 /*
 // Override to support conditional editing of the table view.

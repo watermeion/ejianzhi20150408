@@ -10,7 +10,7 @@
 #define FliterType @"filterType"
 #define FliterReDu @"filterReDu"
 #define FliterSettlementWay @"filterSettlementWay"
-
+#define TypeListAndColor @"typelistandcolor"
 #import <Foundation/Foundation.h>
 /**
  *  管理从服务器端拉取，设置数据，类型数据，app更新数据等信息
