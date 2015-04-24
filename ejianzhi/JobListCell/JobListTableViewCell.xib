@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caT-9E-V59">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caT-9E-V59">
                         <rect key="frame" x="0.0" y="1" width="320" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女性身高不低于168cm" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTK-Rg-4iX">
@@ -232,7 +232,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="bo5-KR-Ytq">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="bo5-KR-Ytq">
                         <rect key="frame" x="248" y="37" width="50" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="iml-Ov-LpV"/>
@@ -246,7 +246,7 @@
                 <constraints>
                     <constraint firstItem="bo5-KR-Ytq" firstAttribute="top" secondItem="BrZ-PG-l8W" secondAttribute="bottom" constant="-2" id="CWc-yK-jN3"/>
                     <constraint firstItem="2gc-lo-NLT" firstAttribute="leading" secondItem="bo5-KR-Ytq" secondAttribute="trailing" constant="-3" id="Gcz-Of-ZzE"/>
-                    <constraint firstAttribute="centerY" secondItem="caT-9E-V59" secondAttribute="centerY" constant="-0.5" id="K6J-3b-wpu"/>
+                    <constraint firstAttribute="centerY" secondItem="caT-9E-V59" secondAttribute="centerY" constant="-1.5" id="K6J-3b-wpu"/>
                     <constraint firstItem="2gc-lo-NLT" firstAttribute="leading" secondItem="bo5-KR-Ytq" secondAttribute="trailing" constant="-3" id="RnM-wN-dY4"/>
                     <constraint firstItem="bo5-KR-Ytq" firstAttribute="leading" secondItem="KTK-Rg-4iX" secondAttribute="trailing" constant="3" id="Sr0-ni-phe"/>
                     <constraint firstItem="caT-9E-V59" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="TYr-Z4-v6h"/>

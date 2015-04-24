@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="-275" y="-76"/>
+            <point key="canvasLocation" x="-310" y="32"/>
         </view>
         <view contentMode="scaleToFill" id="VUo-5C-knY">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1009,7 +1009,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="ZST-pZ-0Wd"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="146" y="-84"/>
+            <point key="canvasLocation" x="98" y="-175"/>
         </view>
         <view contentMode="scaleToFill" id="6hm-U9-1K4">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1106,7 +1106,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="95l-oH-VJb"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="16" y="-445"/>
+            <point key="canvasLocation" x="-96" y="-560"/>
         </view>
         <view contentMode="scaleToFill" id="Giv-w1-GwJ">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1203,7 +1203,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="JE2-8h-lg2"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="124" y="-445"/>
+            <point key="canvasLocation" x="35" y="-560"/>
         </view>
         <view contentMode="scaleToFill" id="7z6-Q8-P3K">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1300,7 +1300,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="goi-le-VdO"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="243" y="-445"/>
+            <point key="canvasLocation" x="146" y="-560"/>
         </view>
         <view contentMode="scaleToFill" id="wb8-G6-61y">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1340,7 +1340,7 @@ EOWutuaVmeS4k+Wcug
                         <constraint firstAttribute="height" constant="60" id="m89-ia-FDd"/>
                         <constraint firstAttribute="width" constant="50" id="mR8-Ku-bVU"/>
                     </constraints>
-                    <state key="normal" image="morejob.png">
+                    <state key="normal" image="moreJobs.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -1397,13 +1397,13 @@ EOWutuaVmeS4k+Wcug
                     <include reference="lfF-Xs-mha"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="390" y="-445"/>
+            <point key="canvasLocation" x="243" y="-589"/>
         </view>
     </objects>
     <resources>
         <image name="arrow.png" width="30" height="30"/>
         <image name="card.png" width="110" height="110"/>
-        <image name="morejob.png" width="100" height="100"/>
+        <image name="moreJobs.png" width="100" height="100"/>
         <image name="nearby.png" width="110" height="110"/>
         <image name="protait1.png" width="57" height="57"/>
         <image name="protait2-60.png" width="60" height="60"/>

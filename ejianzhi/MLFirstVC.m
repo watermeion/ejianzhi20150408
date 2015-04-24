@@ -32,6 +32,9 @@
 
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
 
+
+#import "SearchViewController.h"
+
 @interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSArray *collectionViewCellArray;
@@ -100,7 +103,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.titleView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBar"]];
+    UIImageView *searchbarImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBar"]];
+    
+    searchbarImageView.userInteractionEnabled=YES;
+    //为searchBar添加操作
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchBarTapped)];
+    [searchbarImageView addGestureRecognizer:singleTap];
+    
+    self.navigationItem.titleView=searchbarImageView;
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"附近兼职" style:UIBarButtonItemStylePlain target:self action:@selector(findJobWithLocationAction:)];
@@ -125,16 +136,27 @@
     
 }
 
+
+
+
+-(void)searchBarTapped
+{
+    SearchViewController *searchVC=[[SearchViewController alloc]init];
+    searchVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:searchVC animated:YES];
+
+}
+
+
+
 -(void)addViewToScrollView
 {
     CGFloat edgewidth=2.0;
     CGFloat width = 60.0f;
     CGFloat marginwidth=(MainScreenWidth-(2*edgewidth)-4*width)/3;
-    
     int count=[collectionViewCellArray count];
     for (int i=0; i<[collectionViewCellArray count]; i++) {
         UIView *view=[collectionViewCellArray objectAtIndex:i];
-
         if(i==0){
             view.frame=CGRectMake(edgewidth,0,width,view.frame.size.height);
         }else
@@ -145,8 +167,6 @@
     }
     self.middleScrollView.contentSize=CGSizeMake((width+marginwidth)*count,80);
     //    self.middleScrollView.pagingEnabled=YES;
-    
-    
 }
 
 

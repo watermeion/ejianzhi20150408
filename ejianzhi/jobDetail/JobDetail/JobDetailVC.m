@@ -358,10 +358,11 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 -(void)makeContactAction
 {
     //添加联系
+    //FIXME:换控件
     self.popUpView.layer.cornerRadius=2;
-    self.popUpView.frame=CGRectMake(0, 0, 300, 280);
-    
-    [PopoverView showPopoverAtPoint:CGPointMake((MainScreenWidth/2-150), (MainScreenHeight/2-140-64-44)) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
+    self.popUpView.autoresizingMask=UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    self.popUpView.frame=CGRectMake(0, 0, (300/320)*MainScreenWidth, (280/468)*MainScreenHeight);
+    [PopoverView showPopoverAtPoint:CGPointMake(190, ((MainScreenHeight-280-64-44-200)/2)) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
 }
 
 - (IBAction)callAction:(id)sender {
@@ -399,8 +400,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
     
 }
-
-
 
 
 - (IBAction)showInMapAction:(id)sender {

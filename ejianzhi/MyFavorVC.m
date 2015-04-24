@@ -14,7 +14,7 @@
 #import "DateUtil.h"
 #import "JianZhi.h"
 #import "QiYeInfo.h"
-
+#import "JobDetailVC.h"
 @interface MyFavorVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL headerRefreshing;
@@ -223,6 +223,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+     AVObject *object=[recordArray objectAtIndex:indexPath.row];
+    JianZhi *jianzhi=[object objectForKey:@"jianZhi"];
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
+    detailVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+//    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 }
 
 
