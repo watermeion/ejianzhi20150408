@@ -47,8 +47,8 @@
 
 - (void)setIconBackgroundColor:(UIColor*)color
 {
-    if(color==nil) return;
-    self.IconView.backgroundColor=color;
+    if(color==nil) self.IconView.backgroundColor=GreenFillColor;
+    else self.IconView.backgroundColor=color;
 }
 
 @end

@@ -68,7 +68,7 @@ static int reloadTimes;
 -(void)getJianZhiTypeListFromAVOS
 {
     AVQuery *query=[AVQuery queryWithClassName:@"JianZhiTypeList"];
-    query.cachePolicy=kAVCachePolicyNetworkElseCache;
+    query.cachePolicy=kAVCachePolicyCacheElseNetwork;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error==nil) {
             if (objects.count>0) {

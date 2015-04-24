@@ -9,6 +9,7 @@
 #import "MLMapView.h"
 #import "CustomAnnotationView.h"
 #import "AJLocationManager.h"
+#import "UIView+ImageFromView.h"
 @implementation MLMapView
 @synthesize mapView=_mapView;
 
@@ -82,9 +83,8 @@
         }else{
             
             annotationView.rightCalloutAccessoryView=nil;
-            annotationView.image=[UIImage imageNamed:@"greenPin.png"];
+            annotationView.image=nil;
         }
-        
         
         if (btnIndex==NSIntegerMax)
         {
@@ -103,8 +103,9 @@
             annotationView.centerOffset = CGPointMake(0, 0);
         }
         else{
-            annotationView.image = [UIImage imageNamed:@"greenPin.png"];
-            
+//            UIImage *image=[UIView createImageFromView:annotationView];
+//            annotationView.image=image;
+            annotationView.image=[UIImage imageNamed:@"greenPin.png"];
             // 设置为NO，用以调用自定义的calloutView
             annotationView.canShowCallout = YES;
             // 设置中心点偏移，使得标注底部中间点成为经纬度对应点

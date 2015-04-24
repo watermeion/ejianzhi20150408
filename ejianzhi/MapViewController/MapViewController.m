@@ -55,9 +55,6 @@
         self.mapViewModel=[[MapJobViewModal alloc]init];
         self.mapViewModel.handleView=self.mapView;
         self.mapView.showDetailDelegate=self;
-       
-        
-        
         return self;
     }
     return nil;
@@ -172,9 +169,6 @@
         if(self.mapView.userAddMAPointAnnotation!=nil) self.mapView.userAddMAPointAnnotation.subtitle=[results firstObject];
         else self.mapView.userAddMAPointAnnotation.subtitle=@"未找到";
        
-        
-        
-    
         //以下代码是地图点选的功能的。
 //         id obj=[results lastObject];
 //        if ([obj isKindOfClass:[NSArray class]]) {
