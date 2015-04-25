@@ -15,12 +15,9 @@
 @end
 
 
-@class BmobUser;
-
 @interface SRLoginBusiness : NSObject
-{
-   
-}
+
+typedef void (^loginBlock)(BOOL succeed);
 
 @property (nonatomic,weak) MLLoginManger *loginManager;
 
@@ -29,22 +26,18 @@
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *email;
 @property (nonatomic,strong)NSString *feedback;
-@property (nonatomic,weak)BmobUser *isSucceedUserLogin;
 
 @property(nonatomic,weak) id<loginSucceed> loginDelegate;
 
--(void) loginInbackground:(NSString*) username Pwd:(NSString*)pwd;
-
--(BOOL) loginIsSucceed:(BOOL)result;
-
+-(void)loginInbackground:(NSString *)username Pwd:(NSString *)pwd loginType:(NSUInteger)type withBlock:(loginBlock)loginBlock;
 //保存username
--(BOOL)saveUserInfoLocally:(SRUserInfo*)_userInfo;
+-(BOOL)saveUserInfoLocally:(NSString*)_avatarString;
+
 -(BOOL)checkIfAuto_login;
 
 
 //登出方法
 -(BOOL)logOut;
-
 
 -(instancetype)init;
 @end

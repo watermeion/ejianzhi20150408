@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SRRegisterVC">
@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已看过并同意E兼职" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9O-pr-6b7">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已看过并同意e兼职" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9O-pr-6b7">
                     <rect key="frame" x="57" y="364" width="126" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="tRB-P7-bfC"/>
@@ -48,7 +48,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAz-8X-wgX">
                     <rect key="frame" x="0.0" y="87" width="320" height="241"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-8w-9Lv">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-76.png" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-8w-9Lv">
                             <rect key="frame" x="117" y="8" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="KEY-Kw-6kF"/>
@@ -374,7 +374,7 @@
                     <items>
                         <navigationItem title="用户注册" id="HY4-hx-Wpz">
                             <barButtonItem key="leftBarButtonItem" title="返回" id="K2l-HB-joj">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="touchBack:" destination="-1" id="Yh5-sq-Nqf"/>
                                 </connections>
@@ -394,12 +394,12 @@
                 </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-RC-lAS">
                     <rect key="frame" x="35" y="397" width="250" height="40"/>
-                    <color key="backgroundColor" red="0.90196078430000004" green="0.3803921569" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="rjh-av-XSv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="注  册">
+                    <state key="normal" title="注      册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -486,7 +486,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon-76.png" width="76" height="76"/>
         <image name="box_3.png" width="516" height="250"/>
-        <image name="logo.png" width="80" height="80"/>
     </resources>
 </document>

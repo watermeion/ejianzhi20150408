@@ -83,7 +83,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户登录账户" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="00O-Dy-WYs" userLabel="账号文本框">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="00O-Dy-WYs" userLabel="账号文本框">
                             <rect key="frame" x="123" y="125" width="150" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="c6V-WL-kVD"/>

@@ -25,7 +25,6 @@
     int seconds;
 }
 
-
 @property BOOL agreed;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *securityCode;

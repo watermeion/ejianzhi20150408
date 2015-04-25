@@ -7,11 +7,10 @@
 //
 
 #import "SRRegisterVC.h"
-//#import <BmobSDK/Bmob.h>
 #import "SRLoginVC.h"
 #import "SMS_SDK/SMS_SDK.h"
 
-@interface SRRegisterVC ()<registerComplete>
+@interface SRRegisterVC ()<registerComplete,UIAlertViewDelegate>
 
 @end
 
@@ -60,8 +59,6 @@
      }];
     
     
-
-    
     RACSignal *validUserPwdSignal=[self.userPassword.rac_textSignal map:^id(NSString *text) {
         return @(text.length>0);
     }];
@@ -92,8 +89,6 @@
     [self.securityCode.rac_textSignal subscribeNext:^(NSString *text) {
         verifyCode=text;
     }];
-    
-    
         
     //创建注册按钮激活信号
     RACSignal *signUpActiveSignal=[RACSignal combineLatest:@[validUsernameSignal,validUserPwdSignal,validVerifycodeSignal,RACObserve(self, agreed)]
@@ -143,9 +138,9 @@
  */
 - (void)registerComplete:(BOOL)isSucceed{
     if (isSucceed) {
-        [self dismissViewControllerAnimated:NO completion:^{
-            [self.registerDelegate successRegistered];
-        }];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注册成功" message:Register.feedback delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注册失败" message:Register.feedback delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
@@ -267,10 +262,9 @@
 //触发事件
 -(void)handleMaxShowTimer:(NSTimer *)theTimer
 {
-    NSLog(@"%d",seconds);
     seconds--;
     
-    [self performSelectorOnMainThread:@selector(showTimer) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(showTimer) withObject:nil waitUntilDone:NO];
     
 }
 
@@ -286,9 +280,13 @@
     
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end

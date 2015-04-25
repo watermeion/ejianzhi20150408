@@ -9,11 +9,31 @@
 #import "MLTabbar1.h"
 #import "MLNavi.h"
 
-@interface MLTabbar1 ()
+#import "MLForthVC.h"
 
+@interface MLTabbar1 ()
+@property (strong,nonatomic)MLForthVC *forthVC;
 @end
 
 @implementation MLTabbar1
+
+static  MLTabbar1 *thisController=nil;
+
++(MLTabbar1*)shareInstance
+{
+    if (thisController==nil) {
+        thisController=[[MLTabbar1 alloc] init];
+    }
+    return thisController;
+}
+
+-(MLForthVC*)forthVC
+{
+    if (_forthVC==nil) {
+        _forthVC=[[MLForthVC alloc]init];
+    }
+    return  _forthVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +48,7 @@
     pageOneVC.title=@"我发布的兼职";
     UIViewController *pageTwoVC=[self makeRootByNavigationController:[[UIViewController alloc] init]];
     pageTwoVC.title=@"消息";
-    UIViewController *pageThreeVC=[self makeRootByNavigationController:[[UIViewController alloc] init]];
+    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.forthVC];
     pageThreeVC.title=@"我的";
     
     self.viewControllers=@[pageOneVC,pageTwoVC,pageThreeVC];
@@ -78,17 +98,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

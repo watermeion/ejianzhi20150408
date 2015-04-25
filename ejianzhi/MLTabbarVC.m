@@ -28,6 +28,16 @@
 
 @implementation MLTabbarVC
 
+static  MLTabbarVC *thisController=nil;
+
++(MLTabbarVC*)shareInstance
+{
+    if (thisController==nil) {
+        thisController=[[MLTabbarVC alloc] init];
+    }
+    return thisController;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

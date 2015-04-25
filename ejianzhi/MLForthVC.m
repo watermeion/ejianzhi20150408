@@ -22,6 +22,7 @@
 #import "UIImageView+EMWebCache.h"
 #import "AppDelegate.h"
 
+#import "MLTabbarVC.h"
 
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
@@ -92,12 +93,12 @@
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
 
-//    if ([AVUser currentUser]!=nil) {
-//        [self finishLogin];
-//    }
-//    else {
-//        [self finishLogout];
-//    }
+    if ([AVUser currentUser]!=nil) {
+        [self finishLogin];
+    }
+    else {
+        [self finishLogout];
+    }
 }
 
 - (void)chooseAvatar{
@@ -112,61 +113,62 @@
         actionSheet.tag = 0;
         [actionSheet showInView:self.view];
     }else{
-        UIViewController *vc=[self.loginManager showLoginVC];
-        [self presentViewController:vc animated:YES completion:nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"请先登录账户" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
-        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = TRUE;
-        [self presentViewController:imagePickerController animated:YES completion:^{}];
-        return;
-    }
-    if (buttonIndex == 1) {
-        UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-        {
-            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if (actionSheet.tag==0) {
+        if (buttonIndex == 0) {
+            UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             imagePickerController.delegate = self;
             imagePickerController.allowsEditing = TRUE;
             [self presentViewController:imagePickerController animated:YES completion:^{}];
-        }else{
-            UIAlertView *alterTittle = [[UIAlertView alloc] initWithTitle:ALERTVIEW_TITLE message:ALERTVIEW_CAMERAWRONG delegate:nil cancelButtonTitle:ALERTVIEW_KNOWN otherButtonTitles:nil];
-            [alterTittle show];
+            return;
         }
-        return;
-    }
+        if (buttonIndex == 1) {
+            UIImagePickerController *imagePickerController =[[UIImagePickerController alloc]init];
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            {
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                imagePickerController.delegate = self;
+                imagePickerController.allowsEditing = TRUE;
+                [self presentViewController:imagePickerController animated:YES completion:^{}];
+            }else{
+                UIAlertView *alterTittle = [[UIAlertView alloc] initWithTitle:ALERTVIEW_TITLE message:ALERTVIEW_CAMERAWRONG delegate:nil cancelButtonTitle:ALERTVIEW_KNOWN otherButtonTitles:nil];
+                [alterTittle show];
+            }
+            return;
+        }
 
+    }
 }
 
 - (IBAction)touchLogin:(id)sender {
     if ([AVUser currentUser]==nil) {
-
-        UIViewController *vc=[self.loginManager showLoginVC];
-        [self presentViewController:vc animated:YES completion:nil];
+        MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+        [tabbar.navigationController popViewControllerAnimated:YES];
     }
 }
 
 
 - (IBAction)logout:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消",nil];
-    alert.delegate=self;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
     [alert show];
+
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if (buttonIndex==0) {
-        
+    if (buttonIndex==1) {
         BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
         if (isLogout) {
+            MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+            [tabbar.navigationController popViewControllerAnimated:YES];
             [self finishLogout];
         }
-    
     }
 }
 
@@ -175,25 +177,18 @@
     self.buttonLabel.text=@"点击登录";
     self.userAvatarView.image=[UIImage imageNamed:@"placeholder"];
     self.logoutButton.hidden=YES;
-    //动态绑定LoginButton响应函数
+
     self.logoutButton.tag=10000;
     
     self.bottomConstraint.constant=-60;
-    
-    UIWindow *window = [[UIApplication sharedApplication].delegate window] ;
-    UIViewController *vc=[self.loginManager showLoginVC];
-    window.rootViewController = vc;
-
 }
 
 - (void)finishLogin{
     
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     
-    self.buttonLabel.text=[NSString stringWithFormat:@"%@",[mySettingData objectForKey:@"currentUserName"]];
-
     if ([mySettingData objectForKey:@"userAvatar"]) {
-        [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:[mySettingData objectForKey:@"userAvatar"]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:[mySettingData objectForKey:@"userAvatar"]]];
     }else{
         AVQuery *userQuery=[AVUser query];
         [userQuery whereKey:@"objectId" equalTo:[AVUser currentUser].objectId];
@@ -209,7 +204,7 @@
             }
         }];
     }
-
+    
     self.logoutButton.hidden=NO;
     //动态绑定LoginButton响应函数
     self.logoutButton.tag=20000;

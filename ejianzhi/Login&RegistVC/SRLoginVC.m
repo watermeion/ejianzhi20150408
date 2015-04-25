@@ -12,8 +12,12 @@
 #import "MLLoginViewModel.h"
 #import "MLLoginManger.h"
 #import "MLTabbarVC.h"
+#import "MLTabbar1.h"
 
-@interface SRLoginVC ()<loginSucceed,successRegistered>
+@interface SRLoginVC ()<successRegistered>
+{
+    NSInteger loginType;
+}
 @property (weak,nonatomic) MLLoginManger *loginManager;
 @property (strong, nonatomic) IBOutlet UIButton *otherLoginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *lookAroundBtn;
@@ -45,8 +49,17 @@ static  SRLoginVC *thisController=nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=@"求职者登录";
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+
+    if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"0"]) {
+        MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+        [self.navigationController pushViewController:tabbar animated:NO];
+    }else if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"1"]){
+        MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
+        [self.navigationController pushViewController:tabbar animated:NO];
+    }
     
+    loginType=0;
     self.loginManager=[MLLoginManger shareInstance];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -180,56 +193,37 @@ static  SRLoginVC *thisController=nil;
     }
     else
     {
-        [loginer loginInbackground:loginer.username Pwd:loginer.pwd];
-    }
-}
-
-- (void)logIn{
-    
-    //    AVInstallation *currentInstallation = [AVInstallation currentInstallation];
-    //    [currentInstallation setObject:currentInstallation.deviceToken forKey:@"installationId"];
-    //    [currentInstallation saveInBackground];
-    //
-    //    AVUser *_user=[AVUser currentUser];
-    //    [_user setObject:currentInstallation.deviceToken forKey:@"installationId"];
-    //    [_user saveInBackground];
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self.finishLoginDelegate finishLogin];
-    }];
-}
-
-- (void)loginSucceed:(BOOL)isSucceed{
-    
-    if(isSucceed)
-    {
-        [self logIn];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:loginer.feedback message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        
+        [loginer loginInbackground:loginer.username Pwd:loginer.pwd loginType:loginType withBlock:^(BOOL succeed) {
+            if (succeed) {
+                MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+                [self.navigationController pushViewController:tabbar animated:YES];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:loginer.feedback message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
     }
 }
 
 - (void)successRegistered{
-    [self logIn];
+    //[self logIn];
 }
 
 - (IBAction)lookAround:(id)sender {
-    MLTabbarVC *mainTabViewController=[[MLTabbarVC alloc]init];
-    [self.navigationController pushViewController:mainTabViewController animated:NO];
+    MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+    [self.navigationController pushViewController:tabbar animated:YES];
 }
 
 - (IBAction)otherLogin:(id)sender {
     if ([self.navItem.title isEqualToString:@"求职者登录"]) {
         self.navItem.title=@"企业登录";
         self.userAccount.placeholder=@"请输入企业登录账户";
-        [self.otherLoginBtn setTitle:@"用户登录" forState:UIControlStateNormal];
+        [self.otherLoginBtn setTitle:@"求职者登录" forState:UIControlStateNormal];
+        loginType=1;
     }else{
         self.navItem.title=@"求职者登录";
-        [self.otherLoginBtn setTitle:@"用户登录" forState:UIControlStateNormal];
+        [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
+        loginType=0;
     }
     self.userAccount.placeholder=@"请输入用户登录账户";
 }

@@ -10,4 +10,6 @@
 
 @interface MLTabbar1 : UITabBarController
 
++(MLTabbar1*)shareInstance;
+
 @end
