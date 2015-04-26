@@ -11,28 +11,32 @@
 
 
 #import "SearchViewController.h"
-#import "JobListTableViewController.h"
 #import "JobListTableViewCell.h"
+#import "JobListTableViewController.h"
 #import "JianZhi.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
 @interface SearchViewController ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-//@property (strong,nonatomic)JobListTableViewController *tableList;
+@property (strong,nonatomic)JobListTableViewController *tableListController;
 @property (strong,nonatomic)UITableView *searchHistoryTableView;
 @property (strong,nonatomic)NSMutableArray *searchHistoryWordsArray;
 
-@property (strong,nonatomic)NSArray* searchResultsArray;
+//@property (strong,nonatomic)NSArray* searchResultsArray;
 
-@property (strong,nonatomic)UITableView* resultsTableView;
+//@property (strong,nonatomic)UITableView* resultsTableView;
 
 @end
 
 @implementation SearchViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title=@"搜索";
+    _tableListController=[[JobListTableViewController alloc]initWithAutoLoad:NO];
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.navigationItem.titleView=self.searchBar;
     self.searchBar.delegate=self;
@@ -52,10 +56,10 @@
     
     self.searchHistoryWordsArray=[NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]objectForKey:@"searchHistoryArray"]];
     if (self.searchHistoryWordsArray==nil) self.searchHistoryWordsArray=[NSMutableArray array];
-    self.resultsTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight-64) style:UITableViewStylePlain];
-    self.resultsTableView.delegate=self;
-    self.resultsTableView.dataSource=self;
-    self.resultsTableView.tag=resultsTableTag;
+//    self.resultsTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight-64) style:UITableViewStylePlain];
+//    self.resultsTableView.delegate=self;
+//    self.resultsTableView.dataSource=self;
+//    self.resultsTableView.tag=resultsTableTag;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,12 +110,13 @@
     //FIXME：执行搜索
     NSLog(@"搜索内容：%@",searchBar.text);
     //记录搜索历史数据，不超过10条
+    if(![self.searchHistoryWordsArray containsObject:searchBar.text]){
     if(self.searchHistoryWordsArray.count>10) [self.searchHistoryWordsArray removeLastObject];
-    NSString *searchtext=[searchBar.text copy];
-    [self.searchHistoryWordsArray insertObject:searchtext atIndex:0];
+//    NSString *searchtext=[searchBar.text copy];
+    [self.searchHistoryWordsArray insertObject:searchBar.text atIndex:0];
     [self.searchHistoryTableView reloadData];
-    
-    [self AVquery:searchtext];
+    }
+    [self AVquery:searchBar.text];
     
 }
 // called when keyboard search button pressed
@@ -142,13 +147,10 @@
 
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag==resultsTableTag) {
-        return 101;
-    }
+ 
     return 40;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView.tag==resultsTableTag) return self.searchResultsArray.count;
     // Return the number of rows in the section.
     if (self.searchHistoryWordsArray!=nil) {
         return self.searchHistoryWordsArray.count;
@@ -159,57 +161,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (tableView.tag==resultsTableTag) {
-        
-        BOOL nibsRegistered = NO;
-        static NSString *Cellidentifier=@"JobListTableViewCell";
-        if (!nibsRegistered) {
-            UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
-            [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-        }
-        
-        JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-        //设置兼职信息列表内容
-        
-        JianZhi *jianzhi=[self.searchResultsArray objectAtIndex:indexPath.row];
-        
-        cell.titleLabel.text=jianzhi.jianZhiTitle;
-        cell.categoryLabel.text=jianzhi.jianZhiType;
-        cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
-        cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-        cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
-        
-        cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
-        //待完善
-        cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
-        cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
-        //    兼职的IconView
-        
-        
-        //    FIXME:兼职小图标动态显示
-        
-        return cell;
-    }
-    else
-    {
+//    if (tableView.tag==resultsTableTag) {
+//
+//    }
+//    else
+//    {
         UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell123"];
         if (cell==nil) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell123"];
         }
         cell.textLabel.text=[self.searchHistoryWordsArray objectAtIndex:indexPath.row];
         return cell;
-    }
+//    }
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    JianZhi *jianzhi=[self.viewModel.resultsList objectAtIndex:indexPath.row];
-    //    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
-    //    detailVC.hidesBottomBarWhenPushed=YES;
-    //    [self.navigationController pushViewController:detailVC animated:YES];
-    //    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
-    
     self.searchBar.text=[self.searchHistoryWordsArray objectAtIndex:indexPath.row];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:1.0f];
 }
@@ -236,21 +204,21 @@
     [searchQuery findInBackground:^(NSArray *objects, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (error==nil) {
-            
+            NSArray *array=[NSArray array];
             for (AVObject *object in objects) {
                 NSString *appUrl = [object objectForKey:@"_app_url"];
                 NSString *deeplink = [object objectForKey:@"_deeplink"];
                 NSString *hightlight = [object objectForKey:@"_highlight"];
                 // other fields
                 // code is here
-                if(self.searchResultsArray==nil) self.searchResultsArray=[NSArray array];
-                self.searchResultsArray=[self.searchResultsArray arrayByAddingObject:object];
+                
+                array=[array arrayByAddingObject:object];
             }
-            if(self.searchResultsArray.count!=0)
+            if(array.count!=0)
             {
-                [self.searchHistoryTableView removeFromSuperview];
-                [self.view addSubview:self.resultsTableView];
-                [self.resultsTableView reloadData];
+                self.tableListController.resultsArray=array;
+                [self.navigationController pushViewController:self.tableListController animated:YES];
+//                [self.tableListController.tableView reloadData];
             }else
             {
                 [MBProgressHUD showError:@"没有你要找的信息" toView:nil];

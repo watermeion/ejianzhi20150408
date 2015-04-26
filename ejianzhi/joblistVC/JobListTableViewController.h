@@ -12,7 +12,7 @@
 
 @property (strong,nonatomic) MLJianZhiViewModel *viewModel;
 @property BOOL isAutoLoad;
-
+@property (strong,nonatomic)NSArray *resultsArray;
 
 - (NSArray*)getViewModelResultsList;
 
