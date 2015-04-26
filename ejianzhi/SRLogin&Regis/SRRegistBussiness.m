@@ -15,15 +15,10 @@
 @synthesize phone;
 
 -(void)NewUserRegistInBackground:(NSString*)_username Pwd:(NSString*)_password Phone:(NSString *)_phone{
-    
-    //环信注册接口
-    
-    //bomb注册接口
-    
+  
     AVUser *user = [AVUser user];
     user.username = _username;
     user.password = _password;
-//    user.email = @"steve@company.com";
     [user setObject:_phone forKey:@"mobilePhoneNumber"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -43,7 +38,9 @@
 
 -(void) RegistHasFailed:(NSError*)error
 {
-    self.feedback=error.description;
+    if (error.code==214)
+        self.feedback=@"用户名已被注册";
+
     [self.registerDelegate registerComplete:NO];
 }
 

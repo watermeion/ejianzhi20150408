@@ -28,6 +28,23 @@
 
 @implementation MLTabbarVC
 
+static  MLTabbarVC *thisController=nil;
+
++(MLTabbarVC*)shareInstance
+{
+    if (thisController==nil) {
+        thisController=[[MLTabbarVC alloc] init];
+    }
+    return thisController;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
 
 -(MLFirstVC*)firstVC
 {
@@ -73,6 +90,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     [self viewControllersInit];
 }
 

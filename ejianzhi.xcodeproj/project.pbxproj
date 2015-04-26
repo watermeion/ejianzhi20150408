@@ -880,10 +880,10 @@
 		045622EF1AD61A33006E159C /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
 		045622F01AD61A33006E159C /* MLMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMapView.h; sourceTree = "<group>"; };
 		045622F11AD61A33006E159C /* MLMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMapView.m; sourceTree = "<group>"; };
-		045622F51AD61A8F006E159C /* SRLoginBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRLoginBusiness.h; sourceTree = "<group>"; };
-		045622F61AD61A8F006E159C /* SRLoginBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRLoginBusiness.m; sourceTree = "<group>"; };
-		045622F71AD61A8F006E159C /* SRRegistBussiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRegistBussiness.h; sourceTree = "<group>"; };
-		045622F81AD61A8F006E159C /* SRRegistBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRegistBussiness.m; sourceTree = "<group>"; };
+		045622F51AD61A8F006E159C /* SRLoginBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRLoginBusiness.h; path = "../SRLogin&Regis/SRLoginBusiness.h"; sourceTree = "<group>"; };
+		045622F61AD61A8F006E159C /* SRLoginBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRLoginBusiness.m; path = "../SRLogin&Regis/SRLoginBusiness.m"; sourceTree = "<group>"; };
+		045622F71AD61A8F006E159C /* SRRegistBussiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRRegistBussiness.h; path = "../SRLogin&Regis/SRRegistBussiness.h"; sourceTree = "<group>"; };
+		045622F81AD61A8F006E159C /* SRRegistBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRegistBussiness.m; path = "../SRLogin&Regis/SRRegistBussiness.m"; sourceTree = "<group>"; };
 		045622FC1AD61ABC006E159C /* SRLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRLoginVC.h; sourceTree = "<group>"; };
 		045622FD1AD61ABC006E159C /* SRLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRLoginVC.m; sourceTree = "<group>"; };
 		045622FE1AD61ABC006E159C /* SRLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRLoginVC.xib; sourceTree = "<group>"; };
@@ -1671,7 +1671,6 @@
 				045622E91AD616C1006E159C /* TTGlobalUICommon */,
 				045622E11AD61651006E159C /* MBProgressHUD */,
 				045622FB1AD61ABC006E159C /* Login&RegistVC */,
-				045622F41AD61A8F006E159C /* SRLogin&Regis */,
 				045622C01AD6162D006E159C /* IQKeyboardManager */,
 				045622ED1AD61A33006E159C /* MapView */,
 				0443C20A1AD5560F004F29A5 /* jobDetail */,
@@ -1993,17 +1992,6 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
-		045622F41AD61A8F006E159C /* SRLogin&Regis */ = {
-			isa = PBXGroup;
-			children = (
-				045622F51AD61A8F006E159C /* SRLoginBusiness.h */,
-				045622F61AD61A8F006E159C /* SRLoginBusiness.m */,
-				045622F71AD61A8F006E159C /* SRRegistBussiness.h */,
-				045622F81AD61A8F006E159C /* SRRegistBussiness.m */,
-			);
-			path = "SRLogin&Regis";
-			sourceTree = "<group>";
-		};
 		045622FB1AD61ABC006E159C /* Login&RegistVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2015,6 +2003,10 @@
 				045623011AD61ABC006E159C /* SRRegisterVC.xib */,
 				045623021AD61ABC006E159C /* SRUserInfo.h */,
 				045623031AD61ABC006E159C /* SRUserInfo.m */,
+				045622F51AD61A8F006E159C /* SRLoginBusiness.h */,
+				045622F61AD61A8F006E159C /* SRLoginBusiness.m */,
+				045622F71AD61A8F006E159C /* SRRegistBussiness.h */,
+				045622F81AD61A8F006E159C /* SRRegistBussiness.m */,
 			);
 			path = "Login&RegistVC";
 			sourceTree = "<group>";

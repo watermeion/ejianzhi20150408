@@ -21,53 +21,45 @@
         return self;
     }
     return nil;
-
-
 }
 
 
--(void)loginInbackground:(NSString *)username Pwd:(NSString *)pwd
+-(void)loginInbackground:(NSString *)username Pwd:(NSString *)pwd loginType:(NSUInteger)type withBlock:(loginBlock)loginBlock
 {
     
     [AVUser logInWithUsernameInBackground:username password:pwd block:^(AVUser *user, NSError *error) {
+
         if (user != nil) {
-            [self loginIsSucceed:YES];
-            SRUserInfo *userInfo=[[SRUserInfo alloc]init];
-            userInfo.username=user.username;
-            [self saveUserInfoLocally:userInfo];
-            //完成一些本地化操作
+            NSNumber *typenum=[user objectForKey:@"userType"];
+            if ([typenum integerValue]!=type) {
+                self.feedback=@"登录账户名不存在";
+                loginBlock(NO);
+            }else{
+                AVFile *avatarFile=[user objectForKey:@"avatar"];
+
+                [self saveUserInfoLocally:avatarFile.url userType:[typenum stringValue]];
+
+                self.feedback=@"登录成功";
+                loginBlock(YES);
+            }
         } else {
-            [self loginIsSucceed:NO];
+            if (error.code==210) {
+                self.feedback=@"登录密码错误";
+            }else if (error.code==211)
+                self.feedback=@"登录账户名不存在";
+            loginBlock(NO);
         }
     }];
-}
-
--(BOOL)loginIsSucceed:(BOOL)result
-{
-    if (result) {
-        self.feedback=@"登录成功";
-        [self.loginManager setLoginState:active];
-        [self.loginDelegate loginSucceed:YES];
-    }
-    else
-    {
-        self.feedback=@"登录失败";
-        [self.loginDelegate loginSucceed:NO];
-
-    }
-    return result;
-}
-
--(BOOL)saveUserInfoLocally:(SRUserInfo*)_currentInfo
-{
-    //本地化常用数据
-    //currentUserName 当前用户名
     
-    if (_currentInfo!=nil) {
-        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-        [mySettingData setObject:_currentInfo.username forKey:@"currentUserName"];
-        [mySettingData synchronize];
-    }
+}
+
+//保存用户头像url
+-(BOOL)saveUserInfoLocally:(NSString*)_avatarString userType:(NSString*)_type
+{
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    [mySettingData setObject:_avatarString forKey:@"userAvatar"];
+    [mySettingData setObject:_type forKey:@"userType"];
+    [mySettingData synchronize];
     return YES;
 }
 
@@ -87,13 +79,12 @@
 
 -(BOOL)logOut
 {
-    //退出机制
 
-    
     [AVUser logOut];
+    
     [self.loginManager setLoginState:unactive];
+    
         if ([AVUser currentUser]==nil) {
-            //设置NSUserdefault
     
             NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     
@@ -103,7 +94,10 @@
     
             [mySettingData removeObjectForKey: @"userAvatar"];
             
+            [mySettingData removeObjectForKey:@"userType"];
+            
             [mySettingData synchronize];
+            
             return YES;
         }
         else

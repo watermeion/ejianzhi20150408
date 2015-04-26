@@ -10,8 +10,6 @@
 #import "IQKeyboardManager.h"
 #import <AVOSCloud/AVOSCloud.h>
 
-
-@class PullServerManager;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
