@@ -210,7 +210,11 @@
     if (currentUser!=nil) {
         //FIXME: 子类化后修改
         
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId};
+        NSString *qiYeId=@"";
+        if (self.jianZhi.qiYeInfoId!=nil) {
+            qiYeId=self.jianZhi.qiYeInfoId;
+        }
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
         [AVCloud callFunctionInBackground:@"add_shoucang" withParameters:parameters block:^(id object, NSError *error) {
             // 执行结果
             if (error==nil) {
@@ -259,7 +263,12 @@
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
         
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
+        //企业Id判空
+        NSString *qiYeId=@"";
+        if (self.jianZhi.qiYeInfoId!=nil) {
+            qiYeId=self.jianZhi.qiYeInfoId;
+        }
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
         
         [AVCloud callFunctionInBackground:@"add_tousu" withParameters:parameters block:^(id object, NSError *error) {
             // 执行结果
@@ -291,8 +300,12 @@
     if (currentUser!=nil) {
     
     //FIXME: 子类化后修改
-        
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":self.jianZhi.qiYeInfoId,@"userId":currentUser.objectId};
+        //企业Id判空
+        NSString *qiYeId=@"";
+        if (self.jianZhi.qiYeInfoId!=nil) {
+            qiYeId=self.jianZhi.qiYeInfoId;
+        }
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
         
         [AVCloud callFunctionInBackground:@"add_shenqing" withParameters:parameters block:^(id object, NSError *error) {
             // 执行结果

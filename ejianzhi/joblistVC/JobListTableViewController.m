@@ -9,11 +9,11 @@
 #import "JobListTableViewController.h"
 #import "MLJianZhiViewModel.h"
 #import "JobListTableViewCell.h"
-#import "JianZhi.h"
 #import "JobDetailVC.h"
 #import "MJRefresh.h"
 #import "UIColor+ColorFromArray.h"
 #import "PullServerManager.h"
+#import "JobListTableViewCell+configureForJobCell.h"
 @interface JobListTableViewController ()
 
 
@@ -21,6 +21,27 @@
 
 @implementation JobListTableViewController
 
+
+- (void)addDataSourceObbserver
+{
+    
+    @weakify(self)
+    [RACObserve(self.viewModel, resultsList) subscribeNext:^(NSArray *x) {
+        //FIXME:没有数据不显示
+        @strongify(self)
+        self.resultsArray=x;
+        [self.tableView headerEndRefreshing];
+        [self.tableView footerEndRefreshing];
+        [self.tableView reloadData];
+    }];
+    
+    [RACObserve(self.viewModel, error) subscribeNext:^(id x) {
+        @strongify(self)
+        [self.tableView headerEndRefreshing];
+        [self.tableView footerEndRefreshing];
+        //提示错误 交给self.viewModel 完成
+    }];
+}
 
 - (instancetype)initWithAutoLoad:(BOOL)autoload
 {
@@ -45,58 +66,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    @weakify(self)
-    [RACObserve(self.viewModel, resultsList) subscribeNext:^(NSArray *x) {
-        //FIXME:没有数据不显示
-        @strongify(self)
-        if(x.count!=0) self.resultsArray=x;
-    }];
-    [RACObserve(self, resultsArray) subscribeNext:^(NSArray *x){
-        @strongify(self)
-        [self.tableView headerEndRefreshing];
-        [self.tableView footerEndRefreshing];
-        [self.tableView reloadData];
-    }];
-    [RACObserve(self.viewModel, error) subscribeNext:^(id x) {
-        @strongify(self)
-        [self.tableView headerEndRefreshing];
-        [self.tableView footerEndRefreshing];
-        //提示错误 交给self.viewModel 完成
-    }];
+    [self addDataSourceObbserver];
     [self tableViewInit];
-    //自动载入
     if (self.isAutoLoad) {
         [self firstLoad];
     }
 }
 
 - (void)tableViewInit{
-    
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     self.tableView.scrollEnabled=YES;
 }
 
 -(void)firstLoad
 {
-    
-    [self.viewModel firstLoad];
+    if([self.viewModel isKindOfClass:[MLJianZhiViewModel class]])
+    {
+        MLJianZhiViewModel *viewModel=(MLJianZhiViewModel*)self.viewModel;
+        [viewModel firstLoad];
+    }
 }
 
 - (void)addFooterRefresher
 {
+    //    [self.tableView addFooterWithTarget:self.delegate action:@selector(executeFooterFresh)];
     [self.tableView addFooterWithTarget:self.viewModel action:@selector(footerRefresh)];
 }
 
 - (void)addHeaderRefresher
 {
-    [self.tableView addHeaderWithTarget:self.viewModel action:@selector(headerRefresh)];
+    
+    //    [self.tableView addHeaderWithTarget:self.delegate  action:@selector(executeHeaderFresh)];
+    [self.tableView addFooterWithTarget:self.viewModel action:@selector(headerRefresh)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,7 +125,6 @@
     return 0;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BOOL nibsRegistered = NO;
@@ -135,39 +136,14 @@
     
     JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
     //设置兼职信息列表内容
-    
-    JianZhi *jianzhi=[self.resultsArray objectAtIndex:indexPath.row];
-    
-    cell.titleLabel.text=jianzhi.jianZhiTitle;
-    cell.categoryLabel.text=jianzhi.jianZhiType;
-    //根据兼职信息设置兼职色块颜色
-    
-    [cell setIconBackgroundColor:[self colorForType:jianzhi.jianZhiType]];
-    
-    
-    cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
-    cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-    cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
-    
-    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
-    //待完善
-    cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
-    cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
-    //兼职的IconView
-    
-    
-    
-    
-    //FIXME:兼职小图标动态显示
-    
+    [cell configureForJob:[self.resultsArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JianZhi *jianzhi=[self.resultsArray objectAtIndex:indexPath.row];
-    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.resultsArray objectAtIndex:indexPath.row]];
     detailVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:detailVC animated:YES];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
@@ -177,23 +153,6 @@
 {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
-
-
--(UIColor*)colorForType:(NSString*)type
-{
-    NSUserDefaults *mysetting=[NSUserDefaults standardUserDefaults];
-    NSDictionary *typeAndColorDict=[mysetting objectForKey:TypeListAndColor];
-    NSArray *typeArray=[typeAndColorDict allKeys];
-    if ([typeArray containsObject:type]) {
-        UIColor *color=[UIColor colorRGBFromArray:[typeAndColorDict objectForKey:type]];
-        return  color;
-    }
-    else
-    {
-        return nil;
-    }
-}
-
 
 
 

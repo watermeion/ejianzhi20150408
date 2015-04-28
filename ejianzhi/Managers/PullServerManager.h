@@ -20,7 +20,7 @@
 +(PullServerManager*)sharedIntance;
 -(void)rewriteUserDefaults;
 
-
+-(void)pullBannerInfo;
 
 
 

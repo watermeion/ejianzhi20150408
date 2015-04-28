@@ -10,6 +10,7 @@
 #import "PageSplitingManager.h"
 #import "MBProgressHUD+Add.h"
 #import "MBProgressHUD.h"
+
 @interface MLJianZhiViewModel()
 {
     AVQuery *typeQuery;
@@ -35,9 +36,9 @@
         self.pageManager.pageSize=6;
         self.isOrderByHot=NO;
         //监控网络、用户登录等连接。
-        RACSignal *loginActiveSignal=[RACObserve(self.loginManager,LoginState) map:^id(NSNumber *value) {
-            return @([value intValue]==active?YES:NO);
-        }];
+//        RACSignal *loginActiveSignal=[RACObserve(self.loginManager,LoginState) map:^id(NSNumber *value) {
+//            return @([value intValue]==active?YES:NO);
+//        }];
         
         //监听queryArray
         //        RACSignal *operationActiveSignal=
@@ -51,39 +52,43 @@
 }
 
 
-- (void) firstLoad
+- (AVQuery *) setQueryJianZhiParametersWithKey:(NSString*)key
+                                         Value:(NSString*) value
 {
-   [self headerRefresh];
-}
-
-/**
- *  queryJianZhiFromAVOSWithKey
- *
- *  @param key   key description
- *  @param value value description
- */
-- (void) queryJianZhiFromAVOSWithKey:(NSString*) key
-                               Value:(NSString*) value
-{
-    AVQuery *query = [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
+    AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     [query whereKey:key equalTo:value];
-    [self doRequest:query];
+    [query orderByDescending:@"updatedAt"];
+    return query;
 }
 
-/**
- *  分页增量更新
- *  保持原有数据不变
- *  @param skip  skip description
- *  @param limit limit description
- */
-- (void) queryJianZhiFromAVOSWithSkip:(NSUInteger) skip
-                                Limit:(NSUInteger) limit
+- (void)setMainQueryJianZhiParametersWithKey:(NSString*)key
+                                       Value:(NSString*) value
 {
-    AVQuery *query = [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
-    query.limit=limit;
-    query.skip=skip;
+    self.mainQuery= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
+    [self.mainQuery whereKey:key equalTo:value];
+    [self.mainQuery orderByDescending:@"updatedAt"];
+}
+
+///**
+// *  分页增量更新
+// *  保持原有数据不变
+// *  @param skip  skip description
+// *  @param limit limit description
+// */
+- (AVQuery *)setQueryJianZhiParametersWithDefault
+{
+    AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
+    query.cachePolicy=kAVCachePolicyNetworkElseCache;
     [query orderByDescending:@"updatedAt"];
-    [self doRequest:query];
+    return query;
+}
+
+
+-(void)doMainQuery
+{
+    if (self.mainQuery!=nil) {
+        [self doRequest:self.mainQuery];
+    }
 }
 
 /**
@@ -121,34 +126,41 @@
 }
 
 
-
 /**
  *  利用设置主query
  */
--(void)doQuery
+-(AVQuery*)setMainQueryParamsFromSubquerise
 {
-    AVQuery *query;
-    //执行query操作；
     if (self.queryArray.count>0) {
-        query=[AVQuery andQueryWithSubqueries:self.queryArray];
-        query.skip=[self.pageManager getNextStartAt];
-        query.limit=self.pageManager.pageSize;
-        query.cachePolicy=kAVCachePolicyNetworkElseCache;
+        self.mainQuery=[AVQuery andQueryWithSubqueries:self.queryArray];
+        [self setMainQueryPageSplitAndCache];
     }
     else{
-        query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
-        query.skip=[self.pageManager getNextStartAt];
-        query.limit=self.pageManager.pageSize;
-        query.cachePolicy=kAVCachePolicyNetworkElseCache;
+        self.mainQuery=[self setQueryJianZhiParametersWithDefault];
+        [self setMainQueryPageSplitAndCache];
     }
-    if(self.isOrderByHot)[query orderByDescending:@"jianZhiBrowseTime"];
-    else [query orderByDescending:@"updatedAt"];
-    [self doRequest:query];
+    
+    if(self.isOrderByHot)[self.mainQuery orderByDescending:@"jianZhiBrowseTime"];
+    else [self.mainQuery orderByDescending:@"updatedAt"];
+    return self.mainQuery;
 }
 
+
+-(void)setMainQueryPageSplitAndCache
+{
+    self.mainQuery.skip=[self.pageManager getNextStartAt];
+    self.mainQuery.limit=self.pageManager.pageSize;
+    self.mainQuery.cachePolicy=kAVCachePolicyNetworkElseCache;
+}
+
+/**
+ *  完成任何情况的刷新动作
+ */
 - (void) footerRefresh
 {
-    [self doQuery];
+    //刷新下拉刷新时需要修改
+    [self setMainQueryPageSplitAndCache];
+    [self doMainQuery];
     
 }
 
@@ -158,7 +170,8 @@
     [self.pageManager resetPageSplitingManager];
     //提交请求
     isHeaderFreshFlag=YES;
-    [self doQuery];
+    [self setMainQueryPageSplitAndCache];
+    [self doMainQuery];
 }
 
 
@@ -170,19 +183,20 @@
         if([keyword isEqualToString:@"不限"])
         {
             //取消原搜索
-            [self removeQuery:typeQuery];
+            [self removeQueryFromQueryArray:typeQuery];
             
         } else
         {
             if(typeQuery!=nil)
             {
                 //从新设置前先移除就得typeQuery;
-                [self removeQuery:typeQuery];
+                [self removeQueryFromQueryArray:typeQuery];
             }
             //字段 如何从子类中获得
             typeQuery=[self setFliterSubQueryParams:@"jianZhiType" objectKey:keyword];
-            [self addSubQueryToMainQuery:typeQuery];
+            [self addSubQueryToQueryArray:typeQuery];
         }
+        [self setMainQueryParamsFromSubquerise];
         [self headerRefresh];
     }
 }
@@ -193,17 +207,18 @@
         
         if([keyword isEqualToString:@"不限"])
         {
-            [self removeQuery:settleQuery];
+            [self removeQueryFromQueryArray:settleQuery];
             
         }else
         {
             //字段如何从子类中获得
             if (settleQuery!=nil) {
-                [self removeQuery:settleQuery];
+                [self removeQueryFromQueryArray:settleQuery];
             }
             settleQuery=[self setFliterSubQueryParams:@"jianZhiWageType" objectKey:keyword];
-            [self addSubQueryToMainQuery:settleQuery];
+            [self addSubQueryToQueryArray:settleQuery];
         }
+        [self setMainQueryParamsFromSubquerise];
         [self headerRefresh];
     }
 }
@@ -215,7 +230,7 @@
         if([keyword isEqualToString:@"最新"])
         {
             //系统默认都是最新的
-            [self removeQuery:otherQuery];
+            [self removeQueryFromQueryArray:otherQuery];
             self.isOrderByHot=NO;
         }
         else if([keyword isEqualToString:@"最热"])
@@ -228,6 +243,7 @@
             
             //FIXME:地理信息搜索还未做
         }
+        [self setMainQueryParamsFromSubquerise];
         [self headerRefresh];
     }
 }
@@ -245,14 +261,14 @@
 }
 
 
--(void)addSubQueryToMainQuery:(AVQuery*)subquery
+-(void)addSubQueryToQueryArray:(AVQuery*)subquery
 {
     if(self.queryArray==nil) self.queryArray=[NSMutableArray array];
     [self.queryArray addObject:subquery];
 }
 
 
--(void)removeQuery:(AVQuery*) query
+-(void)removeQueryFromQueryArray:(AVQuery*) query
 {
     [self.queryArray removeObject:query];
 }
@@ -262,6 +278,10 @@
     [self.queryArray removeAllObjects];
 }
 
-
+-(void)firstLoad
+{
+    self.mainQuery=[self setQueryJianZhiParametersWithDefault];
+    [self headerRefresh];
+}
 
 @end

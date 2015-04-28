@@ -137,6 +137,14 @@ static int reloadTimes;
 
 
 
+
+
+-(void)pullBannerInfo{
+
+
+}
+
+
 -(void)dealloc
 {
     

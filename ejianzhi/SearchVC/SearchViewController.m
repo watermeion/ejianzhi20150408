@@ -8,17 +8,15 @@
 
 
 #define resultsTableTag 99999
-
-
 #import "SearchViewController.h"
 #import "JobListTableViewCell.h"
-#import "JobListTableViewController.h"
+#import "SearchResultsViewController.h"
 #import "JianZhi.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
 @interface SearchViewController ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong,nonatomic)JobListTableViewController *tableListController;
+@property (strong,nonatomic)SearchResultsViewController *tableListController;
 @property (strong,nonatomic)UITableView *searchHistoryTableView;
 @property (strong,nonatomic)NSMutableArray *searchHistoryWordsArray;
 
@@ -36,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"搜索";
-    _tableListController=[[JobListTableViewController alloc]initWithAutoLoad:NO];
+    _tableListController=[[SearchResultsViewController alloc]initWithAutoLoad:NO];
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.navigationItem.titleView=self.searchBar;
     self.searchBar.delegate=self;
@@ -46,20 +44,20 @@
     
     self.searchHistoryTableView.delegate=self;
     self.searchHistoryTableView.dataSource=self;
-    UILabel *headerLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 20, 50)];
+    UILabel *headerLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 20, 25)];
     headerLabel.text=@"历史搜索记录";
     
     self.searchHistoryTableView.tableHeaderView=headerLabel;
-    headerLabel.backgroundColor=[UIColor lightGrayColor];
+    headerLabel.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [self.view addSubview:self.searchHistoryTableView];
     //设置搜索历史
     
     self.searchHistoryWordsArray=[NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]objectForKey:@"searchHistoryArray"]];
     if (self.searchHistoryWordsArray==nil) self.searchHistoryWordsArray=[NSMutableArray array];
-//    self.resultsTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight-64) style:UITableViewStylePlain];
-//    self.resultsTableView.delegate=self;
-//    self.resultsTableView.dataSource=self;
-//    self.resultsTableView.tag=resultsTableTag;
+    //    self.resultsTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight-64) style:UITableViewStylePlain];
+    //    self.resultsTableView.delegate=self;
+    //    self.resultsTableView.dataSource=self;
+    //    self.resultsTableView.tag=resultsTableTag;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,23 +82,30 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
     
     return YES;
-}                    // return NO to not become first responder
+}
+// return NO to not become first responder
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     
     
-}                           // called when text starts editing
+}
+// called when text starts editing
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
     
     return YES;
-}                             // return NO to not resign first responder
+}
+// return NO to not resign first responder
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    
-    
-}                            // called when text ends editing
+//    //FIXME：执行搜索
+//    [searchBar resignFirstResponder];
+//    NSLog(@"搜索内容：%@",searchBar.text);
+//    [self doSearchWithKeyWord:searchBar.text];
+}
+// called when text ends editing
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     
-}         // called when text changes (including clear)
+}
+// called when text changes (including clear)
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
     return YES;
@@ -108,15 +113,10 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     //FIXME：执行搜索
+    [searchBar resignFirstResponder];
     NSLog(@"搜索内容：%@",searchBar.text);
-    //记录搜索历史数据，不超过10条
-    if(![self.searchHistoryWordsArray containsObject:searchBar.text]){
-    if(self.searchHistoryWordsArray.count>10) [self.searchHistoryWordsArray removeLastObject];
-//    NSString *searchtext=[searchBar.text copy];
-    [self.searchHistoryWordsArray insertObject:searchBar.text atIndex:0];
-    [self.searchHistoryTableView reloadData];
-    }
-    [self AVquery:searchBar.text];
+    [self doSearchWithKeyWord:searchBar.text];
+    
     
 }
 // called when keyboard search button pressed
@@ -125,9 +125,27 @@
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    //终止搜索
-    
+    //FIXME:终止搜索
+    //隐藏HUD
+     [searchBar resignFirstResponder];
+     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
+
+-(void)doSearchWithKeyWord:(NSString *)searchText
+{
+    //判断是否在内
+    if(![self.searchHistoryWordsArray containsObject:searchText]){
+        //记录搜索历史数据，不超过10条
+        if(self.searchHistoryWordsArray.count>15) [self.searchHistoryWordsArray removeLastObject];
+    }else
+    {
+        [self.searchHistoryWordsArray removeObject:searchText];
+    }
+    [self.searchHistoryWordsArray insertObject:searchText atIndex:0];
+    [self.searchHistoryTableView reloadData];
+    [self AVquery:searchText];
+}
+
 
 -(void)dealloc
 {
@@ -138,7 +156,6 @@
     
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -147,7 +164,7 @@
 
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
- 
+    
     return 40;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -160,25 +177,20 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell123"];
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell123"];
+    }
+    cell.textLabel.text=[self.searchHistoryWordsArray objectAtIndex:indexPath.row];
+    return cell;
     
-//    if (tableView.tag==resultsTableTag) {
-//
-//    }
-//    else
-//    {
-        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell123"];
-        if (cell==nil) {
-            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell123"];
-        }
-        cell.textLabel.text=[self.searchHistoryWordsArray objectAtIndex:indexPath.row];
-        return cell;
-//    }
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.searchBar isFirstResponder])[self.searchBar resignFirstResponder];
     self.searchBar.text=[self.searchHistoryWordsArray objectAtIndex:indexPath.row];
+    [self doSearchWithKeyWord:self.searchBar.text];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:1.0f];
 }
 
@@ -186,7 +198,6 @@
 {
     [self.searchHistoryTableView deselectRowAtIndexPath:[self.searchHistoryTableView indexPathForSelectedRow] animated:YES];
 }
-
 
 #pragma --mark 应用内搜索
 
@@ -196,7 +207,7 @@
     AVSearchQuery *searchQuery = [AVSearchQuery searchWithQueryString:searchText];
     searchQuery.className = @"JianZhi";
     //    searchQuery.highlights = @"field1,field2";
-    searchQuery.limit = 10;
+//    searchQuery.limit = 10;
     searchQuery.cachePolicy = kAVCachePolicyCacheElseNetwork;
     searchQuery.maxCacheAge = 60;
     //    searchQuery.fields = @[@"field1", @"field2"];
@@ -211,26 +222,20 @@
                 NSString *hightlight = [object objectForKey:@"_highlight"];
                 // other fields
                 // code is here
-                
                 array=[array arrayByAddingObject:object];
             }
             if(array.count!=0)
             {
                 self.tableListController.resultsArray=array;
                 [self.navigationController pushViewController:self.tableListController animated:YES];
-//                [self.tableListController.tableView reloadData];
             }else
             {
                 [MBProgressHUD showError:@"没有你要找的信息" toView:nil];
-                
             }
-            
         }else
         {
-            
             NSString *errorString=[NSString stringWithFormat:@"出错啦:%@",error.description];
             [MBProgressHUD showError:errorString toView:nil];
-            
         }
     }];
 }
