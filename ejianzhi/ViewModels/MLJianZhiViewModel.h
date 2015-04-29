@@ -9,19 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "JianZhi.h"
 #import "ViewModel.h"
-@interface MLJianZhiViewModel : ViewModel<UITableViewDataSource>
-
 /**
- *  queryJianZhiFromAVOSWithKey
- *
- *  @param key   key description
- *  @param value value description
+ *  本类的功能：1、为首页的推荐搜索 提供支持
+ *            2、为刷新列表提供支持
+ *            3、但不为搜索列表提供支持
  */
-- (void) queryJianZhiFromAVOSWithKey:(NSString*) key
-                               Value:(NSString*) value;
-- (void) queryJianZhiFromAVOSWithSkip:(NSUInteger)skip
-                                Limit:(NSUInteger)limit;
+@interface MLJianZhiViewModel : ViewModel
+
+
 -(AVQuery*)setFliterSubQueryParams:(NSString*)fliterContent objectKey:(NSString*)keyword;
+
 -(void)setOtherQuery:(NSString*)keyword;
 -(void)setTypeQuery:(NSString*)keyword;
 -(void)setSettlementQuery:(NSString*)keyword;
@@ -29,7 +26,6 @@
  *  将resultsList中的Model 映射成前端View可以显示的内容
  *  暂时不用
  */
-- (void) mapResultsList;
 
 - (instancetype)init;
 
@@ -37,7 +33,6 @@
  *  第一次加载
  */
 - (void) firstLoad;
-
 
 - (void) footerRefresh;
 

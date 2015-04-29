@@ -16,4 +16,7 @@
 @property (strong, nonatomic)NSString *currentFilterWay;
 
 
+
+
+
 @end

@@ -7,20 +7,33 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewModel.h"
+
+
+@protocol JobListTableViewControllerHeaderAndFooterRefreshDelegate <NSObject>
+
+-(void)executeHeaderFresh;
+-(void)executeFooterFresh;
+
+@end
+
+
 @class MLJianZhiViewModel;
 @interface JobListTableViewController : UITableViewController
 
-@property (strong,nonatomic) MLJianZhiViewModel *viewModel;
+@property (weak,nonatomic)id<JobListTableViewControllerHeaderAndFooterRefreshDelegate> delegate;
+@property (strong,nonatomic)MLJianZhiViewModel *viewModel;
 @property BOOL isAutoLoad;
-
-
-
+@property (strong,nonatomic)NSArray *resultsArray;
 
 - (NSArray*)getViewModelResultsList;
 
 -(void)firstLoad;
-- (void)addFooterRefresher;
 
+//可被子类重载的成员方法
+- (void)addFooterRefresher;
 - (void)addHeaderRefresher;
 - (instancetype)initWithAutoLoad:(BOOL)autoload;
+- (void)addDataSourceObbserver;
+
 @end

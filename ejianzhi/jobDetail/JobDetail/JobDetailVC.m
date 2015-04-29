@@ -11,7 +11,7 @@
 #import "JobDetailVC.h"
 #import "freeselectViewCell.h"
 
-#import "PopoverView.h"
+#import "FVCustomAlertView.h"
 #import "MapViewController.h"
 //#import "ASDepthModalViewController.h"
 #import "MLJobDetailViewModel.h"
@@ -21,7 +21,7 @@
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
-@interface JobDetailVC ()<UICollectionViewDataSource,UICollectionViewDelegate,PopoverViewDelegate>
+@interface JobDetailVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     NSMutableArray  *addedPicArray;
     NSArray  *selectfreetimepicArray;
@@ -129,7 +129,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
-
+    
     
     //创建监听
     @weakify(self)
@@ -174,8 +174,8 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
     self.jobDetailComplainBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         //点击申请button
-//        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-//        [alertView show];
+        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        //        [alertView show];
         tousuViewController *tousuVC=[[tousuViewController alloc]init];
         tousuVC.delegate=self.viewModel;
         
@@ -187,21 +187,12 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     self.jobDetailAddFavioritesBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         
         [self.viewModel addFavirateAction];
-        
-        
-        //        //展示地图
-        //        [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
-        
-        //        //点击申请button
-        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        //        [alertView show];
         return [RACSignal empty];
     }];
-    
-    //添加浏览量统计
-    
-    
-    
+    self.jobDetailMoreJobBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        //添加更多职位
+        return [RACSignal empty];
+    }];
 }
 /**
  *  修改视图大小
@@ -361,22 +352,15 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     //FIXME:换控件
     self.popUpView.layer.cornerRadius=2;
     self.popUpView.autoresizingMask=UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
-    self.popUpView.frame=CGRectMake(0, 0, (300/320)*MainScreenWidth, (280/468)*MainScreenHeight);
-    [PopoverView showPopoverAtPoint:CGPointMake(190, ((MainScreenHeight-280-64-44-200)/2)) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
+    //    self.popUpView.frame=CGRectMake(0, 0, (300/320)*MainScreenWidth, (280/468)*MainScreenHeight);
+    self.popUpView.frame=CGRectMake(0, 0, 300,280);
+    [FVCustomAlertView showAlertOnView:self.view withTitle:nil titleColor:[UIColor whiteColor] width:self.popUpView.frame.size.width height:self.popUpView.frame.size.height backgroundImage:nil backgroundColor:[UIColor whiteColor] cornerRadius:4 shadowAlpha:0.5 alpha:1.0 contentView:self.popUpView type:FVAlertTypeCustom];
 }
 
 - (IBAction)callAction:(id)sender {
     //打电话
-    //    UIWebView* callWebview =[[UIWebView alloc] init];
-    //
+   
     NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.viewModel.jobPhone];
-    //
-    //    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
-    //
-    //    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-    //
-    //    //记得添加到view上
-    //    [self.view addSubview:callWebview];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
 }

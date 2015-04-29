@@ -42,5 +42,31 @@
             </state>
             <point key="canvasLocation" x="102" y="621"/>
         </button>
+        <view contentMode="scaleToFill" restorationIdentifier="JobAnonationView" id="7gS-pu-net" customClass="JobAnonationView">
+            <rect key="frame" x="0.0" y="0.0" width="158" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="kb-magnifier-ranged-lo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9CM-ZM-vcO">
+                    <rect key="frame" x="-4" y="0.0" width="162" height="59"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGt-Gj-5EV">
+                    <rect key="frame" x="8" y="0.0" width="138" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="jobTitleLabel" destination="WGt-Gj-5EV" id="vpD-J7-0Ev"/>
+            </connections>
+            <point key="canvasLocation" x="858" y="349"/>
+        </view>
     </objects>
+    <resources>
+        <image name="kb-magnifier-ranged-lo.png" width="145" height="59"/>
+    </resources>
 </document>

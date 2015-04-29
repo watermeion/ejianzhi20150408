@@ -27,12 +27,12 @@
        [RACObserve(self.locationManager,lastCity) subscribeNext:^(NSString *city) {
            @strongify(self)
            if ([city isEqualToString:CityNotFound]) {
-               self.cityName=@"选择城市";
+               self.cityName=@"北京";
            }else{
                self.cityName=[self formatCityName:city];
            }
        }];
-       self.cityName=@"选择城市";
+       self.cityName=@"北京";
        return self;
    }
     return nil;

@@ -71,7 +71,6 @@
             for (AVObject *obj in objects) {
                 
                 [recordArray addObject:obj];
-                
             }
             
             NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
@@ -97,7 +96,6 @@
             }
             
             [MBProgressHUD showError:@"服务器开小差了，请刷新试试" toView:self.view];
-            
         }
     }];
     query=nil;
