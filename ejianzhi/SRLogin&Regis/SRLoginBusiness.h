@@ -17,7 +17,7 @@
 
 @interface SRLoginBusiness : NSObject
 
-typedef void (^loginBlock)(BOOL succeed);
+typedef void (^loginBlock)(BOOL succeed, NSNumber *userType);
 
 @property (nonatomic,weak) MLLoginManger *loginManager;
 

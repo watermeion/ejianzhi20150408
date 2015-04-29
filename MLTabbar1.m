@@ -8,10 +8,11 @@
 
 #import "MLTabbar1.h"
 #import "MLNavi.h"
-
+#import "myJobListVC.h"
 #import "MLForthVC.h"
 
 @interface MLTabbar1 ()
+@property (strong,nonatomic)myJobListVC *firstVC;
 @property (strong,nonatomic)MLForthVC *forthVC;
 @end
 
@@ -25,6 +26,14 @@ static  MLTabbar1 *thisController=nil;
         thisController=[[MLTabbar1 alloc] init];
     }
     return thisController;
+}
+
+-(myJobListVC*)firstVC
+{
+    if (_firstVC==nil) {
+        _firstVC=[[myJobListVC alloc]init];
+    }
+    return  _firstVC;
 }
 
 -(MLForthVC*)forthVC
@@ -41,10 +50,18 @@ static  MLTabbar1 *thisController=nil;
     [self viewControllersInit];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
+
 -(void)viewControllersInit
 {
     
-    UIViewController *pageOneVC=[self makeRootByNavigationController:[[UIViewController alloc] init]];
+    UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
     pageOneVC.title=@"我发布的兼职";
     UIViewController *pageTwoVC=[self makeRootByNavigationController:[[UIViewController alloc] init]];
     pageTwoVC.title=@"消息";
@@ -68,11 +85,11 @@ static  MLTabbar1 *thisController=nil;
     UITabBarItem *tabBarItem2=[tabBar.items objectAtIndex:1];
     UITabBarItem *tabBarItem3=[tabBar.items objectAtIndex:2];
     
-    tabBarItem1.title=@"首页";
+    tabBarItem1.title=@"兼职";
     
-    tabBarItem2.title=@"申请";
+    tabBarItem2.title=@"消息";
     
-    tabBarItem3.title=@"消息";
+    tabBarItem3.title=@"我的";
 
     
     [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:[[UIImage imageNamed:@"releas1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"release"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

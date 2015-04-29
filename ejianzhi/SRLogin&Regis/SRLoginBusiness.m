@@ -33,21 +33,23 @@
             NSNumber *typenum=[user objectForKey:@"userType"];
             if ([typenum integerValue]!=type) {
                 self.feedback=@"登录账户名不存在";
-                loginBlock(NO);
+                loginBlock(NO,nil);
             }else{
                 AVFile *avatarFile=[user objectForKey:@"avatar"];
 
                 [self saveUserInfoLocally:avatarFile.url userType:[typenum stringValue]];
 
                 self.feedback=@"登录成功";
-                loginBlock(YES);
+                
+                
+                loginBlock(YES,[user objectForKey:@"userType"]);
             }
         } else {
             if (error.code==210) {
                 self.feedback=@"登录密码错误";
             }else if (error.code==211)
                 self.feedback=@"登录账户名不存在";
-            loginBlock(NO);
+            loginBlock(NO,nil);
         }
     }];
     
