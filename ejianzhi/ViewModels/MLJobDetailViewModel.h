@@ -49,7 +49,7 @@
 
 @property (nonatomic,strong)UIImage *typeImage;
 
-
+@property (nonatomic,strong)id companyId;
 /**
  *  将Model 转化为ViewModel;
  *

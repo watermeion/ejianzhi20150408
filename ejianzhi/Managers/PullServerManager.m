@@ -35,6 +35,7 @@ static int reloadTimes;
         //初始化检索对象
         [singleIntance getJianZhiTypeListFromAVOS];
         [singleIntance rewriteUserDefaults];
+        [singleIntance pullBannerInfo];
     });
     return singleIntance;
 }
@@ -141,7 +142,40 @@ static int reloadTimes;
 
 -(void)pullBannerInfo{
 
-
+    AVQuery *query=[AVQuery queryWithClassName:@"Banner"];
+    query.cachePolicy=kAVCachePolicyNetworkElseCache;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error==nil) {
+            if(objects.count>0)
+            {
+              //建立数据结构 写入UserDefault
+              //ActionURL ImageURL bannerType
+                NSArray *bannerViewData=[NSArray array];
+                for (AVObject *obj in objects) {
+                    NSString *bannerImageUrl=[obj objectForKey:@"bannerImageUrl"];
+                    NSString *bannerParam=[obj objectForKey:@"bannerParam"];
+                    NSNumber *bannerType=[obj objectForKey:@"bannerType"];
+                    NSDictionary *aBannerDict=@{@"BannerImageUrl":bannerImageUrl,@"BannerParam":bannerParam,@"BannerType":bannerType};
+                    bannerViewData=[bannerViewData arrayByAddingObject:aBannerDict];
+                }
+                //写入数据
+                NSUserDefaults *mysettings=[NSUserDefaults standardUserDefaults];
+                [mysettings setObject:bannerViewData forKey:@"BannerData"];
+                [mysettings synchronize];
+                //通知数据加载完成
+                
+            }
+        }else
+        {
+          //FIXME:网络拉取失败后的动作
+            //设置默认的内容
+            
+            
+            
+            
+            
+        }
+    }];
 }
 
 

@@ -68,11 +68,12 @@
                       clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
 
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //初始化各类控制器
+    self.loginManager=[MLLoginManger shareInstance];
+    PullServerManager *pullServerManager=[PullServerManager sharedIntance];
+    [pullServerManager rewriteUserDefaults];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[SRLoginVC shareLoginVC]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+   
 
     
 //    //1、注册登录变化通知
@@ -121,10 +122,7 @@
     [SMS_SDK registerApp:@"56454b8585da" withSecret:@"17e36cd8f741167baa78e940456c238c"];
 
     
-    //初始化各类控制器
-    self.loginManager=[MLLoginManger shareInstance];
-    PullServerManager *pullServerManager=[PullServerManager sharedIntance];
-    [pullServerManager rewriteUserDefaults];
+   
     
 //    //Enabling keyboard manager
 //    [[IQKeyboardManager sharedManager] setEnable:YES];
@@ -153,6 +151,10 @@
         [application registerForRemoteNotifications];
     }
 
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[SRLoginVC shareLoginVC]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

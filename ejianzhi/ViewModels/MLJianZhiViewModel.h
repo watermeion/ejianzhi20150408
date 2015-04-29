@@ -37,4 +37,8 @@
 - (void) footerRefresh;
 
 - (void) headerRefresh;
+
+
+- (void)setMainQueryJianZhiParametersWithKey:       (NSString*)key
+                                       Value:(id) value;
 @end

@@ -131,6 +131,8 @@
     [self getAddressRoute:destination];
     
     self.typeImage=[self getJobTypeImage];
+    //兼职企业
+    self.companyId=data.qiYeInfoId;
 }
 
 

@@ -17,7 +17,7 @@
 #import "MLJobDetailViewModel.h"
 #import "SRMapViewVC.h"
 #import "tousuViewController.h"
-
+#import "CompanyInfoViewController.h"
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -34,6 +34,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobContentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobTeShuYaoQiuHeightConstraint;
+
+
+
+
+
 - (IBAction)showInMapAction:(id)sender;
 
 //popUpView
@@ -41,8 +48,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (IBAction)callAction:(id)sender;
 - (IBAction)messageAction:(id)sender;
 
-
-- (IBAction)closePopUpViewAction:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *popUpViewPhoneLabel;
@@ -81,7 +86,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 @property (weak, nonatomic) IBOutlet UIButton *jobDetailApplyBtn;
 
-
+@property (weak,nonatomic)id thisCompanyId;
 
 @end
 
@@ -151,31 +156,22 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     RAC(self.jobDetailAddressLabel,text)=RACObserve(self.viewModel, jobAddress);
     RAC(self.jobDetailAddressNaviLabel,text)=RACObserve(self.viewModel, jobAddressNavi);
     RAC(self.jobDetailJobEvaluationLabel,text)=RACObserve(self.viewModel, jobEvaluation);
-    
     RAC(self.popUpViewNameLabel,text)=RACObserve(self.viewModel, jobContactName);
     RAC(self.popUpViewPhoneLabel,text)=RACObserve(self.viewModel, jobPhone);
     RAC(self.jobDetailJobComments,text)=RACObserve(self.viewModel, jobCommentsText);
     RAC(self.jobDetailTeShuYaoQiuLabel,text)=RACObserve(self.viewModel, jobTeShuYaoQiu);
     RAC(self.jobDetailJobRequiredNumLabel,text)=RACObserve(self.viewModel, jobRequiredNum);
-    
-    
     RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
 #warning 色块变化监听
     RAC(self.jobDetailJobFlagImage,image)=RACObserve(self.viewModel, typeImage);
-    
+    RAC(self,thisCompanyId)=RACObserve(self.viewModel, companyId);
 #warning 绑定按钮事件
     self.jobDetailApplyBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         [self.viewModel applyThisJob];
-        //        //点击申请button
-        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        //        [alertView show];
         return [RACSignal empty];
     }];
     
     self.jobDetailComplainBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        //点击申请button
-        //        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        //        [alertView show];
         tousuViewController *tousuVC=[[tousuViewController alloc]init];
         tousuVC.delegate=self.viewModel;
         
@@ -190,7 +186,17 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         return [RACSignal empty];
     }];
     self.jobDetailMoreJobBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        //添加更多职位
+        if (self.thisCompanyId!=nil) {
+        CompanyInfoViewController *companyInfoVC=[[CompanyInfoViewController alloc]initWithData:self.thisCompanyId];
+        companyInfoVC.hidesBottomBarWhenPushed=YES;
+        companyInfoVC.edgesForExtendedLayout=UIRectEdgeNone;
+        [self.navigationController pushViewController:companyInfoVC animated:YES];
+        }
+        else
+        {
+            TTAlert(@"sorry,该公司的HR很懒什么都没留下~！详情请电话咨询");
+        
+        }
         return [RACSignal empty];
     }];
 }
@@ -200,6 +206,19 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)viewWillLayoutSubviews
 {
     [self updateConstraintsforJobContentLabelWithString:self.jobDetailJobXiangQingLabel.text];
+    [self updateConstraintsforJobTeShuYaoQiuLabelWithString:self.jobDetailTeShuYaoQiuLabel.text];
+    
+}
+
+
+-(void)updateConstraintsforJobTeShuYaoQiuLabelWithString:(NSString*)str
+{
+    if (str==nil) return;
+    self.jobDetailTeShuYaoQiuLabel.text=str;
+    float stringHeight=[self heightForString:str fontSize:14 andWidth:([[UIScreen mainScreen] bounds].size.width-16)];
+    self.jobTeShuYaoQiuHeightConstraint.constant=stringHeight;
+    
+    self.containerViewConstraint.constant=self.containerViewConstraint.constant+stringHeight;
 }
 
 - (void)updateConstraintsforJobContentLabelWithString:(NSString*) str{
@@ -359,7 +378,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 - (IBAction)callAction:(id)sender {
     //打电话
-   
+    
     NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.viewModel.jobPhone];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
@@ -377,12 +396,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
     //记得添加到view上
     [self.view addSubview:callWebview];
-}
-
-- (IBAction)closePopUpViewAction:(id)sender {
-    
-    
-    
 }
 
 
