@@ -3316,7 +3316,7 @@
 				045625A41AD6211D006E159C /* protait2-60@2x.png in Resources */,
 				3BBF70061AD6D1CB00A33F5A /* u1f612.png in Resources */,
 				045625601AD6211D006E159C /* btnLeft.png in Resources */,
-				3BA3641C1AF0CE8500D1EF03 /* resumeListCell.xib in Resources */,
+				04B346F41AEA95FA00A8A180 /* checkmark@2x.png in Resources */,
 				045625C01AD6211D006E159C /* protait4-Spotlight-40@2x.png in Resources */,
 				3BBF70751AD6D1CB00A33F5A /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */,
