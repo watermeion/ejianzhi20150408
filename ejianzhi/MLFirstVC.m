@@ -124,7 +124,8 @@
     [self addViewToScrollView];
     [self addHeaderAndFooterToTableView];
     [self.view addSubview: self.joblistTableVC.tableView];
-    [self advertisementInit];
+    
+    [self performSelector:@selector(advertisementInit) withObject:nil afterDelay:1.0f];
     //监听城市信息
     RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
     [self.viewModel startLocatingToGetCity];
@@ -295,18 +296,14 @@
 #pragma --mark BannerView Method
 -(void)advertisementInit{
     
-    
     NSMutableArray *urlArray=[[NSMutableArray alloc]init];
-    
-    
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/ErzHmJ4LNySmB0gqSp24kiyBIhrzdtgPyV7kl1vr.jpg"];
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/89mEekkp8LryD9jri7CUtY1dXcbRHcrNXns12Ki9.jpeg"];
-    
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/hcezPG2bM2jYxaGhuntYhGxAy6ukprbFXwmuww03.jpg"];
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/xaXWxJE7BcFS6CDG3nTLxjtGi210hwDE7WsM0N0A.gif"];
-    
-    
-    
+    NSUserDefaults *mysettings=[NSUserDefaults standardUserDefaults];
+    NSArray *bannerData=[mysettings objectForKey:@"BannerData"];
+    if(bannerData==nil) return;
+    for (NSDictionary *dict in bannerData) {
+        NSString *imageUrl=[dict objectForKey:@"BannerImageUrl"];
+        [urlArray addObject:imageUrl];
+    }
     SRAdvertisingView *bannerView=[[SRAdvertisingView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 130*[[UIScreen mainScreen] bounds].size.width/320) imageArray:urlArray interval:3.0];
     
     bannerView.vDelegate=self;
@@ -315,16 +312,30 @@
 
 
 /**
- *  banner 点击时间
+ *  banner 点击事件
  *
  *  @param vid <#vid description#>
  */
 - (void)buttonClick:(int)vid{
     
+    NSMutableArray *urlArray=[[NSMutableArray alloc]init];
+    NSUserDefaults *mysettings=[NSUserDefaults standardUserDefaults];
+    NSArray *bannerData=[mysettings objectForKey:@"BannerData"];
+    NSDictionary *dict=[bannerData objectAtIndex:vid];
+    NSLog(@"BannerTouch:%@",[dict objectForKey:@"BannerType"]);
+    UIViewController *webVC=[[UIViewController alloc]init];
+
+    UIWebView *webView=[[UIWebView alloc] init];
+    webVC.view=webView;
+    NSString *Url = [NSString stringWithFormat:@"%@",[dict objectForKey:@"BannerParam"]];
     
-    
-    
-    
+    NSURL *URL =[NSURL URLWithString:Url];// 貌似tel:// 或者 tel: 都行
+    webVC.hidesBottomBarWhenPushed=YES;
+    webVC.edgesForExtendedLayout=UIRectEdgeNone;
+    //记得添加到view上
+    [self.navigationController pushViewController:webVC animated:YES];
+//    [webVC.view addSubview:webview];
+    [webView loadRequest:[NSURLRequest requestWithURL:URL]];
 }
 
 

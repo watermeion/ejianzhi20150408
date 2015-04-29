@@ -468,6 +468,10 @@
 		04C3480B1AEE1ECD00B48D11 /* ComJianZhiViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3480A1AEE1ECD00B48D11 /* ComJianZhiViewModel.m */; };
 		04C348121AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C348111AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.m */; };
 		04C348161AEF8D3F00B48D11 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C348151AEF8D3F00B48D11 /* ArrayDataSource.m */; };
+		04C3481A1AEFBB9D00B48D11 /* JobOfComListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C348191AEFBB9D00B48D11 /* JobOfComListVC.m */; };
+		04C348211AF0C7CF00B48D11 /* CompanyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3481F1AF0C7CF00B48D11 /* CompanyInfoViewController.m */; };
+		04C348221AF0C7CF00B48D11 /* CompanyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C348201AF0C7CF00B48D11 /* CompanyInfoViewController.xib */; };
+		04C348261AF1156B00B48D11 /* CompanyInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C348251AF1156B00B48D11 /* CompanyInfoViewModel.m */; };
 		04F5C98D1AE5452E00341491 /* map_action_icon_bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */; };
 		04F5C98E1AE5452E00341491 /* map_action_icon_steer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */; };
 		04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */; };
@@ -1308,6 +1312,13 @@
 		04C348111AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JobListTableViewCell+configureForJobCell.m"; sourceTree = "<group>"; };
 		04C348141AEF8D3F00B48D11 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
 		04C348151AEF8D3F00B48D11 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
+		04C348181AEFBB9D00B48D11 /* JobOfComListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobOfComListVC.h; sourceTree = "<group>"; };
+		04C348191AEFBB9D00B48D11 /* JobOfComListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobOfComListVC.m; sourceTree = "<group>"; };
+		04C3481E1AF0C7CF00B48D11 /* CompanyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyInfoViewController.h; sourceTree = "<group>"; };
+		04C3481F1AF0C7CF00B48D11 /* CompanyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoViewController.m; sourceTree = "<group>"; };
+		04C348201AF0C7CF00B48D11 /* CompanyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyInfoViewController.xib; sourceTree = "<group>"; };
+		04C348241AF1156B00B48D11 /* CompanyInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyInfoViewModel.h; sourceTree = "<group>"; };
+		04C348251AF1156B00B48D11 /* CompanyInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoViewModel.m; sourceTree = "<group>"; };
 		04F5C98A1AE5452E00341491 /* map_action_icon_bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_bus.png; sourceTree = "<group>"; };
 		04F5C98B1AE5452E00341491 /* map_action_icon_steer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_steer.png; sourceTree = "<group>"; };
 		04F5C98C1AE5452E00341491 /* map_action_icon_walker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_action_icon_walker.png; sourceTree = "<group>"; };
@@ -2675,6 +2686,8 @@
 		04B346FF1AEC963400A8A180 /* ChildClass */ = {
 			isa = PBXGroup;
 			children = (
+				04C348181AEFBB9D00B48D11 /* JobOfComListVC.h */,
+				04C348191AEFBB9D00B48D11 /* JobOfComListVC.m */,
 			);
 			name = ChildClass;
 			sourceTree = "<group>";
@@ -2696,6 +2709,11 @@
 		04C3480F1AEF812900B48D11 /* CompanyInfo */ = {
 			isa = PBXGroup;
 			children = (
+				04C3481E1AF0C7CF00B48D11 /* CompanyInfoViewController.h */,
+				04C3481F1AF0C7CF00B48D11 /* CompanyInfoViewController.m */,
+				04C348201AF0C7CF00B48D11 /* CompanyInfoViewController.xib */,
+				04C348241AF1156B00B48D11 /* CompanyInfoViewModel.h */,
+				04C348251AF1156B00B48D11 /* CompanyInfoViewModel.m */,
 			);
 			name = CompanyInfo;
 			sourceTree = "<group>";
@@ -3330,6 +3348,7 @@
 				045625CA1AD6211D006E159C /* protait5-Spotlight-40.png in Resources */,
 				045625B31AD6211D006E159C /* protait3-Small@3x.png in Resources */,
 				045625541AD6211D006E159C /* kaopu.png in Resources */,
+				04C348221AF0C7CF00B48D11 /* CompanyInfoViewController.xib in Resources */,
 				3BBF704D1AD6D1CB00A33F5A /* RecordingSignal008@2x.png in Resources */,
 				045624DE1AD6211D006E159C /* add@3x.png in Resources */,
 				0443C13E1AD5531D004F29A5 /* LaunchScreen.xib in Resources */,
@@ -4037,11 +4056,14 @@
 				0443C16B1AD5541D004F29A5 /* JobListWithDropDownListVCViewController.m in Sources */,
 				3B8D4AEA1AE257A9001F5E7F /* MJRefreshBaseView.m in Sources */,
 				3BBF6F541AD6D0E800A33F5A /* MLCell4.m in Sources */,
+				04C348211AF0C7CF00B48D11 /* CompanyInfoViewController.m in Sources */,
+				04C3481A1AEFBB9D00B48D11 /* JobOfComListVC.m in Sources */,
 				3BBF6F181AD6D0C900A33F5A /* SDBrowserImageView.m in Sources */,
 				0443C1F61AD55591004F29A5 /* MLJobDetailViewModel.m in Sources */,
 				0443C1E31AD55589004F29A5 /* AJLocationManager.m in Sources */,
 				3BBF6F0F1AD6D0C900A33F5A /* MKAnnotationView+EMWebCache.m in Sources */,
 				04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */,
+				04C348261AF1156B00B48D11 /* CompanyInfoViewModel.m in Sources */,
 				0443C1D21AD55572004F29A5 /* TableViewController.m in Sources */,
 				0443C1F81AD55591004F29A5 /* MLMainPageViewModel.m in Sources */,
 				0443C2241AD5560F004F29A5 /* JobDetailVC.m in Sources */,

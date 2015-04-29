@@ -62,7 +62,7 @@
 }
 
 - (void)setMainQueryJianZhiParametersWithKey:(NSString*)key
-                                       Value:(NSString*) value
+                                       Value:(id) value
 {
     self.mainQuery= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     [self.mainQuery whereKey:key equalTo:value];

@@ -35,6 +35,8 @@
 
 @implementation JobListWithDropDownListVCViewController
 
+
+
 -(instancetype)init
 {
     if(self=[super init])
@@ -80,6 +82,7 @@
         [self.selectedAreaBtn setTitle:[NSString stringWithFormat:@"筛选:%@",x] forState:UIControlStateNormal];
     }];
     [self.tableList.viewModel performSelector:@selector(setTypeQuery:) withObject:self.currentType afterDelay:0.1f];
+    [self.tableList addHeaderRefresher];
 }
 
 -(void)viewDidAppear:(BOOL)animated
