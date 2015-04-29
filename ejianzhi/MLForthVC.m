@@ -23,6 +23,7 @@
 #import "AppDelegate.h"
 
 #import "MLTabbarVC.h"
+#import "MLTabbar1.h"
 
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
@@ -30,6 +31,7 @@
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate,UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     BOOL pushing;
 }
+
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -162,13 +164,30 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    
+    
+    
     if (buttonIndex==1) {
-        BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
-        if (isLogout) {
-            MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
-            [tabbar.navigationController popViewControllerAnimated:YES];
-            [self finishLogout];
+        if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"0"]) {
+            BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
+            if (isLogout) {
+                
+                MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+                [tabbar.navigationController popViewControllerAnimated:YES];
+                [self finishLogout];
+            }
+
+        }else{
+            BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
+            if (isLogout) {
+                
+                MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
+                [tabbar.navigationController popViewControllerAnimated:YES];
+                [self finishLogout];
+            }
         }
+        
     }
 }
 
