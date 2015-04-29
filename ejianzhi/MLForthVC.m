@@ -185,8 +185,11 @@
 
 - (void)finishLogin{
     
-    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    if ([AVUser currentUser]) {
+        self.buttonLabel.text=[AVUser currentUser].username;
+    }
     
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     if ([mySettingData objectForKey:@"userAvatar"]) {
         [self.userAvatarView sd_setImageWithURL:[NSURL URLWithString:[mySettingData objectForKey:@"userAvatar"]]];
     }else{
@@ -206,6 +209,7 @@
     }
     
     self.logoutButton.hidden=NO;
+    
     //动态绑定LoginButton响应函数
     self.logoutButton.tag=20000;
     
@@ -215,7 +219,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

@@ -14,7 +14,7 @@
 #import "MLTabbarVC.h"
 #import "MLTabbar1.h"
 
-@interface SRLoginVC ()<successRegistered>
+@interface SRLoginVC ()<successRegistered,UIAlertViewDelegate>
 {
     NSInteger loginType;
 }
@@ -69,8 +69,6 @@ static  SRLoginVC *thisController=nil;
     self.rect1=self.floatView2.frame;
     
     loginer=[[SRLoginBusiness alloc]init];
-    loginer.loginDelegate=self;
-    
     
     [self.userAccount.rac_textSignal subscribeNext:^(NSString *text) {
         loginer.username=text;
@@ -153,6 +151,7 @@ static  SRLoginVC *thisController=nil;
 - (IBAction)touchRegister:(id)sender {
     SRRegisterVC *registerVC=[[SRRegisterVC alloc]init];
     registerVC.registerDelegate=self;
+    registerVC.registerType=loginType;
     [self presentViewController:registerVC animated:YES completion:nil];
 }
 
@@ -193,15 +192,49 @@ static  SRLoginVC *thisController=nil;
     }
     else
     {
-        [loginer loginInbackground:loginer.username Pwd:loginer.pwd loginType:loginType withBlock:^(BOOL succeed) {
+        [loginer loginInbackground:loginer.username Pwd:loginer.pwd loginType:loginType withBlock:^(BOOL succeed, NSNumber *userType)  {
             if (succeed) {
-                MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
-                [self.navigationController pushViewController:tabbar animated:YES];
+                if ([userType integerValue]==0) {
+                    if ([userType integerValue]==loginType) {
+                        MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+                        [self.navigationController pushViewController:tabbar animated:YES];
+                    }else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"该账户为普通账户，是否继续登录？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录普通账户",nil];
+                        alert.tag=2002;
+                        [alert show];
+                    }
+                    
+                }else{
+                    if ([userType integerValue]==loginType) {
+                        MLTabbar1 *tabbar1=[MLTabbar1 shareInstance];
+                        [self.navigationController pushViewController:tabbar1 animated:YES];
+                    }else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"该账户为企业账户，是否继续登录？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登录企业账户",nil];
+                        alert.tag=3003;
+                        [alert show];
+                    }
+                }
+                
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:loginer.feedback message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
                 [alert show];
             }
         }];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag==2002) {
+        if (buttonIndex==1) {
+            MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+            [self.navigationController pushViewController:tabbar animated:YES];
+        }
+    }
+    if (alertView.tag==3003) {
+        if (buttonIndex==1) {
+            MLTabbar1 *tabbar1=[MLTabbar1 shareInstance];
+            [self.navigationController pushViewController:tabbar1 animated:YES];
+        }
     }
 }
 

@@ -29,5 +29,6 @@
 -(void) RegistHasFailed:(NSError*)error;
 
 @property(nonatomic,weak) id<registerComplete> registerDelegate;
+@property (nonatomic) NSInteger registerType;
 
 @end

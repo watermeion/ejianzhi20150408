@@ -11,6 +11,8 @@
 #import "SMS_SDK/SMS_SDK.h"
 
 @interface SRRegisterVC ()<registerComplete,UIAlertViewDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *changeRegisterBtn;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end
 
@@ -100,14 +102,22 @@
     //配置注册按钮信号监听
     [signUpActiveSignal subscribeNext:^(NSNumber *isActive) {
 //        self.registerButton.enabled=[isActive boolValue];
-        self.registerButton.backgroundColor=[isActive boolValue]? [UIColor colorWithRed:0.88 green:0.38 blue:0.22 alpha:1.0f]:[UIColor grayColor];
+        self.registerButton.backgroundColor=[isActive boolValue]? [UIColor colorWithRed:0.16 green:0.73 blue:0.65 alpha:1.0]:[UIColor grayColor];
     }];
     
     RAC(self.registerButton,enabled)=[signUpActiveSignal map:^id(NSNumber *isActive) {
         return isActive;
     }];
 
-
+    if (self.registerType==1) {
+        [self.changeRegisterBtn setTitle:@"切换用户注册" forState:UIControlStateNormal];
+        self.navItem.title=@"企业注册";
+        Register.registerType=1;
+    }else{
+        [self.changeRegisterBtn setTitle:@"切换企业注册" forState:UIControlStateNormal];
+        self.navItem.title=@"用户注册";
+        Register.registerType=0;
+    }
 }
 
 - (void)viewWillLayoutSubviews{
@@ -147,7 +157,6 @@
     }
 }
 
-
 /**
  *  点击注册实践
  *
@@ -169,6 +178,13 @@
             [alert show];
         }
     }];
+    
+//    Register.username=inputPhoneNumber;
+//    Register.pwd=inputPassword;
+//    Register.phone=inputPhoneNumber;
+//    
+//    [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
+
 }
 
 
@@ -283,6 +299,21 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
+- (IBAction)changeRegister:(id)sender {
+    if (self.registerType==0) {
+        self.registerType=1;
+        Register.registerType=1;
+        [self.changeRegisterBtn setTitle:@"切换用户注册" forState:UIControlStateNormal];
+        self.navItem.title=@"企业注册";
+    }else{
+        self.registerType=0;
+        Register.registerType=0;
+        [self.changeRegisterBtn setTitle:@"切换企业注册" forState:UIControlStateNormal];
+        self.navItem.title=@"用户注册";
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

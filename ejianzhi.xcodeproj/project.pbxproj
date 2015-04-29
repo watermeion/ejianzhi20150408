@@ -423,6 +423,10 @@
 		04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */; };
 		04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */; };
 		04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */; };
+		3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49EB7E1AEFC091002F96AC /* myJobListVC.m */; };
+		3B49EB811AEFC091002F96AC /* myJobListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */; };
+		3B7740721AEB90EA0017E549 /* myJobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7740701AEB90EA0017E549 /* myJobListCell.m */; };
+		3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7740711AEB90EA0017E549 /* myJobListCell.xib */; };
 		3B8D4AA81AE20489001F5E7F /* JianZhiShenQing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */; };
 		3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAA1AE20533001F5E7F /* QiYeInfo.m */; };
 		3B8D4AAF1AE23432001F5E7F /* applistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AAD1AE23432001F5E7F /* applistCell.m */; };
@@ -445,6 +449,10 @@
 		3B8D4AFC1AE280B7001F5E7F /* MyFavorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFA1AE280B7001F5E7F /* MyFavorVC.m */; };
 		3B8D4AFD1AE280B7001F5E7F /* MyFavorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */; };
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
+		3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */; };
+		3BA364161AF0CDBB00D1EF03 /* resumeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */; };
+		3BA3641B1AF0CE8500D1EF03 /* resumeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364191AF0CE8500D1EF03 /* resumeListCell.m */; };
+		3BA3641C1AF0CE8500D1EF03 /* resumeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */; };
 		3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */; };
 		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
@@ -1195,6 +1203,12 @@
 		04F5C9AF1AE6A89D00341491 /* FliterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FliterTableViewController.h; sourceTree = "<group>"; };
 		04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FliterTableViewController.m; sourceTree = "<group>"; };
 		04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FliterTableViewController.xib; sourceTree = "<group>"; };
+		3B49EB7D1AEFC091002F96AC /* myJobListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myJobListVC.h; sourceTree = "<group>"; };
+		3B49EB7E1AEFC091002F96AC /* myJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListVC.m; sourceTree = "<group>"; };
+		3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myJobListVC.xib; sourceTree = "<group>"; };
+		3B49EB831AEFD0AE002F96AC /* myJobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myJobListCell.h; sourceTree = "<group>"; };
+		3B7740701AEB90EA0017E549 /* myJobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListCell.m; sourceTree = "<group>"; };
+		3B7740711AEB90EA0017E549 /* myJobListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myJobListCell.xib; sourceTree = "<group>"; };
 		3B8D4AA61AE20489001F5E7F /* JianZhiShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianZhiShenQing.h; sourceTree = "<group>"; };
 		3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianZhiShenQing.m; sourceTree = "<group>"; };
 		3B8D4AA91AE20533001F5E7F /* QiYeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiYeInfo.h; sourceTree = "<group>"; };
@@ -1231,6 +1245,12 @@
 		3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavorVC.xib; sourceTree = "<group>"; };
 		3B97F3D71AD9203600D5F0B5 /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
 		3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
+		3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListVC.h; sourceTree = "<group>"; };
+		3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListVC.m; sourceTree = "<group>"; };
+		3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListVC.xib; sourceTree = "<group>"; };
+		3BA364181AF0CE8500D1EF03 /* resumeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListCell.h; sourceTree = "<group>"; };
+		3BA364191AF0CE8500D1EF03 /* resumeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListCell.m; sourceTree = "<group>"; };
+		3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListCell.xib; sourceTree = "<group>"; };
 		3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKProgressTimer.h; sourceTree = "<group>"; };
 		3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKProgressTimer.m; sourceTree = "<group>"; };
 		3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbar1.h; sourceTree = "<group>"; };
@@ -2451,6 +2471,25 @@
 			path = subclass;
 			sourceTree = "<group>";
 		};
+		3B77406E1AEB90BF0017E549 /* myJobList */ = {
+			isa = PBXGroup;
+			children = (
+				3B49EB831AEFD0AE002F96AC /* myJobListCell.h */,
+				3B7740701AEB90EA0017E549 /* myJobListCell.m */,
+				3B7740711AEB90EA0017E549 /* myJobListCell.xib */,
+				3B49EB7D1AEFC091002F96AC /* myJobListVC.h */,
+				3B49EB7E1AEFC091002F96AC /* myJobListVC.m */,
+				3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */,
+				3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */,
+				3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */,
+				3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */,
+				3BA364181AF0CE8500D1EF03 /* resumeListCell.h */,
+				3BA364191AF0CE8500D1EF03 /* resumeListCell.m */,
+				3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */,
+			);
+			name = myJobList;
+			sourceTree = "<group>";
+		};
 		3B8D4AD81AE257A9001F5E7F /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -2505,6 +2544,7 @@
 		3BA76E2B1AE4F8C300A2FF26 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
+				3B77406E1AEB90BF0017E549 /* myJobList */,
 				3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */,
 				3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */,
 			);
@@ -3008,8 +3048,10 @@
 				045625A41AD6211D006E159C /* protait2-60@2x.png in Resources */,
 				3BBF70061AD6D1CB00A33F5A /* u1f612.png in Resources */,
 				045625601AD6211D006E159C /* btnLeft.png in Resources */,
+				3BA3641C1AF0CE8500D1EF03 /* resumeListCell.xib in Resources */,
 				045625C01AD6211D006E159C /* protait4-Spotlight-40@2x.png in Resources */,
 				3BBF70751AD6D1CB00A33F5A /* weChatBubble_Receiving_Solid@2x.png in Resources */,
+				3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */,
 				045624F41AD6211D006E159C /* no@3x.png in Resources */,
 				3BBF706A1AD6D1CB00A33F5A /* sharemore_video@2x.png in Resources */,
 				0456257A1AD6211D006E159C /* kefu.png in Resources */,
@@ -3274,6 +3316,7 @@
 				045625741AD6211D006E159C /* mine@2x.png in Resources */,
 				3BBF70191AD6D1CB00A33F5A /* u1f632.png in Resources */,
 				3BBF70711AD6D1CB00A33F5A /* VoiceBtn_Black@2x.png in Resources */,
+				3BA364161AF0CDBB00D1EF03 /* resumeListVC.xib in Resources */,
 				045625581AD6211D006E159C /* more.png in Resources */,
 				045625351AD6211D006E159C /* partTime1.png in Resources */,
 				0456259D1AD6211D006E159C /* protait1-Small@3x.png in Resources */,
@@ -3471,6 +3514,7 @@
 				3BBF6FFC1AD6D1CB00A33F5A /* u1f44f.png in Resources */,
 				0456250D1AD6211D006E159C /* explore@3x.png in Resources */,
 				0456255B1AD6211D006E159C /* pm.png in Resources */,
+				3B49EB811AEFC091002F96AC /* myJobListVC.xib in Resources */,
 				3BBF70231AD6D1CB00A33F5A /* contacts_add_friend@2x.png in Resources */,
 				045625C31AD6211D006E159C /* protait4@2x.png in Resources */,
 				045625801AD6211D006E159C /* zhiwei.png in Resources */,
@@ -3550,6 +3594,7 @@
 				0443C1591AD5533B004F29A5 /* MLNavi.m in Sources */,
 				3BBF708A1AD6D1ED00A33F5A /* CDUtils.m in Sources */,
 				3B8D4AED1AE257A9001F5E7F /* MJRefreshHeaderView.m in Sources */,
+				3BA3641B1AF0CE8500D1EF03 /* resumeListCell.m in Sources */,
 				3BBF6F5A1AD6D0E800A33F5A /* MLResumePreviewVC.m in Sources */,
 				0443C1E81AD55589004F29A5 /* PageSplitingManager.m in Sources */,
 				3BBF6F141AD6D0C900A33F5A /* UIImage+EMWebP.m in Sources */,
@@ -3607,6 +3652,7 @@
 				04F5C9931AE547F500341491 /* tousuViewController.m in Sources */,
 				3B8D4ABD1AE254F1001F5E7F /* MyApplicationList.m in Sources */,
 				3B8D4AEE1AE257A9001F5E7F /* UIScrollView+Extension.m in Sources */,
+				3B7740721AEB90EA0017E549 /* myJobListCell.m in Sources */,
 				0456264F1AD621AC006E159C /* DateUtil.m in Sources */,
 				0443C1301AD5531D004F29A5 /* main.m in Sources */,
 				0443C1821AD55492004F29A5 /* MLSecondVC.m in Sources */,
@@ -3623,6 +3669,7 @@
 				3B8D4AEF1AE257A9001F5E7F /* UIScrollView+MJRefresh.m in Sources */,
 				0443C1B51AD5553F004F29A5 /* SDWebImageDownloader.m in Sources */,
 				3BBF6F4B1AD6D0E800A33F5A /* MLStudentCard.m in Sources */,
+				3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */,
 				045623CD1AD61E42006E159C /* freeselectViewCell.m in Sources */,
 				3BBF6F751AD6D1B600A33F5A /* MLContactCell.m in Sources */,
 				0443C1E91AD55589004F29A5 /* PullServerManager.m in Sources */,
@@ -3639,6 +3686,7 @@
 				0443C2071AD5559E004F29A5 /* User.m in Sources */,
 				3BBF6F491AD6D0E800A33F5A /* MLSelectInffShow.m in Sources */,
 				3B8D4AEB1AE257A9001F5E7F /* MJRefreshConst.m in Sources */,
+				3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */,
 				0443C1751AD5542B004F29A5 /* MLFirstVC.m in Sources */,
 				0443C2231AD5560F004F29A5 /* CommonUtility.m in Sources */,
 				3BBF6F081AD6D0C900A33F5A /* EMSDImageCache.m in Sources */,

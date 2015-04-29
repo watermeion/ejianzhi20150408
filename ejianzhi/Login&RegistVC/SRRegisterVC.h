@@ -42,4 +42,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
+@property (nonatomic)  NSInteger registerType;
+
 @end

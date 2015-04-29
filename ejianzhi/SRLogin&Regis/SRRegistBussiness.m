@@ -29,6 +29,9 @@
             [mySettingData setObject:_username forKey:@"currentUserName"];
             [mySettingData synchronize];
             
+            [user setObject:[NSNumber numberWithInteger:self.registerType] forKey:@"userType"];
+            [user saveEventually];
+            
         } else {
             [self RegistHasFailed:error];
         }
