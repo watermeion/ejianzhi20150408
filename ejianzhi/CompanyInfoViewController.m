@@ -55,14 +55,14 @@
 
 -(void)viewWillLayoutSubviews
 {
- NSLog(@"contentSize.width:%f",self.scrollView.contentSize.width);
-     self.scrollView.contentSize=CGSizeMake(MainScreenWidth,self.scrollView.contentSize.height);
+ 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    self.scrollView.contentSize=CGSizeMake(MainScreenWidth,self.scrollView.contentSize.height);
+
+    self.title=@"企业信息";
     [self.comIconView.layer setCornerRadius:40.0f];
     [self.comIconView.layer setMasksToBounds:YES];
     if (self.company!=nil) {
