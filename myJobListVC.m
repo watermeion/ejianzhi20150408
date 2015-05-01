@@ -228,7 +228,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self deselect];
+}
+
+- (void)deselect
+{
+    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)showRelativeResume:(NSInteger)index{

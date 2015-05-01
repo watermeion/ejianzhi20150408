@@ -14,7 +14,7 @@
 
 - (void)awakeFromNib {
     
-    [self.userPortraitView.layer setCornerRadius:CGRectGetHeight(self.userPortraitView.bounds)/2];
+    [self.userPortraitView.layer setCornerRadius:5];
     [self.userPortraitView.layer setMasksToBounds:YES];
     
     UIView *bkgView=[[UIView alloc]initWithFrame:CGRectMake(self.userPortraitView.frame.origin.x, self.userPortraitView.frame.origin.y+8, self.userPortraitView.frame.size.width, self.userPortraitView.frame.size.height)];

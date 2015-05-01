@@ -254,11 +254,12 @@ static  SRLoginVC *thisController=nil;
         [self.otherLoginBtn setTitle:@"求职者登录" forState:UIControlStateNormal];
         loginType=1;
     }else{
+        self.userAccount.placeholder=@"请输入账户名";
         self.navItem.title=@"求职者登录";
         [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
         loginType=0;
     }
-    self.userAccount.placeholder=@"请输入用户登录账户";
+    
 }
 
 - (void)didReceiveMemoryWarning {

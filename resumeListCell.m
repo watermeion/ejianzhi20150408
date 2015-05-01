@@ -2,7 +2,7 @@
 //  resumeListCell.m
 //  ejianzhi
 //
-//  Created by RAY on 15/4/29.
+//  Created by RAY on 15/5/1.
 //  Copyright (c) 2015年 Studio Of Spicy Hot. All rights reserved.
 //
 
@@ -11,14 +11,15 @@
 @implementation resumeListCell
 
 - (void)awakeFromNib {
-    
-    [self.userAvatarView.layer setCornerRadius:CGRectGetHeight(self.userAvatarView.bounds)/2];
-    [self.userAvatarView.layer setMasksToBounds:YES];
+    [self.userImageView.layer setCornerRadius:5];
+    [self.userImageView.layer setMasksToBounds:YES];
 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 @end

@@ -14,6 +14,8 @@
 #import "resumeListCell.h"
 #import "UserDetail.h"
 #import "DateUtil.h"
+#import "MLResumePreviewVC.h"
+#import "UIImageView+EMWebCache.h"
 
 @interface resumeListVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -45,7 +47,7 @@
     skipTimes=0;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-
+    self.tableView.separatorStyle=UITableViewCellSelectionStyleNone;
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
     
@@ -74,9 +76,10 @@
             }
             
             for (AVObject *obj in objects) {
-                
-                [recordArray addObject:obj];
-                
+                UserDetail *userDetials=[obj objectForKey:@"userDetail"];
+                if (userDetials) {
+                    [recordArray addObject:obj];
+                }
             }
             
             [self.tableView reloadData];
@@ -102,7 +105,7 @@
 
 - (void)footRefreshData{
     
-    AVQuery *query=[AVQuery queryWithClassName:@"jianZhiShenQing"];
+    AVQuery *query=[AVQuery queryWithClassName:@"JianZhiShenQing"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     query.maxCacheAge = 24*3600;
     query.limit = 10;
@@ -117,9 +120,10 @@
         if (!error) {
             
             for (AVObject *obj in objects) {
-                
-                [recordArray addObject:obj];
-                
+                UserDetail *userDetials=[obj objectForKey:@"userDetail"];
+                if (userDetials) {
+                    [recordArray addObject:obj];
+                }
             }
             
             NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
@@ -175,7 +179,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100.0f;
+    return 80.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -194,42 +198,71 @@
     
     UserDetail *object=[[recordArray objectAtIndex:row] objectForKey:@"userDetail"];
     
-    NSString *textString=[[NSString alloc]init];
-    
-    if ([object objectForKey:@"userRealName"]) {
-        textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[object objectForKey:@"userRealName"]]];
-    }
-    if ([object objectForKey:@"userGender"]) {
-        textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[object objectForKey:@"userGender"]]];
-    }
-    if ([object objectForKey:@"userBirthYear"]) {
-        textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[DateUtil ageFromBirthToNow:[object objectForKey:@"userBirthYear"]]]];
-    }
-    if ([object objectForKey:@"userHeight"]) {
-        textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@",[object objectForKey:@"userHeight"]]];
-    }
-    
-    cell.resumeTitleLabel.text=textString;
+    if (object) {
+        NSString *textString=[[NSString alloc]init];
+        
+        if ([object objectForKey:@"userRealName"]) {
+            textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[object objectForKey:@"userRealName"]]];
+        }
+        if ([object objectForKey:@"userGender"]) {
+            textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[object objectForKey:@"userGender"]]];
+        }
+        if ([object objectForKey:@"userBirthYear"]) {
+            textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@  ",[DateUtil ageFromBirthToNow:[object objectForKey:@"userBirthYear"]]]];
+        }
+        if ([object objectForKey:@"userHeight"]) {
+            textString=[textString stringByAppendingString:[NSString stringWithFormat:@"%@cm",[object objectForKey:@"userHeight"]]];
+        }
+        
+        cell.resumeTitleLabel.text=textString;
+        
+        NSString *textString2=[[NSString alloc]init];
+        
+        if (object.userSchool) {
+            textString2=[NSString stringWithFormat:@"%@  ",[textString2 stringByAppendingString:object.userSchool]];
+        }
+        if (object.userProfesssion) {
+            textString2=[NSString stringWithFormat:@"%@",[textString2 stringByAppendingString:object.userProfesssion]];
+        }
+        
+        cell.resumeSubTitleLabel.text=textString2;
+        
+        if (object.userLuYongValue) {
+            cell.resumeThirdLabel.text=[NSString stringWithFormat:@"%@次兼职经历",object.userLuYongValue];
+        }
+        
+        [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:[[object objectForKey:@"userImageArray"]objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"avator"]];
 
-    NSString *textString2=[[NSString alloc]init];
-    
-    if (object.userSchool) {
-        textString2=[NSString stringWithFormat:@"%@  ",[textString2 stringByAppendingString:object.userSchool]];
     }
-    if (object.userProfesssion) {
-        textString2=[NSString stringWithFormat:@"%@  ",[textString2 stringByAppendingString:object.userProfesssion]];
-    }
-    if (object.userLuYongValue) {
-        textString2=[NSString stringWithFormat:@"%@  ",[textString2 stringByAppendingString:[NSString stringWithFormat:@"%@次兼职经历",object.userLuYongValue]]];
-    }
-    cell.resumeSubTitleLabel.text=textString2;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UserDetail *object=[[recordArray objectAtIndex:[indexPath row]] objectForKey:@"userDetail"];
+    
+    
+    MLResumePreviewVC *previewVC=[[MLResumePreviewVC alloc]init];
+    previewVC.hidesBottomBarWhenPushed=YES;
+    previewVC.type=1;
+    previewVC.userObjectId=[object objectForKey:@"userObjectId"];
+    previewVC.fromEnterprise=YES;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+
+    [self.navigationController pushViewController:previewVC animated:YES];
+    
+    [self deselect];
 }
+
+- (void)deselect
+{
+    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
