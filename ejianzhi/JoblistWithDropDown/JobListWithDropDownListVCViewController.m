@@ -63,6 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title=@"列表";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地图显示" style:UIBarButtonItemStylePlain target:self action:@selector(showInMap)];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     self.edgesForExtendedLayout=UIRectEdgeNone;

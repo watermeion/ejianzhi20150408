@@ -127,6 +127,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self timeCollectionViewInit];
+    self.title=@"详情";
     self.tabBarController.tabBar.hidden=YES;
     //init rightBarButton
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
