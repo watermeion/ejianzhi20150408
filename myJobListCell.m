@@ -11,7 +11,8 @@
 @implementation myJobListCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.showResumeBtn.layer setCornerRadius:3];
+    [self.showResumeBtn.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

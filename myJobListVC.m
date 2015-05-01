@@ -15,6 +15,7 @@
 #import "QiYeInfo.h"
 #import "resumeListVC.h"
 #import "JianZhi.h"
+#import "JobDetailVC.h"
 
 @interface myJobListVC ()<UITableViewDataSource,UITableViewDelegate,resumeDelegate>
 {
@@ -228,7 +229,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self deselect];
+    
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[recordArray objectAtIndex:indexPath.row]];
+    detailVC.hidesBottomBarWhenPushed=YES;
+    detailVC.fromEnterprise=YES;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 }
 
 - (void)deselect
@@ -240,6 +251,13 @@
     JianZhi *object=[recordArray objectAtIndex:index];
     resumeListVC *resumeVC=[[resumeListVC alloc]init];
     resumeVC.jobObject=object;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+
+    resumeVC.hidesBottomBarWhenPushed=YES;
+    
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 

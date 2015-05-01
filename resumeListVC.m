@@ -118,20 +118,20 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (!error) {
-            
+            int p=0;
             for (AVObject *obj in objects) {
                 UserDetail *userDetials=[obj objectForKey:@"userDetail"];
                 if (userDetials) {
                     [recordArray addObject:obj];
+                    p++;
                 }
             }
             
             NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
             
             NSInteger n=[recordArray count];
-            NSInteger m=[objects count];
             
-            for (NSInteger k=n-m; k<[recordArray count];k++) {
+            for (NSInteger k=n-p; k<[recordArray count];k++) {
                 NSIndexPath *newPath = [NSIndexPath indexPathForRow:k inSection:0];
                 [insertIndexPaths addObject:newPath];
             }
@@ -166,7 +166,6 @@
     skipTimes=0;
     [self refreshData];
 }
-
 
 #pragma mark - Table view data source
 
@@ -255,7 +254,7 @@
 
     [self.navigationController pushViewController:previewVC animated:YES];
     
-    [self deselect];
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 }
 
 - (void)deselect

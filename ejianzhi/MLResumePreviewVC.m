@@ -67,10 +67,11 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [self.navigationController.navigationBar setTitleTextAttributes:titleBarAttributes];
 
     if (self.type== type_preview) {
-        self.title=@"我的简历";
+        
         if (!self.fromEnterprise) {
             self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(editResume)];
             [self.navigationItem.rightBarButtonItem setTitle:@"编辑"];
+            self.title=@"我的简历";
         }
         
         [self initDataFromNet];
@@ -230,6 +231,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)initData{
     if ([self.userDetailModel.userRealName length]>0) {
         self.userNameLabel.text=self.userDetailModel.userRealName;
+        self.title=[NSString stringWithFormat:@"%@的简历",self.userDetailModel.userRealName];
     }
     if (self.userDetailModel.userBirthYear) {
         self.userAgeLabel.text=[DateUtil ageFromBirthToNow:self.userDetailModel.userBirthYear];

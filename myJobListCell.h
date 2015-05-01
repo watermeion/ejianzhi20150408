@@ -23,4 +23,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *recruitInfoLabel;
 @property (nonatomic) NSInteger index;
 @property(nonatomic,weak) id<resumeDelegate> resumeDelegate;
+@property (strong, nonatomic) IBOutlet UIButton *showResumeBtn;
 @end

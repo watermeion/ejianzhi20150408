@@ -14,6 +14,8 @@
  */
 @interface JobDetailVC : UIViewController
 
+@property (nonatomic) BOOL fromEnterprise;
+
 /**
  *  使用数据init JobDetailVC 实例
  *
