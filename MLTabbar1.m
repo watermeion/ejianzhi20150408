@@ -9,12 +9,12 @@
 #import "MLTabbar1.h"
 #import "MLNavi.h"
 #import "myJobListVC.h"
-#import "MLForthVC.h"
+#import "EnterpriseForthVC.h"
 #import "MLChatVC.h"
 
 @interface MLTabbar1 ()
 @property (strong,nonatomic)myJobListVC *firstVC;
-@property (strong,nonatomic)MLForthVC *forthVC;
+@property (strong,nonatomic)EnterpriseForthVC *forthVC;
 @property (strong,nonatomic)MLChatVC *chatVC;
 @end
 
@@ -38,10 +38,10 @@ static  MLTabbar1 *thisController=nil;
     return  _firstVC;
 }
 
--(MLForthVC*)forthVC
+-(EnterpriseForthVC*)forthVC
 {
     if (_forthVC==nil) {
-        _forthVC=[[MLForthVC alloc]init];
+        _forthVC=[[EnterpriseForthVC alloc]init];
     }
     return  _forthVC;
 }

@@ -26,6 +26,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *comPropertyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *comScaleLabel;
 
+@property (strong, nonatomic) IBOutlet UIButton *btn1;
+@property (strong, nonatomic) IBOutlet UIButton *btn2;
+@property (strong, nonatomic) IBOutlet UIButton *btn3;
+@property (strong, nonatomic) IBOutlet UIButton *btn4;
+@property (strong, nonatomic) IBOutlet UIButton *btn5;
+@property (strong, nonatomic) IBOutlet UIButton *btn6;
+@property (strong, nonatomic) IBOutlet UIButton *btn7;
+@property (strong, nonatomic) IBOutlet UIButton *btn8;
+@property (strong, nonatomic) IBOutlet UIButton *btn9;
+@property (strong, nonatomic) IBOutlet UIButton *btn10;
+@property (strong, nonatomic) IBOutlet UIButton *btn11;
+
+
 
 @property (strong,nonatomic)CompanyInfoViewModel *viewModel;
 @end
@@ -48,11 +61,6 @@
     return self;
 }
 
-
-
-
-
-
 -(void)viewWillLayoutSubviews
 {
  
@@ -65,6 +73,24 @@
     self.title=@"企业信息";
     [self.comIconView.layer setCornerRadius:40.0f];
     [self.comIconView.layer setMasksToBounds:YES];
+    
+    
+    if (self.fromEnterprise) {
+        self.btn1.hidden=YES;
+    }else{
+        self.btn1.hidden=YES;
+        self.btn2.hidden=YES;
+        self.btn3.hidden=YES;
+        self.btn4.hidden=YES;
+        self.btn5.hidden=YES;
+        self.btn6.hidden=YES;
+        self.btn7.hidden=YES;
+        self.btn8.hidden=YES;
+        self.btn9.hidden=YES;
+        self.btn10.hidden=YES;
+        self.btn11.hidden=YES;
+    }
+    
     if (self.company!=nil) {
           self.viewModel=[[CompanyInfoViewModel alloc]initWithData:self.company];
     }
@@ -109,6 +135,38 @@
     if (self.company!=nil) {
         [jobListForCom setCompanyAndQuery:self.company];
     }
+    
+}
+
+- (IBAction)btn2Click:(id)sender {
+    
+}
+- (IBAction)btn3Click:(id)sender {
+    
+}
+- (IBAction)btn4Click:(id)sender {
+    
+}
+- (IBAction)btn5Click:(id)sender {
+    
+}
+- (IBAction)btn6Click:(id)sender {
+    
+}
+- (IBAction)btn7Click:(id)sender {
+    
+}
+- (IBAction)btn8Click:(id)sender {
+    
+}
+- (IBAction)btn9Click:(id)sender {
+    
+}
+- (IBAction)btn10Click:(id)sender {
+    
+    
+}
+- (IBAction)btn11Click:(id)sender {
     
 }
 

@@ -71,18 +71,20 @@
     query.maxCacheAge=3600*24;
     [query whereKey:@"objectId" equalTo:companyId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error==nil && objects.count==1) {
-            [self mapKeyValueFromAVObjects:[objects firstObject]];
-        }else
-        {
+        if (!error) {
+            if ([objects count]>0) {
+                [self mapKeyValueFromAVObjects:[objects firstObject]];
+            }else{
+                NSString *errorString=[NSString stringWithFormat:@"您还没有填写信息哦"];
+                [MBProgressHUD showError:errorString toView:nil];
+            }
+        }else{
             NSString *errorString=[NSString stringWithFormat:@"sorry，加载出错。错误原因：%@"  ,error.description];
             [MBProgressHUD showError:errorString toView:nil];
         }
         
-        
     }];
     
     }
-    
 }
 @end
