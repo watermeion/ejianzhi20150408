@@ -21,5 +21,7 @@
 @property (nonatomic, strong) UserDetail *userDetailModel;
 @property (assign, nonatomic) int type;
 @property (nonatomic, strong) NSMutableArray *userImageArray;
-@property(nonatomic,weak) id<finishSaveDelegate> saveDelegate;
+@property (nonatomic,weak) id<finishSaveDelegate> saveDelegate;
+@property (nonatomic, strong) NSString *userObjectId;
+@property (nonatomic) BOOL fromEnterprise;
 @end

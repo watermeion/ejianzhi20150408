@@ -67,9 +67,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [self.navigationController.navigationBar setTitleTextAttributes:titleBarAttributes];
 
     if (self.type== type_preview) {
-        self.title=@"我的简历";
-        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(editResume)];
-        [self.navigationItem.rightBarButtonItem setTitle:@"编辑"];
+        
+        if (!self.fromEnterprise) {
+            self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(editResume)];
+            [self.navigationItem.rightBarButtonItem setTitle:@"编辑"];
+            self.title=@"我的简历";
+        }
+        
         [self initDataFromNet];
         loaded=YES;
     }
@@ -110,6 +114,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (void)saveResume{
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [self.userDetailModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -122,6 +127,35 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
             [MBProgressHUD showSuccess:@"保存失败" toView:self.view];
         }
     }];
+    
+    if ([self.userImageArray count]>0) {
+    
+        AVQuery *query=[AVUser query];
+        [query whereKey:@"objectId" equalTo:[AVUser currentUser].objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                AVUser *currentUser=[objects objectAtIndex:0];
+                
+                imageWithUrlObject *imageObject=[self.userImageArray objectAtIndex:0];
+                
+                //上传图片
+                NSData *imageData = UIImageJPEGRepresentation(imageObject.image, 0.5);
+                
+                AVFile *imageFile = [AVFile fileWithName:@"AvatarImage" data:imageData];
+                
+                [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        [currentUser setObject:imageFile forKey:@"avatar"];
+                        [currentUser saveEventually];
+                    }
+                }];
+                
+                NSUserDefaults *defaultData=[NSUserDefaults standardUserDefaults];
+                [defaultData setObject:[self.userDetailModel.userImageArray objectAtIndex:0] forKey:@"userAvatar"];
+                [defaultData synchronize];
+            }
+        }];
+    }
 }
 
 - (void)initImageScrollView{
@@ -197,6 +231,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)initData{
     if ([self.userDetailModel.userRealName length]>0) {
         self.userNameLabel.text=self.userDetailModel.userRealName;
+        self.title=[NSString stringWithFormat:@"%@的简历",self.userDetailModel.userRealName];
     }
     if (self.userDetailModel.userBirthYear) {
         self.userAgeLabel.text=[DateUtil ageFromBirthToNow:self.userDetailModel.userBirthYear];
@@ -242,9 +277,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 - (void)initDataFromNet{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *userObjectId=[AVUser currentUser].objectId;
+    
     AVQuery *query=[UserDetail query];
-    [query whereKey:@"userObjectId" equalTo:userObjectId];
+    [query whereKey:@"userObjectId" equalTo:self.userObjectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (!error) {

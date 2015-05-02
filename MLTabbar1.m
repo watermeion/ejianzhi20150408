@@ -10,10 +10,12 @@
 #import "MLNavi.h"
 #import "myJobListVC.h"
 #import "MLForthVC.h"
+#import "MLChatVC.h"
 
 @interface MLTabbar1 ()
 @property (strong,nonatomic)myJobListVC *firstVC;
 @property (strong,nonatomic)MLForthVC *forthVC;
+@property (strong,nonatomic)MLChatVC *chatVC;
 @end
 
 @implementation MLTabbar1
@@ -44,6 +46,15 @@ static  MLTabbar1 *thisController=nil;
     return  _forthVC;
 }
 
+-(MLChatVC*)chatVC
+{
+    if(_chatVC==nil)
+    {
+        _chatVC=[[MLChatVC alloc]init];
+    }
+    return _chatVC;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -63,7 +74,7 @@ static  MLTabbar1 *thisController=nil;
     
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
     pageOneVC.title=@"我发布的兼职";
-    UIViewController *pageTwoVC=[self makeRootByNavigationController:[[UIViewController alloc] init]];
+    UIViewController *pageTwoVC=[self makeRootByNavigationController:self.chatVC];
     pageTwoVC.title=@"消息";
     UIViewController *pageThreeVC=[self makeRootByNavigationController:self.forthVC];
     pageThreeVC.title=@"我的";

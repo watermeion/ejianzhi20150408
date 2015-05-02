@@ -30,6 +30,7 @@
 
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate,UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     BOOL pushing;
+    BOOL imagePickerPushing;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -60,6 +61,7 @@
     self.loginManager=[MLLoginManger shareInstance];
     
     pushing=NO;
+    imagePickerPushing=NO;
     
     UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseAvatar)];
     tapGesture.delegate=self;
@@ -94,12 +96,15 @@
 
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
-
-    if ([AVUser currentUser]!=nil) {
-        [self finishLogin];
-    }
-    else {
-        [self finishLogout];
+    if (!imagePickerPushing) {
+        if ([AVUser currentUser]!=nil) {
+            [self finishLogin];
+        }
+        else {
+            [self finishLogout];
+        }
+    }else{
+        imagePickerPushing=NO;
     }
 }
 
@@ -127,7 +132,9 @@
             imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             imagePickerController.delegate = self;
             imagePickerController.allowsEditing = TRUE;
-            [self presentViewController:imagePickerController animated:YES completion:^{}];
+            [self presentViewController:imagePickerController animated:YES completion:^{
+                imagePickerPushing=YES;
+            }];
             return;
         }
         if (buttonIndex == 1) {
@@ -137,7 +144,9 @@
                 imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
                 imagePickerController.delegate = self;
                 imagePickerController.allowsEditing = TRUE;
-                [self presentViewController:imagePickerController animated:YES completion:^{}];
+                [self presentViewController:imagePickerController animated:YES completion:^{
+                    imagePickerPushing=YES;
+                }];
             }else{
                 UIAlertView *alterTittle = [[UIAlertView alloc] initWithTitle:ALERTVIEW_TITLE message:ALERTVIEW_CAMERAWRONG delegate:nil cancelButtonTitle:ALERTVIEW_KNOWN otherButtonTitles:nil];
                 [alterTittle show];
@@ -165,8 +174,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-    
-    
     
     if (buttonIndex==1) {
         if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"0"]) {
@@ -244,16 +251,21 @@
 #pragma --mark  显示简历
 - (IBAction)showResumeAction:(id)sender {
     
-    MLResumePreviewVC *previewVC=[[MLResumePreviewVC alloc]init];
-    previewVC.hidesBottomBarWhenPushed=YES;
-    previewVC.type=1;
-    
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"";
-    self.navigationItem.backBarButtonItem = backItem;
-    pushing=YES;
-    [self.navigationController pushViewController:previewVC animated:YES];
-
+    if ([AVUser currentUser]) {
+        MLResumePreviewVC *previewVC=[[MLResumePreviewVC alloc]init];
+        previewVC.hidesBottomBarWhenPushed=YES;
+        previewVC.type=1;
+        previewVC.userObjectId=[AVUser currentUser].objectId;
+        
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        backItem.title = @"";
+        self.navigationItem.backBarButtonItem = backItem;
+        pushing=YES;
+        [self.navigationController pushViewController:previewVC animated:YES];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未登录" message:@"是否现在登录？" delegate:self cancelButtonTitle:@"再看看" otherButtonTitles:@"立即登录",nil];
+        [alert show];
+    }
 }
 
 - (IBAction)showMyApplication:(UIButton *)sender {
@@ -317,6 +329,25 @@
                     AVUser *currentUser=[objects objectAtIndex:0];
                     [currentUser setObject:imageFile forKey:@"avatar"];
                     [currentUser saveEventually];
+                    
+                    AVQuery *userDetailQuery=[AVQuery queryWithClassName:@"UserDetail"];
+                    [userDetailQuery whereKey:@"userObjectId" equalTo:currentUser.objectId];
+                    [userDetailQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                        if (!error) {
+                            if ([objects count]>0) {
+                                AVObject *userDetailObject=[objects objectAtIndex:0];
+                                NSMutableArray *imageArray=[userDetailObject objectForKey:@"userImageArray"];
+                                [imageArray insertObject:imageFile.url atIndex:0];
+                                [userDetailObject setObject:imageArray forKey:@"userImageArray"];
+                                [userDetailObject saveEventually];
+                            }else{
+                                AVObject *userDetailObject = [AVObject objectWithClassName:@"UserDetail"];
+                                NSMutableArray *imageArray=[[NSMutableArray alloc] initWithObjects:imageFile.url, nil];
+                                [userDetailObject setObject:imageArray forKey:@"userImageArray"];
+                                [userDetailObject saveEventually];
+                            }
+                        }
+                    }];
                 }];
 
             }else{

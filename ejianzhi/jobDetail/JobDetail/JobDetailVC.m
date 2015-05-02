@@ -36,6 +36,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobTeShuYaoQiuHeightConstraint;
+@property (strong, nonatomic) IBOutlet UIButton *btn1;
+@property (strong, nonatomic) IBOutlet UIButton *btn2;
+@property (strong, nonatomic) IBOutlet UIButton *btn3;
 
 
 
@@ -136,6 +139,11 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
     
+    if (self.fromEnterprise) {
+        self.btn1.hidden=YES;
+        self.btn2.hidden=YES;
+        self.btn3.hidden=YES;
+    }
     
     //创建监听
     @weakify(self)

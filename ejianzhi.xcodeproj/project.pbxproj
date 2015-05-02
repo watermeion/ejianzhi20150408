@@ -483,6 +483,8 @@
 		04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */; };
 		3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49EB7E1AEFC091002F96AC /* myJobListVC.m */; };
 		3B49EB811AEFC091002F96AC /* myJobListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */; };
+		3B5539F61AF36D09009DAB84 /* resumeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5539F41AF36D09009DAB84 /* resumeListCell.m */; };
+		3B5539F71AF36D09009DAB84 /* resumeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B5539F51AF36D09009DAB84 /* resumeListCell.xib */; };
 		3B7740721AEB90EA0017E549 /* myJobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7740701AEB90EA0017E549 /* myJobListCell.m */; };
 		3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7740711AEB90EA0017E549 /* myJobListCell.xib */; };
 		3B8D4AA81AE20489001F5E7F /* JianZhiShenQing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AA71AE20489001F5E7F /* JianZhiShenQing.m */; };
@@ -509,8 +511,6 @@
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
 		3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */; };
 		3BA364161AF0CDBB00D1EF03 /* resumeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */; };
-		3BA3641B1AF0CE8500D1EF03 /* resumeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364191AF0CE8500D1EF03 /* resumeListCell.m */; };
-		3BA3641C1AF0CE8500D1EF03 /* resumeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */; };
 		3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */; };
 		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
@@ -1335,6 +1335,9 @@
 		3B49EB7E1AEFC091002F96AC /* myJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListVC.m; sourceTree = "<group>"; };
 		3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myJobListVC.xib; sourceTree = "<group>"; };
 		3B49EB831AEFD0AE002F96AC /* myJobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myJobListCell.h; sourceTree = "<group>"; };
+		3B5539F31AF36D09009DAB84 /* resumeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListCell.h; sourceTree = "<group>"; };
+		3B5539F41AF36D09009DAB84 /* resumeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListCell.m; sourceTree = "<group>"; };
+		3B5539F51AF36D09009DAB84 /* resumeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListCell.xib; sourceTree = "<group>"; };
 		3B7740701AEB90EA0017E549 /* myJobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListCell.m; sourceTree = "<group>"; };
 		3B7740711AEB90EA0017E549 /* myJobListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myJobListCell.xib; sourceTree = "<group>"; };
 		3B8D4AA61AE20489001F5E7F /* JianZhiShenQing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianZhiShenQing.h; sourceTree = "<group>"; };
@@ -1376,9 +1379,6 @@
 		3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListVC.h; sourceTree = "<group>"; };
 		3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListVC.m; sourceTree = "<group>"; };
 		3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListVC.xib; sourceTree = "<group>"; };
-		3BA364181AF0CE8500D1EF03 /* resumeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListCell.h; sourceTree = "<group>"; };
-		3BA364191AF0CE8500D1EF03 /* resumeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListCell.m; sourceTree = "<group>"; };
-		3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListCell.xib; sourceTree = "<group>"; };
 		3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKProgressTimer.h; sourceTree = "<group>"; };
 		3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKProgressTimer.m; sourceTree = "<group>"; };
 		3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbar1.h; sourceTree = "<group>"; };
@@ -2760,18 +2760,18 @@
 		3B77406E1AEB90BF0017E549 /* myJobList */ = {
 			isa = PBXGroup;
 			children = (
-				3B49EB831AEFD0AE002F96AC /* myJobListCell.h */,
-				3B7740701AEB90EA0017E549 /* myJobListCell.m */,
-				3B7740711AEB90EA0017E549 /* myJobListCell.xib */,
 				3B49EB7D1AEFC091002F96AC /* myJobListVC.h */,
 				3B49EB7E1AEFC091002F96AC /* myJobListVC.m */,
 				3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */,
+				3B49EB831AEFD0AE002F96AC /* myJobListCell.h */,
+				3B7740701AEB90EA0017E549 /* myJobListCell.m */,
+				3B7740711AEB90EA0017E549 /* myJobListCell.xib */,
 				3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */,
 				3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */,
 				3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */,
-				3BA364181AF0CE8500D1EF03 /* resumeListCell.h */,
-				3BA364191AF0CE8500D1EF03 /* resumeListCell.m */,
-				3BA3641A1AF0CE8500D1EF03 /* resumeListCell.xib */,
+				3B5539F31AF36D09009DAB84 /* resumeListCell.h */,
+				3B5539F41AF36D09009DAB84 /* resumeListCell.m */,
+				3B5539F51AF36D09009DAB84 /* resumeListCell.xib */,
 			);
 			name = myJobList;
 			sourceTree = "<group>";
@@ -3355,6 +3355,7 @@
 				045624EB1AD6211D006E159C /* d7.png in Resources */,
 				045625341AD6211D006E159C /* partTime.png in Resources */,
 				045625001AD6211D006E159C /* btnColor2.png in Resources */,
+				3B5539F71AF36D09009DAB84 /* resumeListCell.xib in Resources */,
 				045625641AD6211D006E159C /* color3.9.png in Resources */,
 				045626151AD62129006E159C /* checkbox1_checked.png in Resources */,
 				045624FB1AD6211D006E159C /* userAdd.png in Resources */,
@@ -3926,7 +3927,6 @@
 				0443C1591AD5533B004F29A5 /* MLNavi.m in Sources */,
 				3BBF708A1AD6D1ED00A33F5A /* CDUtils.m in Sources */,
 				3B8D4AED1AE257A9001F5E7F /* MJRefreshHeaderView.m in Sources */,
-				3BA3641B1AF0CE8500D1EF03 /* resumeListCell.m in Sources */,
 				3BBF6F5A1AD6D0E800A33F5A /* MLResumePreviewVC.m in Sources */,
 				0443C1E81AD55589004F29A5 /* PageSplitingManager.m in Sources */,
 				3BBF6F141AD6D0C900A33F5A /* UIImage+EMWebP.m in Sources */,
@@ -4060,6 +4060,7 @@
 				04C3481A1AEFBB9D00B48D11 /* JobOfComListVC.m in Sources */,
 				3BBF6F181AD6D0C900A33F5A /* SDBrowserImageView.m in Sources */,
 				0443C1F61AD55591004F29A5 /* MLJobDetailViewModel.m in Sources */,
+				3B5539F61AF36D09009DAB84 /* resumeListCell.m in Sources */,
 				0443C1E31AD55589004F29A5 /* AJLocationManager.m in Sources */,
 				3BBF6F0F1AD6D0C900A33F5A /* MKAnnotationView+EMWebCache.m in Sources */,
 				04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */,
