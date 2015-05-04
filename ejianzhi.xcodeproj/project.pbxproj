@@ -511,6 +511,10 @@
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
 		3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */; };
 		3BA364161AF0CDBB00D1EF03 /* resumeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */; };
+		3BA492A61AF4F1450081B9A9 /* EnterpriseForthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA492A41AF4F1450081B9A9 /* EnterpriseForthVC.m */; };
+		3BA492A71AF4F1450081B9A9 /* EnterpriseForthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA492A51AF4F1450081B9A9 /* EnterpriseForthVC.xib */; };
+		3BA492AC1AF51C820081B9A9 /* InputInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA492AA1AF51C820081B9A9 /* InputInfoVC.m */; };
+		3BA492AD1AF51C820081B9A9 /* InputInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA492AB1AF51C820081B9A9 /* InputInfoVC.xib */; };
 		3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */; };
 		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
@@ -1379,6 +1383,12 @@
 		3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListVC.h; sourceTree = "<group>"; };
 		3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resumeListVC.m; sourceTree = "<group>"; };
 		3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = resumeListVC.xib; sourceTree = "<group>"; };
+		3BA492A31AF4F1450081B9A9 /* EnterpriseForthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterpriseForthVC.h; sourceTree = "<group>"; };
+		3BA492A41AF4F1450081B9A9 /* EnterpriseForthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterpriseForthVC.m; sourceTree = "<group>"; };
+		3BA492A51AF4F1450081B9A9 /* EnterpriseForthVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterpriseForthVC.xib; sourceTree = "<group>"; };
+		3BA492A91AF51C820081B9A9 /* InputInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputInfoVC.h; sourceTree = "<group>"; };
+		3BA492AA1AF51C820081B9A9 /* InputInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputInfoVC.m; sourceTree = "<group>"; };
+		3BA492AB1AF51C820081B9A9 /* InputInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputInfoVC.xib; sourceTree = "<group>"; };
 		3BA76E281AE4D45600A2FF26 /* KKProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKProgressTimer.h; sourceTree = "<group>"; };
 		3BA76E291AE4D45600A2FF26 /* KKProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKProgressTimer.m; sourceTree = "<group>"; };
 		3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbar1.h; sourceTree = "<group>"; };
@@ -2818,6 +2828,16 @@
 			path = JSBadgeView;
 			sourceTree = "<group>";
 		};
+		3BA492A11AF4F1100081B9A9 /* EnterpriseForth */ = {
+			isa = PBXGroup;
+			children = (
+				3BA492A31AF4F1450081B9A9 /* EnterpriseForthVC.h */,
+				3BA492A41AF4F1450081B9A9 /* EnterpriseForthVC.m */,
+				3BA492A51AF4F1450081B9A9 /* EnterpriseForthVC.xib */,
+			);
+			name = EnterpriseForth;
+			sourceTree = "<group>";
+		};
 		3BA76E261AE4D44300A2FF26 /* ProgressTimer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2830,9 +2850,13 @@
 		3BA76E2B1AE4F8C300A2FF26 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
+				3BA492A11AF4F1100081B9A9 /* EnterpriseForth */,
 				3B77406E1AEB90BF0017E549 /* myJobList */,
 				3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */,
 				3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */,
+				3BA492A91AF51C820081B9A9 /* InputInfoVC.h */,
+				3BA492AA1AF51C820081B9A9 /* InputInfoVC.m */,
+				3BA492AB1AF51C820081B9A9 /* InputInfoVC.xib */,
 			);
 			name = Enterprise;
 			sourceTree = "<group>";
@@ -3709,6 +3733,7 @@
 				045626131AD62129006E159C /* box_2.png in Resources */,
 				045625A81AD6211D006E159C /* protait2-Small@3x.png in Resources */,
 				3BBF6FFB1AD6D1CB00A33F5A /* u1f44e.png in Resources */,
+				3BA492A71AF4F1450081B9A9 /* EnterpriseForthVC.xib in Resources */,
 				045624E01AD6211D006E159C /* add1.png in Resources */,
 				3BBF70321AD6D1CB00A33F5A /* input-field-cover@2x.png in Resources */,
 				0456260E1AD62129006E159C /* activity.png in Resources */,
@@ -3818,6 +3843,7 @@
 				045624EF1AD6211D006E159C /* label_jm.png in Resources */,
 				0456255C1AD6211D006E159C /* time.png in Resources */,
 				045625821AD6211D006E159C /* Icon-60.png in Resources */,
+				3BA492AD1AF51C820081B9A9 /* InputInfoVC.xib in Resources */,
 				045625931AD6211D006E159C /* partTime1@3x.png in Resources */,
 				045625B71AD6211D006E159C /* protait3.png in Resources */,
 				045622C51AD6162D006E159C /* IQButtonBarArrowLeft@2x.png in Resources */,
@@ -3938,6 +3964,7 @@
 				3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */,
 				0443C1E61AD55589004F29A5 /* MLMapManager.m in Sources */,
 				0443C1F71AD55591004F29A5 /* MLLoginViewModel.m in Sources */,
+				3BA492A61AF4F1450081B9A9 /* EnterpriseForthVC.m in Sources */,
 				0443C1F51AD55591004F29A5 /* MLJianZhiViewModel.m in Sources */,
 				0443C2261AD5560F004F29A5 /* JobDetailInteractor.m in Sources */,
 				0443C1B91AD5553F004F29A5 /* UrlImageView.m in Sources */,
@@ -3992,6 +4019,7 @@
 				0456264F1AD621AC006E159C /* DateUtil.m in Sources */,
 				0443C1301AD5531D004F29A5 /* main.m in Sources */,
 				0443C1821AD55492004F29A5 /* MLSecondVC.m in Sources */,
+				3BA492AC1AF51C820081B9A9 /* InputInfoVC.m in Sources */,
 				045622F21AD61A33006E159C /* CustomAnnotationView.m in Sources */,
 				0443C2281AD5560F004F29A5 /* LineDashPolyline.m in Sources */,
 				045AA7441AE93A6600ED20F1 /* firstSearchDisplayController.m in Sources */,

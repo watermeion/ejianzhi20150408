@@ -18,6 +18,8 @@
 #import "SRMapViewVC.h"
 #import "tousuViewController.h"
 #import "CompanyInfoViewController.h"
+#import "resumeListVC.h"
+
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -39,10 +41,8 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (strong, nonatomic) IBOutlet UIButton *btn1;
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
 @property (strong, nonatomic) IBOutlet UIButton *btn3;
-
-
-
-
+@property (strong, nonatomic) IBOutlet UIButton *btn4;
+@property (strong, nonatomic) IBOutlet UIButton *btn5;
 
 - (IBAction)showInMapAction:(id)sender;
 
@@ -143,6 +143,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
         self.btn3.hidden=YES;
+    }else{
+        self.btn4.hidden=YES;
+        self.btn5.hidden=YES;
     }
     
     //创建监听
@@ -152,7 +155,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         NSArray *workTimeArray=self.viewModel.worktime;
         for (int i = 0; i < [workTimeArray count]; i++) {
             NSLog(@"string:%@", [workTimeArray objectAtIndex:i]);
-            int num=[[workTimeArray objectAtIndex:i]integerValue];
+            int num=[[workTimeArray objectAtIndex:i] intValue];
             if (num>0 && num <21) selectFreeData[num]=true;
         }
         [self.selectfreeCollectionOutlet reloadData];
@@ -195,16 +198,31 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         return [RACSignal empty];
     }];
     self.jobDetailMoreJobBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        if (self.thisCompanyId!=nil) {
-        CompanyInfoViewController *companyInfoVC=[[CompanyInfoViewController alloc]initWithData:self.thisCompanyId];
-        companyInfoVC.hidesBottomBarWhenPushed=YES;
-        companyInfoVC.edgesForExtendedLayout=UIRectEdgeNone;
-        [self.navigationController pushViewController:companyInfoVC animated:YES];
-        }
-        else
-        {
-            TTAlert(@"sorry,该公司的HR很懒什么都没留下~！详情请电话咨询");
-        
+        if (self.fromEnterprise) {
+            resumeListVC *resumeVC=[[resumeListVC alloc]init];
+            resumeVC.jobObject=self.viewModel.jianZhi;
+            
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"";
+            self.navigationItem.backBarButtonItem = backItem;
+            
+            resumeVC.hidesBottomBarWhenPushed=YES;
+            
+            [self.navigationController pushViewController:resumeVC animated:YES];
+            
+        }else{
+            if (self.thisCompanyId!=nil) {
+                CompanyInfoViewController *companyInfoVC=[[CompanyInfoViewController alloc]initWithData:self.thisCompanyId];
+                companyInfoVC.hidesBottomBarWhenPushed=YES;
+                companyInfoVC.edgesForExtendedLayout=UIRectEdgeNone;
+                [self.navigationController pushViewController:companyInfoVC animated:YES];
+            }
+            else
+            {
+                TTAlert(@"sorry,该公司的HR什么都没留下~！详情请电话咨询");
+                
+            }
+
         }
         return [RACSignal empty];
     }];
@@ -422,4 +440,18 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     }
     //    [self.viewModel presentShowJobInMapInterfaceFromViewController:self];
 }
+
+
+- (IBAction)showResume:(id)sender {
+    
+}
+
+- (IBAction)refuseResume:(id)sender {
+    
+}
+
+- (IBAction)acceptResume:(id)sender {
+    
+}
+
 @end

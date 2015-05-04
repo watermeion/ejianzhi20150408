@@ -140,7 +140,7 @@
                 <outlet property="showResumeBtn" destination="CkD-JG-88t" id="7HZ-cs-EfA"/>
                 <outlet property="typeLabel" destination="jqm-3V-GVD" id="93F-Vy-ftf"/>
             </connections>
-            <point key="canvasLocation" x="401" y="201"/>
+            <point key="canvasLocation" x="444" y="200"/>
         </tableViewCell>
     </objects>
 </document>

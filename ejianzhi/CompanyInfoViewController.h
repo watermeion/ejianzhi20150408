@@ -11,4 +11,5 @@
 @interface CompanyInfoViewController : UIViewController
 @property (strong,nonatomic)id company;
 -(instancetype)initWithData:(id) company;
+@property (nonatomic) BOOL fromEnterprise;
 @end
