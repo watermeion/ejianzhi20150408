@@ -73,7 +73,7 @@
     PullServerManager *pullServerManager=[PullServerManager sharedIntance];
     [pullServerManager rewriteUserDefaults];
     
-   
+
 
     
 //    //1、注册登录变化通知

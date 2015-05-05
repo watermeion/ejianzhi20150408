@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <MAMapKit/MAMapKit.h>
 #import <AMapCommonObj.h>
+#import <AMapSearchAPI.h>
 /**
  *  管理app中对AMap 使用，控制mapKey验证，所有高德地图有关的操作都封装在这个类中等
  */
 @class MLMapView;
+
 @interface MLMapManager : NSObject
 
 //储存地理编码的结果
@@ -21,9 +23,11 @@
 //储存路径规划结果
 @property (nonatomic,strong)NSString *routePlannedString;
 
+@property (strong,nonatomic)AMapSearchAPI *searchAPI;
+
 +(instancetype)shareInstance;
 
--(void)checkMapKey;
++(void)checkMapKey;
 
 /**
  *  逆向地理编码
@@ -98,6 +102,8 @@
  *
  *  @return NSNumber 单位米
  */
-- (NSNumber *)calDistanceMeterWithPointA:(CLLocationCoordinate2D)pointA
++ (NSNumber *)calDistanceMeterWithPointA:(CLLocationCoordinate2D)pointA
                                   PointB:(CLLocationCoordinate2D)pointB;
+
++(NSString*)getMapKey;
 @end

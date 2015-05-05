@@ -20,6 +20,6 @@
  *  @return UIColor 对应的颜色值
  */
 +(UIColor*)colorRGBFromArray:(NSArray*)rgb;
-
++(UIColor*)colorForType:(NSString*)type;
 
 @end

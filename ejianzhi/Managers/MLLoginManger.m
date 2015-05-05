@@ -31,8 +31,8 @@ static MLLoginManger * thisInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         thisInstance=[[super alloc]init];
-        thisInstance.loginVC=[[SRLoginVC alloc]init];
-        thisInstance.registerVC=[[SRRegisterVC alloc]init];
+//        thisInstance.loginVC=[[SRLoginVC alloc]init];
+//        thisInstance.registerVC=[[SRRegisterVC alloc]init];
         //判断初始化用户状态的
         [thisInstance initLoginState];
     });

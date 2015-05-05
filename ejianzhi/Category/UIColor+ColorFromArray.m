@@ -7,7 +7,7 @@
 //
 
 #import "UIColor+ColorFromArray.h"
-
+#import  "PullServerManager.h"
 @implementation UIColor (ColorFromArray)
 
 
@@ -21,5 +21,21 @@
         return rgbColor;
     }
     return nil;
+}
+
+
++(UIColor*)colorForType:(NSString*)type
+{
+    NSUserDefaults *mysetting=[NSUserDefaults standardUserDefaults];
+    NSDictionary *typeAndColorDict=[mysetting objectForKey:TypeListAndColor];
+    NSArray *typeArray=[typeAndColorDict allKeys];
+    if ([typeArray containsObject:type]) {
+        UIColor *color=[UIColor colorRGBFromArray:[typeAndColorDict objectForKey:type]];
+        return  color;
+    }
+    else
+    {
+        return nil;
+    }
 }
 @end

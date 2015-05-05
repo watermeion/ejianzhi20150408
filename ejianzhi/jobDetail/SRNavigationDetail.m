@@ -11,7 +11,7 @@
 #import "CommonUtility.h"
 #import "SRShowRouteVC.h"
 #import "AJLocationManager.h"
-
+#import "MLMapManager.h"
 @interface SRNavigationDetail ()<AMapSearchDelegate>
 {
     AMapSearchAPI *search;
@@ -32,16 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    HUD = [[JGProgressHUD alloc] initWithStyle:1];
-//    HUD.userInteractionEnabled = YES;
-//    HUD.delegate = self;
+    //    HUD = [[JGProgressHUD alloc] initWithStyle:1];
+    //    HUD.userInteractionEnabled = YES;
+    //    HUD.delegate = self;
     
     cellNum=0;
     tableHight=1000;
     finishloading=NO;
-    [_tableView setDelegate:self];
-    [_tableView setDataSource:self];
     _tableView.scrollEnabled=YES;
+    _headView.frame=CGRectMake(0, 0, MainScreenWidth, 120);
     _tableView.tableHeaderView=_headView;
     
     self.destinationName.text=self.destination;
@@ -49,11 +48,11 @@
     if (_searchType==AMapSearchType_NaviBus)
         self.segment.selectedSegmentIndex=0;
     else if (_searchType==AMapSearchType_NaviDrive)
-         self.segment.selectedSegmentIndex=1;
+        self.segment.selectedSegmentIndex=1;
     else
         self.segment.selectedSegmentIndex=2;
     
-    search = [[AMapSearchAPI alloc] initWithSearchKey: @"41f0145aa2a77c39924ee9aa0664701f" Delegate:self];
+    search =[[AMapSearchAPI alloc] initWithSearchKey:[MLMapManager getMapKey] Delegate:self];
     if (_searchType==AMapSearchType_NaviDrive) {
         [self searchNaviDrive];
     }else if (_searchType==AMapSearchType_NaviBus){
@@ -66,7 +65,7 @@
 /**************************驾车导航****************************/
 - (void)searchNaviDrive
 {
-//    [HUD showInView:self.view];
+    //    [HUD showInView:self.view];
     AMapNavigationSearchRequest *naviRequest= [[AMapNavigationSearchRequest alloc] init];
     naviRequest.searchType = AMapSearchType_NaviDrive;
     _searchType=AMapSearchType_NaviDrive;
@@ -79,7 +78,7 @@
 /* 公交导航搜索. */
 - (void)searchNaviBus
 {
-//    [HUD showInView:self.view];
+    //    [HUD showInView:self.view];
     AMapNavigationSearchRequest *navi = [[AMapNavigationSearchRequest alloc] init];
     navi.searchType       = AMapSearchType_NaviBus;
     _searchType=AMapSearchType_NaviBus;
@@ -90,7 +89,7 @@
     if ([mySettingData objectForKey:@"currentCity"]) {
         navi.city = [mySettingData objectForKey:@"currentCity"];
     }
-
+    
     navi.origin = [AMapGeoPoint locationWithLatitude:_startCoord.latitude longitude:_startCoord.longitude];
     navi.destination = [AMapGeoPoint locationWithLatitude:_destinationCoord.latitude longitude:_destinationCoord.longitude];
     
@@ -100,7 +99,7 @@
 /* 步行导航搜索. */
 - (void)searchNaviWalk
 {
-//    [HUD showInView:self.view];
+    //    [HUD showInView:self.view];
     AMapNavigationSearchRequest *navi = [[AMapNavigationSearchRequest alloc] init];
     navi.searchType= AMapSearchType_NaviWalking;
     _searchType=AMapSearchType_NaviWalking;
@@ -114,7 +113,7 @@
 
 - (void)onNavigationSearchDone:(AMapNavigationSearchRequest *)request response:(AMapNavigationSearchResponse *)response
 {
-//    [HUD dismiss];
+    //    [HUD dismiss];
     
     tableHight=70;
     
@@ -133,7 +132,7 @@
     
     finishloading=YES;
     [_tableView reloadData];
-
+    
 }
 
 
@@ -151,7 +150,7 @@
         
         SRNavigationCell *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
         cell.accessoryType=UITableViewCellAccessoryNone;
-         NSUInteger row=[indexPath row];
+        NSUInteger row=[indexPath row];
         
         if (_searchType == AMapSearchType_NaviBus) {
             AMapTransit* transit=[self.transits objectAtIndex:row];
@@ -175,7 +174,7 @@
             AMapPath* path=[self.paths objectAtIndex:row];
             cell.naviTime.text=[NSString stringWithFormat:@"%ld分钟",path.duration/60];
             cell.walkMeters.text=[NSString stringWithFormat:@"%ld米",path.distance];
-        
+            
             AMapStep *stepppp=[path.steps objectAtIndex:0];
             NSString *s=stepppp.road;
             if ([path.steps count]>1) {
@@ -186,8 +185,8 @@
                     }
                 }
             }
-        
-        cell.naviLine.text=s;
+            
+            cell.naviLine.text=s;
         }
         return cell;
     }
@@ -219,9 +218,9 @@
     if (_searchType == AMapSearchType_NaviBus){
         vc.polylines=[CommonUtility polylinesForTransit:[self.transits objectAtIndex:[indexPath row]]];
     }else{
-    
+        
         vc.polylines=[CommonUtility polylinesForPath:[self.paths objectAtIndex:[indexPath row]]];
-    
+        
     }
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -261,13 +260,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

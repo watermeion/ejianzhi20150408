@@ -10,6 +10,8 @@
 #import "UIColor+ColorFromArray.h"
 #import "MLJianZhiViewModel.h"
 #import  "PullServerManager.h"
+#import "MLMapManager.h"
+#import "AJLocationManager.h"
 @implementation JobListTableViewCell (configureForJobCell)
 - (void)configureForJob:(JianZhi*)jianzhi
 {
@@ -25,7 +27,8 @@
     
     self.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
-    self.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
+    self.distanceLabelWithinUnitLabel.text=[self distanceFromJobPoint:jianzhi.jianZhiPoint.latitude Lon:jianzhi.jianZhiPoint.longitude];
+    
     self.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
 }
 
@@ -43,4 +46,36 @@
         return nil;
     }
 }
+
+-(NSString *)distanceFromJobPoint:(double)lat Lon:(double)lon
+{
+    if (lat>0 && lon>0) {
+    
+        CLLocationCoordinate2D jobP=CLLocationCoordinate2DMake(lat, lon);
+        
+        CLLocationCoordinate2D location=[AJLocationManager shareLocation].lastCoordinate;
+        
+        
+        
+        NSNumber *disNumber=[MLMapManager calDistanceMeterWithPointA:jobP PointB:location];
+        int threshold=[disNumber intValue];
+        if (threshold >100000) {
+          return [NSString stringWithFormat:@">100km"];
+        }else if(threshold>1000)
+        {
+            return [NSString stringWithFormat:@"%.2fkm",[disNumber doubleValue]/1000];
+        }else if(threshold<100)
+        {
+            return [NSString stringWithFormat:@"%dm",threshold];
+        }
+        
+    }
+    return @"";
+}
+
+
+
+
+
+
 @end

@@ -152,7 +152,7 @@
     //异步调用getAddressRoute
     //业务逻辑：1、判断用户距离 如果太近距离低于1km，调用onfoot接口
     //2、如果大于1km 调用坐公交的借口
-    NSNumber *distance=[self.mapManager calDistanceMeterWithPointA:point PointB:self.locationManager.lastCoordinate];
+    NSNumber *distance=[MLMapManager calDistanceMeterWithPointA:point PointB:self.locationManager.lastCoordinate];
     if ([distance intValue]<1000) {
         [self.mapManager findRouteOnFootFrom:point To:self.locationManager.lastCoordinate];
     }else if([distance intValue]<500000)
