@@ -519,6 +519,10 @@
 		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
 		3BB8881D1AE37B100046DAD2 /* settingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8881B1AE37B100046DAD2 /* settingVC.xib */; };
+		3BBE11E31AF8C984007CC3B7 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11DF1AF8C984007CC3B7 /* radio_checked.png */; };
+		3BBE11E41AF8C984007CC3B7 /* radio_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11E01AF8C984007CC3B7 /* radio_checked@2x.png */; };
+		3BBE11E51AF8C984007CC3B7 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11E11AF8C984007CC3B7 /* radio_unchecked.png */; };
+		3BBE11E61AF8C984007CC3B7 /* radio_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11E21AF8C984007CC3B7 /* radio_unchecked@2x.png */; };
 		3BBF6D881AD6C9A400A33F5A /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF6D871AD6C9A400A33F5A /* CDUserFactory.m */; };
 		3BBF6EDA1AD6CD7700A33F5A /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBF6ED81AD6CD7700A33F5A /* AVOSCloud.framework */; };
 		3BBF6EDB1AD6CD7700A33F5A /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBF6ED91AD6CD7700A33F5A /* AVOSCloudIM.framework */; };
@@ -1396,6 +1400,10 @@
 		3BB888191AE37B100046DAD2 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		3BB8881A1AE37B100046DAD2 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
 		3BB8881B1AE37B100046DAD2 /* settingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingVC.xib; sourceTree = "<group>"; };
+		3BBE11DF1AF8C984007CC3B7 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
+		3BBE11E01AF8C984007CC3B7 /* radio_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_checked@2x.png"; sourceTree = "<group>"; };
+		3BBE11E11AF8C984007CC3B7 /* radio_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unchecked.png; sourceTree = "<group>"; };
+		3BBE11E21AF8C984007CC3B7 /* radio_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_unchecked@2x.png"; sourceTree = "<group>"; };
 		3BBF6D7E1AD6C8C600A33F5A /* LeanChatLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = LeanChatLib.framework; path = "/Users/chencong/Library/Developer/Xcode/DerivedData/ejianzhi-gkuwhmncxvovaugdwacvvcbisfgo/Build/Products/Debug-iphoneos/LeanChatLib.framework"; sourceTree = "<absolute>"; };
 		3BBF6D861AD6C9A400A33F5A /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		3BBF6D871AD6C9A400A33F5A /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
@@ -2871,6 +2879,19 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		3BBE11DD1AF8C96E007CC3B7 /* QRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE11DF1AF8C984007CC3B7 /* radio_checked.png */,
+				3BBE11E01AF8C984007CC3B7 /* radio_checked@2x.png */,
+				3BBE11E11AF8C984007CC3B7 /* radio_unchecked.png */,
+				3BBE11E21AF8C984007CC3B7 /* radio_unchecked@2x.png */,
+				3BBF6F2C1AD6D0E800A33F5A /* QRadioButton.h */,
+				3BBF6F2D1AD6D0E800A33F5A /* QRadioButton.m */,
+			);
+			name = QRadioButton;
+			sourceTree = "<group>";
+		};
 		3BBF6EDD1AD6D0B000A33F5A /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -2940,6 +2961,7 @@
 		3BBF6F1B1AD6D0D900A33F5A /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				3BBE11DD1AF8C96E007CC3B7 /* QRadioButton */,
 				3BBF6F6A1AD6D10500A33F5A /* MLChatVC */,
 				3BBF6F5D1AD6D0F200A33F5A /* AreaPicker */,
 				3BBF6F1C1AD6D0E800A33F5A /* addCard.png */,
@@ -2958,8 +2980,6 @@
 				3BBF6F291AD6D0E800A33F5A /* MLTemplateVC.h */,
 				3BBF6F2A1AD6D0E800A33F5A /* MLTemplateVC.m */,
 				3BBF6F2B1AD6D0E800A33F5A /* MLTemplateVC.xib */,
-				3BBF6F2C1AD6D0E800A33F5A /* QRadioButton.h */,
-				3BBF6F2D1AD6D0E800A33F5A /* QRadioButton.m */,
 				3BBF6F2E1AD6D0E800A33F5A /* ResumeVC.h */,
 				3BBF6F2F1AD6D0E800A33F5A /* ResumeVC.m */,
 				3BBF6F301AD6D0E800A33F5A /* ResumeVC.xib */,
@@ -3355,6 +3375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045625D21AD6211D006E159C /* releas1@2x.png in Resources */,
+				3BBE11E41AF8C984007CC3B7 /* radio_checked@2x.png in Resources */,
 				045625A41AD6211D006E159C /* protait2-60@2x.png in Resources */,
 				3BBF70061AD6D1CB00A33F5A /* u1f612.png in Resources */,
 				045625601AD6211D006E159C /* btnLeft.png in Resources */,
@@ -3607,6 +3628,7 @@
 				045625151AD6211D006E159C /* color2.9.png in Resources */,
 				045625CF1AD6211D006E159C /* purplePin.png in Resources */,
 				045626181AD62129006E159C /* checkbox1_unchecked.png in Resources */,
+				3BBE11E51AF8C984007CC3B7 /* radio_unchecked.png in Resources */,
 				045625921AD6211D006E159C /* partTime1@2x.png in Resources */,
 				3BBF70141AD6D1CB00A33F5A /* u1f628.png in Resources */,
 				3B8D4AF51AE25B61001F5E7F /* passed.png in Resources */,
@@ -3691,6 +3713,7 @@
 				3BBF70081AD6D1CB00A33F5A /* u1f614.png in Resources */,
 				3BBF70561AD6D1CB00A33F5A /* section0_emotion15@2x.png in Resources */,
 				3BBF70101AD6D1CB00A33F5A /* u1f621.png in Resources */,
+				3BBE11E31AF8C984007CC3B7 /* radio_checked.png in Resources */,
 				045625D01AD6211D006E159C /* redPin.png in Resources */,
 				045625631AD6211D006E159C /* color2.9.png in Resources */,
 				3BB8881D1AE37B100046DAD2 /* settingVC.xib in Resources */,
@@ -3729,6 +3752,7 @@
 				045625131AD6211D006E159C /* Icon@2x.png in Resources */,
 				045625071AD6211D006E159C /* training.png in Resources */,
 				0456253F1AD6211D006E159C /* mine.png in Resources */,
+				3BBE11E61AF8C984007CC3B7 /* radio_unchecked@2x.png in Resources */,
 				045625BC1AD6211D006E159C /* protait4-Small.png in Resources */,
 				045626131AD62129006E159C /* box_2.png in Resources */,
 				045625A81AD6211D006E159C /* protait2-Small@3x.png in Resources */,

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputInfoVC">
             <connections>
                 <outlet property="inputInfoLabel" destination="uQL-Mr-nfG" id="5y1-NM-QQX"/>
+                <outlet property="inputTextField" destination="9U1-D5-WlL" id="nat-fC-2PB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +45,7 @@
                 <constraint firstAttribute="trailing" secondItem="9U1-D5-WlL" secondAttribute="trailing" constant="8" id="zJP-de-kpg"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="224" y="380"/>
+            <point key="canvasLocation" x="-152" y="66"/>
         </view>
     </objects>
 </document>

@@ -239,6 +239,12 @@
     
 }
 
+- (void)addToView:(UIView *)view{
+    self.frame = CGRectMake(0, 66, [[UIScreen mainScreen] bounds].size.width, 246);
+    [view addSubview:self];
+}
+
+
 - (void)cancelPicker
 {
     

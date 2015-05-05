@@ -299,7 +299,8 @@
     
     if ([AVUser currentUser].objectId!=nil) {
         CompanyInfoViewController *companyInfoVC=[[CompanyInfoViewController alloc]initWithData:[AVUser currentUser].objectId];
-
+        companyInfoVC.fromEnterprise=YES;
+        
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
         backItem.title = @"";
         self.navigationItem.backBarButtonItem = backItem;

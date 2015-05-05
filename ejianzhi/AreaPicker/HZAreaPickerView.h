@@ -33,5 +33,5 @@ typedef enum {
 - (id)initWithStyle:(HZAreaPickerStyle)pickerStyle delegate:(id <HZAreaPickerDelegate>)delegate;
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;
-
+- (void)addToView:(UIView *)view;
 @end

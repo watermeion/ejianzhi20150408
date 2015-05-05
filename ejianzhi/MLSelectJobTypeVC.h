@@ -11,13 +11,15 @@
 @protocol finishSelectDelegate <NSObject>
 @required
 - (void)finishSelect:(NSMutableArray*)typeArray;
+- (void)finishSingleSelect:(NSString*)info type:(NSInteger)type;
 @end
 
 @interface MLSelectJobTypeVC : UITableViewController
 
-//@property (nonatomic,strong) NSMutableArray *selectedTypeArray;
 @property (nonatomic,strong) NSMutableArray *selectedTypeName;
 @property(nonatomic,weak) id<finishSelectDelegate> selectDelegate;
-
+@property (nonatomic) BOOL fromEnterprise;
+@property (nonatomic) NSInteger type;
 +(MLSelectJobTypeVC*)sharedInstance;
+
 @end
