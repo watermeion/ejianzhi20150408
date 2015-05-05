@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="settingVC">
@@ -39,7 +39,7 @@
                                         <action selector="clearCache:" destination="-1" eventType="touchUpInside" id="ivK-GG-hkH"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUz-Gq-YoT">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUz-Gq-YoT">
                                     <rect key="frame" x="8" y="269" width="304" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="FDz-Ak-8mD"/>
@@ -80,21 +80,38 @@
                                         <constraint firstAttribute="width" constant="15" id="F65-Iu-vfD"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="amr-fk-XDg">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="amr-fk-XDg">
                                     <rect key="frame" x="290" y="284" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="5bp-pa-c1d"/>
                                         <constraint firstAttribute="height" constant="15" id="TdX-2l-OrV"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="shou.png" translatesAutoresizingMaskIntoConstraints="NO" id="MmY-jK-YmL">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="shou.png" translatesAutoresizingMaskIntoConstraints="NO" id="MmY-jK-YmL">
                                     <rect key="frame" x="28" y="280" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="dc5-1r-jmO"/>
                                         <constraint firstAttribute="height" constant="24" id="sHv-s9-gUD"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置登录密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-7w-GBw">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8T-pJ-C6o">
+                                    <rect key="frame" x="8" y="148" width="304" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="AJt-co-s37"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                    <state key="normal" backgroundImage="profile_pop_button_background_bottom.png">
+                                        <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="profile_pop_button_background_bottom_hl.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="showAboutUs:" destination="-1" eventType="touchUpInside" id="pbo-3v-gAS"/>
+                                    </connections>
+                                </button>
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置登录密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-7w-GBw">
                                     <rect key="frame" x="75" y="281" width="102" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="nFo-M3-Dkr"/>
@@ -104,7 +121,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-Ry-QPW">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-Ry-QPW">
                                     <rect key="frame" x="8" y="228" width="304" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="u69-n8-qex"/>
@@ -121,21 +138,21 @@
                                         <action selector="modifyPhone:" destination="-1" eventType="touchUpInside" id="j0d-YC-hnc"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="wne-19-546">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="wne-19-546">
                                     <rect key="frame" x="290" y="242" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="Ult-8J-4Iw"/>
                                         <constraint firstAttribute="height" constant="15" id="tVO-Rp-8Rc"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="xdz-5z-qI0">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="xdz-5z-qI0">
                                     <rect key="frame" x="28" y="239" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="4nN-Jd-5aR"/>
                                         <constraint firstAttribute="width" constant="24" id="pZj-Nm-LJT"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置登录手机号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-wP-Fto">
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置登录手机号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-wP-Fto">
                                     <rect key="frame" x="75" y="240" width="112" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="112" id="kgn-WT-OQr"/>
@@ -186,23 +203,6 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8T-pJ-C6o">
-                                    <rect key="frame" x="8" y="148" width="304" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="AJt-co-s37"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                    <state key="normal" backgroundImage="profile_pop_button_background_bottom.png">
-                                        <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted" backgroundImage="profile_pop_button_background_bottom_hl.png">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="showAboutUs:" destination="-1" eventType="touchUpInside" id="pbo-3v-gAS"/>
-                                    </connections>
-                                </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="gpa-ge-3m6">
                                     <rect key="frame" x="290" y="162" width="15" height="15"/>
                                     <constraints>
@@ -247,7 +247,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-AG-40a">
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-AG-40a">
                                     <rect key="frame" x="12" y="207" width="35" height="19"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="19" id="40N-CG-uiD"/>

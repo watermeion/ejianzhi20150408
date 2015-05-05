@@ -35,7 +35,7 @@
 
 #import "SearchViewController.h"
 
-@interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 {
     NSArray *collectionViewCellArray;
 }
@@ -169,95 +169,6 @@
     [self.joblistTableVC addFooterRefresher];
 }
 
-//*********************tableView********************//
-//- (void)tableViewInit{
-//    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-//    [_tableView setDelegate:self];
-//    [_tableView setDataSource:self];
-//    _tableView.scrollEnabled=YES;
-//    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
-//    [_tableView setTableHeaderView:_tableHeadView];
-//
-//    //为tableView 添加下拉刷新
-////     [_tableView addFooterWithTarget:self.jianzhiViewModel action:@selector(footerRefresh)];
-//}
-
-//
-//
-//- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//
-////    BOOL nibsRegistered = NO;
-////
-////    static NSString *Cellidentifier=@"MLCell1";
-////    if (!nibsRegistered) {
-////        UINib *nib = [UINib nibWithNibName:@"MLCell1" bundle:nil];
-////        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-////        nibsRegistered = YES;
-////    }
-////
-////    MLCell1 *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-////    cell.accessoryType=UITableViewCellAccessoryNone;
-////
-////    NSUInteger row=[indexPath row];
-//    BOOL nibsRegistered = NO;
-//    static NSString *Cellidentifier=@"JobListTableViewCell";
-//    if (!nibsRegistered) {
-//        UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
-//        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-//    }
-//
-//    JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-//    //设置兼职信息列表内容
-//
-//    JianZhi *jianzhi=[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row];
-//
-//    cell.titleLabel.text=jianzhi.jianZhiTitle;
-//    cell.categoryLabel.text=jianzhi.jianZhiType;
-//    cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
-//    cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-//    cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
-//
-//    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
-//    //待完善
-//    cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
-//    cell.IconView.badgeText=@"";
-//    //兼职的IconView
-//    return cell;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//
-//    if (self.jianzhiViewModel.resultsList==nil) {
-//        return cellNum;
-//    }
-//    return self.jianzhiViewModel.resultsList.count;
-//}
-//
-//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 1;
-//}
-//
-////改变行高
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 120;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row]];
-//    detailVC.hidesBottomBarWhenPushed=YES;
-//    [self.navigationController pushViewController:detailVC animated:YES];
-//    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
-//}
-//
-//- (void)deselect
-//{
-//    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
-//}
-
 
 
 /**
@@ -327,6 +238,7 @@
 
     UIWebView *webView=[[UIWebView alloc] init];
     webVC.view=webView;
+    webView.delegate=self;
     NSString *Url = [NSString stringWithFormat:@"%@",[dict objectForKey:@"BannerParam"]];
     
     NSURL *URL =[NSURL URLWithString:Url];// 貌似tel:// 或者 tel: 都行
@@ -412,6 +324,8 @@
     [self.navigationController pushViewController:nearByList animated:YES];
 }
 
+
+
 - (void)searchCity
 {
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
@@ -422,8 +336,6 @@
         [mySettingData synchronize];
         
     } error:^(NSError *error) {
-        
-        
     }];
 }
 
@@ -449,6 +361,25 @@
     JobListWithDropDownListVCViewController *joblistWithDrowList=[[JobListWithDropDownListVCViewController alloc]init];
     [self.navigationController pushViewController:joblistWithDrowList animated:YES];
 }
+
+#pragma --mark UIWebViewDelegate Methods
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [MBProgressHUD showHUDAddedTo:webView animated:YES];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideAllHUDsForView:webView animated:YES];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideAllHUDsForView:webView animated:YES];
+    [MBProgressHUD showError:@"加载出错" toView:webView];
+}
+
 
 
 @end

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040861C41AF904FC0060C76D /* icon_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861C31AF904FC0060C76D /* icon_location.png */; };
+		040861C71AF905100060C76D /* map_line_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861C61AF905100060C76D /* map_line_up.png */; };
+		040861C91AF9051E0060C76D /* map_line_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861C81AF9051E0060C76D /* map_line_dot.png */; };
+		040861CB1AF905470060C76D /* huihui_dot_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861CA1AF905470060C76D /* huihui_dot_line.png */; };
+		040861CD1AF905570060C76D /* map_change.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861CC1AF905570060C76D /* map_change.png */; };
+		040861CF1AF90B5F0060C76D /* map_icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861CE1AF90B5F0060C76D /* map_icon_time.png */; };
+		040861D11AF90B6B0060C76D /* map_icon_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861D01AF90B6B0060C76D /* map_icon_walk.png */; };
 		0443C1301AD5531D004F29A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C12F1AD5531D004F29A5 /* main.m */; };
 		0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13A1AD5531D004F29A5 /* Images.xcassets */; };
 		0443C13E1AD5531D004F29A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13C1AD5531D004F29A5 /* LaunchScreen.xib */; };
@@ -766,6 +773,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040861C31AF904FC0060C76D /* icon_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_location.png; sourceTree = "<group>"; };
+		040861C61AF905100060C76D /* map_line_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_line_up.png; sourceTree = "<group>"; };
+		040861C81AF9051E0060C76D /* map_line_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_line_dot.png; sourceTree = "<group>"; };
+		040861CA1AF905470060C76D /* huihui_dot_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huihui_dot_line.png; sourceTree = "<group>"; };
+		040861CC1AF905570060C76D /* map_change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_change.png; sourceTree = "<group>"; };
+		040861CE1AF90B5F0060C76D /* map_icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_icon_time.png; sourceTree = "<group>"; };
+		040861D01AF90B6B0060C76D /* map_icon_walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_icon_walk.png; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443C12E1AD5531D004F29A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0443C12F1AD5531D004F29A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2155,6 +2169,13 @@
 		045623D41AD6211D006E159C /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				040861D01AF90B6B0060C76D /* map_icon_walk.png */,
+				040861CE1AF90B5F0060C76D /* map_icon_time.png */,
+				040861CC1AF905570060C76D /* map_change.png */,
+				040861CA1AF905470060C76D /* huihui_dot_line.png */,
+				040861C81AF9051E0060C76D /* map_line_dot.png */,
+				040861C61AF905100060C76D /* map_line_up.png */,
+				040861C31AF904FC0060C76D /* icon_location.png */,
 				3B8D4AF11AE25B61001F5E7F /* rejected.png */,
 				3B8D4AF21AE25B61001F5E7F /* passed.png */,
 				3B8D4AF31AE25B61001F5E7F /* notHandle.png */,
@@ -3427,6 +3448,7 @@
 				045623D31AD6210B006E159C /* LaunchViewController.xib in Resources */,
 				045625731AD6211D006E159C /* mine1@3x.png in Resources */,
 				3B8D4AB01AE23432001F5E7F /* applistCell.xib in Resources */,
+				040861D11AF90B6B0060C76D /* map_icon_walk.png in Resources */,
 				045625851AD6211D006E159C /* Icon-72.png in Resources */,
 				045625A71AD6211D006E159C /* protait2-Small@2x.png in Resources */,
 				0456254F1AD6211D006E159C /* d4.png in Resources */,
@@ -3549,6 +3571,7 @@
 				3BBF702B1AD6D1CB00A33F5A /* face_HL@2x.png in Resources */,
 				0443C1941AD554E8004F29A5 /* JobListTableViewCell.xib in Resources */,
 				3BBF706F1AD6D1CB00A33F5A /* voice@2x.png in Resources */,
+				040861C91AF9051E0060C76D /* map_line_dot.png in Resources */,
 				045625AE1AD6211D006E159C /* protait3-60.png in Resources */,
 				0456257D1AD6211D006E159C /* shou.png in Resources */,
 				3BBF705B1AD6D1CB00A33F5A /* section0_emotion5@2x.png in Resources */,
@@ -3598,6 +3621,7 @@
 				3BBF701F1AD6D1CB00A33F5A /* CellBlueSelected@2x.png in Resources */,
 				045626171AD62129006E159C /* checkbox1_checked@3x.png in Resources */,
 				045626261AD62129006E159C /* placeholder.png in Resources */,
+				040861CF1AF90B5F0060C76D /* map_icon_time.png in Resources */,
 				3BBF70511AD6D1CB00A33F5A /* section0_emotion10@2x.png in Resources */,
 				0456256A1AD6211D006E159C /* message.png in Resources */,
 				0456251F1AD6211D006E159C /* d2.png in Resources */,
@@ -3681,8 +3705,10 @@
 				3BBF70641AD6D1CB00A33F5A /* SenderVoiceNodePlaying@2x.png in Resources */,
 				04B346EE1AEA95FA00A8A180 /* 7@2x.png in Resources */,
 				045624E81AD6211D006E159C /* d4.png in Resources */,
+				040861CD1AF905570060C76D /* map_change.png in Resources */,
 				045625D31AD6211D006E159C /* releas1@3x.png in Resources */,
 				3BBF6F4E1AD6D0E800A33F5A /* MLTemplateVC.xib in Resources */,
+				040861CB1AF905470060C76D /* huihui_dot_line.png in Resources */,
 				3BBF70701AD6D1CB00A33F5A /* voice_HL@2x.png in Resources */,
 				045626351AD62129006E159C /* user_paycard.png in Resources */,
 				0456255A1AD6211D006E159C /* ok.png in Resources */,
@@ -3707,6 +3733,7 @@
 				045625951AD6211D006E159C /* partTime@3x.png in Resources */,
 				045623051AD61ABC006E159C /* SRLoginVC.xib in Resources */,
 				04B346D21AEA95FA00A8A180 /* 13.png in Resources */,
+				040861C41AF904FC0060C76D /* icon_location.png in Resources */,
 				045625501AD6211D006E159C /* d5.png in Resources */,
 				045626141AD62129006E159C /* box_3.png in Resources */,
 				0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */,
@@ -3775,6 +3802,7 @@
 				3BBF700C1AD6D1CB00A33F5A /* u1f61b.png in Resources */,
 				045623CE1AD61E42006E159C /* freeselectViewCell.xib in Resources */,
 				0456251C1AD6211D006E159C /* user2.png in Resources */,
+				040861C71AF905100060C76D /* map_line_up.png in Resources */,
 				0456254E1AD6211D006E159C /* d3.png in Resources */,
 				045626371AD62129006E159C /* version_update.png in Resources */,
 				3BBF70121AD6D1CB00A33F5A /* u1f623.png in Resources */,

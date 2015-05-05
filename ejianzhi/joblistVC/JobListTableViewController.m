@@ -98,7 +98,7 @@
 {
     
     //    [self.tableView addHeaderWithTarget:self.delegate  action:@selector(executeHeaderFresh)];
-    [self.tableView addFooterWithTarget:self.viewModel action:@selector(headerRefresh)];
+    [self.tableView addHeaderWithTarget:self.viewModel action:@selector(headerRefresh)];
 }
 
 - (void)didReceiveMemoryWarning {

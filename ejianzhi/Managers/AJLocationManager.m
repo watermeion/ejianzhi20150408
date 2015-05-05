@@ -180,12 +180,6 @@
 
 
 
-
-
-
-
-
-
 //当iPhone无法获得当前位置的信息时，所回调的方法是
 -(void)locationManager: (CLLocationManager *)manager didFailLoadWithError:(NSError *)error
 {

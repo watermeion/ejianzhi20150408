@@ -15,13 +15,13 @@
 #import "MLMapManager.h"
 #import "MLMapView.h"
 #import "AJLocationManager.h"
-#import <AMapSearchAPI.h>
+
 
 @interface MLMapManager()<AMapSearchDelegate>
 
 //@property (strong,nonatomic) MLMapView *mapView;
 @property (nonatomic,weak) AJLocationManager *locationManager;
-@property (strong,nonatomic)AMapSearchAPI *searchAPI;
+
 
 @end
 
@@ -30,6 +30,13 @@
 
 static MLMapManager * thisInstance;
 static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
+
+
+
++(NSString*)getMapKey
+{
+    return mapKey;
+}
 
 +(instancetype)shareInstance
 {
@@ -54,7 +61,7 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
 }
 
 
--(void)checkMapKey
++(void)checkMapKey
 {
     [MAMapServices sharedServices].apiKey = mapKey;
 }
@@ -68,7 +75,7 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
  */
 - (MLMapView *)getMapViewInstanceInitWithFrame:(CGRect)frame
 {
-    [self checkMapKey];
+    [MLMapManager checkMapKey];
     return [[MLMapView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 }
 
@@ -180,7 +187,7 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
  *
  *  @return NSNumber 单位米
  */
-- (NSNumber *)calDistanceMeterWithPointA:(CLLocationCoordinate2D)pointA
++ (NSNumber *)calDistanceMeterWithPointA:(CLLocationCoordinate2D)pointA
                              PointB:(CLLocationCoordinate2D)pointB
 {
     //1.将两个经纬度点转成投影点

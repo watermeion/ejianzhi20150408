@@ -63,8 +63,7 @@
 
 
 - (void)KeyCheck{
-    MLMapManager *mapManager=[MLMapManager shareInstance];
-    [mapManager checkMapKey];
+    [MLMapManager checkMapKey];
 }
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
