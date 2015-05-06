@@ -133,7 +133,36 @@
     self.typeImage=[self getJobTypeImage];
     //兼职企业
     self.companyId=data.qiYeInfoId;
+    self.isFavorite=NO;
+    [self checkIfAddedFavorite];
 }
+
+
+-(void)checkIfAddedFavorite
+{
+    AVUser *currentUser=[AVUser currentUser];
+    if (currentUser!=nil){
+    AVQuery *query1=[AVQuery queryWithClassName:@"JianZhiShouCang"];
+    
+    [query1 whereKey:@"jianZhi" equalTo:self.jianZhi];
+    
+    AVQuery *query2=[AVQuery queryWithClassName:@"JianZhiShouCang"];
+    
+    [query2 whereKey:@"userObjectId" equalTo:currentUser.objectId];
+
+        AVQuery *query=[AVQuery andQueryWithSubqueries:@[query1,query2]];
+        query.cachePolicy=kAVCachePolicyCacheThenNetwork;
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (objects.count>=1) {
+                self.isFavorite=YES;
+            }else
+            {
+                self.isFavorite=NO;
+            }
+        }];
+    }
+}
+
 
 
 -(UIImage*)getJobTypeImage
@@ -222,6 +251,7 @@
             if (error==nil) {
                 TTAlert(@"收藏成功");
                 //FIXME: 做一些跟新ui的操作 设置信号
+                self.isFavorite=YES;
             }else
             {
                 NSString *errorMsg=error.description;

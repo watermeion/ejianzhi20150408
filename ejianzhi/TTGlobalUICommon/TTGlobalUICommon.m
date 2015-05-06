@@ -210,7 +210,7 @@ CGRect TTApplicationFrame() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void TTAlert(NSString* message) {
-  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                              message:message
                                                   delegate:nil
                                         cancelButtonTitle:@"OK"

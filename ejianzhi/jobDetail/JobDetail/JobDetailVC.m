@@ -91,6 +91,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 @property (weak,nonatomic)id thisCompanyId;
 
+
+@property (strong,nonatomic)UIBarButtonItem *addFaviatorBtnItem;
+
 @end
 
 @implementation JobDetailVC
@@ -133,10 +136,19 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     self.title=@"详情";
     self.tabBarController.tabBar.hidden=YES;
     //init rightBarButton
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(makeComplainAction)];
+    
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
+    
+    UIBarButtonItem *rightBarItem1=[[UIBarButtonItem alloc]initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(makeComplainAction)];
+    self.addFaviatorBtnItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"hollowheart25-25"] style:UIBarButtonItemStylePlain target:self.viewModel action:@selector(addFavirateAction)];
+    self.addFaviatorBtnItem.tintColor=[UIColor redColor];
+    
+    NSArray *barItems=@[rightBarItem1,self.addFaviatorBtnItem];
+    
+    self.navigationItem.rightBarButtonItems=barItems;
+
     if (self.fromEnterprise) {
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
@@ -150,12 +162,25 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
         @strongify(self)
         NSArray *workTimeArray=self.viewModel.worktime;
+        //默认空数据true,所以先刷新数据为false
+        for (int j = 0; j<21; j++) {
+            selectFreeData[j]=false;
+        }
         for (int i = 0; i < [workTimeArray count]; i++) {
             NSLog(@"string:%@", [workTimeArray objectAtIndex:i]);
             int num=[[workTimeArray objectAtIndex:i] intValue];
             if (num>0 && num <21) selectFreeData[num]=true;
+            
         }
         [self.selectfreeCollectionOutlet reloadData];
+    }];
+    [RACObserve(self.viewModel, isFavorite) subscribeNext:^(NSNumber *x) {
+        if ([x boolValue]) {
+            self.addFaviatorBtnItem.image=[UIImage imageNamed:@"solidheart25-25"];
+        }else
+        {
+            self.addFaviatorBtnItem.image=[UIImage imageNamed:@"hollowheart25-25"];
+        }
     }];
     
     RAC(self.jobDetailTitleLabel,text)=RACObserve(self.viewModel, jobTitle);
@@ -294,7 +319,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                                ];
     
     for (int index = 0; index<21; index++) {
-        selectFreeData[index] = FALSE;
+        selectFreeData[index] = TRUE;
     }
     self.selectfreeCollectionOutlet.delegate = self;
     self.selectfreeCollectionOutlet.dataSource = self;

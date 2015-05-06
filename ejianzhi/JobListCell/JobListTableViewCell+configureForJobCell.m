@@ -12,6 +12,7 @@
 #import  "PullServerManager.h"
 #import "MLMapManager.h"
 #import "AJLocationManager.h"
+#import "NSDate+Category.h"
 @implementation JobListTableViewCell (configureForJobCell)
 - (void)configureForJob:(JianZhi*)jianzhi
 {
@@ -28,7 +29,7 @@
     self.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
     self.distanceLabelWithinUnitLabel.text=[self distanceFromJobPoint:jianzhi.jianZhiPoint.latitude Lon:jianzhi.jianZhiPoint.longitude];
-    
+    self.updateTimeLabel.text=[jianzhi.updatedAt timeIntervalDescription];
     self.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
 }
 

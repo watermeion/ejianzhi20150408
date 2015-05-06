@@ -13,7 +13,6 @@
 - (void)awakeFromNib {
     // Initialization code
     self.IconView.type=WithBadge;
-    
     self.IconView.backgroundColor=GreenFillColor;
     //设置圆角
     [self.IconView.layer setMasksToBounds:YES];
