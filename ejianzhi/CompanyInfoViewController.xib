@@ -18,7 +18,20 @@
                 <outlet property="btn7" destination="GDj-lK-gtr" id="aXD-bp-R46"/>
                 <outlet property="btn8" destination="h5x-ol-vEQ" id="B5R-mH-9ev"/>
                 <outlet property="btn9" destination="gEm-jB-dDG" id="tFO-16-w17"/>
+                <outlet property="comAddressLabel" destination="3nH-he-l6t" id="AoO-bv-fIP"/>
+                <outlet property="comAreaLabel" destination="CvN-v8-cA4" id="wJC-ba-8FK"/>
+                <outlet property="comContactorLabel" destination="hEy-O6-PPM" id="xlD-mj-kgE"/>
+                <outlet property="comEmailLabel" destination="RWv-QF-XGr" id="8BT-li-mKq"/>
+                <outlet property="comFileCodeLabel" destination="hdY-Cl-jjg" id="PO4-Mp-kus"/>
+                <outlet property="comIconView" destination="Oad-Ru-MYo" id="j6L-pV-a7R"/>
+                <outlet property="comIndustryLabel" destination="ZdV-vO-FTy" id="XFs-XV-kN5"/>
+                <outlet property="comNameLabel" destination="dmF-w2-9Hs" id="oaY-BB-9ZV"/>
+                <outlet property="comPhoneLabel" destination="ta4-Jd-UbH" id="G10-5l-6bQ"/>
+                <outlet property="comPropertyLabel" destination="DDv-kv-3BA" id="37P-H2-hc5"/>
+                <outlet property="comScaleLabel" destination="CGh-uc-Ppz" id="BbA-Ug-KB5"/>
+                <outlet property="comTitleLabel" destination="s6H-tP-QgU" id="5hL-bC-AtY"/>
                 <outlet property="scrollView" destination="elN-ir-vfs" id="hAL-bb-VK8"/>
+                <outlet property="tagImageView1" destination="m89-TP-MTq" id="qsA-lN-VGg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

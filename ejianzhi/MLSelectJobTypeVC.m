@@ -30,13 +30,24 @@ static  MLSelectJobTypeVC *thisVC=nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    typeArray=[[NSArray alloc]initWithObjects:@"全部",@"模特/礼仪",@"促销/导购",@"销售",@"传单派发",@"安保",@"钟点工",@"法律事务",@"服务员",@"婚庆",@"配送/快递",@"化妆",@"护工/保姆",@"演出",@"问卷调查",@"志愿者",@"网络营销",@"导游",@"游戏代练",@"家教",@"软件/网站开发",@"会计",@"平面设计/制作",@"翻译",@"装修",@"影视制作",@"搬家",@"其他", nil];
-    
-    //self.selectedTypeArray=[[NSMutableArray alloc]init];
-    self.selectedTypeName=[[NSMutableArray alloc]init];
-    UIBarButtonItem *finishItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(finishSelecting)];
+    if (!self.fromEnterprise) {
+        typeArray=[[NSArray alloc]initWithObjects:@"全部",@"模特/礼仪",@"促销/导购",@"销售",@"传单派发",@"安保",@"钟点工",@"法律事务",@"服务员",@"婚庆",@"配送/快递",@"化妆",@"护工/保姆",@"演出",@"问卷调查",@"志愿者",@"网络营销",@"导游",@"游戏代练",@"家教",@"软件/网站开发",@"会计",@"平面设计/制作",@"翻译",@"装修",@"影视制作",@"搬家",@"其他", nil];
+        
+        UIBarButtonItem *finishItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(finishSelecting)];
+        
+        self.navigationItem.rightBarButtonItem = finishItem;
+        
+    }else{
+        if (self.type==11) {
+            typeArray=[[NSArray alloc]initWithObjects:@"10人以下",@"50人以下",@"200人以下",@"200人以上", nil];
+        }else if (self.type==10)
+            typeArray=[[NSArray alloc]initWithObjects:@"国有企业",@"私营企业",@"中外合资企业",@"个体户",@"外资企业",@"事业单位",@"集体企业",@"股份制公司",@"其他", nil];
+        else if (self.type==9)
+            typeArray=[[NSArray alloc]initWithObjects:@"金融",@"汽车",@"IT",@"教育",@"能源",@"医药",@"消费品",@"互联网",@"通讯",@"制造",@"广告",@"其他", nil];
+    }
 
-    self.navigationItem.rightBarButtonItem = finishItem;
+    self.selectedTypeName=[[NSMutableArray alloc]init];
+    
 }
 
 - (void)finishSelecting{
@@ -87,6 +98,12 @@ static  MLSelectJobTypeVC *thisVC=nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.fromEnterprise) {
+        [self.selectDelegate finishSingleSelect:[typeArray objectAtIndex:[indexPath row]] type:self.type];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
     MLCell4 *cell=(MLCell4 *)[tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.selecting) {
@@ -131,6 +148,7 @@ static  MLSelectJobTypeVC *thisVC=nil;
             cell.selectedImageView.hidden=NO;
             [self.selectedTypeName addObject:[typeArray objectAtIndex:[indexPath row]]];
         }
+    }
     }
     [self deselect];
 }

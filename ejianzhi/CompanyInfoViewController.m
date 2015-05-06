@@ -9,7 +9,14 @@
 #import "CompanyInfoViewController.h"
 #import "JobOfComListVC.h"
 #import "CompanyInfoViewModel.h"
-@interface CompanyInfoViewController ()
+#import "InputInfoVC.h"
+#import "HZAreaPickerView.h"
+#import "MLSelectJobTypeVC.h"
+
+@interface CompanyInfoViewController ()<finishInputDelegate,HZAreaPickerDelegate,finishSelectDelegate>
+{
+    UIView *covervView;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)seeMoreJobAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *tagImageView1;
@@ -39,8 +46,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btn11;
 
 
-
 @property (strong,nonatomic)CompanyInfoViewModel *viewModel;
+@property (strong, nonatomic) HZAreaPickerView *locatePicker;
 @end
 
 @implementation CompanyInfoViewController
@@ -111,6 +118,13 @@
 
     [self.viewModel fetchCompanyDataFromAVOS:self.company];
     
+    covervView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    covervView.backgroundColor = [UIColor blackColor];
+    covervView.alpha = 0.4;
+    
+    UITapGestureRecognizer *tapCovervView=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(covervViewDidCancel)];
+    [covervView addGestureRecognizer:tapCovervView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,41 +149,161 @@
     if (self.company!=nil) {
         [jobListForCom setCompanyAndQuery:self.company];
     }
-    
 }
 
 - (IBAction)btn2Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=2;
+    inputVC.labelText=@"请输入企业名称";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn3Click:(id)sender {
     
+    HZAreaPickerView *locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self];
+    [self.view addSubview:covervView];
+    [locatePicker showInView:self.view];
 }
 - (IBAction)btn4Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=4;
+    inputVC.labelText=@"请输入详细地址";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn5Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=5;
+    inputVC.labelText=@"请输入联系人姓名";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn6Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=6;
+    inputVC.labelText=@"请输入联系电话";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn7Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=7;
+    inputVC.labelText=@"请输入企业邮箱";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn8Click:(id)sender {
-    
+    InputInfoVC *inputVC=[[InputInfoVC alloc]init];
+    inputVC.inputDelegate=self;
+    inputVC.inputType=8;
+    inputVC.labelText=@"请输入营业执照编号";
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn9Click:(id)sender {
-    
+    MLSelectJobTypeVC *inputVC=[[MLSelectJobTypeVC alloc]init];
+    inputVC.selectDelegate=self;
+    inputVC.fromEnterprise=YES;
+    inputVC.type=9;
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn10Click:(id)sender {
-    
-    
+    MLSelectJobTypeVC *inputVC=[[MLSelectJobTypeVC alloc]init];
+    inputVC.selectDelegate=self;
+    inputVC.fromEnterprise=YES;
+    inputVC.type=10;
+    [self.navigationController pushViewController:inputVC animated:YES];
 }
 - (IBAction)btn11Click:(id)sender {
+    MLSelectJobTypeVC *inputVC=[[MLSelectJobTypeVC alloc]init];
+    inputVC.selectDelegate=self;
+    inputVC.fromEnterprise=YES;
+    inputVC.type=11;
+    [self.navigationController pushViewController:inputVC animated:YES];
+}
+
+#pragma mark - HZAreaPicker delegate
+-(void)pickerDidChaneStatus:(HZAreaPickerView *)picker{
+    self.viewModel.comProvince=picker.locate.state;
+    self.viewModel.comCity=picker.locate.city;
+    self.viewModel.comDistrict=picker.locate.district;
+    
+    self.viewModel.comArea=[NSString stringWithFormat:@"%@%@%@",picker.locate.state,picker.locate.city,picker.locate.district];
+
+    [covervView removeFromSuperview];
+    if (picker.locate.state) {
+
+        NSMutableArray *infos=[[NSMutableArray alloc] initWithObjects:picker.locate.state,picker.locate.city,picker.locate.district, nil];
+        NSMutableArray *keys=[[NSMutableArray alloc]initWithObjects:@"qiYeProvince",@"qiYeCity",@"qiYeDistrict", nil];
+        [self.viewModel saveCompanyDataToAVOS:infos Keys:keys];
+    }
     
 }
 
+- (void)pickerCancel:(HZAreaPickerView *)picker{
+    [picker cancelPicker];
+    [covervView removeFromSuperview];
+}
+
+-(void)covervViewDidCancel{
+//    [covervView removeFromSuperview];
+//    [self.locatePicker cancelPicker];
+}
+
+- (void)pickerDidCancel{
+    [covervView removeFromSuperview];
+}
+
+- (void)finishInputWithType:(NSInteger)type And:(id)info{
+    if (type==2) {
+        self.viewModel.comName=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeName"];
+    }else if (type==4){
+        self.viewModel.comAddress=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeDetailAddress"];
+    }else if (type==5){
+        self.viewModel.comContactors=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeLinkName"];
+    }else if (type==6){
+        self.viewModel.comPhone=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeMobile"];
+    }else if (type==7){
+        self.viewModel.comEmail=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeEmail"];
+    }else if (type==8){
+        self.viewModel.comFileNum=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeLicenseNumber"];
+    }else if (type==9){
+        self.viewModel.comIndustry=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeIndustry"];
+    }else if (type==10){
+        self.viewModel.comProperty=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeProperty"];
+    }else if (type==11){
+        self.viewModel.comScaleNum=info;
+        [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeScale"];
+    }
+}
+
+
+
+- (void)finishSingleSelect:(NSString *)info type:(NSInteger)type{
+    
+    
+    if([info length]>0){
+        if (type==11){
+            self.comScaleLabel.text=info;
+            [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeScale"];
+        }
+        else if (type==10){
+            self.comPropertyLabel.text=info;
+            [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeProperty"];
+        }
+        else if (type==9){
+            self.comIndustryLabel.text=info;
+            [self.viewModel saveCompanyDataToAVOS:info Key:@"qiYeIndustry"];
+        }
+    }
+}
 
 
 @end
