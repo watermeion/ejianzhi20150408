@@ -133,12 +133,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     self.title=@"详情";
     self.tabBarController.tabBar.hidden=YES;
     //init rightBarButton
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
-    
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(makeComplainAction)];
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
-    
     if (self.fromEnterprise) {
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
@@ -147,7 +145,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn4.hidden=YES;
         self.btn5.hidden=YES;
     }
-    
     //创建监听
     @weakify(self)
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
@@ -184,11 +181,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     }];
     
     self.jobDetailComplainBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        tousuViewController *tousuVC=[[tousuViewController alloc]init];
-        tousuVC.delegate=self.viewModel;
-        
-        [self.navigationController pushViewController:tousuVC animated:YES];
-        
+        [self makeContactAction];
         return [RACSignal empty];
     }];
     
@@ -227,6 +220,17 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         return [RACSignal empty];
     }];
 }
+
+
+- (void)makeComplainAction
+{
+    tousuViewController *tousuVC=[[tousuViewController alloc]init];
+    tousuVC.delegate=self.viewModel;
+    
+    [self.navigationController pushViewController:tousuVC animated:YES];
+
+}
+
 /**
  *  修改视图大小
  */
