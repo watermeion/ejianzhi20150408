@@ -15,6 +15,7 @@
 #import "MBProgressHUD+Add.h"
 #import "DateUtil.h"
 #import "JobDetailVC.h"
+#import "applistCell+configurecell.h"
 @interface MyApplicationList ()<UITableViewDataSource,UITableViewDelegate>{
     DVSwitch *switcher;
     BOOL headerRefreshing;
@@ -39,7 +40,7 @@
     [self switcherInit];
     
     [self tableViewInit];
-
+    
 }
 
 - (void)tableViewInit{
@@ -69,16 +70,12 @@
     if ([self.appStatus length]>0) {
         [query whereKey:@"enterpriseHandleResult" equalTo:self.appStatus];
     }
-    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (!error) {
-            
             for (JianZhiShenQing *obj in objects) {
-                
                 [recordArray addObject:obj];
-                
             }
             
             NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
@@ -97,14 +94,11 @@
             footerRefreshing=NO;
             
         } else {
-            
             if (footerRefreshing) {
                 [self.tableView footerEndRefreshing];
                 footerRefreshing=NO;
             }
-            
             [MBProgressHUD showError:@"服务器开小差了，请刷新试试" toView:self.view];
-            
         }
     }];
     query=nil;
@@ -190,7 +184,7 @@
             weakSelf.appStatus=@"未处理";
             [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
             [weakSelf headerRereshing];
-
+            
         }
         else if (index==1){
             weakSelf.appStatus=@"同意";
@@ -240,29 +234,7 @@
     JianZhiShenQing *object=[recordArray objectAtIndex:row];
     applistCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
     
-    JianZhi *jianzhiObject=[object objectForKey:@"jianZhi"];
-    cell.jobTitle.text=jianzhiObject.jianZhiTitle;
-    
-    QiYeInfo *qiYeInfoObject=[object objectForKey:@"qiYeInfo"];
-    cell.enterpriseName.text=[qiYeInfoObject objectForKey:@"qiYeName"];
-    
-    if ([[object objectForKey:@"enterpriseHandleResult"] isEqual:@"拒绝"])
-        cell.statusImage.image= [UIImage imageNamed:@"rejected"];
-    else if ([[object objectForKey:@"enterpriseHandleResult"] isEqual:@"同意"])
-        cell.statusImage.image= [UIImage imageNamed:@"passed"];
-    else
-        cell.statusImage.image= [UIImage imageNamed:@"notHandle"];
-    
-    cell.jobTimeLabel.text=[DateUtil stringFromDate2:object.createdAt];
-    
-    cell.jobDistrict.text=jianzhiObject.jianZhiDistrict;
-    
-    cell.jobSalary.text=[jianzhiObject.jianZhiWage stringValue];
-    
-    cell.acceptNum.text=[jianzhiObject.jianZhiLuYongValue stringValue];
-    
-    cell.recuitNum.text=[NSString stringWithFormat:@"/%@人",[jianzhiObject.jianZhiRecruitment stringValue]];
-    
+    [cell CellConfigure:object];
     
     return cell;
 }

@@ -116,9 +116,8 @@
     self.jobXiangQing=[data.jianZhiContent stringByAppendingString:[NSString  stringWithFormat:@"\n \n %@",data.jianZhiRequirement]];
     self.jobTeShuYaoQiu=data.jianzhiTeShuYaoQiu;
     self.jobQiYeName=[self setQiYeName:data.jianZhiQiYeName];
-    self.jobAddress=data.jianZhiAddress;
-   
-    
+    self.jobAddress=@"点击右侧查看兼职地理位置";
+    if(data.jianZhiAddress.length!=0) self.jobAddress=[NSString stringWithFormat:@"地点：%@",data.jianZhiAddress];
     self.jobEvaluation=[self setEvaluationTextWithResumeNum:data.jianZhiQiYeResumeValue ReceiveNum:data.jianZhiQiYeLuYongValue SatisfactionRate:data.jianZhiQiYeManYiDu];
     self.worktime=[self formatWorkTimeToArray:data.jianZhiWorkTime];
     self.jobPhone=data.jianZhiContactPhone;

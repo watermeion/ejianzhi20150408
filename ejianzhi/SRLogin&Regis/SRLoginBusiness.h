@@ -20,7 +20,6 @@
 typedef void (^loginBlock)(BOOL succeed, NSNumber *userType);
 
 @property (nonatomic,weak) MLLoginManger *loginManager;
-
 @property (nonatomic,strong)NSString *username;
 @property (nonatomic,strong)NSString *pwd;
 @property (nonatomic,strong)NSString *phone;

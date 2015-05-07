@@ -20,6 +20,10 @@
 		040861DD1AFA5D180060C76D /* solidheart25-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DB1AFA5D180060C76D /* solidheart25-25.png */; };
 		040861E01AFA60190060C76D /* hollowheart40-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DE1AFA60190060C76D /* hollowheart40-40.png */; };
 		040861E11AFA60190060C76D /* solidheart40-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DF1AFA60190060C76D /* solidheart40-40.png */; };
+		040861E51AFA714C0060C76D /* AVQuery+common.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861E41AFA714C0060C76D /* AVQuery+common.m */; };
+		040861EB1AFB06210060C76D /* applistCell+configurecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861EA1AFB06210060C76D /* applistCell+configurecell.m */; };
+		040861F31AFB74B10060C76D /* FogetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861F11AFB74B10060C76D /* FogetPWDViewController.m */; };
+		040861F41AFB74B10060C76D /* FogetPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040861F21AFB74B10060C76D /* FogetPWDViewController.xib */; };
 		0443C1301AD5531D004F29A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C12F1AD5531D004F29A5 /* main.m */; };
 		0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13A1AD5531D004F29A5 /* Images.xcassets */; };
 		0443C13E1AD5531D004F29A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13C1AD5531D004F29A5 /* LaunchScreen.xib */; };
@@ -794,6 +798,13 @@
 		040861DB1AFA5D180060C76D /* solidheart25-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "solidheart25-25.png"; sourceTree = "<group>"; };
 		040861DE1AFA60190060C76D /* hollowheart40-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hollowheart40-40.png"; sourceTree = "<group>"; };
 		040861DF1AFA60190060C76D /* solidheart40-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "solidheart40-40.png"; sourceTree = "<group>"; };
+		040861E31AFA714C0060C76D /* AVQuery+common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVQuery+common.h"; sourceTree = "<group>"; };
+		040861E41AFA714C0060C76D /* AVQuery+common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVQuery+common.m"; sourceTree = "<group>"; };
+		040861E91AFB06210060C76D /* applistCell+configurecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "applistCell+configurecell.h"; sourceTree = "<group>"; };
+		040861EA1AFB06210060C76D /* applistCell+configurecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "applistCell+configurecell.m"; sourceTree = "<group>"; };
+		040861F01AFB74B10060C76D /* FogetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogetPWDViewController.h; sourceTree = "<group>"; };
+		040861F11AFB74B10060C76D /* FogetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPWDViewController.m; sourceTree = "<group>"; };
+		040861F21AFB74B10060C76D /* FogetPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FogetPWDViewController.xib; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443C12E1AD5531D004F29A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0443C12F1AD5531D004F29A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2107,6 +2118,9 @@
 				045622F61AD61A8F006E159C /* SRLoginBusiness.m */,
 				045622F71AD61A8F006E159C /* SRRegistBussiness.h */,
 				045622F81AD61A8F006E159C /* SRRegistBussiness.m */,
+				040861F01AFB74B10060C76D /* FogetPWDViewController.h */,
+				040861F11AFB74B10060C76D /* FogetPWDViewController.m */,
+				040861F21AFB74B10060C76D /* FogetPWDViewController.xib */,
 			);
 			path = "Login&RegistVC";
 			sourceTree = "<group>";
@@ -2658,6 +2672,8 @@
 				04C348131AEF8D1400B48D11 /* ArrayDataSource */,
 				04B346971AEA95F000A8A180 /* FVCustomAlertView */,
 				04B346841AEA785A00A8A180 /* Category */,
+				040861E31AFA714C0060C76D /* AVQuery+common.h */,
+				040861E41AFA714C0060C76D /* AVQuery+common.m */,
 			);
 			name = LibaryClass;
 			sourceTree = "<group>";
@@ -3276,6 +3292,8 @@
 				3B8D4ABA1AE254F1001F5E7F /* MyApplicationList.h */,
 				3B8D4ABB1AE254F1001F5E7F /* MyApplicationList.m */,
 				3B8D4ABC1AE254F1001F5E7F /* MyApplicationList.xib */,
+				040861E91AFB06210060C76D /* applistCell+configurecell.h */,
+				040861EA1AFB06210060C76D /* applistCell+configurecell.m */,
 			);
 			name = MyApplication;
 			sourceTree = "<group>";
@@ -3517,6 +3535,7 @@
 				0456262F1AD62129006E159C /* service_center.png in Resources */,
 				045625791AD6211D006E159C /* jilu.png in Resources */,
 				3BBF70691AD6D1CB00A33F5A /* sharemore_pic@2x.png in Resources */,
+				040861F41AFB74B10060C76D /* FogetPWDViewController.xib in Resources */,
 				3BBF70461AD6D1CB00A33F5A /* RecordingSignal001@2x.png in Resources */,
 				045625391AD6211D006E159C /* attendance.png in Resources */,
 				04F5C98F1AE5452E00341491 /* map_action_icon_walker.png in Resources */,
@@ -4085,6 +4104,7 @@
 				3BBF6F111AD6D0C900A33F5A /* UIButton+EMWebCache.m in Sources */,
 				0443C1951AD554E8004F29A5 /* listBadgeView.m in Sources */,
 				0443C1F91AD55591004F29A5 /* ViewModel.m in Sources */,
+				040861F31AFB74B10060C76D /* FogetPWDViewController.m in Sources */,
 				3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */,
 				3BBF6F0B1AD6D0C900A33F5A /* EMSDWebImageDownloader.m in Sources */,
 				0443C2051AD5559E004F29A5 /* JianZhi.m in Sources */,
@@ -4129,12 +4149,14 @@
 				3BBF6F4D1AD6D0E800A33F5A /* MLTemplateVC.m in Sources */,
 				045622F91AD61A8F006E159C /* SRLoginBusiness.m in Sources */,
 				0443C2071AD5559E004F29A5 /* User.m in Sources */,
+				040861EB1AFB06210060C76D /* applistCell+configurecell.m in Sources */,
 				3BBF6F491AD6D0E800A33F5A /* MLSelectInffShow.m in Sources */,
 				3B8D4AEB1AE257A9001F5E7F /* MJRefreshConst.m in Sources */,
 				3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */,
 				0443C1751AD5542B004F29A5 /* MLFirstVC.m in Sources */,
 				0443C2231AD5560F004F29A5 /* CommonUtility.m in Sources */,
 				3BBF6F081AD6D0C900A33F5A /* EMSDImageCache.m in Sources */,
+				040861E51AFA714C0060C76D /* AVQuery+common.m in Sources */,
 				0443C1CD1AD55572004F29A5 /* POIDataModel.m in Sources */,
 				3BBF70871AD6D1ED00A33F5A /* CDCache.m in Sources */,
 				045623D21AD6210B006E159C /* LaunchViewController.m in Sources */,

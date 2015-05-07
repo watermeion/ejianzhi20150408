@@ -136,7 +136,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     self.title=@"详情";
     self.tabBarController.tabBar.hidden=YES;
     //init rightBarButton
-    
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }

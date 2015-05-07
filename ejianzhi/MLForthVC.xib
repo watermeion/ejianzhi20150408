@@ -286,7 +286,7 @@
                                         </mask>
                                     </variation>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-V1-GUT">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-V1-GUT">
                                     <rect key="frame" x="13" y="399" width="295" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="AOT-bV-PRY"/>
@@ -310,7 +310,7 @@
                                         </mask>
                                     </variation>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fh7-OL-tTH">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fh7-OL-tTH">
                                     <rect key="frame" x="285" y="414" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="PRA-6x-agI"/>
@@ -329,7 +329,7 @@
                                         </mask>
                                     </variation>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="LH3-sh-Zgi">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="LH3-sh-Zgi">
                                     <rect key="frame" x="31" y="410" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="6YY-oS-Emi"/>
@@ -348,7 +348,7 @@
                                         </mask>
                                     </variation>
                                 </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="会员活动" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-6P-JYu">
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="会员活动" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-6P-JYu">
                                     <rect key="frame" x="78" y="411" width="65" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="89" id="HTV-hA-xTb"/>

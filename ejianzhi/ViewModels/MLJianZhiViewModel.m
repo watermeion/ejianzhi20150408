@@ -57,7 +57,7 @@
 {
     AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     [query whereKey:key equalTo:value];
-    [query orderByDescending:@"updatedAt"];
+    [query orderByDescending:@"createdAt"];
     return query;
 }
 
@@ -66,7 +66,7 @@
 {
     self.mainQuery= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     [self.mainQuery whereKey:key equalTo:value];
-    [self.mainQuery orderByDescending:@"updatedAt"];
+    [self.mainQuery orderByDescending:@"createdAt"];
 }
 
 ///**
@@ -79,7 +79,7 @@
 {
     AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     query.cachePolicy=kAVCachePolicyNetworkElseCache;
-    [query orderByDescending:@"updatedAt"];
+    [query orderByDescending:@"createdAt"];
     return query;
 }
 
@@ -141,7 +141,7 @@
     }
     
     if(self.isOrderByHot)[self.mainQuery orderByDescending:@"jianZhiBrowseTime"];
-    else [self.mainQuery orderByDescending:@"updatedAt"];
+    else [self.mainQuery orderByDescending:@"createdAt"];
     return self.mainQuery;
 }
 

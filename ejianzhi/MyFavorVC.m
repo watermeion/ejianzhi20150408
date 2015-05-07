@@ -15,6 +15,7 @@
 #import "JianZhi.h"
 #import "QiYeInfo.h"
 #import "JobDetailVC.h"
+#import "applistCell+configurecell.h"
 @interface MyFavorVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL headerRefreshing;
@@ -185,35 +186,7 @@
     NSInteger row=[indexPath row];
     AVObject *object=[recordArray objectAtIndex:row];
     applistCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-    
-    JianZhi *jianzhiObject=[object objectForKey:@"jianZhi"];
-    if (jianzhiObject) {
-        cell.jobTitle.text=jianzhiObject.jianZhiTitle;
-        
-        cell.jobDistrict.text=jianzhiObject.jianZhiDistrict;
-        
-        cell.jobSalary.text=[jianzhiObject.jianZhiWage stringValue];
-        
-        cell.acceptNum.text=[jianzhiObject.jianZhiLuYongValue stringValue];
-        
-        cell.recuitNum.text=[NSString stringWithFormat:@"/%@人",[jianzhiObject.jianZhiRecruitment stringValue]];
-    }
-    
-    
-    QiYeInfo *qiYeInfoObject=[object objectForKey:@"qiYeInfo"];
-    if (qiYeInfoObject) {
-        cell.enterpriseName.text=[qiYeInfoObject objectForKey:@"qiYeName"];
-    }
-    
-    if ([[object objectForKey:@"enterpriseHandleResult"] isEqual:@"拒绝"])
-        cell.statusImage.image= [UIImage imageNamed:@"rejected"];
-    else if ([[object objectForKey:@"enterpriseHandleResult"] isEqual:@"同意"])
-        cell.statusImage.image= [UIImage imageNamed:@"passed"];
-    else
-        cell.statusImage.image= [UIImage imageNamed:@"notHandle"];
-    
-    cell.jobTimeLabel.text=[DateUtil stringFromDate2:object.createdAt];
-    
+    [cell CellConfigureForFavorList:object];
     return cell;
 }
 

@@ -111,7 +111,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
     
     //page2
-    [self.view2 setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-268)];
+    [self.view2 setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width*2, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-268)];
     [self.mainScrollView addSubview:self.view2];
     
     self.introductionTextView.tag=111;
@@ -121,7 +121,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     self.experienceTextView.delegate=self;
     
     //page3
-    [self.view3 setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width*2,0,[[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-268)];
+    [self.view3 setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width,0,[[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-268)];
     
     [self.mainScrollView addSubview:self.view3];
     
@@ -294,7 +294,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (void)switcherInit{
-    switcher = [DVSwitch switchWithStringsArray:@[@"求职设置", @"自我介绍", @"联系信息"]];
+    switcher = [DVSwitch switchWithStringsArray:@[@"求职设置", @"联系信息", @"自我介绍"]];
     switcher.frame = CGRectMake(0, 160,[[UIScreen mainScreen] bounds].size.width, 44);
     switcher.backgroundColor = [UIColor whiteColor];
     switcher.sliderColor = [UIColor colorWithRed:41.0/255.0 green:169.0/255.0 blue:220.0/255.0 alpha:1.0];

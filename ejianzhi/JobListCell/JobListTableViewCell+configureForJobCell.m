@@ -24,13 +24,15 @@
     [self setIconBackgroundColor:[self colorForType:jianzhi.jianZhiType]];
     self.priceLabel.text=[jianzhi.jianZhiWage stringValue];
     self.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-    self.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
+    self.keyConditionLabel.text=@"点击查看更多兼职信息";
+    if(jianzhi.jianzhiTeShuYaoQiu.length>=1)  self.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
     
     self.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
     self.distanceLabelWithinUnitLabel.text=[self distanceFromJobPoint:jianzhi.jianZhiPoint.latitude Lon:jianzhi.jianZhiPoint.longitude];
-    self.updateTimeLabel.text=[jianzhi.updatedAt timeIntervalDescription];
-    self.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
+    self.updateTimeLabel.text=[jianzhi.createdAt timeIntervalDescription];
+    
+//    self.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
 }
 
 -(UIColor*)colorForType:(NSString*)type
@@ -55,8 +57,6 @@
         CLLocationCoordinate2D jobP=CLLocationCoordinate2DMake(lat, lon);
         
         CLLocationCoordinate2D location=[AJLocationManager shareLocation].lastCoordinate;
-        
-        
         
         NSNumber *disNumber=[MLMapManager calDistanceMeterWithPointA:jobP PointB:location];
         int threshold=[disNumber intValue];

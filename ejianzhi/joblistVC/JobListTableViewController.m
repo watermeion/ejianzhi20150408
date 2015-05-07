@@ -219,7 +219,7 @@
 
 - (NSArray*)getViewModelResultsList
 {
-    return self.viewModel.resultsList;
+    return self.resultsArray;
 }
 
 @end

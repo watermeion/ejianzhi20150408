@@ -121,7 +121,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-Ry-QPW">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-Ry-QPW">
                                     <rect key="frame" x="8" y="228" width="304" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="u69-n8-qex"/>
@@ -145,14 +145,14 @@
                                         <constraint firstAttribute="height" constant="15" id="tVO-Rp-8Rc"/>
                                     </constraints>
                                 </imageView>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="xdz-5z-qI0">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="huodong.png" translatesAutoresizingMaskIntoConstraints="NO" id="xdz-5z-qI0">
                                     <rect key="frame" x="28" y="239" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="4nN-Jd-5aR"/>
                                         <constraint firstAttribute="width" constant="24" id="pZj-Nm-LJT"/>
                                     </constraints>
                                 </imageView>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置登录手机号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-wP-Fto">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-wP-Fto">
                                     <rect key="frame" x="75" y="240" width="112" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="112" id="kgn-WT-OQr"/>
@@ -247,7 +247,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-AG-40a">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="重置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-AG-40a">
                                     <rect key="frame" x="12" y="207" width="35" height="19"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="19" id="40N-CG-uiD"/>
@@ -344,7 +344,7 @@
                 <constraint firstAttribute="bottom" secondItem="nBP-iq-N0t" secondAttribute="bottom" id="vqY-Ez-Tey"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="328" y="444"/>
+            <point key="canvasLocation" x="231" y="433"/>
         </view>
     </objects>
     <resources>
