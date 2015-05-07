@@ -81,7 +81,7 @@ typedef void(^CDNSArrayCallback)(NSArray* objects,NSError* error);
 }
 
 -(void)initSessionStateView{
-    _sessionStateView=[[CDSessionStateView alloc] initWithFrame:CGRectMake(0, 64, self.messageTableView.frame.size.width, kCDSessionStateViewHight)];
+    _sessionStateView=[[CDSessionStateView alloc] initWithFrame:CGRectMake(0, 0, self.messageTableView.frame.size.width, kCDSessionStateViewHight)];
     [_sessionStateView setDelegate:self];
     _sessionStateViewVisiable=NO;
     [_sessionStateView observeSessionUpdate];
@@ -90,7 +90,7 @@ typedef void(^CDNSArrayCallback)(NSArray* objects,NSError* error);
 -(void)initBottomMenuAndEmotionView{
     NSMutableArray *shareMenuItems = [NSMutableArray array];
     NSArray *plugIcons = @[@"sharemore_pic", @"sharemore_video"];
-    NSArray *plugTitle = @[@"照片", @"拍摄"];
+    NSArray *plugTitle = @[@"相册", @"拍照"];
     for (NSString *plugIcon in plugIcons) {
         XHShareMenuItem *shareMenuItem = [[XHShareMenuItem alloc] initWithNormalIconImage:[UIImage imageNamed:plugIcon] title:[plugTitle objectAtIndex:[plugIcons indexOfObject:plugIcon]]];
         [shareMenuItems addObject:shareMenuItem];
@@ -106,6 +106,8 @@ typedef void(^CDNSArrayCallback)(NSArray* objects,NSError* error);
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout=UIRectEdgeNone;
     
     [self initBarButton];
     [self initBottomMenuAndEmotionView];

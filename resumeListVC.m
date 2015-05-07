@@ -247,6 +247,7 @@
     previewVC.type=1;
     previewVC.userObjectId=[object objectForKey:@"userObjectId"];
     previewVC.fromEnterprise=YES;
+    previewVC.shenqingObjectId=[[recordArray objectAtIndex:[indexPath row]] objectForKey:@"objectId"];
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"";

@@ -24,4 +24,5 @@
 @property (nonatomic,weak) id<finishSaveDelegate> saveDelegate;
 @property (nonatomic, strong) NSString *userObjectId;
 @property (nonatomic) BOOL fromEnterprise;
+@property (nonatomic, strong) NSString *shenqingObjectId;
 @end

@@ -36,6 +36,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobContentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *scrollConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobTeShuYaoQiuHeightConstraint;
 @property (strong, nonatomic) IBOutlet UIButton *btn1;
@@ -132,8 +133,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [self timeCollectionViewInit];
     self.title=@"详情";
     self.tabBarController.tabBar.hidden=YES;
-    //init rightBarButton
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
+
     
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
@@ -143,7 +143,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
         self.btn3.hidden=YES;
+        
+        self.scrollConstraint.constant=-44;
+        
     }else{
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
+
+        
         self.btn4.hidden=YES;
         self.btn5.hidden=YES;
     }
@@ -198,7 +204,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         return [RACSignal empty];
     }];
     self.jobDetailMoreJobBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        
         if (self.fromEnterprise) {
+            
             resumeListVC *resumeVC=[[resumeListVC alloc]init];
             resumeVC.jobObject=self.viewModel.jianZhi;
             
