@@ -50,6 +50,8 @@
 @property (nonatomic,strong)UIImage *typeImage;
 
 @property (nonatomic,strong)id companyId;
+
+@property BOOL isFavorite;
 /**
  *  将Model 转化为ViewModel;
  *

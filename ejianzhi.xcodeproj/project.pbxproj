@@ -14,6 +14,12 @@
 		040861CD1AF905570060C76D /* map_change.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861CC1AF905570060C76D /* map_change.png */; };
 		040861CF1AF90B5F0060C76D /* map_icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861CE1AF90B5F0060C76D /* map_icon_time.png */; };
 		040861D11AF90B6B0060C76D /* map_icon_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861D01AF90B6B0060C76D /* map_icon_walk.png */; };
+		040861D71AFA4A210060C76D /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861D41AFA4A210060C76D /* NSDate+Category.m */; };
+		040861D81AFA4A210060C76D /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861D61AFA4A210060C76D /* NSDateFormatter+Category.m */; };
+		040861DC1AFA5D180060C76D /* hollowheart25-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DA1AFA5D180060C76D /* hollowheart25-25.png */; };
+		040861DD1AFA5D180060C76D /* solidheart25-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DB1AFA5D180060C76D /* solidheart25-25.png */; };
+		040861E01AFA60190060C76D /* hollowheart40-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DE1AFA60190060C76D /* hollowheart40-40.png */; };
+		040861E11AFA60190060C76D /* solidheart40-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 040861DF1AFA60190060C76D /* solidheart40-40.png */; };
 		0443C1301AD5531D004F29A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C12F1AD5531D004F29A5 /* main.m */; };
 		0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13A1AD5531D004F29A5 /* Images.xcassets */; };
 		0443C13E1AD5531D004F29A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13C1AD5531D004F29A5 /* LaunchScreen.xib */; };
@@ -780,6 +786,14 @@
 		040861CC1AF905570060C76D /* map_change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_change.png; sourceTree = "<group>"; };
 		040861CE1AF90B5F0060C76D /* map_icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_icon_time.png; sourceTree = "<group>"; };
 		040861D01AF90B6B0060C76D /* map_icon_walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_icon_walk.png; sourceTree = "<group>"; };
+		040861D31AFA4A210060C76D /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		040861D41AFA4A210060C76D /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		040861D51AFA4A210060C76D /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		040861D61AFA4A210060C76D /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		040861DA1AFA5D180060C76D /* hollowheart25-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hollowheart25-25.png"; sourceTree = "<group>"; };
+		040861DB1AFA5D180060C76D /* solidheart25-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "solidheart25-25.png"; sourceTree = "<group>"; };
+		040861DE1AFA60190060C76D /* hollowheart40-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hollowheart40-40.png"; sourceTree = "<group>"; };
+		040861DF1AFA60190060C76D /* solidheart40-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "solidheart40-40.png"; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443C12E1AD5531D004F29A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0443C12F1AD5531D004F29A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2025,6 +2039,10 @@
 		0443C20D1AD5560F004F29A5 /* JobDetail */ = {
 			isa = PBXGroup;
 			children = (
+				040861DA1AFA5D180060C76D /* hollowheart25-25.png */,
+				040861DB1AFA5D180060C76D /* solidheart25-25.png */,
+				040861DE1AFA60190060C76D /* hollowheart40-40.png */,
+				040861DF1AFA60190060C76D /* solidheart40-40.png */,
 				0443C20E1AD5560F004F29A5 /* JobDetailVC.h */,
 				0443C20F1AD5560F004F29A5 /* JobDetailVC.m */,
 				0443C2101AD5560F004F29A5 /* JobDetailVC.xib */,
@@ -2623,6 +2641,10 @@
 		04B346841AEA785A00A8A180 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				040861D31AFA4A210060C76D /* NSDate+Category.h */,
+				040861D41AFA4A210060C76D /* NSDate+Category.m */,
+				040861D51AFA4A210060C76D /* NSDateFormatter+Category.h */,
+				040861D61AFA4A210060C76D /* NSDateFormatter+Category.m */,
 				04B3468D1AEA843F00A8A180 /* UIView+ImageFromView */,
 				04B346851AEA785A00A8A180 /* UIColor+ColorFromArray.h */,
 				04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */,
@@ -3483,6 +3505,7 @@
 				045625651AD6211D006E159C /* label_bx.png in Resources */,
 				045625AF1AD6211D006E159C /* protait3-60@2x.png in Resources */,
 				045626251AD62129006E159C /* my_comment.png in Resources */,
+				040861E01AFA60190060C76D /* hollowheart40-40.png in Resources */,
 				04B346EC1AEA95FA00A8A180 /* 6@2x.png in Resources */,
 				045625CE1AD6211D006E159C /* protait5@2x.png in Resources */,
 				04B346EA1AEA95FA00A8A180 /* 5@2x.png in Resources */,
@@ -3525,6 +3548,7 @@
 				045625011AD6211D006E159C /* btnColor3.png in Resources */,
 				045625221AD6211D006E159C /* d5.png in Resources */,
 				0456250A1AD6211D006E159C /* explore1@2x.png in Resources */,
+				040861E11AFA60190060C76D /* solidheart40-40.png in Resources */,
 				04B346CD1AEA95FA00A8A180 /* 10@2x.png in Resources */,
 				045624F61AD6211D006E159C /* sample.png in Resources */,
 				3BBF701D1AD6D1CB00A33F5A /* AddGroupMemberBtnHL@2x.png in Resources */,
@@ -3687,11 +3711,13 @@
 				0443C22C1AD5560F004F29A5 /* SRNavigationCell.xib in Resources */,
 				04B346F51AEA95FA00A8A180 /* cross.png in Resources */,
 				045625C51AD6211D006E159C /* protait5-60@2x.png in Resources */,
+				040861DC1AFA5D180060C76D /* hollowheart25-25.png in Resources */,
 				3BBF704F1AD6D1CB00A33F5A /* SECoreTextView.bundle in Resources */,
 				045625C91AD6211D006E159C /* protait5-Small@3x.png in Resources */,
 				3BBF70331AD6D1CB00A33F5A /* keyborad@2x.png in Resources */,
 				045623121AD61AC9006E159C /* checkbox1_unchecked.png in Resources */,
 				0443C1CC1AD55572004F29A5 /* MapViewController.xib in Resources */,
+				040861DD1AFA5D180060C76D /* solidheart25-25.png in Resources */,
 				0456256D1AD6211D006E159C /* message1@3x.png in Resources */,
 				045625771AD6211D006E159C /* huodong.png in Resources */,
 				04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */,
@@ -4027,6 +4053,7 @@
 				3BBF6F191AD6D0C900A33F5A /* SDPhotoBrowser.m in Sources */,
 				0443C1B81AD5553F004F29A5 /* UrlImageButton.m in Sources */,
 				045623041AD61ABC006E159C /* SRLoginVC.m in Sources */,
+				040861D71AFA4A210060C76D /* NSDate+Category.m in Sources */,
 				04B346961AEA8C1900A8A180 /* JobAnonationView.m in Sources */,
 				3BBF6F121AD6D0C900A33F5A /* UIImage+EMGIF.m in Sources */,
 				3BBF6F731AD6D1B600A33F5A /* MLChatVC.m in Sources */,
@@ -4083,6 +4110,7 @@
 				0443C15A1AD5533B004F29A5 /* AppDelegate.m in Sources */,
 				045623191AD61AF2006E159C /* JobListTableViewController.m in Sources */,
 				3B8D4AEF1AE257A9001F5E7F /* UIScrollView+MJRefresh.m in Sources */,
+				040861D81AFA4A210060C76D /* NSDateFormatter+Category.m in Sources */,
 				0443C1B51AD5553F004F29A5 /* SDWebImageDownloader.m in Sources */,
 				3BBF6F4B1AD6D0E800A33F5A /* MLStudentCard.m in Sources */,
 				3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */,

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet listBadgeView *IconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updateTimeLabel;
 
 
 - (void)setInsuranceImageShow:(BOOL)ishidden;
