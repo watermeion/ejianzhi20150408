@@ -131,9 +131,12 @@
     
     self.typeImage=[self getJobTypeImage];
     //兼职企业
-    self.companyId=data.qiYeInfoId;
+    AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
+    self.companyId=qiyePointer.objectId;
+    self.companyInfo=qiyePointer;
     self.isFavorite=NO;
     [self checkIfAddedFavorite];
+    [self fetchCompanyFromServer];
 }
 
 
@@ -229,7 +232,21 @@
     return workTimeArray;
 }
 
-
+-(void)fetchCompanyFromServer
+{
+    AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
+    [qiyePointer fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (error==nil) {
+            if (object) {
+                self.companyInfo=object;
+            }
+        }
+        else
+        {
+            TTAlert(@"服务器开小差了请重试~！");
+        }
+    }];
+}
 
 /**
  *  添加收藏
@@ -239,10 +256,10 @@
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
         //FIXME: 子类化后修改
-        
         NSString *qiYeId=@"";
-        if (self.jianZhi.qiYeInfoId!=nil) {
-            qiYeId=self.jianZhi.qiYeInfoId;
+        AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
+        if (qiyePointer.objectId!=nil) {
+            qiYeId=qiyePointer.objectId;
         }
         NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
         [AVCloud callFunctionInBackground:@"add_shoucang" withParameters:parameters block:^(id object, NSError *error) {
@@ -257,26 +274,6 @@
                 TTAlert(errorMsg);
             }
          }];
-        
-//        
-//        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShouCang"];
-//        [shoucang setObject:self.jianZhi forKey:@"jianZhi"];
-//        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
-//        [shoucang setObject:currentUser forKey:@"userDetail"];
-//        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded==YES) {
-//                TTAlert(@"收藏成功");
-//                //FIXME: 做一些跟新ui的操作 设置信号
-//                
-//                
-//            }else
-//            {
-//                TTAlert(@"收藏失败");
-//            }
-//        }];
-//        
-        
-    
     }else
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"你还未登录，请先登录再收藏" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
@@ -296,8 +293,9 @@
         
         //企业Id判空
         NSString *qiYeId=@"";
-        if (self.jianZhi.qiYeInfoId!=nil) {
-            qiYeId=self.jianZhi.qiYeInfoId;
+        AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
+        if (qiyePointer.objectId!=nil) {
+            qiYeId=qiyePointer.objectId;
         }
         NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
         
@@ -318,9 +316,6 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"你还未登录，请先登录再申请" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
         [alert show];
     }
-
-
-
 }
 
 - (void)applyThisJob
@@ -333,41 +328,22 @@
     //FIXME: 子类化后修改
         //企业Id判空
         NSString *qiYeId=@"";
-        if (self.jianZhi.qiYeInfoId!=nil) {
-            qiYeId=self.jianZhi.qiYeInfoId;
+        AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
+        if (qiyePointer.objectId!=nil) {
+            qiYeId=qiyePointer.objectId;
         }
         NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
-        [MBProgressHUD showHUDAddedTo:nil animated:YES];
-        
         [AVCloud callFunctionInBackground:@"add_shenqing" withParameters:parameters block:^(id object, NSError *error) {
             // 执行结果
-            [MBProgressHUD hideHUDForView:nil animated:YES];
             if (error==nil) {
                 TTAlert(@"申请成功");
                 //FIXME: 做一些跟新ui的操作 设置信号
-                
-                
             }else
             {
                 NSString *errorMsg=error.description;
                 TTAlert(errorMsg);
             }
         }];
-//        AVObject *shoucang = [AVObject objectWithClassName:@"JianZhiShenQing"];
-//        [shoucang setObject:self.jianZhi.objectId forKey:@"jianZhi"];
-//        [shoucang setObject:self.jianZhi.qiYeInfoId forKey:@"qiYeInfo"];
-//        [shoucang setObject:currentUser.objectId forKey:@"userDetail"];
-//        [shoucang saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded==YES) {
-//                TTAlert(@"收藏成功");
-//                //做一些跟新ui的操作 设置信号
-//                
-//            }else
-//            {
-//                NSLog(@"%@",error.description);
-//                TTAlert(@"收藏失败");
-//            }
-//        }];
     }else
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"你还未登录，请先登录再申请" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
@@ -387,6 +363,10 @@
 #warning 提交浏览次数
 
 #warning 添加其他
+
+
+
+
 
 
 @end

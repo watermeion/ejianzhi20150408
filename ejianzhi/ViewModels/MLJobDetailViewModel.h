@@ -25,8 +25,6 @@
  *  @return <#return value description#>
  */
 - (instancetype)initWithData:(JianZhi *) data;
-
-
 //页面所需数据 ViewModel
 @property (nonatomic,strong)NSString *jobTitle;
 @property (nonatomic,strong)NSString *jobWages;
@@ -50,6 +48,8 @@
 @property (nonatomic,strong)UIImage *typeImage;
 
 @property (nonatomic,strong)id companyId;
+@property (nonatomic,strong)AVObject *companyInfo;
+
 
 @property BOOL isFavorite;
 /**
@@ -79,6 +79,6 @@
 
 - (void)applyThisJob;
 
-
+-(void)fetchCompanyFromServer;
 
 @end

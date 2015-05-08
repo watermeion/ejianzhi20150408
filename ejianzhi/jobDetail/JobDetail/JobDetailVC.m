@@ -21,7 +21,8 @@
 #import "resumeListVC.h"
 #import "CDService.h"
 #import "CDUserFactory.h"
-
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -152,7 +153,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     NSArray *barItems=@[rightBarItem1,self.addFaviatorBtnItem];
     
     self.navigationItem.rightBarButtonItems=barItems;
-
+    
     if (self.fromEnterprise) {
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
@@ -167,9 +168,9 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                 self.chatLabel.hidden=YES;
             }
         }];
-
+        
     }
-
+    
     //创建监听
     @weakify(self)
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
@@ -253,7 +254,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                 TTAlert(@"sorry,该公司的HR什么都没留下~！详情请电话咨询");
                 
             }
-
+            
         }
         return [RACSignal empty];
     }];
@@ -266,7 +267,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     tousuVC.delegate=self.viewModel;
     
     [self.navigationController pushViewController:tousuVC animated:YES];
-
+    
 }
 
 /**
@@ -489,28 +490,37 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (IBAction)chatWithEnterprise:(id)sender {
-    if (self.thisCompanyId!=nil) {
-    AVQuery *userQuery=[AVUser query];
-    [userQuery whereKey:@"objectId" equalTo:self.thisCompanyId];
-    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            AVUser *_user=[objects objectAtIndex:0];
-            [CDCache registerUser:_user];
-            
-            CDIM* im=[CDIM sharedInstance];
-            WEAKSELF
-            [im fetchConvWithUserId:_user.objectId callback:^(AVIMConversation *conversation, NSError *error) {
-                if(error){
-                    DLog(@"%@",error);
-                }else{
-                    CDChatRoomVC* chatRoomVC=[[CDChatRoomVC alloc] initWithConv:conversation];
-                    chatRoomVC.hidesBottomBarWhenPushed=YES;
-                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+    if (self.viewModel.companyInfo!=nil) {
+        
+        
+        if([self.viewModel.companyInfo objectForKey:@"qiYeUser"]){
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            AVObject *userQuery=[self.viewModel.companyInfo objectForKey:@"qiYeUser"];
+            [userQuery fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+                if (!error) {
+                    AVUser *_user=object;
+                    [CDCache registerUser:_user];
+                    
+                    CDIM* im=[CDIM sharedInstance];
+                    WEAKSELF
+                    [im fetchConvWithUserId:_user.objectId callback:^(AVIMConversation *conversation, NSError *error) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        if(error){
+                            DLog(@"%@",error);
+                        }else{
+                            CDChatRoomVC* chatRoomVC=[[CDChatRoomVC alloc] initWithConv:conversation];
+                            chatRoomVC.hidesBottomBarWhenPushed=YES;
+                            [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+                        }
+                    }];
                 }
+                
             }];
         }
-    }];
+        
     }
 }
+
+
 
 @end
