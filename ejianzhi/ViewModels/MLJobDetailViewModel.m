@@ -337,12 +337,15 @@
             qiYeId=self.jianZhi.qiYeInfoId;
         }
         NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
+        [MBProgressHUD showHUDAddedTo:nil animated:YES];
         
         [AVCloud callFunctionInBackground:@"add_shenqing" withParameters:parameters block:^(id object, NSError *error) {
             // 执行结果
+            [MBProgressHUD hideHUDForView:nil animated:YES];
             if (error==nil) {
                 TTAlert(@"申请成功");
                 //FIXME: 做一些跟新ui的操作 设置信号
+                
                 
             }else
             {
