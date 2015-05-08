@@ -98,33 +98,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
-//- (void)addConversation{
-//    
-//    AVQuery *userQuery=[AVUser query];
-//    [userQuery whereKey:@"objectId" equalTo:@"5512d310e4b065f7eeaa6ff8"];
-//    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            AVUser *_user=[objects objectAtIndex:0];
-//            [CDCache registerUser:_user];
-//            
-//            CDIM* im=[CDIM sharedInstance];
-//            WEAKSELF
-//            [im fetchConvWithUserId:_user.objectId callback:^(AVIMConversation *conversation, NSError *error) {
-//                if(error){
-//                    DLog(@"%@",error);
-//                }else{
-//                    CDChatRoomVC* chatRoomVC=[[CDChatRoomVC alloc] initWithConv:conversation];
-//                    chatRoomVC.hidesBottomBarWhenPushed=YES;
-//                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
-//                }
-//            }];
-//        }
-//    }];
-//}
-
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

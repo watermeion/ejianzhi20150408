@@ -141,12 +141,22 @@ static CDIM* _im;
         if(error){
             callback(NO,error);
         }else{
-            for(CDRoom * room in rooms){
+//            for(CDRoom * room in rooms){
+//                room.conv=[CDCache lookupConvById:room.convid];
+//                if(room.conv==nil){
+//                    //[NSException raise:@"not found conv" format:nil];
+//                    [rooms removeObject:room];
+//                }
+//            }
+            for (int i=0; i<[rooms count]; i++) {
+                CDRoom * room=[rooms objectAtIndex:i];
                 room.conv=[CDCache lookupConvById:room.convid];
                 if(room.conv==nil){
-                    [NSException raise:@"not found conv" format:nil];
+                    [rooms removeObject:room];
+                    i--;
                 }
             }
+            
             NSMutableSet* userIds=[NSMutableSet set];
             for(CDRoom* room in rooms){
                 if([[CDIM sharedInstance] typeOfConv:room.conv]==CDConvTypeSingle){

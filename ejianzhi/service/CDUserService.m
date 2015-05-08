@@ -51,7 +51,7 @@ static UIImage* defaultAvatar;
 }
 
 +(void)displayAvatarOfUser:(AVUser*)user avatarView:(UIImageView*)avatarView{
-    UIImage* placeHolder=[UIImage imageNamed:@"default_user_avatar"];
+    UIImage* placeHolder=[UIImage imageNamed:@"avator"];
     [avatarView setImage:placeHolder];
     AVFile* avatar=[user objectForKey:@"avatar"];
     if(avatar){

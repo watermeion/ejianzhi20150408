@@ -91,8 +91,6 @@
     JobDetailVC *detailVC=[[JobDetailVC alloc]init];
     [self.navigationController pushViewController:detailVC animated:YES];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
-    
-    
 }
 
 - (void)deselect
