@@ -16,6 +16,8 @@
 #import "ResumeVC.h"
 #import "imageWithUrlObject.h"
 #import "SDPhotoBrowser.h"
+#import "CDService.h"
+#import "CDUserFactory.h"
 
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
@@ -32,6 +34,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     BOOL loaded;
 
 }
+
 @property (strong, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *userAgeLabel;
@@ -45,11 +48,16 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (strong, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (strong, nonatomic) IBOutlet UILabel *userJobConclution;
 
+@property (strong, nonatomic) IBOutlet UIButton *refuseBtn;
+@property (strong, nonatomic) IBOutlet UIButton *acceptBtn;
+
+
 //约束
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *introductionConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *experienceConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *totalConstraint;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *scrollViewConstraint;
 @end
 
 @implementation MLResumePreviewVC
@@ -72,6 +80,18 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
             self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(editResume)];
             [self.navigationItem.rightBarButtonItem setTitle:@"编辑"];
             self.title=@"我的简历";
+            self.refuseBtn.hidden=YES;
+            self.acceptBtn.hidden=YES;
+            self.scrollViewConstraint.constant=0;
+        }else{
+            
+            CDIM* im=[CDIM sharedInstance];
+            im.userDelegate=[CDIMService shareInstance];
+            [im openWithClientId:[AVUser currentUser].objectId callback:^(BOOL succeeded, NSError *error) {
+                if(!error){
+                    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(contactUser)];
+                }
+            }];
         }
         
         [self initDataFromNet];
@@ -268,7 +288,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
         self.experienceConstraint.constant=rect2.size.height+20;
     }
-    self.totalConstraint.constant=640+rect1.size.height+rect2.size.height;
+    self.totalConstraint.constant=670+rect1.size.height+rect2.size.height;
     
     [self timeCollectionViewInit];
     
@@ -441,6 +461,56 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     return [NSURL URLWithString:imgUrlObj.url];
 }
 
+- (IBAction)refusetJob:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSDictionary *parameters=[[NSDictionary alloc]initWithObjectsAndKeys:self.shenqingObjectId,@"jianZhiShenQingId",nil];
+    [AVCloud callFunctionInBackground:@"jujue_shenqing" withParameters:parameters block:^(id object, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (!error) {
+            [MBProgressHUD showSuccess:@"您已拒绝该求职者" toView:self.view];
+        }else{
+            [MBProgressHUD showSuccess:@"请求失败，请再次尝试" toView:self.view];
+        }
+    }];
+}
+
+- (IBAction)acceptJob:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSDictionary *parameters=[[NSDictionary alloc]initWithObjectsAndKeys:self.shenqingObjectId,@"jianZhiShenQingId",nil];
+    [AVCloud callFunctionInBackground:@"luyong" withParameters:parameters block:^(id object, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (!error) {
+            [MBProgressHUD showSuccess:@"您已录用该求职者" toView:self.view];
+        }else{
+            [MBProgressHUD showSuccess:@"请求失败，请再次尝试" toView:self.view];
+        }
+    }];
+}
+
+
+- (void)contactUser{
+
+    AVQuery *userQuery=[AVUser query];
+    [userQuery whereKey:@"objectId" equalTo:self.userObjectId];
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            AVUser *_user=[objects objectAtIndex:0];
+            [CDCache registerUser:_user];
+            
+            CDIM* im=[CDIM sharedInstance];
+            WEAKSELF
+            [im fetchConvWithUserId:_user.objectId callback:^(AVIMConversation *conversation, NSError *error) {
+                if(error){
+                    DLog(@"%@",error);
+                }else{
+                    CDChatRoomVC* chatRoomVC=[[CDChatRoomVC alloc] initWithConv:conversation];
+                    chatRoomVC.hidesBottomBarWhenPushed=YES;
+                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+                }
+            }];
+        }
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

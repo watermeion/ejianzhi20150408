@@ -19,6 +19,8 @@
 #import "tousuViewController.h"
 #import "CompanyInfoViewController.h"
 #import "resumeListVC.h"
+#import "CDService.h"
+#import "CDUserFactory.h"
 
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
@@ -36,13 +38,12 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobContentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *scrollConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobTeShuYaoQiuHeightConstraint;
 @property (strong, nonatomic) IBOutlet UIButton *btn1;
 @property (strong, nonatomic) IBOutlet UIButton *btn2;
 @property (strong, nonatomic) IBOutlet UIButton *btn3;
-@property (strong, nonatomic) IBOutlet UIButton *btn4;
-@property (strong, nonatomic) IBOutlet UIButton *btn5;
 
 - (IBAction)showInMapAction:(id)sender;
 
@@ -74,6 +75,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet UILabel *jobDetailJobQiYeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *jobDetailMoreJobBtn;
 @property (weak, nonatomic) IBOutlet UILabel *jobDetailJobXiangQingLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *chatBtn;
+@property (strong, nonatomic) IBOutlet UILabel *chatLabel;
+
 
 
 //另外获取的数据
@@ -152,10 +157,19 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
         self.btn3.hidden=YES;
+        self.scrollConstraint.constant=-44;
     }else{
-        self.btn4.hidden=YES;
-        self.btn5.hidden=YES;
+        CDIM* im=[CDIM sharedInstance];
+        im.userDelegate=[CDIMService shareInstance];
+        [im openWithClientId:[AVUser currentUser].objectId callback:^(BOOL succeeded, NSError *error) {
+            if(error){
+                self.chatBtn.hidden=YES;
+                self.chatLabel.hidden=YES;
+            }
+        }];
+
     }
+
     //创建监听
     @weakify(self)
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
@@ -474,12 +488,29 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
 }
 
-- (IBAction)refuseResume:(id)sender {
-    
-}
-
-- (IBAction)acceptResume:(id)sender {
-    
+- (IBAction)chatWithEnterprise:(id)sender {
+    if (self.thisCompanyId!=nil) {
+    AVQuery *userQuery=[AVUser query];
+    [userQuery whereKey:@"objectId" equalTo:self.thisCompanyId];
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            AVUser *_user=[objects objectAtIndex:0];
+            [CDCache registerUser:_user];
+            
+            CDIM* im=[CDIM sharedInstance];
+            WEAKSELF
+            [im fetchConvWithUserId:_user.objectId callback:^(AVIMConversation *conversation, NSError *error) {
+                if(error){
+                    DLog(@"%@",error);
+                }else{
+                    CDChatRoomVC* chatRoomVC=[[CDChatRoomVC alloc] initWithConv:conversation];
+                    chatRoomVC.hidesBottomBarWhenPushed=YES;
+                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+                }
+            }];
+        }
+    }];
+    }
 }
 
 @end

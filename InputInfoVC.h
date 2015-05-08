@@ -19,4 +19,5 @@
 @property (nonatomic,weak) id<finishInputDelegate> inputDelegate;
 @property (nonatomic) NSInteger inputType;
 @property (nonatomic, strong) NSString *labelText;
+
 @end
