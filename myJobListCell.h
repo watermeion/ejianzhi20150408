@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "listBadgeView.h"
 
 @protocol resumeDelegate <NSObject>
 @required
@@ -16,7 +15,6 @@
 
 @interface myJobListCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *typeLabel;
-@property (strong, nonatomic) IBOutlet listBadgeView *badgeView;
 @property (strong, nonatomic) IBOutlet UILabel *jobTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *resumeNumLabel;
 @property (strong, nonatomic) IBOutlet UILabel *jobSalaryLabel;
@@ -24,4 +22,5 @@
 @property (nonatomic) NSInteger index;
 @property(nonatomic,weak) id<resumeDelegate> resumeDelegate;
 @property (strong, nonatomic) IBOutlet UIButton *showResumeBtn;
+@property (strong, nonatomic) IBOutlet UIView *BkgView;
 @end

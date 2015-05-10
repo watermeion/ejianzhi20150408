@@ -16,6 +16,7 @@
 #import "resumeListVC.h"
 #import "JianZhi.h"
 #import "JobDetailVC.h"
+#import "UIColor+ColorFromArray.h"
 
 @interface myJobListVC ()<UITableViewDataSource,UITableViewDelegate,resumeDelegate>
 {
@@ -224,6 +225,10 @@
         n=0;
 
     cell.recruitInfoLabel.text= [NSString stringWithFormat:@"已录用%@人，还缺%ld人，浏览%@次",[object objectForKey:@"jianZhiQiYeLuYongValue"],(long)n,[object objectForKey:@"jianZhiBrowseTime"]];
+    
+    cell.typeLabel.text=[object objectForKey:@"jianZhiType"];
+    
+    [cell.BkgView setBackgroundColor:[UIColor colorForType:[object objectForKey:@"jianZhiType"]]];
     
     return cell;
 }

@@ -16,6 +16,7 @@
 {
     NSDateFormatter* dateFormatter1;
     NSDateFormatter* dateFormatter2;
+    BOOL firstLoad;
 }
 
 @property NSMutableArray* rooms;
@@ -41,14 +42,20 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-   
+    [super viewDidAppear:animated];
+    
+    if (firstLoad) {
+        firstLoad=NO;
+    }else{
+        [self refreshRooms];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title=@"消息";
+    firstLoad=YES;
     
     UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.tableView.tableFooterView=footerView;

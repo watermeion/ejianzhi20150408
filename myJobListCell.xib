@@ -77,23 +77,23 @@
                                     <action selector="showResumeList:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CyE-2a-VVA"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnP-WM-c9N" customClass="listBadgeView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnP-WM-c9N">
                                 <rect key="frame" x="8" y="14" width="60" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqm-3V-GVD">
-                                        <rect key="frame" x="9" y="9" width="42" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家教" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqm-3V-GVD">
+                                        <rect key="frame" x="0.0" y="9" width="60" height="41"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="96K-ud-rHe"/>
+                                            <constraint firstAttribute="width" constant="60" id="96K-ud-rHe"/>
                                             <constraint firstAttribute="height" constant="41" id="tjx-U0-Vra"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jqm-3V-GVD" firstAttribute="leading" secondItem="pnP-WM-c9N" secondAttribute="leading" constant="9" id="BDZ-4Y-wN5"/>
+                                    <constraint firstItem="jqm-3V-GVD" firstAttribute="leading" secondItem="pnP-WM-c9N" secondAttribute="leading" id="BDZ-4Y-wN5"/>
                                     <constraint firstAttribute="width" constant="60" id="T8v-I8-xH7"/>
                                     <constraint firstItem="jqm-3V-GVD" firstAttribute="top" secondItem="pnP-WM-c9N" secondAttribute="top" constant="9" id="ZkQ-XL-Iew"/>
                                     <constraint firstAttribute="height" constant="60" id="oxR-il-dXd"/>
@@ -132,7 +132,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="badgeView" destination="pnP-WM-c9N" id="pvv-ri-1pG"/>
+                <outlet property="BkgView" destination="pnP-WM-c9N" id="IXa-qg-F4k"/>
                 <outlet property="jobSalaryLabel" destination="Eqy-Ow-DBC" id="WGb-d0-uue"/>
                 <outlet property="jobTitleLabel" destination="P2F-Rd-6tj" id="zcK-3T-bCJ"/>
                 <outlet property="recruitInfoLabel" destination="Dtu-bu-CwC" id="jBk-QP-I5e"/>
@@ -140,7 +140,7 @@
                 <outlet property="showResumeBtn" destination="CkD-JG-88t" id="7HZ-cs-EfA"/>
                 <outlet property="typeLabel" destination="jqm-3V-GVD" id="93F-Vy-ftf"/>
             </connections>
-            <point key="canvasLocation" x="444" y="200"/>
+            <point key="canvasLocation" x="287" y="195"/>
         </tableViewCell>
     </objects>
 </document>
