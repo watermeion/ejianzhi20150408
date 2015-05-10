@@ -58,6 +58,9 @@
 
 - (void)footRefreshData{
     
+    AVQuery *innerQuery=[AVQuery queryWithClassName:@"UserDetail"];
+    [innerQuery whereKey:@"userObjectId" equalTo:[AVUser currentUser].objectId];
+    
     AVQuery *query=[JianZhiShenQing query];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     query.maxCacheAge = 24*3600;
@@ -66,6 +69,7 @@
     skipTimes++;
     [query includeKey:@"qiYeInfo"];
     [query includeKey:@"jianZhi"];
+    [query whereKey:@"userDetail" matchesQuery:innerQuery];
     
     if ([self.appStatus length]>0) {
         [query whereKey:@"enterpriseHandleResult" equalTo:self.appStatus];
@@ -74,16 +78,20 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (!error) {
+            int p=0;
             for (JianZhiShenQing *obj in objects) {
-                [recordArray addObject:obj];
+                
+                if ([obj objectForKey:@"jianZhi"]) {
+                    [recordArray addObject:obj];
+                    p++;
+                }
             }
             
             NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
             
             NSInteger n=[recordArray count];
-            NSInteger m=[objects count];
             
-            for (NSInteger k=n-m; k<[recordArray count];k++) {
+            for (NSInteger k=n-p; k<[recordArray count];k++) {
                 NSIndexPath *newPath = [NSIndexPath indexPathForRow:k inSection:0];
                 [insertIndexPaths addObject:newPath];
             }
@@ -106,6 +114,9 @@
 
 -(void)refreshData{
     
+    AVQuery *innerQuery=[AVQuery queryWithClassName:@"UserDetail"];
+    [innerQuery whereKey:@"userObjectId" equalTo:[AVUser currentUser].objectId];
+    
     AVQuery *query=[JianZhiShenQing query];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     query.maxCacheAge = 24*3600;
@@ -114,6 +125,8 @@
     skipTimes=1;
     [query includeKey:@"qiYeInfo"];
     [query includeKey:@"jianZhi"];
+    
+    [query whereKey:@"userDetail" matchesQuery:innerQuery];
     
     if ([self.appStatus length]>0) {
         [query whereKey:@"enterpriseHandleResult" equalTo:self.appStatus];
@@ -129,9 +142,9 @@
             }
             
             for (JianZhiShenQing *obj in objects) {
-                
-                [recordArray addObject:obj];
-                
+                if ([obj objectForKey:@"jianZhi"]) {
+                    [recordArray addObject:obj];
+                }
             }
             
             [self.tableView reloadData];
@@ -249,9 +262,13 @@
     JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
     detailVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:detailVC animated:YES];
-    
-    
-    
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+}
+
+
+- (void)deselect
+{
+    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end
