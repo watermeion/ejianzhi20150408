@@ -173,28 +173,36 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-    
-    if (buttonIndex==1) {
-        if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"0"]) {
-            BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
-            if (isLogout) {
+    if (alertView.tag==1001) {
+        if (buttonIndex==1) {
+            NSString *telUrl = @"tel://010-62416324";
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
+            
+        }
+    }else{
+        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+        
+        if (buttonIndex==1) {
+            if ([[mySettingData objectForKey:@"userType"]isEqualToString:@"0"]) {
+                BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
+                if (isLogout) {
+                    
+                    MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
+                    [tabbar.navigationController popViewControllerAnimated:YES];
+                    [self finishLogout];
+                }
                 
-                MLTabbarVC *tabbar=[MLTabbarVC shareInstance];
-                [tabbar.navigationController popViewControllerAnimated:YES];
-                [self finishLogout];
-            }
-
-        }else{
-            BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
-            if (isLogout) {
-                
-                MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
-                [tabbar.navigationController popViewControllerAnimated:YES];
-                [self finishLogout];
+            }else{
+                BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
+                if (isLogout) {
+                    
+                    MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
+                    [tabbar.navigationController popViewControllerAnimated:YES];
+                    [self finishLogout];
+                }
             }
         }
-        
     }
 }
 
@@ -374,5 +382,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)makePhoneCall:(id)sender {
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"是否呼叫客服中心？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag=1001;
+    [alert show];
+    
+}
 
 @end

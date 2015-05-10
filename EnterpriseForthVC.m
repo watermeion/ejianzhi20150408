@@ -163,16 +163,25 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
-    if (buttonIndex==1) {
+    if (alertView.tag==1001) {
+        if (buttonIndex==1) {
+            NSString *telUrl = @"tel://010-62416324";
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
 
-        BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
-        if (isLogout) {
-                
-            MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
-            [tabbar.navigationController popViewControllerAnimated:YES];
-            [self finishLogout];
         }
-        
+    }else{
+        if (buttonIndex==1) {
+            
+            BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
+            if (isLogout) {
+                
+                MLTabbar1 *tabbar=[MLTabbar1 shareInstance];
+                [tabbar.navigationController popViewControllerAnimated:YES];
+                [self finishLogout];
+            }
+            
+        }
     }
 }
 
@@ -317,6 +326,23 @@
     
 }
 
+- (IBAction)showSettingVC:(id)sender {
+    settingVC *setting=[[settingVC alloc]init];
+    setting.hidesBottomBarWhenPushed=YES;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    pushing=YES;
+    [self.navigationController pushViewController:setting animated:YES];
+}
+
+- (IBAction)makePhoneCall:(id)sender {
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"是否呼叫客服中心？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag=1001;
+    [alert show];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
