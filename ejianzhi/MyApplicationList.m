@@ -56,6 +56,10 @@
 }
 
 - (void)footRefreshData{
+    
+    AVQuery *innerQuery=[AVQuery queryWithClassName:@"UserDetail"];
+    [innerQuery whereKey:@"userObjectId" equalTo:[AVUser currentUser].objectId];
+    
     AVQuery *query=[JianZhiShenQing query];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     query.maxCacheAge = 24*3600;
