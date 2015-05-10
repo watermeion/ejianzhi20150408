@@ -158,6 +158,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
         self.btn3.hidden=YES;
+        self.navigationItem.rightBarButtonItem=nil;
         self.scrollConstraint.constant=-44;
     }else{
         CDIM* im=[CDIM sharedInstance];
