@@ -261,7 +261,7 @@
                         <action selector="touchLoginButton:" destination="-1" eventType="touchUpInside" id="Qjb-pL-Sma"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-yD-3as">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-yD-3as">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5MT-Qj-7Ja"/>
@@ -285,7 +285,7 @@
                         </mask>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-Pi-jxN">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-Pi-jxN">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="HI0-ky-nux"/>
@@ -360,14 +360,18 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="gtx-wV-vNx" firstAttribute="leading" secondItem="t9G-gM-53p" secondAttribute="trailing" constant="8" id="3pT-pb-xDH"/>
+                <constraint firstItem="gtx-wV-vNx" firstAttribute="leading" secondItem="t9G-gM-53p" secondAttribute="trailing" constant="8" id="3pT-pb-xDH">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-55"/>
+                </constraint>
                 <constraint firstItem="t9G-gM-53p" firstAttribute="leading" secondItem="jZU-Pi-jxN" secondAttribute="trailing" constant="8" id="5Nk-1f-VC3"/>
                 <constraint firstAttribute="trailing" secondItem="fhv-w2-Wmf" secondAttribute="trailing" constant="25" id="89M-ke-wZw"/>
                 <constraint firstAttribute="trailing" secondItem="bY0-JR-idV" secondAttribute="trailing" id="9jX-0y-udM"/>
                 <constraint firstItem="8Mw-yD-3as" firstAttribute="top" secondItem="fhv-w2-Wmf" secondAttribute="bottom" constant="3" id="GJE-tV-Bqx"/>
                 <constraint firstAttribute="trailing" secondItem="1vU-6Q-aDc" secondAttribute="trailing" id="Haq-K3-In0"/>
                 <constraint firstItem="fhv-w2-Wmf" firstAttribute="top" secondItem="1vU-6Q-aDc" secondAttribute="bottom" constant="8" id="Ot0-Vb-32T"/>
-                <constraint firstAttribute="bottom" secondItem="gtx-wV-vNx" secondAttribute="bottom" constant="12" id="Qy6-WD-whk"/>
+                <constraint firstAttribute="bottom" secondItem="gtx-wV-vNx" secondAttribute="bottom" constant="12" id="Qy6-WD-whk">
+                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                </constraint>
                 <constraint firstItem="fhv-w2-Wmf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="SVz-eJ-0Ul"/>
                 <constraint firstAttribute="centerX" secondItem="8Mw-yD-3as" secondAttribute="centerX" id="TKC-1u-igb"/>
                 <constraint firstItem="bY0-JR-idV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="a0R-0i-M35"/>

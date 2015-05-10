@@ -60,7 +60,6 @@
          return @([self isValidPhone:text]);
      }];
     
-    
     RACSignal *validUserPwdSignal=[self.userPassword.rac_textSignal map:^id(NSString *text) {
         return @(text.length>0);
     }];
@@ -68,8 +67,6 @@
     RACSignal *validVerifycodeSignal=[self.securityCode.rac_textSignal map:^id(NSString *text) {
         return @(text.length>0);
     }];
-    
-  
     
     //监听获取验证码按钮enabled
     RAC(self.verificationButton, enabled) =
@@ -169,7 +166,6 @@
             Register.username=inputPhoneNumber;
             Register.pwd=inputPassword;
             Register.phone=inputPhoneNumber;
-            
             [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
         }
         else if(0==state)
