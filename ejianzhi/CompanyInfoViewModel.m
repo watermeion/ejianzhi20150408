@@ -95,7 +95,7 @@
     AVQuery *query=[AVQuery queryWithClassName:@"QiYeInfo"];
     query.cachePolicy=kAVCachePolicyNetworkElseCache;
     query.maxCacheAge=3600*24;
-    [query whereKey:@"userObjectId" equalTo:companyId];
+    [query whereKey:@"objectId" equalTo:companyId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if ([objects count]>0) {
