@@ -10,7 +10,7 @@
 #import "UIImageView+EMWebCache.h"
 #import "MBProgressHUD+Add.h"
 #import "MBProgressHUD.h"
-
+#import "FogetPWDViewController.h"
 @interface settingVC ()
 @property (strong, nonatomic) IBOutlet UILabel *cacheLabel;
 
@@ -35,6 +35,7 @@
 
 - (IBAction)showIntroduction:(id)sender {
     
+    TTAlert(@"e兼职功能介绍详情请登录 www.ejzhi.com ");
 }
 - (IBAction)showAboutUs:(id)sender {
     UITextView *textView=[[UITextView alloc]init];
@@ -104,10 +105,12 @@
     [self.navigationController pushViewController:aboutusVC animated:YES];
 }
 - (IBAction)modifyPhone:(id)sender {
-    
+    FogetPWDViewController *modifyVC=[[FogetPWDViewController alloc]init];
+    modifyVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:modifyVC animated:YES];
 }
 - (IBAction)modifyPassword:(id)sender {
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {

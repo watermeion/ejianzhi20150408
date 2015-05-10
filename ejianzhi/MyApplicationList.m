@@ -51,13 +51,11 @@
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self refreshData];
 }
 
 - (void)footRefreshData{
-    
     AVQuery *query=[JianZhiShenQing query];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     query.maxCacheAge = 24*3600;
@@ -184,7 +182,6 @@
             weakSelf.appStatus=@"未处理";
             [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
             [weakSelf headerRereshing];
-            
         }
         else if (index==1){
             weakSelf.appStatus=@"同意";
@@ -242,16 +239,11 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     AVObject *object=[recordArray objectAtIndex:indexPath.row];
     JianZhi *jianzhi=[object objectForKey:@"jianZhi"];
     JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:jianzhi];
     detailVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:detailVC animated:YES];
-    
-    
-    
 }
 
 @end

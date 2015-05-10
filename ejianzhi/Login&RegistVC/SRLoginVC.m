@@ -14,6 +14,7 @@
 #import "MLTabbarVC.h"
 #import "MLTabbar1.h"
 
+
 @interface SRLoginVC ()<successRegistered,UIAlertViewDelegate>
 {
     NSInteger loginType;
@@ -21,6 +22,7 @@
 @property (weak,nonatomic) MLLoginManger *loginManager;
 @property (strong, nonatomic) IBOutlet UIButton *otherLoginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *lookAroundBtn;
+@property (weak, nonatomic) IBOutlet UIButton *resetPassword;
 
 @end
 
@@ -135,6 +137,19 @@ static  SRLoginVC *thisController=nil;
 //        @strongify(self)
 //        return self.loginButton.enabled? [UIColor colorWithRed:0.13 green:0.62 blue:0.52 alpha:1.0f]:[UIColor grayColor];
 //    }];
+    
+    self.resetPassword.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        if ([self.userAccount.text length]==11) {
+//            
+//            
+//            
+//            
+//            
+//            [SMS_SDK sendSMS:self.userAccount.text AndMessage:[NSString stringWithFormat:@"重置密码成功,新密码为:123456,登录请及时修改"]];
+        }
+        
+        return [RACSignal empty];
+    }];
     
 }
 

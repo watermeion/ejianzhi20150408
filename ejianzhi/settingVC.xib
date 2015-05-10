@@ -138,7 +138,7 @@
                                         <action selector="modifyPhone:" destination="-1" eventType="touchUpInside" id="j0d-YC-hnc"/>
                                     </connections>
                                 </button>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="wne-19-546">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="wne-19-546">
                                     <rect key="frame" x="290" y="242" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="Ult-8J-4Iw"/>

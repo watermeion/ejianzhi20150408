@@ -13,6 +13,7 @@
                 <outlet property="navBar" destination="bY0-JR-idV" id="91Q-kD-JWd"/>
                 <outlet property="navItem" destination="WoF-F8-Dtu" id="Vgg-oe-vcI"/>
                 <outlet property="otherLoginBtn" destination="gtx-wV-vNx" id="gPr-gp-XRB"/>
+                <outlet property="resetPassword" destination="8Mw-yD-3as" id="JuI-FW-JoH"/>
                 <outlet property="userAccount" destination="00O-Dy-WYs" id="Qtk-rD-ckM"/>
                 <outlet property="userPassword" destination="OWm-4R-BCC" id="eSV-FO-mQ9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -261,7 +262,7 @@
                         <action selector="touchLoginButton:" destination="-1" eventType="touchUpInside" id="Qjb-pL-Sma"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-yD-3as">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-yD-3as">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5MT-Qj-7Ja"/>
