@@ -28,7 +28,7 @@
 {
     
     [AVUser logInWithUsernameInBackground:username password:pwd block:^(AVUser *user, NSError *error) {
-
+        
         if (user != nil) {
             NSNumber *typenum=[user objectForKey:@"userType"];
             if ([typenum integerValue]!=type) {
@@ -36,12 +36,15 @@
                 loginBlock(NO,nil);
             }else{
                 AVFile *avatarFile=[user objectForKey:@"avatar"];
-
+                
                 [self saveUserInfoLocally:avatarFile.url userType:[typenum stringValue]];
-
+                
                 self.feedback=@"登录成功";
-                
-                
+                NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+                if([user objectForKey:@"mobilePhoneNumber"]){
+                    [mySettingData setObject:[user objectForKey:@"mobilePhoneNumber"]forKey:@"userPhone"];
+                    [mySettingData synchronize];
+                }
                 loginBlock(YES,[user objectForKey:@"userType"]);
             }
         } else {
@@ -74,36 +77,36 @@
     }
     else
     {
-     return NO;
+        return NO;
     }
 }
 
 
 -(BOOL)logOut
 {
-
+    
     [AVUser logOut];
     
     [self.loginManager setLoginState:unactive];
     
-        if ([AVUser currentUser]==nil) {
-    
-            NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-    
-            [mySettingData setBool:NO forKey:@"auto_login"];
-    
-            [mySettingData removeObjectForKey: @"currentUserName"];
-    
-            [mySettingData removeObjectForKey: @"userAvatar"];
-            
-            [mySettingData removeObjectForKey:@"userType"];
-            
-            [mySettingData synchronize];
-            
-            return YES;
-        }
-        else
-            return NO;
+    if ([AVUser currentUser]==nil) {
+        
+        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+        
+        [mySettingData setBool:NO forKey:@"auto_login"];
+        
+        [mySettingData removeObjectForKey: @"currentUserName"];
+        
+        [mySettingData removeObjectForKey: @"userAvatar"];
+        
+        [mySettingData removeObjectForKey:@"userType"];
+        
+        [mySettingData synchronize];
+        
+        return YES;
+    }
+    else
+        return NO;
 }
 
 @end

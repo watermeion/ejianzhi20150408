@@ -806,6 +806,7 @@
 		040861F01AFB74B10060C76D /* FogetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogetPWDViewController.h; sourceTree = "<group>"; };
 		040861F11AFB74B10060C76D /* FogetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPWDViewController.m; sourceTree = "<group>"; };
 		040861F21AFB74B10060C76D /* FogetPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FogetPWDViewController.xib; sourceTree = "<group>"; };
+		04437DF71AFC9FE2006FA000 /* registerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerProtocol.h; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443C12E1AD5531D004F29A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0443C12F1AD5531D004F29A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2124,6 +2125,7 @@
 				040861F01AFB74B10060C76D /* FogetPWDViewController.h */,
 				040861F11AFB74B10060C76D /* FogetPWDViewController.m */,
 				040861F21AFB74B10060C76D /* FogetPWDViewController.xib */,
+				04437DF71AFC9FE2006FA000 /* registerProtocol.h */,
 			);
 			path = "Login&RegistVC";
 			sourceTree = "<group>";

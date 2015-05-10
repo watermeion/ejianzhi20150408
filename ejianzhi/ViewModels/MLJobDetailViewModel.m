@@ -261,8 +261,10 @@
         if (qiyePointer.objectId!=nil) {
             qiYeId=qiyePointer.objectId;
         }
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
+         [MBProgressHUD showMessag:@"正在收藏..." toView:nil];
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfoId":qiYeId,@"userId":currentUser.objectId};
         [AVCloud callFunctionInBackground:@"add_shoucang" withParameters:parameters block:^(id object, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView: [UIApplication sharedApplication].keyWindow animated:YES];
             // 执行结果
             if (error==nil) {
                 TTAlert(@"收藏成功");
@@ -281,30 +283,26 @@
     }
 }
 
-
-
-
-
 - (void)tousuAction: (NSString*)tousuContent
 {
-
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
         
         //企业Id判空
+        [MBProgressHUD showMessag:@"正在提交投诉..." toView:nil];
         NSString *qiYeId=@"";
         AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
         if (qiyePointer.objectId!=nil) {
             qiYeId=qiyePointer.objectId;
         }
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfoId":qiYeId,@"userId":currentUser.objectId,@"touSuLiYou":tousuContent};
         
         [AVCloud callFunctionInBackground:@"add_tousu" withParameters:parameters block:^(id object, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView: [UIApplication sharedApplication].keyWindow animated:YES];
             // 执行结果
             if (error==nil) {
                 TTAlert(@"投诉成功");
                 //FIXME: 做一些跟新ui的操作 设置信号
-                
             }else
             {
                 NSString *errorMsg=error.description;
@@ -320,20 +318,19 @@
 
 - (void)applyThisJob
 {
-    
-    
     AVUser *currentUser=[AVUser currentUser];
     if (currentUser!=nil) {
-    
     //FIXME: 子类化后修改
         //企业Id判空
+        [MBProgressHUD showMessag:@"正在提交申请..." toView:nil];
         NSString *qiYeId=@"";
         AVObject *qiyePointer=[self.jianZhi objectForKey:@"jianZhiQiYe"];
         if (qiyePointer.objectId!=nil) {
             qiYeId=qiyePointer.objectId;
         }
-        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfo":qiYeId,@"userId":currentUser.objectId};
+        NSDictionary *parameters=@{@"jianZhiId":self.jianZhi.objectId,@"qiYeInfoId":qiYeId,@"userId":currentUser.objectId};
         [AVCloud callFunctionInBackground:@"add_shenqing" withParameters:parameters block:^(id object, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView: [UIApplication sharedApplication].keyWindow animated:YES];
             // 执行结果
             if (error==nil) {
                 TTAlert(@"申请成功");
