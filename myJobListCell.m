@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [self.showResumeBtn.layer setCornerRadius:3];
     [self.showResumeBtn.layer setMasksToBounds:YES];
+    
+    [self.BkgView.layer setMasksToBounds:YES];
+    [self.BkgView.layer setCornerRadius:10.0f];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

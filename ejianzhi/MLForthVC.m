@@ -277,13 +277,20 @@
 }
 
 - (IBAction)showMyApplication:(UIButton *)sender {
-    MyApplicationList *myAppliedJobListVC=[[MyApplicationList alloc]init];
-    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"";
-    self.navigationItem.backBarButtonItem = backItem;
-    pushing=YES;
-    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
+
+    if ([AVUser currentUser]) {
+        MyApplicationList *myAppliedJobListVC=[[MyApplicationList alloc]init];
+        myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        backItem.title = @"";
+        self.navigationItem.backBarButtonItem = backItem;
+        pushing=YES;
+        [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未登录" message:@"是否现在登录？" delegate:self cancelButtonTitle:@"再看看" otherButtonTitles:@"立即登录",nil];
+        [alert show];
+
+    }
 }
 
 - (IBAction)showMyFavor:(id)sender {
