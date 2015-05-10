@@ -84,12 +84,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
             self.acceptBtn.hidden=YES;
             self.scrollViewConstraint.constant=0;
         }else{
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(contactUser)];
             
             CDIM* im=[CDIM sharedInstance];
             im.userDelegate=[CDIMService shareInstance];
             [im openWithClientId:[AVUser currentUser].objectId callback:^(BOOL succeeded, NSError *error) {
                 if(!error){
-                    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(contactUser)];
+                    
                 }
             }];
         }
@@ -106,6 +107,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:Nil style:UIBarButtonItemStyleBordered target:self action:@selector(saveResume)];
         [self.navigationItem.rightBarButtonItem setTitle:@"保存"];
         [self initData];
+        
+        self.refuseBtn.hidden=YES;
+        self.acceptBtn.hidden=YES;
+        self.scrollViewConstraint.constant=0;
     }
 }
 

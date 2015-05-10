@@ -32,8 +32,6 @@
     return self;
 }
 
-
-
 -(void)mapKeyValueFromAVObjects:(AVObject*)obj
 {
     if ([obj objectForKey:@"qiYeName"]) {
