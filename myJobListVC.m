@@ -61,7 +61,8 @@
 -(void)refreshData{
     
     AVQuery *userQuery=[AVUser query];
-    [userQuery whereKey:@"mobilePhoneNumber" equalTo:@"18511007524"];
+    AVUser *usr=[AVUser currentUser];
+    [userQuery whereKey:@"objectId" equalTo:usr.objectId];
     
     AVQuery *innerQuery=[AVQuery queryWithClassName:@"QiYeInfo"];
 
@@ -117,7 +118,8 @@
 - (void)footRefreshData{
     
     AVQuery *userQuery=[AVUser query];
-    [userQuery whereKey:@"mobilePhoneNumber" equalTo:@"18511007524"];
+    AVUser *usr=[AVUser currentUser];
+    [userQuery whereKey:@"objectId" equalTo:usr.objectId];
     
     AVQuery *innerQuery=[AVQuery queryWithClassName:@"QiYeInfo"];
     
