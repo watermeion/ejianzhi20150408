@@ -102,7 +102,7 @@
           self.viewModel=[[CompanyInfoViewModel alloc]initWithData:self.company];
     }
   
-    RAC(self.comTitleLabel,text)=RACObserve(self.viewModel,comTitle);
+    RAC(self.comTitleLabel,text)=RACObserve(self.viewModel,comName);
     RAC(self.comNameLabel,text)=RACObserve(self.viewModel, comName);
     RAC(self.comAreaLabel,text)=RACObserve(self.viewModel, comArea);
     RAC(self.comAddressLabel,text)=RACObserve(self.viewModel, comAddress);

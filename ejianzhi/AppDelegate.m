@@ -155,6 +155,10 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[SRLoginVC shareLoginVC]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //消除消息提示数字
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     return YES;
 }
 
