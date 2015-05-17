@@ -427,6 +427,8 @@
 		045AA7441AE93A6600ED20F1 /* firstSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7431AE93A6600ED20F1 /* firstSearchDisplayController.m */; };
 		045AA7481AE93CC700ED20F1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7461AE93CC700ED20F1 /* SearchViewController.m */; };
 		045AA7491AE93CC700ED20F1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045AA7471AE93CC700ED20F1 /* SearchViewController.xib */; };
+		049A96951B00B67400BC8635 /* ResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049A96931B00B67400BC8635 /* ResetPwdViewController.m */; };
+		049A96961B00B67400BC8635 /* ResetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049A96941B00B67400BC8635 /* ResetPwdViewController.xib */; };
 		04B346871AEA785A00A8A180 /* UIColor+ColorFromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */; };
 		04B346901AEA843F00A8A180 /* UIView+ImageFromView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3468F1AEA843F00A8A180 /* UIView+ImageFromView.m */; };
 		04B346961AEA8C1900A8A180 /* JobAnonationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B346951AEA8C1900A8A180 /* JobAnonationView.m */; };
@@ -1291,6 +1293,9 @@
 		045AA7451AE93CC700ED20F1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		045AA7461AE93CC700ED20F1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		045AA7471AE93CC700ED20F1 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		049A96921B00B67400BC8635 /* ResetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPwdViewController.h; sourceTree = "<group>"; };
+		049A96931B00B67400BC8635 /* ResetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPwdViewController.m; sourceTree = "<group>"; };
+		049A96941B00B67400BC8635 /* ResetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPwdViewController.xib; sourceTree = "<group>"; };
 		04B346851AEA785A00A8A180 /* UIColor+ColorFromArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorFromArray.h"; sourceTree = "<group>"; };
 		04B346861AEA785A00A8A180 /* UIColor+ColorFromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorFromArray.m"; sourceTree = "<group>"; };
 		04B3468E1AEA843F00A8A180 /* UIView+ImageFromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ImageFromView.h"; sourceTree = "<group>"; };
@@ -2122,6 +2127,9 @@
 				040861F11AFB74B10060C76D /* FogetPWDViewController.m */,
 				040861F21AFB74B10060C76D /* FogetPWDViewController.xib */,
 				04437DF71AFC9FE2006FA000 /* registerProtocol.h */,
+				049A96921B00B67400BC8635 /* ResetPwdViewController.h */,
+				049A96931B00B67400BC8635 /* ResetPwdViewController.m */,
+				049A96941B00B67400BC8635 /* ResetPwdViewController.xib */,
 			);
 			path = "Login&RegistVC";
 			sourceTree = "<group>";
@@ -3709,6 +3717,7 @@
 				045625481AD6211D006E159C /* btn_td.jpg in Resources */,
 				3BBF70741AD6D1CB00A33F5A /* weChatBubble_Receiving_LeanChat@2x.png in Resources */,
 				04B346F61AEA95FA00A8A180 /* cross@2x.png in Resources */,
+				049A96961B00B67400BC8635 /* ResetPwdViewController.xib in Resources */,
 				0456255D1AD6211D006E159C /* launchImage1.png in Resources */,
 				045625321AD6211D006E159C /* mine.png in Resources */,
 				045625401AD6211D006E159C /* mine1.png in Resources */,
@@ -4096,6 +4105,7 @@
 				3B8D4AAB1AE20533001F5E7F /* QiYeInfo.m in Sources */,
 				3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */,
 				3BA76E2A1AE4D45600A2FF26 /* KKProgressTimer.m in Sources */,
+				049A96951B00B67400BC8635 /* ResetPwdViewController.m in Sources */,
 				3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */,
 				04C348161AEF8D3F00B48D11 /* ArrayDataSource.m in Sources */,
 				3BBF70891AD6D1ED00A33F5A /* CDUserService.m in Sources */,
@@ -4341,7 +4351,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ejianzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = ejianzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4366,7 +4376,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ejianzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = ejianzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
