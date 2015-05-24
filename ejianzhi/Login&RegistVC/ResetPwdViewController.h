@@ -13,5 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *pwdText;
 @property (weak, nonatomic) IBOutlet UITextField *smsCode;
+@property (weak, nonatomic) IBOutlet UIButton *GetSMSBtn;
 
 @end

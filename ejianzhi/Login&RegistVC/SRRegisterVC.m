@@ -161,25 +161,25 @@
  */
 - (IBAction)touchRegister:(id)sender {
     
-    [SMS_SDK commitVerifyCode:verifyCode result:^(enum SMS_ResponseState state) {
-        if (1==state) {
-            Register.username=inputPhoneNumber;
-            Register.pwd=inputPassword;
-            Register.phone=inputPhoneNumber;
-            [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
-        }
-        else if(0==state)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"验证码错误" message:Register.feedback delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alert show];
-        }
-    }];
+//    [SMS_SDK commitVerifyCode:verifyCode result:^(enum SMS_ResponseState state) {
+//        if (1==state) {
+//            Register.username=inputPhoneNumber;
+//            Register.pwd=inputPassword;
+//            Register.phone=inputPhoneNumber;
+//            [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
+//        }
+//        else if(0==state)
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"验证码错误" message:Register.feedback delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [alert show];
+//        }
+//    }];
     
-//    Register.username=inputPhoneNumber;
-//    Register.pwd=inputPassword;
-//    Register.phone=inputPhoneNumber;
-//    
-//    [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
+    Register.username=inputPhoneNumber;
+    Register.pwd=inputPassword;
+    Register.phone=inputPhoneNumber;
+    
+    [Register NewUserRegistInBackground:Register.username Pwd:Register.pwd Phone:Register.phone];
 
 }
 
@@ -190,6 +190,20 @@
  *  @param sender
  */
 - (IBAction)verification:(id)sender {
+    
+    
+    [AVOSCloud requestSmsCodeWithPhoneNumber:inputPhoneNumber callback:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"验证码已发送" message:Register.feedback delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }else
+        {
+            TTAlert(error.description);
+        }
+    }];
+    
+    
+    
     
     [SMS_SDK getVerifyCodeByPhoneNumber:inputPhoneNumber AndZone:@"86" result:^(enum SMS_GetVerifyCodeResponseState state) {
         if (1==state) {

@@ -13,7 +13,7 @@
 #import "MLLoginManger.h"
 #import "MLTabbarVC.h"
 #import "MLTabbar1.h"
-
+#import "ResetPwdViewController.h"
 
 @interface SRLoginVC ()<successRegistered,UIAlertViewDelegate>
 {
@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *otherLoginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *lookAroundBtn;
 @property (weak, nonatomic) IBOutlet UIButton *resetPassword;
+- (IBAction)resetPWDAction:(id)sender;
 
 @end
 
@@ -282,4 +283,12 @@ static  SRLoginVC *thisController=nil;
     
 }
 
+- (IBAction)resetPWDAction:(id)sender {
+    
+    ResetPwdViewController *resetPWDVC=[[ResetPwdViewController alloc]init];
+    [self presentViewController:resetPWDVC animated:YES completion:^{
+        resetPWDVC.phoneText.text=self.userAccount.text;
+    }];
+    
+}
 @end

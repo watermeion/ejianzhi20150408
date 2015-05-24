@@ -16,6 +16,9 @@
 
 -(void)NewUserRegistInBackground:(NSString*)_username Pwd:(NSString*)_password Phone:(NSString *)_phone{
   
+
+    
+    
     AVUser *user = [AVUser user];
     user.username = _username;
     user.password = _password;
