@@ -33,7 +33,7 @@
  *  第一次加载
  */
 - (void) firstLoad;
-
+-(void)firstLoadForRecommended;
 - (void) footerRefresh;
 
 - (void) headerRefresh;

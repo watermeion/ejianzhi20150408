@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MLForthVC">
@@ -43,20 +42,6 @@
                                         </mask>
                                     </variation>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E0-ky-tqn">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <state key="normal">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                        <rect key="frame" x="96" y="25" width="224" height="80"/>
-                                    </variation>
-                                    <connections>
-                                        <action selector="touchLogin:" destination="-1" eventType="touchUpInside" id="xMr-hc-Fzf"/>
-                                    </connections>
-                                </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreTop.png" translatesAutoresizingMaskIntoConstraints="NO" id="C6p-r9-Wqu">
                                     <rect key="frame" x="285" y="35" width="35" height="35"/>
                                     <constraints>
@@ -597,6 +582,20 @@
                                         </mask>
                                     </variation>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E0-ky-tqn">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                        <rect key="frame" x="96" y="25" width="224" height="80"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="touchLogin:" destination="-1" eventType="touchUpInside" id="xMr-hc-Fzf"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -664,7 +663,6 @@
                             <variation key="default">
                                 <mask key="subviews">
                                     <exclude reference="SHS-W0-eaU"/>
-                                    <exclude reference="7E0-ky-tqn"/>
                                     <exclude reference="C6p-r9-Wqu"/>
                                     <exclude reference="RUB-Lq-set"/>
                                     <exclude reference="byy-rF-Lny"/>
@@ -690,6 +688,7 @@
                                     <exclude reference="APp-o4-yUj"/>
                                     <exclude reference="6ZE-Ls-1UP"/>
                                     <exclude reference="Zpq-t8-ugb"/>
+                                    <exclude reference="7E0-ky-tqn"/>
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="oae-fg-ful"/>
@@ -757,7 +756,6 @@
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="subviews">
                                     <include reference="SHS-W0-eaU"/>
-                                    <include reference="7E0-ky-tqn"/>
                                     <include reference="C6p-r9-Wqu"/>
                                     <include reference="RUB-Lq-set"/>
                                     <include reference="byy-rF-Lny"/>
@@ -783,6 +781,7 @@
                                     <include reference="APp-o4-yUj"/>
                                     <include reference="6ZE-Ls-1UP"/>
                                     <include reference="Zpq-t8-ugb"/>
+                                    <include reference="7E0-ky-tqn"/>
                                 </mask>
                                 <mask key="constraints">
                                     <include reference="oae-fg-ful"/>

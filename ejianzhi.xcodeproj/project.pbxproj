@@ -24,6 +24,7 @@
 		040861EB1AFB06210060C76D /* applistCell+configurecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861EA1AFB06210060C76D /* applistCell+configurecell.m */; };
 		040861F31AFB74B10060C76D /* FogetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861F11AFB74B10060C76D /* FogetPWDViewController.m */; };
 		040861F41AFB74B10060C76D /* FogetPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040861F21AFB74B10060C76D /* FogetPWDViewController.xib */; };
+		0420C0451B170FB0008F9201 /* searchBarImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0420C0441B170FB0008F9201 /* searchBarImage.png */; };
 		0443C1301AD5531D004F29A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C12F1AD5531D004F29A5 /* main.m */; };
 		0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13A1AD5531D004F29A5 /* Images.xcassets */; };
 		0443C13E1AD5531D004F29A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13C1AD5531D004F29A5 /* LaunchScreen.xib */; };
@@ -806,6 +807,7 @@
 		040861F01AFB74B10060C76D /* FogetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogetPWDViewController.h; sourceTree = "<group>"; };
 		040861F11AFB74B10060C76D /* FogetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPWDViewController.m; sourceTree = "<group>"; };
 		040861F21AFB74B10060C76D /* FogetPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FogetPWDViewController.xib; sourceTree = "<group>"; };
+		0420C0441B170FB0008F9201 /* searchBarImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBarImage.png; sourceTree = "<group>"; };
 		04437DF71AFC9FE2006FA000 /* registerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerProtocol.h; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443C12E1AD5531D004F29A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2210,6 +2212,7 @@
 		045623D41AD6211D006E159C /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				0420C0441B170FB0008F9201 /* searchBarImage.png */,
 				040861D01AF90B6B0060C76D /* map_icon_walk.png */,
 				040861CE1AF90B5F0060C76D /* map_icon_time.png */,
 				040861CC1AF905570060C76D /* map_change.png */,
@@ -3755,6 +3758,7 @@
 				0456259D1AD6211D006E159C /* protait1-Small@3x.png in Resources */,
 				3BBF70641AD6D1CB00A33F5A /* SenderVoiceNodePlaying@2x.png in Resources */,
 				04B346EE1AEA95FA00A8A180 /* 7@2x.png in Resources */,
+				0420C0451B170FB0008F9201 /* searchBarImage.png in Resources */,
 				045624E81AD6211D006E159C /* d4.png in Resources */,
 				040861CD1AF905570060C76D /* map_change.png in Resources */,
 				045625D31AD6211D006E159C /* releas1@3x.png in Resources */,

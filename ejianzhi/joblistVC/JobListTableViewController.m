@@ -58,6 +58,7 @@
     if (self=[super init]) {
         self.isAutoLoad=NO;
         self.viewModel=[[MLJianZhiViewModel alloc]init];
+        self.isFisrtView=NO;
         return self;
     }
     return nil;
@@ -69,6 +70,13 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     [self addDataSourceObbserver];
     [self tableViewInit];
+    
+    [RACObserve(self, isFisrtView) subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            [self.viewModel firstLoadForRecommended];
+        }
+    }];
+    
     if (self.isAutoLoad) {
         [self firstLoad];
     }

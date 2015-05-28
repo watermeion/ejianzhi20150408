@@ -67,6 +67,7 @@
     self.mainQuery= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     [self.mainQuery whereKey:key equalTo:value];
     [self.mainQuery orderByDescending:@"createdAt"];
+     [self.mainQuery whereKey:@"isOutDated" notEqualTo:@YES];
 }
 
 ///**
@@ -80,9 +81,26 @@
     AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
     query.cachePolicy=kAVCachePolicyNetworkElseCache;
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"isOutDated" notEqualTo:@YES];
     return query;
 }
 
+
+///**
+// *  分页增量更新
+// *  保持原有数据不变
+// *  @param skip  skip description
+// *  @param limit limit description
+// */
+- (AVQuery *)setQueryJianZhiParametersWithShowInHomeYES
+{
+    AVQuery *query= [AVQuery queryWithClassName:[NSString stringWithFormat:@"%@",[JianZhi class]]];
+    query.cachePolicy=kAVCachePolicyNetworkElseCache;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"isShowInHome" notEqualTo:@NO];
+    [query whereKey:@"isOutDated" notEqualTo:@YES];
+    return query;
+}
 
 -(void)doMainQuery
 {
@@ -281,6 +299,12 @@
 -(void)firstLoad
 {
     self.mainQuery=[self setQueryJianZhiParametersWithDefault];
+    [self headerRefresh];
+}
+
+-(void)firstLoadForRecommended
+{
+    self.mainQuery=[self setQueryJianZhiParametersWithShowInHomeYES];
     [self headerRefresh];
 }
 

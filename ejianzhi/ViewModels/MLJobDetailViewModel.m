@@ -272,7 +272,7 @@
                 self.isFavorite=YES;
             }else
             {
-                NSString *errorMsg=error.description;
+                NSString *errorMsg=[error.userInfo objectForKey:@"error"];
                 TTAlert(errorMsg);
             }
          }];
@@ -305,7 +305,7 @@
                 //FIXME: 做一些跟新ui的操作 设置信号
             }else
             {
-                NSString *errorMsg=error.description;
+                NSString *errorMsg=[error.userInfo objectForKey:@"error"];
                 TTAlert(errorMsg);
             }
         }];
@@ -337,7 +337,7 @@
                 //FIXME: 做一些跟新ui的操作 设置信号
             }else
             {
-                NSString *errorMsg=error.description;
+                NSString *errorMsg=[error.userInfo objectForKey:@"error"];
                 TTAlert(errorMsg);
             }
         }];

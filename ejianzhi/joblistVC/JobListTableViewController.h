@@ -20,7 +20,7 @@
 
 @class MLJianZhiViewModel;
 @interface JobListTableViewController : UITableViewController
-
+@property BOOL  isFisrtView;
 @property (weak,nonatomic)id<JobListTableViewControllerHeaderAndFooterRefreshDelegate> delegate;
 @property (strong,nonatomic)MLJianZhiViewModel *viewModel;
 @property BOOL isAutoLoad;

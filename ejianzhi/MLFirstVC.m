@@ -97,13 +97,14 @@
     if(self=[super init])
     {
         self.joblistTableVC=[[JobListTableViewController alloc]initWithAutoLoad:YES];
+        self.joblistTableVC.isAutoLoad=NO;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *searchbarImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBar"]];
+    UIImageView *searchbarImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBarImage"]];
     
     searchbarImageView.userInteractionEnabled=YES;
     //为searchBar添加操作
@@ -124,12 +125,12 @@
     [self addViewToScrollView];
     [self addHeaderAndFooterToTableView];
     [self.view addSubview: self.joblistTableVC.tableView];
-    
     [self performSelector:@selector(advertisementInit) withObject:nil afterDelay:1.0f];
     //监听城市信息
     RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
     [self.viewModel startLocatingToGetCity];
     [self searchCity];
+    self.joblistTableVC.isFisrtView=YES;
 }
 
 -(void)searchBarTapped
