@@ -210,7 +210,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [self.phoneNumberLabel.rac_textSignal subscribeNext:^(NSString *text) {
         self.userDetailModel.userMobile=text;
     }];
-
 }
 
 - (void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
@@ -237,6 +236,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [switcher forceSelectedIndex:self.currentPage animated:NO];
 
 }
+
 - (IBAction)touchPreviewBtn:(id)sender {
     [self previewResume];
 }
@@ -321,7 +321,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     }];
     
     [self.view addSubview:switcher];
-    
 }
 
 
@@ -359,6 +358,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
 - (void)timeCollectionViewInit{
+    
     selectfreetimepicArray = [[NSMutableArray alloc]init];
     selectfreetimetitleArray = [[NSMutableArray alloc]init];
     freecellwidth = ([UIScreen mainScreen].bounds.size.width - 100)/7;

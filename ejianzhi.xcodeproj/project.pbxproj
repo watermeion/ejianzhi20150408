@@ -497,8 +497,6 @@
 		04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */; };
 		04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */; };
 		04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */; };
-		3B250BF41AFC52230045E89B /* JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B250BF21AFC52230045E89B /* JobDetailVC.m */; };
-		3B250BF51AFC52230045E89B /* JobDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B250BF31AFC52230045E89B /* JobDetailVC.xib */; };
 		3B250BF91AFC5CB20045E89B /* messageblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B250BF81AFC5CB20045E89B /* messageblue.png */; };
 		3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49EB7E1AEFC091002F96AC /* myJobListVC.m */; };
 		3B49EB811AEFC091002F96AC /* myJobListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */; };
@@ -538,6 +536,8 @@
 		3BA76E2E1AE4F96F00A2FF26 /* MLTabbar1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76E2D1AE4F96F00A2FF26 /* MLTabbar1.m */; };
 		3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8881A1AE37B100046DAD2 /* settingVC.m */; };
 		3BB8881D1AE37B100046DAD2 /* settingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8881B1AE37B100046DAD2 /* settingVC.xib */; };
+		3BBC19AD1B2082CA0061CF69 /* JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC19AB1B2082CA0061CF69 /* JobDetailVC.m */; };
+		3BBC19AE1B2082CA0061CF69 /* JobDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBC19AC1B2082CA0061CF69 /* JobDetailVC.xib */; };
 		3BBE11E31AF8C984007CC3B7 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11DF1AF8C984007CC3B7 /* radio_checked.png */; };
 		3BBE11E41AF8C984007CC3B7 /* radio_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11E01AF8C984007CC3B7 /* radio_checked@2x.png */; };
 		3BBE11E51AF8C984007CC3B7 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE11E11AF8C984007CC3B7 /* radio_unchecked.png */; };
@@ -736,6 +736,9 @@
 		3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */; };
 		3BCC6D621AD804F1000CB950 /* LeanChatLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; };
 		3BCC6D631AD804F1000CB950 /* LeanChatLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BF28A131B1DB99B00B2CD2D /* box_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF28A121B1DB99B00B2CD2D /* box_4.png */; };
+		3BF28A181B1DCD3700B2CD2D /* PublishJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF28A161B1DCD3700B2CD2D /* PublishJobVC.m */; };
+		3BF28A191B1DCD3700B2CD2D /* PublishJobVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF28A171B1DCD3700B2CD2D /* PublishJobVC.xib */; };
 		F35BA087EEF41E814C4DE314 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D949AFCA703C27F1EB6696F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1380,9 +1383,6 @@
 		04F5C9AF1AE6A89D00341491 /* FliterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FliterTableViewController.h; sourceTree = "<group>"; };
 		04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FliterTableViewController.m; sourceTree = "<group>"; };
 		04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FliterTableViewController.xib; sourceTree = "<group>"; };
-		3B250BF11AFC52230045E89B /* JobDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailVC.h; sourceTree = "<group>"; };
-		3B250BF21AFC52230045E89B /* JobDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailVC.m; sourceTree = "<group>"; };
-		3B250BF31AFC52230045E89B /* JobDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailVC.xib; sourceTree = "<group>"; };
 		3B250BF81AFC5CB20045E89B /* messageblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageblue.png; sourceTree = "<group>"; };
 		3B49EB7D1AEFC091002F96AC /* myJobListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myJobListVC.h; sourceTree = "<group>"; };
 		3B49EB7E1AEFC091002F96AC /* myJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListVC.m; sourceTree = "<group>"; };
@@ -1445,6 +1445,9 @@
 		3BB888191AE37B100046DAD2 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		3BB8881A1AE37B100046DAD2 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
 		3BB8881B1AE37B100046DAD2 /* settingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingVC.xib; sourceTree = "<group>"; };
+		3BBC19AA1B2082CA0061CF69 /* JobDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailVC.h; sourceTree = "<group>"; };
+		3BBC19AB1B2082CA0061CF69 /* JobDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailVC.m; sourceTree = "<group>"; };
+		3BBC19AC1B2082CA0061CF69 /* JobDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailVC.xib; sourceTree = "<group>"; };
 		3BBE11DF1AF8C984007CC3B7 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
 		3BBE11E01AF8C984007CC3B7 /* radio_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_checked@2x.png"; sourceTree = "<group>"; };
 		3BBE11E11AF8C984007CC3B7 /* radio_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unchecked.png; sourceTree = "<group>"; };
@@ -1695,6 +1698,10 @@
 		3BBF70911AD6D22A00A33F5A /* MLTabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbarVC.h; sourceTree = "<group>"; };
 		3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTabbarVC.m; sourceTree = "<group>"; };
 		3BCC6D591AD804AF000CB950 /* LeanChatLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LeanChatLib.xcodeproj; path = LeanChatLib/LeanChatLib.xcodeproj; sourceTree = "<group>"; };
+		3BF28A121B1DB99B00B2CD2D /* box_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_4.png; sourceTree = "<group>"; };
+		3BF28A151B1DCD3700B2CD2D /* PublishJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishJobVC.h; sourceTree = "<group>"; };
+		3BF28A161B1DCD3700B2CD2D /* PublishJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishJobVC.m; sourceTree = "<group>"; };
+		3BF28A171B1DCD3700B2CD2D /* PublishJobVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishJobVC.xib; sourceTree = "<group>"; };
 		4D7B0DB645FE063645795595 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5D949AFCA703C27F1EB6696F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42360BA5E928BF1053A5BC4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -2056,10 +2063,10 @@
 		0443C20D1AD5560F004F29A5 /* JobDetail */ = {
 			isa = PBXGroup;
 			children = (
+				3BBC19AA1B2082CA0061CF69 /* JobDetailVC.h */,
+				3BBC19AB1B2082CA0061CF69 /* JobDetailVC.m */,
+				3BBC19AC1B2082CA0061CF69 /* JobDetailVC.xib */,
 				3B250BF81AFC5CB20045E89B /* messageblue.png */,
-				3B250BF11AFC52230045E89B /* JobDetailVC.h */,
-				3B250BF21AFC52230045E89B /* JobDetailVC.m */,
-				3B250BF31AFC52230045E89B /* JobDetailVC.xib */,
 				040861DA1AFA5D180060C76D /* hollowheart25-25.png */,
 				040861DB1AFA5D180060C76D /* solidheart25-25.png */,
 				040861DE1AFA60190060C76D /* hollowheart40-40.png */,
@@ -2212,6 +2219,7 @@
 		045623D41AD6211D006E159C /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				3BF28A121B1DB99B00B2CD2D /* box_4.png */,
 				0420C0441B170FB0008F9201 /* searchBarImage.png */,
 				040861D01AF90B6B0060C76D /* map_icon_walk.png */,
 				040861CE1AF90B5F0060C76D /* map_icon_time.png */,
@@ -2927,6 +2935,7 @@
 		3BA76E2B1AE4F8C300A2FF26 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
+				3BF28A141B1DCCEA00B2CD2D /* publishJob */,
 				3BA492A11AF4F1100081B9A9 /* EnterpriseForth */,
 				3B77406E1AEB90BF0017E549 /* myJobList */,
 				3BA76E2C1AE4F96F00A2FF26 /* MLTabbar1.h */,
@@ -3308,6 +3317,17 @@
 			name = MyApplication;
 			sourceTree = "<group>";
 		};
+		3BF28A141B1DCCEA00B2CD2D /* publishJob */ = {
+			isa = PBXGroup;
+			children = (
+				3BF28A151B1DCD3700B2CD2D /* PublishJobVC.h */,
+				3BF28A161B1DCD3700B2CD2D /* PublishJobVC.m */,
+				3BF28A171B1DCD3700B2CD2D /* PublishJobVC.xib */,
+			);
+			name = publishJob;
+			path = ejianzhi;
+			sourceTree = "<group>";
+		};
 		AEECAB4102EFBDB4F800C5C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3454,6 +3474,7 @@
 				045625C01AD6211D006E159C /* protait4-Spotlight-40@2x.png in Resources */,
 				3BBF70751AD6D1CB00A33F5A /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */,
+				3BF28A131B1DB99B00B2CD2D /* box_4.png in Resources */,
 				045624F41AD6211D006E159C /* no@3x.png in Resources */,
 				3BBF706A1AD6D1CB00A33F5A /* sharemore_video@2x.png in Resources */,
 				0456257A1AD6211D006E159C /* kefu.png in Resources */,
@@ -3782,7 +3803,6 @@
 				045625911AD6211D006E159C /* partTime1.png in Resources */,
 				0456254C1AD6211D006E159C /* d1.png in Resources */,
 				045624E61AD6211D006E159C /* d2.png in Resources */,
-				3B250BF51AFC52230045E89B /* JobDetailVC.xib in Resources */,
 				3BBF6F4C1AD6D0E800A33F5A /* MLStudentCard.xib in Resources */,
 				3BBF703D1AD6D1CB00A33F5A /* MultiSelectedPanelConfirmBtnbKG@2x.png in Resources */,
 				045625711AD6211D006E159C /* mine1.png in Resources */,
@@ -3900,6 +3920,7 @@
 				0456257F1AD6211D006E159C /* tourists.png in Resources */,
 				045624F11AD6211D006E159C /* menuHover.png in Resources */,
 				0443C17D1AD55455004F29A5 /* MLCell1.xib in Resources */,
+				3BBC19AE1B2082CA0061CF69 /* JobDetailVC.xib in Resources */,
 				04B346E61AEA95FA00A8A180 /* 3@2x.png in Resources */,
 				0456259C1AD6211D006E159C /* protait1-Small@2x.png in Resources */,
 				045625A51AD6211D006E159C /* protait2-60@3x.png in Resources */,
@@ -3920,6 +3941,7 @@
 				3BBF70371AD6D1CB00A33F5A /* MoreFunctionFrame@2x.png in Resources */,
 				045625041AD6211D006E159C /* partner.png in Resources */,
 				3BBF704E1AD6D1CB00A33F5A /* SearchIcon@2x.png in Resources */,
+				3BF28A191B1DCD3700B2CD2D /* PublishJobVC.xib in Resources */,
 				04B346DC1AEA95FA00A8A180 /* 18.png in Resources */,
 				045625081AD6211D006E159C /* explore.png in Resources */,
 				04B346F31AEA95FA00A8A180 /* checkmark.png in Resources */,
@@ -4064,7 +4086,6 @@
 				3BBF6F5A1AD6D0E800A33F5A /* MLResumePreviewVC.m in Sources */,
 				0443C1E81AD55589004F29A5 /* PageSplitingManager.m in Sources */,
 				3BBF6F141AD6D0C900A33F5A /* UIImage+EMWebP.m in Sources */,
-				3B250BF41AFC52230045E89B /* JobDetailVC.m in Sources */,
 				0443C1D01AD55572004F29A5 /* SelectPOIViewController.m in Sources */,
 				04B346FD1AEC82E100A8A180 /* SearchResultsViewController.m in Sources */,
 				3BBF6F151AD6D0C900A33F5A /* UIImageView+EMHighlightedWebCache.m in Sources */,
@@ -4073,6 +4094,7 @@
 				3BB8881C1AE37B100046DAD2 /* settingVC.m in Sources */,
 				0443C1E61AD55589004F29A5 /* MLMapManager.m in Sources */,
 				0443C1F71AD55591004F29A5 /* MLLoginViewModel.m in Sources */,
+				3BF28A181B1DCD3700B2CD2D /* PublishJobVC.m in Sources */,
 				3BA492A61AF4F1450081B9A9 /* EnterpriseForthVC.m in Sources */,
 				0443C1F51AD55591004F29A5 /* MLJianZhiViewModel.m in Sources */,
 				0443C2261AD5560F004F29A5 /* JobDetailInteractor.m in Sources */,
@@ -4164,6 +4186,7 @@
 				0443C2071AD5559E004F29A5 /* User.m in Sources */,
 				040861EB1AFB06210060C76D /* applistCell+configurecell.m in Sources */,
 				3BBF6F491AD6D0E800A33F5A /* MLSelectInffShow.m in Sources */,
+				3BBC19AD1B2082CA0061CF69 /* JobDetailVC.m in Sources */,
 				3B8D4AEB1AE257A9001F5E7F /* MJRefreshConst.m in Sources */,
 				3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */,
 				0443C1751AD5542B004F29A5 /* MLFirstVC.m in Sources */,

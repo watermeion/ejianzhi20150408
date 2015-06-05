@@ -18,6 +18,8 @@
 #import "JobDetailVC.h"
 #import "UIColor+ColorFromArray.h"
 
+#import "PublishJobVC.h"
+
 @interface myJobListVC ()<UITableViewDataSource,UITableViewDelegate,resumeDelegate>
 {
     BOOL headerRefreshing;
@@ -25,6 +27,8 @@
     int skipTimes;
     NSMutableArray *recordArray;
     BOOL firstLoad;
+    
+    AVUser *curUsr;
     
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -38,7 +42,43 @@
     
     self.title=@"我发布的兼职";
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布职位" style:UIBarButtonItemStylePlain target:self action:@selector(addNewJob)];
+    self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
+
+    
     [self tableViewInit];
+}
+
+- (void)addNewJob{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    AVQuery *userQuery=[AVUser query];
+    AVUser *usr=[AVUser currentUser];
+    [userQuery whereKey:@"objectId" equalTo:usr.objectId];
+    
+    AVQuery *innerQuery=[AVQuery queryWithClassName:@"QiYeInfo"];
+    
+    [innerQuery whereKey:@"qiYeUser" matchesQuery:userQuery];
+
+    [innerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if (!error&&[objects count]>0) {
+            
+            PublishJobVC *addJobVC=[[PublishJobVC alloc]init];
+            
+            addJobVC.curUsr=[objects objectAtIndex:0];
+            
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"";
+            self.navigationItem.backBarButtonItem = backItem;
+            
+            addJobVC.hidesBottomBarWhenPushed=YES;
+            
+            [self.navigationController pushViewController:addJobVC animated:YES];
+        }
+    }];
 }
 
 - (void)tableViewInit{

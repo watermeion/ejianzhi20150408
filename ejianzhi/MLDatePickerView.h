@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *MLDatePicker;
 @property (assign, nonatomic) id <MLDatePickerDelegate> delegate;
-
+@property (nonatomic) int index;
 - (id)initWithStyle:(UIDatePickerMode)pickerMode delegate:(id <MLDatePickerDelegate>)delegate;
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;

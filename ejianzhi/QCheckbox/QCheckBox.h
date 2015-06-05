@@ -19,6 +19,7 @@
 @property(nonatomic, assign)id<QCheckBoxDelegate> delegate;
 @property(nonatomic, assign)BOOL checked;
 @property(nonatomic, retain)id userInfo;
+@property(nonatomic) int index;
 
 - (id)initWithDelegate:(id)delegate;
 

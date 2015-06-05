@@ -52,6 +52,7 @@
     [self cancelPicker];
 }
 - (IBAction)touchOK:(id)sender {
+    self.MLDatePicker.tag=self.index;
     [self.delegate timePickerDidChangeStatus:self.MLDatePicker];
     [self cancelPicker];
 }

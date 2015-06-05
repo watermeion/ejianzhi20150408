@@ -202,9 +202,6 @@
         }
     }];
     
-    
-    
-    
     [SMS_SDK getVerifyCodeByPhoneNumber:inputPhoneNumber AndZone:@"86" result:^(enum SMS_GetVerifyCodeResponseState state) {
         if (1==state) {
             

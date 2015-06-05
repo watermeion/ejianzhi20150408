@@ -97,8 +97,17 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 @property (weak,nonatomic)id thisCompanyId;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *constraint1;
 
 @property (strong,nonatomic)UIBarButtonItem *addFaviatorBtnItem;
+
+@property (strong, nonatomic) IBOutlet UILabel *label11;
+@property (strong, nonatomic) IBOutlet UILabel *label12;
+
+@property (strong, nonatomic) IBOutlet UIView *view13;
+@property (strong, nonatomic) IBOutlet UILabel *label14;
+@property (strong, nonatomic) IBOutlet UIImageView *view15;
+@property (strong, nonatomic) IBOutlet UIImageView *view16;
 
 @end
 
@@ -130,8 +139,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if ([data isKindOfClass:[JianZhi class]]) {
         JianZhi *jianzhi=data;
         //加入浏览量统计
-        [jianzhi incrementKey:@"jianZhiBrowseTime"];
-        [jianzhi saveInBackground];
+        
         self.viewModel=[[MLJobDetailViewModel alloc]initWithData:data];
     }
 }
@@ -146,13 +154,16 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
     
-    UIBarButtonItem *rightBarItem1=[[UIBarButtonItem alloc]initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(makeComplainAction)];
-    self.addFaviatorBtnItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"hollowheart25-25"] style:UIBarButtonItemStylePlain target:self.viewModel action:@selector(addFavirateAction)];
-    self.addFaviatorBtnItem.tintColor=[UIColor redColor];
-    
-    NSArray *barItems=@[rightBarItem1,self.addFaviatorBtnItem];
-    
-    self.navigationItem.rightBarButtonItems=barItems;
+    if (!self.fromEnterprise) {
+        UIBarButtonItem *rightBarItem1=[[UIBarButtonItem alloc]initWithTitle:@"投诉" style:UIBarButtonItemStylePlain target:self action:@selector(makeComplainAction)];
+        self.addFaviatorBtnItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"hollowheart25-25"] style:UIBarButtonItemStylePlain target:self.viewModel action:@selector(addFavirateAction)];
+        self.addFaviatorBtnItem.tintColor=[UIColor redColor];
+        
+        NSArray *barItems=@[rightBarItem1,self.addFaviatorBtnItem];
+        
+        self.navigationItem.rightBarButtonItems=barItems;
+
+    }
     
     if (self.fromEnterprise) {
         self.btn1.hidden=YES;
@@ -160,6 +171,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         self.btn3.hidden=YES;
         self.navigationItem.rightBarButtonItem=nil;
         self.scrollConstraint.constant=-44;
+        
+        UIBarButtonItem *rightBarItem=[[UIBarButtonItem alloc]initWithTitle:@"确认发布" style:UIBarButtonItemStylePlain target:self action:@selector(publish)];
+        self.navigationItem.rightBarButtonItem=rightBarItem;
+        
+        UIBarButtonItem *leftBarItem=[[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(pushBack)];
+        self.navigationItem.rightBarButtonItem=rightBarItem;
+        self.navigationItem.leftBarButtonItem=leftBarItem;
     }else{
         CDIM* im=[CDIM sharedInstance];
         im.userDelegate=[CDIMService shareInstance];
@@ -259,6 +277,22 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         }
         return [RACSignal empty];
     }];
+    
+    if (self.isPreview) {
+        self.constraint1.constant=-121;
+        self.label11.hidden=YES;
+        self.label12.hidden=YES;
+        
+        self.view13.hidden=YES;
+        self.label14.hidden=YES;
+        self.view15.hidden=YES;
+        self.view16.hidden=YES;
+    }
+    
+    if (!self.fromEnterprise) {
+        [self.viewModel.jianZhi incrementKey:@"jianZhiBrowseTime"];
+        [self.viewModel.jianZhi saveInBackground];
+    }
 }
 
 
@@ -403,6 +437,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         if (selectFreeData[indexPath.row-7]) {
             cell.imageView.image = [selectfreetimepicArray objectAtIndex:5];
         }else{
+            
             cell.imageView.image = [selectfreetimepicArray objectAtIndex:4];
         }
     }
@@ -421,6 +456,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     return CollectionViewMiniInterItemsSpace;
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -491,8 +527,8 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 
 - (IBAction)chatWithEnterprise:(id)sender {
+    
     if (self.viewModel.companyInfo!=nil) {
-        
         
         if([self.viewModel.companyInfo objectForKey:@"qiYeUser"]){
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -518,10 +554,67 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                 
             }];
         }
-        
     }
 }
 
+- (void)publish{
+    
+    AVObject *jianzhiObject=[AVObject objectWithClassName:@"JianZhi"];;
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiQiYeLuYongValue forKey:@"jianZhiQiYeLuYongValue"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiContent forKey:@"jianZhiContent"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiAddress forKey:@"jianZhiAddress"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiRecruitment forKey:@"jianZhiRecruitment"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiTimeEnd forKey:@"jianZhiTimeEnd"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiWorkTime forKey:@"jianZhiWorkTime"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiKaoPuDu forKey:@"jianZhiKaoPuDu"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiDistrict forKey:@"jianZhiDistrict"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiBrowseTime forKey:@"jianZhiBrowseTime"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiCity forKey:@"jianZhiCity"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiTimeStart forKey:@"jianZhiTimeStart"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiContactPhone forKey:@"jianZhiContactPhone"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiRequirement forKey:@"jianZhiRequirement"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiProvince forKey:@"jianZhiProvince"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiQiYeManYiDu forKey:@"jianZhiQiYeManYiDu"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiWageType forKey:@"jianZhiWageType"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiContactName forKey:@"jianZhiContactName"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiWage forKey:@"jianZhiWage"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianzhiTeShuYaoQiu forKey:@"jianzhiTeShuYaoQiu"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiQiYeName forKey:@"jianZhiQiYeName"];
 
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiQiYeResumeValue forKey:@"jianZhiQiYeResumeValue"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiType forKey:@"jianZhiType"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiPoint forKey:@"jianZhiPoint"];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiLuYongValue forKey:@"jianZhiLuYongValue"];
 
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiTitle forKey:@"jianZhiTitle"];
+
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiContactEmail forKey:@"jianZhiContactEmail"];
+
+    [jianzhiObject setObject:self.viewModel.jianZhi.qiYeInfoId forKey:@"qiYeInfoId"];
+    
+    //AVUser *user=[AVUser currentUser];
+    [jianzhiObject setObject:self.viewModel.jianZhi.jianZhiQiYe forKey:@"jianZhiQiYe"];
+    
+    
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [jianzhiObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (succeeded) {
+            [MBProgressHUD showSuccess:@"保存成功" toView:self.view];
+            [self performSelector:@selector(returnAndSave) withObject:nil afterDelay:1.0f];
+        }else{
+            [MBProgressHUD showSuccess:@"保存失败" toView:self.view];
+        }
+    }];
+}
+
+- (void)pushBack{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)returnAndSave{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.saveDelegate finishSave];
+}
 @end

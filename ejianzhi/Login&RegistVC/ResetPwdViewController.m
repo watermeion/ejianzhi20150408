@@ -13,7 +13,6 @@
 {
     NSTimer *timer;
     int seconds;
-    
 }
 
 
@@ -77,32 +76,21 @@
 
 - (IBAction)getSMSAction:(id)sender {
     
+    [NSThread detachNewThreadSelector:@selector(initTimer) toTarget:self withObject:nil];
     
     [AVUser requestPasswordResetWithPhoneNumber:self.phoneText.text block:^(BOOL succeeded, NSError *error) {
         if (!error && succeeded) {
             NSString *string=[NSString stringWithFormat:@"验证码，已经发送到您的手机：%@请查收。",self.phoneText.text];
             TTAlert(string);
+            
         }else{
             
-            NSString *string1=[NSString stringWithFormat:@"验证码发送错误：%@",[error.userInfo objectForKey:@"error"]];
+            [self stopTimer];
+            NSString *string1=@"验证码发送失败";
             TTAlert(string1);
         }
     }];
-    
-    
-    //    [AVUser  requestMobilePhoneVerify:self.phoneText.text withBlock:^(BOOL succeeded, NSError *error) {
-    //        if (!error && succeeded) {
-    //            NSString *string=[NSString stringWithFormat:@"验证码，已经发送到您的手机：%@请查收。",self.phoneText.text];
-    //            TTAlert(string);
-    //        }else{
-    //
-    //            NSString *string1=[NSString stringWithFormat:@"验证码发送错误：%@",error.description];
-    //            TTAlert(string1);
-    //        }
-    //    }];
 }
-
-
 
 -(void)initTimer
 {
@@ -135,15 +123,25 @@
         self.GetSMSBtn.hidden=NO;
         seconds=60;
     }
-    
 }
 
-
-
+- (void)stopTimer{
+    [timer invalidate];
+    self.timerLabel.hidden=YES;
+    self.GetSMSBtn.hidden=NO;
+    seconds=60;
+}
 
 
 - (IBAction)backAction:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.pwdText resignFirstResponder];
+    [self.smsCode resignFirstResponder];
+    [self.phoneText resignFirstResponder];
+}
+
 @end

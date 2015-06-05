@@ -99,7 +99,8 @@
 
 - (NSString *)setCommentTextWithNum:(NSNumber *)commentsNum
 {
-    return [NSString stringWithFormat:@"共有来自宇宙的%@个同学吐槽",[commentsNum stringValue]];
+    //return [NSString stringWithFormat:@"共有来自宇宙的%@个同学吐槽",[commentsNum stringValue]];
+    return @"欢迎您登陆官方网站www.ejzhi.com 浏览更多内容";
 }
 
 /**
@@ -109,7 +110,6 @@
  */
 -(void)mappingJianZhiModel:(JianZhi *)data
 {
-//
     self.jobTitle=data.jianZhiTitle;
     self.jobWages=[data.jianZhiWage stringValue];
     self.jobWagesType=[NSString stringWithFormat:@"/%@",data.jianZhiWageType];
@@ -138,7 +138,6 @@
     [self checkIfAddedFavorite];
     [self fetchCompanyFromServer];
 }
-
 
 -(void)checkIfAddedFavorite
 {

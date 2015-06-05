@@ -40,7 +40,8 @@
 @property (nonatomic,strong) AVGeoPoint *jianZhiPoint;
 @property (nonatomic,strong) NSNumber *jianZhiLuYongValue;
 @property (nonatomic,strong) NSString *jianZhiTitle;
-
+@property (nonatomic,strong) NSString *jianZhiContactEmail;
 @property (nonatomic,strong) NSString *qiYeInfoId;
+@property (nonatomic,strong) AVObject *jianZhiQiYe;
 
 @end
