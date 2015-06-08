@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -18,13 +17,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caT-9E-V59">
                         <rect key="frame" x="0.0" y="1" width="320" height="100"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女性身高不低于168cm" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTK-Rg-4iX">
-                                <rect key="frame" x="90" y="35" width="155" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女性身高不低于168cm" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="4" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTK-Rg-4iX">
+                                <rect key="frame" x="90" y="35" width="167" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="UEk-ng-7ja"/>
                                     <constraint firstAttribute="height" constant="21" id="ZVD-Ic-l7m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.90196078430000004" green="0.3803921569" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -279,7 +278,7 @@
                     <constraint firstItem="bo5-KR-Ytq" firstAttribute="top" secondItem="BrZ-PG-l8W" secondAttribute="bottom" constant="-2" id="Qht-n5-Gfu"/>
                     <constraint firstItem="caT-9E-V59" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="TYr-Z4-v6h"/>
                     <constraint firstItem="2gc-lo-NLT" firstAttribute="leading" secondItem="bo5-KR-Ytq" secondAttribute="trailing" constant="-12" id="Tl6-nw-ANp"/>
-                    <constraint firstItem="bo5-KR-Ytq" firstAttribute="leading" secondItem="KTK-Rg-4iX" secondAttribute="trailing" constant="2" id="bml-bB-FPZ"/>
+                    <constraint firstItem="bo5-KR-Ytq" firstAttribute="leading" secondItem="KTK-Rg-4iX" secondAttribute="trailing" constant="-10" id="bml-bB-FPZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="caT-9E-V59" secondAttribute="trailing" constant="-8" id="ek2-kJ-aIU"/>
                 </constraints>
             </tableViewCellContentView>

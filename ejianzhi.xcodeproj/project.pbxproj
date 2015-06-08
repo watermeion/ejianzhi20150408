@@ -1908,9 +1908,9 @@
 		0443C18D1AD554E8004F29A5 /* JobListCell */ = {
 			isa = PBXGroup;
 			children = (
-				0443C18E1AD554E8004F29A5 /* JobListTableViewCell.h */,
 				04C348101AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.h */,
 				04C348111AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.m */,
+				0443C18E1AD554E8004F29A5 /* JobListTableViewCell.h */,
 				0443C18F1AD554E8004F29A5 /* JobListTableViewCell.m */,
 				0443C1901AD554E8004F29A5 /* JobListTableViewCell.xib */,
 				0443C1911AD554E8004F29A5 /* listBadgeView.h */,
