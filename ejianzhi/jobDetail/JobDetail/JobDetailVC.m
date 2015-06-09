@@ -139,7 +139,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if ([data isKindOfClass:[JianZhi class]]) {
         JianZhi *jianzhi=data;
         //加入浏览量统计
-        
         self.viewModel=[[MLJobDetailViewModel alloc]initWithData:data];
     }
 }
