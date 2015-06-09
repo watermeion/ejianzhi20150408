@@ -63,7 +63,7 @@
  *
  *  @param text textView回调函数
  */
--(void)getTextWhenEndEdit:(NSString*)text;
+-(void)getTextWhenEndEdit:(NSString*)text POIData:(id<SelectPOIData>) pointData;
 @end
 
 #import <UIKit/UIKit.h>

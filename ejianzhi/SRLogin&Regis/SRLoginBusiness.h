@@ -31,6 +31,7 @@ typedef void (^loginBlock)(BOOL succeed, NSNumber *userType);
 @property(nonatomic,weak) id<loginSucceed> loginDelegate;
 
 -(void)loginInbackground:(NSString *)username Pwd:(NSString *)pwd loginType:(NSUInteger)type withBlock:(loginBlock)loginBlock;
+
 //保存username
 -(BOOL)saveUserInfoLocally:(NSString*)_avatarString;
 
