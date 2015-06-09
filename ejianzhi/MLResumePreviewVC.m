@@ -256,7 +256,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)initData{
     if ([self.userDetailModel.userRealName length]>0) {
         self.userNameLabel.text=self.userDetailModel.userRealName;
-        self.title=[NSString stringWithFormat:@"%@的简历",self.userDetailModel.userRealName];
+        self.title=@"我的简历";
     }
     if (self.userDetailModel.userBirthYear) {
         self.userAgeLabel.text=[DateUtil ageFromBirthToNow:self.userDetailModel.userBirthYear];
