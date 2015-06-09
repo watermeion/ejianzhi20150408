@@ -101,6 +101,8 @@
         
         [mySettingData removeObjectForKey:@"userType"];
         
+        [mySettingData removeObjectForKey:@"userName"];
+        
         [mySettingData synchronize];
         
         return YES;

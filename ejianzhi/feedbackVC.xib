@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="feedbackVC">
+            <connections>
+                <outlet property="button1" destination="vvX-6z-iak" id="Zia-QJ-auJ"/>
+                <outlet property="textView" destination="r0Q-Rz-o7z" id="Qc1-EE-eaH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感谢您的意见和建议，我们将在第一时间受理，并给您反馈" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSJ-nD-ydI">
+                    <rect key="frame" x="8" y="34" width="304" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="sob-G0-xnl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-Rz-o7z">
+                    <rect key="frame" x="8" y="100" width="304" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="aL8-FZ-Gh2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-6z-iak">
+                    <rect key="frame" x="32" y="318" width="256" height="44"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="qfw-gW-fsj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="提交反馈">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="submit:" destination="-1" eventType="touchUpInside" id="btX-sn-g95"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vvX-6z-iak" firstAttribute="top" secondItem="r0Q-Rz-o7z" secondAttribute="bottom" constant="18" id="9TB-Ny-caZ"/>
+                <constraint firstItem="SSJ-nD-ydI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="Uhq-iS-FOW"/>
+                <constraint firstAttribute="trailing" secondItem="vvX-6z-iak" secondAttribute="trailing" constant="32" id="arg-2A-SNj"/>
+                <constraint firstAttribute="trailing" secondItem="SSJ-nD-ydI" secondAttribute="trailing" constant="8" id="cDv-m5-a1s"/>
+                <constraint firstItem="r0Q-Rz-o7z" firstAttribute="top" secondItem="SSJ-nD-ydI" secondAttribute="bottom" constant="16" id="fJX-vF-CiH"/>
+                <constraint firstItem="r0Q-Rz-o7z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="kFi-YJ-KfX"/>
+                <constraint firstItem="vvX-6z-iak" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="lEZ-25-lFq"/>
+                <constraint firstAttribute="trailing" secondItem="r0Q-Rz-o7z" secondAttribute="trailing" constant="8" id="lKh-nL-9AP"/>
+                <constraint firstItem="SSJ-nD-ydI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mVZ-5k-t8p"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="274" y="350"/>
+        </view>
+    </objects>
+</document>

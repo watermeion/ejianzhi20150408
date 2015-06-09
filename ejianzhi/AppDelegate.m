@@ -158,6 +158,7 @@
     //消除消息提示数字
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
+        
     return YES;
 }
 

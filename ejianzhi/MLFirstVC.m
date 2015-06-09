@@ -30,6 +30,10 @@
 #import "JobListWithDropDownListVCViewController.h"
 #import "AJLocationManager.h"
 
+#import "CheckNewVersionVC.h"
+#import <AVOSCloud/AVOSCloud.h>
+
+
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
 
 
@@ -58,32 +62,22 @@
 //@property (weak, nonatomic) IBOutlet UIButton *itWorkBtn;
 
 - (IBAction)itWorkBtnAction:(id)sender;
-
 - (IBAction)modelBtnAction:(id)sender;
-
 - (IBAction)homeTeacherBtnAction:(id)sender;
-
 - (IBAction)moreBtnAction:(id)sender;
-
 
 //cellView
 @property (strong, nonatomic) IBOutlet UIView *modelView;
-
 @property (strong, nonatomic) IBOutlet UIView *ItView;
 @property (strong, nonatomic) IBOutlet UIView *homeTeachweView;
 @property (strong, nonatomic) IBOutlet UIView *moreView;
 
 //action
 - (IBAction)findJobWithLocationAction:(id)sender;
-
-
 - (IBAction)findJobWithCardAction:(id)sender;
-
 - (IBAction)jobAsTeacherAction:(id)sender;
-
 - (IBAction)jobAsAccountingAction:(id)sender;
 - (IBAction)jobAsModelAction:(id)sender;
-
 - (IBAction)jobAsOutseaStuAction:(id)sender;
 
 @end
@@ -131,6 +125,17 @@
     [self.viewModel startLocatingToGetCity];
     [self searchCity];
     self.joblistTableVC.isFisrtView=YES;
+    
+    AVQuery *query=[AVQuery queryWithClassName:@"Version"];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error&&object) {
+            NSString *vn=[object objectForKey:@"versionNumber"];
+            if (![vn isEqualToString:[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey]]) {
+                CheckNewVersionVC *checkVC=[[CheckNewVersionVC alloc]init];
+                [self presentViewController:checkVC animated:YES completion:nil];
+            }
+        }
+    }];
 }
 
 -(void)searchBarTapped
@@ -139,12 +144,13 @@
     searchVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:searchVC animated:YES];
 }
+
 -(void)addViewToScrollView
 {
     CGFloat edgewidth=2.0;
     CGFloat width = 60.0f;
     CGFloat marginwidth=(MainScreenWidth-(4*edgewidth)-4*width)/3;
-    int count=[collectionViewCellArray count];
+    int count=(int)[collectionViewCellArray count];
     for (int i=0; i<[collectionViewCellArray count]; i++) {
         UIView *view=[collectionViewCellArray objectAtIndex:i];
         if(i==0){

@@ -199,7 +199,7 @@
 - (void)finishLogin{
     
     if ([AVUser currentUser]) {
-        self.buttonLabel.text=[AVUser currentUser].username;
+        [self checkUserName];
     }
     
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
@@ -342,6 +342,38 @@
     alert.tag=1001;
     [alert show];
     
+}
+
+- (void)checkUserName{
+    
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    
+        if ([mySettingData objectForKey:@"userName"]) {
+            self.buttonLabel.text=[mySettingData objectForKey:@"userName"];
+        }else{
+            
+            AVQuery *userQuery=[AVUser query];
+            AVUser *usr=[AVUser currentUser];
+            [userQuery whereKey:@"objectId" equalTo:usr.objectId];
+            
+            AVQuery *innerQuery=[AVQuery queryWithClassName:@"QiYeInfo"];
+            
+            [innerQuery whereKey:@"qiYeUser" matchesQuery:userQuery];
+            
+            [innerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error&&[objects count]>0){
+                    AVObject *userObject=[objects objectAtIndex:0];
+                    if ([userObject objectForKey:@"qiYeName"]) {
+                        self.buttonLabel.text=[userObject objectForKey:@"qiYeName"];
+                    }else{
+                        self.buttonLabel.text=@"e小兼";
+                    }
+                }else{
+                    self.buttonLabel.text=@"e小兼";
+                }
+            }];
+        }
+
 }
 
 - (void)didReceiveMemoryWarning {

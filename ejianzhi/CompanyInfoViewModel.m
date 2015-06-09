@@ -92,10 +92,18 @@
 -(void)fetchCompanyDataFromAVOS:(NSString *)companyId{
     
     if(companyId!=nil){
+        
+    AVQuery *userQuery=[AVUser query];
+    AVUser *usr=[AVUser currentUser];
+    [userQuery whereKey:@"objectId" equalTo:usr.objectId];
+        
     AVQuery *query=[AVQuery queryWithClassName:@"QiYeInfo"];
+        
+    [query whereKey:@"qiYeUser" matchesQuery:userQuery];
+
     query.cachePolicy=kAVCachePolicyNetworkElseCache;
     query.maxCacheAge=3600*24;
-    [query whereKey:@"objectId" equalTo:companyId];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if ([objects count]>0) {
