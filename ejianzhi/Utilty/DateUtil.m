@@ -47,6 +47,12 @@ static long long daySeconds = 60*60*24;
     return destDate;
     
 }
++(NSString *)stringFromDate3:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM月dd日"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
+}
 +(NSString *)stringFromDate:(NSDate *)date{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy年MM月dd日"];

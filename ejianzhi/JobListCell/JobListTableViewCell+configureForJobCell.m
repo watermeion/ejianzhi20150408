@@ -29,11 +29,12 @@
     self.keyConditionLabel.text=@"该兼职长期有效";
   
     if (jianzhi.jianZhiTimeStart!=nil && jianzhi.jianZhiTimeEnd!=nil) {
-        NSString *dateString=[DateUtil stringFromDate:jianzhi.jianZhiTimeStart];
+        NSString *dateString=[DateUtil stringFromDate3:jianzhi.jianZhiTimeStart];
+        
         
        dateString=[dateString stringByAppendingString:@"~"];
         
-        dateString=[dateString stringByAppendingString:[DateUtil stringFromDate:jianzhi.jianZhiTimeEnd]];
+        dateString=[dateString stringByAppendingString:[DateUtil stringFromDate3:jianzhi.jianZhiTimeEnd]];
         
         self.keyConditionLabel.text=dateString;
     }
@@ -86,10 +87,4 @@
     }
     return @"";
 }
-
-
-
-
-
-
 @end

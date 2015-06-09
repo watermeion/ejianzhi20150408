@@ -18,4 +18,5 @@
 +(NSDate *)BirthdateFromString:(NSString *)dateString;
 + (NSString*)ageFromBirthToNow:(NSDate*)birthday;
 +(NSString *)stringFromDate2:(NSDate *)date;
++(NSString *)stringFromDate3:(NSDate *)date;
 @end
