@@ -25,6 +25,8 @@
 #import "MLTabbarVC.h"
 #import "MLTabbar1.h"
 
+#import "feedbackVC.h"
+
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
 
@@ -211,16 +213,15 @@
     self.buttonLabel.text=@"点击登录";
     self.userAvatarView.image=[UIImage imageNamed:@"placeholder"];
     self.logoutButton.hidden=YES;
-
     self.logoutButton.tag=10000;
-    
     self.bottomConstraint.constant=-60;
+    
 }
 
 - (void)finishLogin{
     
     if ([AVUser currentUser]) {
-        self.buttonLabel.text=[AVUser currentUser].username;
+        [self checkUserName];
     }
     
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
@@ -396,5 +397,35 @@
     [alert show];
     
 }
+
+- (void)checkUserName{
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+
+        if ([mySettingData objectForKey:@"userName"]) {
+            self.buttonLabel.text=[mySettingData objectForKey:@"userName"];
+        }else{
+            AVQuery *query=[AVQuery  queryWithClassName:@"UserDetail"];
+            [query whereKey:@"userObjectId" equalTo:[AVUser currentUser].objectId];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error&&[objects count]>0){
+                    AVObject *userObject=[objects objectAtIndex:0];
+                    if ([userObject objectForKey:@"userRealName"]) {
+                        self.buttonLabel.text=[userObject objectForKey:@"userRealName"];
+                    }else{
+                        self.buttonLabel.text=@"e小兼";
+                    }
+                }else{
+                    self.buttonLabel.text=@"e小兼";
+                }
+            }];
+        }
+    
+}
+
+- (IBAction)feedback:(id)sender {
+    feedbackVC *feedVC=[[feedbackVC alloc]init];
+    [self.navigationController pushViewController:feedVC animated:YES];
+}
+
 
 @end

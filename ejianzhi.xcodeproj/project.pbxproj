@@ -499,6 +499,8 @@
 		04F5C99A1AE54D9F00341491 /* SubIconCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9981AE54D9F00341491 /* SubIconCollectionViewController.xib */; };
 		04F5C9B21AE6A89D00341491 /* FliterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */; };
 		04F5C9B31AE6A89D00341491 /* FliterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */; };
+		3B04C14A1B25AE41006C008A /* CheckNewVersionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B04C1481B25AE41006C008A /* CheckNewVersionVC.m */; };
+		3B04C14B1B25AE41006C008A /* CheckNewVersionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04C1491B25AE41006C008A /* CheckNewVersionVC.xib */; };
 		3B250BF91AFC5CB20045E89B /* messageblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B250BF81AFC5CB20045E89B /* messageblue.png */; };
 		3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B49EB7E1AEFC091002F96AC /* myJobListVC.m */; };
 		3B49EB811AEFC091002F96AC /* myJobListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B49EB7F1AEFC091002F96AC /* myJobListVC.xib */; };
@@ -736,6 +738,8 @@
 		3BBF708F1AD6D20500A33F5A /* MLForthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF708D1AD6D20500A33F5A /* MLForthVC.m */; };
 		3BBF70901AD6D20500A33F5A /* MLForthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBF708E1AD6D20500A33F5A /* MLForthVC.xib */; };
 		3BBF70931AD6D22A00A33F5A /* MLTabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */; };
+		3BC84AC11B26D70000B78C6B /* feedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC84ABF1B26D70000B78C6B /* feedbackVC.m */; };
+		3BC84AC21B26D70000B78C6B /* feedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC84AC01B26D70000B78C6B /* feedbackVC.xib */; };
 		3BCC6D621AD804F1000CB950 /* LeanChatLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; };
 		3BCC6D631AD804F1000CB950 /* LeanChatLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCC6D5F1AD804AF000CB950 /* LeanChatLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BF28A131B1DB99B00B2CD2D /* box_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF28A121B1DB99B00B2CD2D /* box_4.png */; };
@@ -1388,6 +1392,9 @@
 		04F5C9AF1AE6A89D00341491 /* FliterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FliterTableViewController.h; sourceTree = "<group>"; };
 		04F5C9B01AE6A89D00341491 /* FliterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FliterTableViewController.m; sourceTree = "<group>"; };
 		04F5C9B11AE6A89D00341491 /* FliterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FliterTableViewController.xib; sourceTree = "<group>"; };
+		3B04C1471B25AE41006C008A /* CheckNewVersionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckNewVersionVC.h; sourceTree = "<group>"; };
+		3B04C1481B25AE41006C008A /* CheckNewVersionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNewVersionVC.m; sourceTree = "<group>"; };
+		3B04C1491B25AE41006C008A /* CheckNewVersionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckNewVersionVC.xib; sourceTree = "<group>"; };
 		3B250BF81AFC5CB20045E89B /* messageblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageblue.png; sourceTree = "<group>"; };
 		3B49EB7D1AEFC091002F96AC /* myJobListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myJobListVC.h; sourceTree = "<group>"; };
 		3B49EB7E1AEFC091002F96AC /* myJobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myJobListVC.m; sourceTree = "<group>"; };
@@ -1702,6 +1709,9 @@
 		3BBF708E1AD6D20500A33F5A /* MLForthVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLForthVC.xib; sourceTree = "<group>"; };
 		3BBF70911AD6D22A00A33F5A /* MLTabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTabbarVC.h; sourceTree = "<group>"; };
 		3BBF70921AD6D22A00A33F5A /* MLTabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTabbarVC.m; sourceTree = "<group>"; };
+		3BC84ABE1B26D70000B78C6B /* feedbackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedbackVC.h; sourceTree = "<group>"; };
+		3BC84ABF1B26D70000B78C6B /* feedbackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackVC.m; sourceTree = "<group>"; };
+		3BC84AC01B26D70000B78C6B /* feedbackVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = feedbackVC.xib; sourceTree = "<group>"; };
 		3BCC6D591AD804AF000CB950 /* LeanChatLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LeanChatLib.xcodeproj; path = LeanChatLib/LeanChatLib.xcodeproj; sourceTree = "<group>"; };
 		3BF28A121B1DB99B00B2CD2D /* box_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_4.png; sourceTree = "<group>"; };
 		3BF28A151B1DCD3700B2CD2D /* PublishJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishJobVC.h; sourceTree = "<group>"; };
@@ -1766,6 +1776,8 @@
 		0443C12C1AD5531D004F29A5 /* ejianzhi */ = {
 			isa = PBXGroup;
 			children = (
+				3BC84ABD1B26D6D400B78C6B /* feekBackVC */,
+				3B04C1461B25AE21006C008A /* checkNewVersion */,
 				04C3480F1AEF812900B48D11 /* CompanyInfo */,
 				04B346891AEA83BF00A8A180 /* LibaryClass */,
 				045AA73A1AE936DD00ED20F1 /* SearchVC */,
@@ -2860,6 +2872,16 @@
 			path = subclass;
 			sourceTree = "<group>";
 		};
+		3B04C1461B25AE21006C008A /* checkNewVersion */ = {
+			isa = PBXGroup;
+			children = (
+				3B04C1471B25AE41006C008A /* CheckNewVersionVC.h */,
+				3B04C1481B25AE41006C008A /* CheckNewVersionVC.m */,
+				3B04C1491B25AE41006C008A /* CheckNewVersionVC.xib */,
+			);
+			name = checkNewVersion;
+			sourceTree = "<group>";
+		};
 		3B77406E1AEB90BF0017E549 /* myJobList */ = {
 			isa = PBXGroup;
 			children = (
@@ -3301,6 +3323,16 @@
 			name = ForthVC;
 			sourceTree = "<group>";
 		};
+		3BC84ABD1B26D6D400B78C6B /* feekBackVC */ = {
+			isa = PBXGroup;
+			children = (
+				3BC84ABE1B26D70000B78C6B /* feedbackVC.h */,
+				3BC84ABF1B26D70000B78C6B /* feedbackVC.m */,
+				3BC84AC01B26D70000B78C6B /* feedbackVC.xib */,
+			);
+			name = feekBackVC;
+			sourceTree = "<group>";
+		};
 		3BCC6D5A1AD804AF000CB950 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -3418,6 +3450,7 @@
 				TargetAttributes = {
 					0443C1291AD5531D004F29A5 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 7946C3CJS9;
 					};
 					0443C1421AD5531D004F29A5 = {
 						CreatedOnToolsVersion = 6.2;
@@ -3491,6 +3524,7 @@
 				045624DF1AD6211D006E159C /* annotation.png in Resources */,
 				0443C16C1AD5541D004F29A5 /* JobListWithDropDownListVCViewController.xib in Resources */,
 				045625381AD6211D006E159C /* user2.png in Resources */,
+				3B04C14B1B25AE41006C008A /* CheckNewVersionVC.xib in Resources */,
 				045625CA1AD6211D006E159C /* protait5-Spotlight-40.png in Resources */,
 				045625B31AD6211D006E159C /* protait3-Small@3x.png in Resources */,
 				045625541AD6211D006E159C /* kaopu.png in Resources */,
@@ -3528,6 +3562,7 @@
 				045623D31AD6210B006E159C /* LaunchViewController.xib in Resources */,
 				045625731AD6211D006E159C /* mine1@3x.png in Resources */,
 				3B8D4AB01AE23432001F5E7F /* applistCell.xib in Resources */,
+				3BC84AC21B26D70000B78C6B /* feedbackVC.xib in Resources */,
 				040861D11AF90B6B0060C76D /* map_icon_walk.png in Resources */,
 				045625851AD6211D006E159C /* Icon-72.png in Resources */,
 				045625A71AD6211D006E159C /* protait2-Small@2x.png in Resources */,
@@ -4116,6 +4151,7 @@
 				0443C1B81AD5553F004F29A5 /* UrlImageButton.m in Sources */,
 				045623041AD61ABC006E159C /* SRLoginVC.m in Sources */,
 				040861D71AFA4A210060C76D /* NSDate+Category.m in Sources */,
+				3B04C14A1B25AE41006C008A /* CheckNewVersionVC.m in Sources */,
 				04B346961AEA8C1900A8A180 /* JobAnonationView.m in Sources */,
 				3BBF6F121AD6D0C900A33F5A /* UIImage+EMGIF.m in Sources */,
 				3BBF6F731AD6D1B600A33F5A /* MLChatVC.m in Sources */,
@@ -4198,6 +4234,7 @@
 				3BBC19AD1B2082CA0061CF69 /* JobDetailVC.m in Sources */,
 				3B8D4AEB1AE257A9001F5E7F /* MJRefreshConst.m in Sources */,
 				3B49EB801AEFC091002F96AC /* myJobListVC.m in Sources */,
+				3BC84AC11B26D70000B78C6B /* feedbackVC.m in Sources */,
 				0443C1751AD5542B004F29A5 /* MLFirstVC.m in Sources */,
 				0443C2231AD5560F004F29A5 /* CommonUtility.m in Sources */,
 				3BBF6F081AD6D0C900A33F5A /* EMSDImageCache.m in Sources */,
@@ -4377,6 +4414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4388,7 +4426,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ejianzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = ejianzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4402,6 +4440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4413,7 +4452,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ejianzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = ejianzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

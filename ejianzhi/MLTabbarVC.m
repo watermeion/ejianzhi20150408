@@ -87,7 +87,6 @@ static  MLTabbarVC *thisController=nil;
     }
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
@@ -100,16 +99,14 @@ static  MLTabbarVC *thisController=nil;
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
     
     JobListWithDropDownListVCViewController *myJobVC=[[JobListWithDropDownListVCViewController alloc]init];
-     UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
     
-    pageTwoVC.title=@"列表";
-
-    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.chatVC];
-    pageTwoVC.title=@"消息";
+    UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
+    
+    //UIViewController *pageThreeVC=[self makeRootByNavigationController:self.chatVC];
 
     UIViewController *pageFourVC=[self makeRootByNavigationController:self.forthVC];
     
-    self.viewControllers=@[pageOneVC,pageTwoVC,pageThreeVC,pageFourVC];
+    self.viewControllers=@[pageOneVC,pageTwoVC,pageFourVC];
     
     [self changeTabbarStyle];
 }
@@ -124,25 +121,25 @@ static  MLTabbarVC *thisController=nil;
 
     UITabBarItem *tabBarItem1=[tabBar.items objectAtIndex:0];
     UITabBarItem *tabBarItem2=[tabBar.items objectAtIndex:1];
-    UITabBarItem *tabBarItem3=[tabBar.items objectAtIndex:2];
-    UITabBarItem *tabBarItem4=[tabBar.items objectAtIndex:3];
+    //UITabBarItem *tabBarItem3=[tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4=[tabBar.items objectAtIndex:2];
     
     tabBarItem1.title=@"首页";
     
-    tabBarItem2.title=@"列表";
+    tabBarItem2.title=@"最新兼职";
     
-    tabBarItem3.title=@"消息";
+    //tabBarItem3.title=@"消息";
     
-    tabBarItem4.title=@"我";
+    tabBarItem4.title=@"我的";
     
 
-    [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:[[UIImage imageNamed:@"releas1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"release"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:[[UIImage imageNamed:@"partTime1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"partTime"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     [[self.tabBar.items objectAtIndex:1] setFinishedSelectedImage:[[UIImage imageNamed:@"explore1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"explore"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
-    [[self.tabBar.items objectAtIndex:2] setFinishedSelectedImage:[[UIImage imageNamed:@"message1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"message"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    //[[self.tabBar.items objectAtIndex:2] setFinishedSelectedImage:[[UIImage imageNamed:@"message1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"message"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
-    [[self.tabBar.items objectAtIndex:3] setFinishedSelectedImage:[[UIImage imageNamed:@"mine1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBar.items objectAtIndex:2] setFinishedSelectedImage:[[UIImage imageNamed:@"mine1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 }
 
 - (void)viewWillLayoutSubviews{
