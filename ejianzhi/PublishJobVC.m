@@ -17,6 +17,8 @@
 #import "DateUtil.h"
 #import "JobDetailVC.h"
 #import "MLNavi.h"
+#import "POIDataModel.h"
+#import "MapSelectedViewController.h"
 
 #define  PIC_WIDTH 64
 #define  PIC_HEIGHT 64
@@ -24,7 +26,7 @@
 
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
-@interface PublishJobVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UIGestureRecognizerDelegate,HZAreaPickerDelegate,HZAreaPickerDelegate,QCheckBoxDelegate,FliterTableViewControllerDelegate,MLDatePickerDelegate,finishPublishDelegate>
+@interface PublishJobVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UIGestureRecognizerDelegate,HZAreaPickerDelegate,HZAreaPickerDelegate,QCheckBoxDelegate,FliterTableViewControllerDelegate,MLDatePickerDelegate,finishPublishDelegate,SelectPOIDataResultsDelegate>
 {
     DVSwitch *switcher;
     
@@ -531,6 +533,23 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)selectPOIAction:(id)sender {
+   //
+    MapSelectedViewController *mapSelect=[[MapSelectedViewController alloc]init];
+    mapSelect.resultsDelegate=self;
+    [self.navigationController pushViewController:mapSelect animated:YES];
+}
+//MapSelectedViewDelegate
+-(void)sendResults:(POIDataModel *)poiData
+{
+    
+    self.addressTextView.text=poiData.address;
+    
+   self.jianzhiModel.jianZhiPoint=[AVGeoPoint geoPointWithLatitude:poiData.position.latitude   longitude:poiData.position.longitude];
+
+
 }
 
 /*

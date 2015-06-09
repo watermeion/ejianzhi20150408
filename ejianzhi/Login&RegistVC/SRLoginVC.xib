@@ -144,7 +144,7 @@
                             </variation>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="zr1-2P-SNt" firstAttribute="top" secondItem="1vU-6Q-aDc" secondAttribute="top" constant="48" id="4TK-vX-o5k"/>
                         <constraint firstItem="OWm-4R-BCC" firstAttribute="top" secondItem="00O-Dy-WYs" secondAttribute="bottom" constant="6" id="6Hz-zC-TIq"/>
@@ -215,10 +215,14 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="ldj-xm-fA6"/>
                     </constraints>
+                    <color key="barTintColor" red="0.16078431369999999" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </textAttributes>
                     <items>
                         <navigationItem title="求职者登录" id="WoF-F8-Dtu">
                             <barButtonItem key="rightBarButtonItem" title="注册账号" id="aNT-dN-CZb">
-                                <color key="tintColor" red="0.14901960780000001" green="0.66666666669999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="touchRegister:" destination="-1" id="G0s-H7-F0X"/>
                                 </connections>
@@ -238,13 +242,12 @@
                 </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhv-w2-Wmf">
                     <rect key="frame" x="35" y="278" width="250" height="40"/>
-                    <color key="backgroundColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="AMw-Fo-QPG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="登  录">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -269,7 +272,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="忘记密码？">
-                        <color key="titleColor" red="0.14901960780000001" green="0.66666666669999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -341,7 +344,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="企业登录">
-                        <color key="titleColor" red="0.14901960780000001" green="0.66666666669999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -361,7 +364,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.094117647060000004" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="gtx-wV-vNx" firstAttribute="leading" secondItem="t9G-gM-53p" secondAttribute="trailing" constant="8" id="3pT-pb-xDH">
                     <variation key="heightClass=regular-widthClass=compact" constant="-55"/>

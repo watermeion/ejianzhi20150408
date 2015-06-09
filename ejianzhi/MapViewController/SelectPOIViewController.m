@@ -11,9 +11,6 @@
 #import "MBProgressHUD.h"
 @interface SelectPOIViewController ()<UITextViewDelegate>
 
-
-
-
 - (IBAction)backAction:(id)sender;
 - (IBAction)nextAction:(id)sender;
 - (IBAction)addTextAction:(id)sender;
@@ -23,21 +20,22 @@
 
 @implementation SelectPOIViewController
 
+-(instancetype)init
+{
+    if (self=[super init]) {
+          [self addObserver:self forKeyPath:@"rightNowData" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    // 设置显示标题
-    //此处你们可以替换会KVO 监听值的变化
-    [self addObserver:self forKeyPath:@"rightNowData" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
-    
 //    @weakify(self)
 //    [RACObserve(self,rightNowData) subscribeNext:^(id x) {
 //        @strongify(self)
 //         [self.confirmBtn setTitle:self.rightNowData.address forState:UIControlStateNormal];
 //    }];
 }
-
-
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -52,15 +50,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 /**
  *  向后跳转
@@ -91,13 +80,17 @@
     [self.delegate sendSelectedIndex:index];
 }
 
-
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
     [textView resignFirstResponder];
-    [self.delegate getTextWhenEndEdit:textView.text];
+    [self.delegate getTextWhenEndEdit:textView.text POIData:self.rightNowData];
     [textView removeFromSuperview];
 }
 
+-(void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"rightNowData" context:nil];
+
+}
 
 @end

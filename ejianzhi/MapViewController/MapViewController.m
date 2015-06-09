@@ -12,6 +12,8 @@
 #import "SelectPOIViewController.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
+#import "POIDataModel.h"
+
 @interface MapViewController ()<UIGestureRecognizerDelegate,SelectPOIActionDelegate,SelectPOIData,UISearchBarDelegate,UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)UISearchBar *searchBar;
@@ -65,7 +67,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    //添加长按选点事件
+//    //添加长按选点事件
     UILongPressGestureRecognizer *Lpress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressClick:)];
     Lpress.delegate=self;
     Lpress.minimumPressDuration=1.0;
@@ -187,7 +189,7 @@
 //                [self.selectPOIDataArray setObject:poidata atIndexedSubscript:i];
 //                i++;
 //            }
-            //初始化数据
+////            初始化数据
 //            POIDataModel *poiData=[[POIDataModel alloc]init];
 //            poiData.address=[results firstObject];
 //            poiData.index=i;
@@ -195,7 +197,7 @@
 //            [self.selectPOIDataArray setObject:poiData atIndexedSubscript:i];
 //            self.selectPOIViewController.rightNowData=poiData;
 //        }
-        //添加选择视图
+////        添加选择视图
 //        [self addSelectPOIView];
     }
 }
@@ -204,81 +206,76 @@
     return YES;
 }
 
-#pragma --mark  SelectPOIViewController delegate Method
+//#pragma --mark  SelectPOIViewController delegate Method
+////
+////添加选择视图
+//-(void)addSelectPOIView
+//{
+//    self.selectPOIViewController.view.frame=CGRectMake((MainScreenWidth-300)/2, MainScreenHeight-self.selectPOIViewController.view.frame.size.height-100, self.selectPOIViewController.view.frame.size.width, self.selectPOIViewController.view.frame.size.height);
+//    [self.mapView addSubview:self.selectPOIViewController.view];
+//}
 //
-//添加选择视图
--(void)addSelectPOIView
-{
-    self.selectPOIViewController.view.frame=CGRectMake((MainScreenWidth-300)/2, MainScreenHeight-self.selectPOIViewController.view.frame.size.height-100, self.selectPOIViewController.view.frame.size.width, self.selectPOIViewController.view.frame.size.height);
-    [self.mapView addSubview:self.selectPOIViewController.view];
-}
-
-
-//移除选择视图
-- (void) removeSelectPOIView
-{
-    [self.selectPOIViewController.view removeFromSuperview];
-}
-
-- (void)addTextView
-{
-    self.selectPOIViewController.textView.frame=CGRectMake((MainScreenWidth-300)/2,30, self.selectPOIViewController.textView.frame.size.width, self.selectPOIViewController.textView.frame.size.height);
-
-    [self.mapView addSubview:self.selectPOIViewController.textView];
-}
-
-//添加填写地址视图
--(void)sendAddTextSignal
-{
-    //填写地址
-    [self removeSelectPOIView];
-    [self addTextView];
-}
-
-//确认选择
--(void)sendSelectedIndex:(NSUInteger)index
-{
-    if(index<self.selectPOIDataArray.count)
-    {
-        POIDataModel *selectedPOI=[self.selectPOIDataArray objectAtIndex:index];
-        //此处address 为用户选择的地址
-        NSString *address=selectedPOI.address;
-        NSLog(@"Choice Address：%@",address);
-        //此处location为用户选择的地址坐标
-        CLLocationCoordinate2D location=selectedPOI.position;
-        
-        self.mapView.userAddMAPointAnnotation.subtitle=address;
-        self.mapView.userAddMAPointAnnotation.coordinate=location;
-    }
-    [self removeSelectPOIView];
-}
-//获得输入地址
-- (void)getTextWhenEndEdit:(NSString *)text
-{
-    self.mapView.userAddMAPointAnnotation.subtitle=text;
-}
-//后选
--(void)nextToIndex:(NSUInteger)index
-{
-    //要控制数组越界
-    if (index<self.selectPOIDataArray.count) {
-        
-        self.selectPOIViewController.rightNowData=[self.selectPOIDataArray objectAtIndex:index];
-        
-    }else
-    {
-        [MBProgressHUD showError:@"到头了" toView:nil];
-    }
-}
-
-//前选
--(void)backToIndex:(NSUInteger)index
-{
-    self.selectPOIViewController.rightNowData=[self.selectPOIDataArray objectAtIndex:index];
-}
-
-
-
+//
+////移除选择视图
+//- (void) removeSelectPOIView
+//{
+//    [self.selectPOIViewController.view removeFromSuperview];
+//}
+//
+//- (void)addTextView
+//{
+//    self.selectPOIViewController.textView.frame=CGRectMake((MainScreenWidth-300)/2,30, self.selectPOIViewController.textView.frame.size.width, self.selectPOIViewController.textView.frame.size.height);
+//
+//    [self.mapView addSubview:self.selectPOIViewController.textView];
+//}
+//
+////添加填写地址视图
+//-(void)sendAddTextSignal
+//{
+//    //填写地址
+//    [self removeSelectPOIView];
+//    [self addTextView];
+//}
+//
+////确认选择
+//-(void)sendSelectedIndex:(NSUInteger)index
+//{
+//    if(index<self.selectPOIDataArray.count)
+//    {
+//        POIDataModel *selectedPOI=[self.selectPOIDataArray objectAtIndex:index];
+//        //此处address 为用户选择的地址
+//        NSString *address=selectedPOI.address;
+//        NSLog(@"Choice Address：%@",address);
+//        //此处location为用户选择的地址坐标
+//        CLLocationCoordinate2D location=selectedPOI.position;
+//        
+//        self.mapView.userAddMAPointAnnotation.subtitle=address;
+//        self.mapView.userAddMAPointAnnotation.coordinate=location;
+//    }
+//    [self removeSelectPOIView];
+//}
+////获得输入地址
+//- (void)getTextWhenEndEdit:(NSString *)text
+//{
+//    self.mapView.userAddMAPointAnnotation.subtitle=text;
+//}
+////后选
+//-(void)nextToIndex:(NSUInteger)index
+//{
+//    //要控制数组越界
+//    if (index<self.selectPOIDataArray.count) {
+//        self.selectPOIViewController.rightNowData=[self.selectPOIDataArray objectAtIndex:index];
+//    }else
+//    {
+//        [MBProgressHUD showError:@"到头了" toView:nil];
+//    }
+//}
+//
+////前选
+//-(void)backToIndex:(NSUInteger)index
+//{
+//    self.selectPOIViewController.rightNowData=[self.selectPOIDataArray objectAtIndex:index];
+//}
 
 
 #pragma --mark UISearchBarDelegate
@@ -293,13 +290,11 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
 
-
 }
 
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-
 
 }
 
@@ -309,8 +304,6 @@
     NSLog(@"搜索的内容%@",searchText);
     
 }
-
-
 
 #pragma --mark  searchBar TableView Delegate
 #pragma mark - Table view data source

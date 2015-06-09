@@ -13,7 +13,6 @@
 
 
 }
-
 @property (weak, nonatomic) IBOutlet UILabel *countNumbersWithinUnitsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabelWithinUnitLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *Icon3ImageView;

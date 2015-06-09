@@ -24,6 +24,8 @@
 		040861EB1AFB06210060C76D /* applistCell+configurecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861EA1AFB06210060C76D /* applistCell+configurecell.m */; };
 		040861F31AFB74B10060C76D /* FogetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040861F11AFB74B10060C76D /* FogetPWDViewController.m */; };
 		040861F41AFB74B10060C76D /* FogetPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040861F21AFB74B10060C76D /* FogetPWDViewController.xib */; };
+		0410883E1B25D0DF00F1CCD2 /* MapSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0410883C1B25D0DF00F1CCD2 /* MapSelectedViewController.m */; };
+		0410883F1B25D0DF00F1CCD2 /* MapSelectedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0410883D1B25D0DF00F1CCD2 /* MapSelectedViewController.xib */; };
 		0420C0451B170FB0008F9201 /* searchBarImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0420C0441B170FB0008F9201 /* searchBarImage.png */; };
 		0443C1301AD5531D004F29A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443C12F1AD5531D004F29A5 /* main.m */; };
 		0443C13B1AD5531D004F29A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0443C13A1AD5531D004F29A5 /* Images.xcassets */; };
@@ -814,6 +816,9 @@
 		040861F01AFB74B10060C76D /* FogetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogetPWDViewController.h; sourceTree = "<group>"; };
 		040861F11AFB74B10060C76D /* FogetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPWDViewController.m; sourceTree = "<group>"; };
 		040861F21AFB74B10060C76D /* FogetPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FogetPWDViewController.xib; sourceTree = "<group>"; };
+		0410883B1B25D0DF00F1CCD2 /* MapSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectedViewController.h; sourceTree = "<group>"; };
+		0410883C1B25D0DF00F1CCD2 /* MapSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectedViewController.m; sourceTree = "<group>"; };
+		0410883D1B25D0DF00F1CCD2 /* MapSelectedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSelectedViewController.xib; sourceTree = "<group>"; };
 		0420C0441B170FB0008F9201 /* searchBarImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBarImage.png; sourceTree = "<group>"; };
 		04437DF71AFC9FE2006FA000 /* registerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerProtocol.h; sourceTree = "<group>"; };
 		0443C12A1AD5531D004F29A5 /* ejianzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ejianzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1920,9 +1925,9 @@
 		0443C18D1AD554E8004F29A5 /* JobListCell */ = {
 			isa = PBXGroup;
 			children = (
-				0443C18E1AD554E8004F29A5 /* JobListTableViewCell.h */,
 				04C348101AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.h */,
 				04C348111AEF855200B48D11 /* JobListTableViewCell+configureForJobCell.m */,
+				0443C18E1AD554E8004F29A5 /* JobListTableViewCell.h */,
 				0443C18F1AD554E8004F29A5 /* JobListTableViewCell.m */,
 				0443C1901AD554E8004F29A5 /* JobListTableViewCell.xib */,
 				0443C1911AD554E8004F29A5 /* listBadgeView.h */,
@@ -1985,6 +1990,9 @@
 				0443C1C71AD55572004F29A5 /* SelectPOIViewController.xib */,
 				0443C1C81AD55572004F29A5 /* TableViewController.h */,
 				0443C1C91AD55572004F29A5 /* TableViewController.m */,
+				0410883B1B25D0DF00F1CCD2 /* MapSelectedViewController.h */,
+				0410883C1B25D0DF00F1CCD2 /* MapSelectedViewController.m */,
+				0410883D1B25D0DF00F1CCD2 /* MapSelectedViewController.xib */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -3504,6 +3512,7 @@
 				3BBF70061AD6D1CB00A33F5A /* u1f612.png in Resources */,
 				045625601AD6211D006E159C /* btnLeft.png in Resources */,
 				04B346F41AEA95FA00A8A180 /* checkmark@2x.png in Resources */,
+				0410883F1B25D0DF00F1CCD2 /* MapSelectedViewController.xib in Resources */,
 				045625C01AD6211D006E159C /* protait4-Spotlight-40@2x.png in Resources */,
 				3BBF70751AD6D1CB00A33F5A /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				3B7740731AEB90EA0017E549 /* myJobListCell.xib in Resources */,
@@ -4259,6 +4268,7 @@
 				0443C16B1AD5541D004F29A5 /* JobListWithDropDownListVCViewController.m in Sources */,
 				3B8D4AEA1AE257A9001F5E7F /* MJRefreshBaseView.m in Sources */,
 				3BBF6F541AD6D0E800A33F5A /* MLCell4.m in Sources */,
+				0410883E1B25D0DF00F1CCD2 /* MapSelectedViewController.m in Sources */,
 				04C348211AF0C7CF00B48D11 /* CompanyInfoViewController.m in Sources */,
 				04C3481A1AEFBB9D00B48D11 /* JobOfComListVC.m in Sources */,
 				3BBF6F181AD6D0C900A33F5A /* SDBrowserImageView.m in Sources */,

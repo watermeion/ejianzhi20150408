@@ -84,7 +84,9 @@ static  SRLoginVC *thisController=nil;
     
     [self.otherLoginBtn.layer setBorderWidth:1.0f];
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 33/255.0, 174/255.0, 148/255.0, 1.0 });
+//    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 33/255.0, 174/255.0, 148/255.0, 1.0 });
+    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 255/255.0, 255/255.0, 255/255.0, 1.0 });
+    
     [self.otherLoginBtn.layer setBorderColor:colorref];
     [self.otherLoginBtn.layer setCornerRadius:5.0];
 
@@ -208,6 +210,10 @@ static  SRLoginVC *thisController=nil;
     }
     else
     {
+        
+//        [loginer loginInbackground:loginer.username Pwd:loginer.pwd loginType:loginType withBlock:^(BOOL succeed, NSNumber *userType)  {
+//        
+//        }]
         [loginer loginInbackground:loginer.username Pwd:loginer.pwd loginType:loginType withBlock:^(BOOL succeed, NSNumber *userType)  {
             if (succeed) {
                 if ([userType integerValue]==0) {
@@ -230,7 +236,7 @@ static  SRLoginVC *thisController=nil;
                         [alert show];
                     }
                 }
-                
+//
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:loginer.feedback message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
                 [alert show];
@@ -269,13 +275,24 @@ static  SRLoginVC *thisController=nil;
         self.userAccount.placeholder=@"请输入企业登录账户";
         [self.otherLoginBtn setTitle:@"求职者登录" forState:UIControlStateNormal];
         loginType=1;
+        //    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 33/255.0, 174/255.0, 148/255.0, 1.0 });
+        UIColor *comColor=[UIColor colorWithRed:232/255.0 green:192/255.0 blue:111/255.0 alpha:1.0];
+        self.view.backgroundColor=comColor;
+        self.floatView2.backgroundColor=comColor;
+//        self.loginButton.titleLabel.textColor=comColor;
+        self.navBar.barTintColor=comColor;
     }else{
         self.userAccount.placeholder=@"请输入账户名";
         self.navItem.title=@"求职者登录";
         [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
         loginType=0;
+       
+        UIColor *usrColor=[UIColor colorWithRed:33/255.0 green:174/255.0 blue:148/255.0 alpha:1.0f];
+        self.view.backgroundColor=usrColor;
+        self.floatView2.backgroundColor=usrColor;
+//        self.loginButton.titleLabel.textColor=usrColor;
+        self.navBar.barTintColor=usrColor;
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {

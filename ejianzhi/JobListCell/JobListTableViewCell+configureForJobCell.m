@@ -13,6 +13,8 @@
 #import "MLMapManager.h"
 #import "AJLocationManager.h"
 #import "NSDate+Category.h"
+
+#import "DateUtil.h"
 @implementation JobListTableViewCell (configureForJobCell)
 - (void)configureForJob:(JianZhi*)jianzhi
 {
@@ -24,8 +26,19 @@
     [self setIconBackgroundColor:[self colorForType:jianzhi.jianZhiType]];
     self.priceLabel.text=[jianzhi.jianZhiWage stringValue];
     self.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-    self.keyConditionLabel.text=@"点击查看更多兼职信息";
-    if(jianzhi.jianzhiTeShuYaoQiu.length>=1)  self.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
+    self.keyConditionLabel.text=@"该兼职长期有效";
+  
+    if (jianzhi.jianZhiTimeStart!=nil && jianzhi.jianZhiTimeEnd!=nil) {
+        NSString *dateString=[DateUtil stringFromDate:jianzhi.jianZhiTimeStart];
+        
+       dateString=[dateString stringByAppendingString:@"~"];
+        
+        dateString=[dateString stringByAppendingString:[DateUtil stringFromDate:jianzhi.jianZhiTimeEnd]];
+        
+        self.keyConditionLabel.text=dateString;
+    }
+    
+//    if(jianzhi.jianzhiTeShuYaoQiu.length>=1)  self.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
     
     self.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
