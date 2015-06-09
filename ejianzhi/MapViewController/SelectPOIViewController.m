@@ -11,9 +11,6 @@
 #import "MBProgressHUD.h"
 @interface SelectPOIViewController ()<UITextViewDelegate>
 
-
-
-
 - (IBAction)backAction:(id)sender;
 - (IBAction)nextAction:(id)sender;
 - (IBAction)addTextAction:(id)sender;
@@ -23,8 +20,6 @@
 
 @implementation SelectPOIViewController
 
-
-
 -(instancetype)init
 {
     if (self=[super init]) {
@@ -33,23 +28,14 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    // 设置显示标题
-    //此处你们可以替换会KVO 监听值的变化
-  
-    
 //    @weakify(self)
 //    [RACObserve(self,rightNowData) subscribeNext:^(id x) {
 //        @strongify(self)
 //         [self.confirmBtn setTitle:self.rightNowData.address forState:UIControlStateNormal];
 //    }];
 }
-
-
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -93,7 +79,6 @@
     NSInteger index=self.rightNowData.index;
     [self.delegate sendSelectedIndex:index];
 }
-
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
