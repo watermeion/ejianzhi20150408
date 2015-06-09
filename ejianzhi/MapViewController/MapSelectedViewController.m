@@ -67,11 +67,20 @@
     return nil;
 }
 
+-(void)backAction{
 
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.edgesForExtendedLayout=UIRectEdgeNone;
+    
+    UIBarButtonItem *backBarBtnItem=[[UIBarButtonItem alloc]initWithTitle:@"确认并返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    
+    self.navigationItem.leftBarButtonItem=backBarBtnItem;
+    
+    
     //添加长按选点事件
     UILongPressGestureRecognizer *Lpress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressClick:)];
     Lpress.delegate=self;
@@ -238,6 +247,9 @@
     self.selectPOIViewController.textView.frame=CGRectMake((MainScreenWidth-300)/2,30, self.selectPOIViewController.textView.frame.size.width, self.selectPOIViewController.textView.frame.size.height);
     
     [self.mapView addSubview:self.selectPOIViewController.textView];
+    
+    
+    
 }
 
 //添加填写地址视图
@@ -282,6 +294,11 @@
     [self.resultsDelegate sendResults:newData];
     [self.selectPOIViewController.textView removeFromSuperview];
     [self.selectPOIViewController resignFirstResponder];
+    
+    [self.navigationController.viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"view Array:%@",self.navigationController.viewControllers[idx]);
+    }];
+    
 }
 //后选
 -(void)nextToIndex:(NSUInteger)index
