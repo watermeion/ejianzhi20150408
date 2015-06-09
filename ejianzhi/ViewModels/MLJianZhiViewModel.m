@@ -33,7 +33,7 @@
 {
     if (self=[super init]) {
         //可进行一些初始化设置
-        self.pageManager.pageSize=6;
+        self.pageManager.pageSize=20;
         self.isOrderByHot=NO;
         //监控网络、用户登录等连接。
 //        RACSignal *loginActiveSignal=[RACObserve(self.loginManager,LoginState) map:^id(NSNumber *value) {
@@ -68,6 +68,7 @@
     [self.mainQuery whereKey:key equalTo:value];
     [self.mainQuery orderByDescending:@"createdAt"];
      [self.mainQuery whereKey:@"isOutDated" notEqualTo:@YES];
+    [self.mainQuery whereKey:@"isTest" notEqualTo:@YES];
 }
 
 ///**
