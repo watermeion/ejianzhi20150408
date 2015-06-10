@@ -44,7 +44,7 @@ static int reloadTimes;
 {
     //FIXME:改成动态的
     NSUserDefaults* mysettings=[NSUserDefaults standardUserDefaults];
-    self.settlementwayArray=@[@"不限",@"时",@"日",@"周",@"月", @"季", @"年",@"项目"];
+    self.settlementwayArray=@[@"不限",@"时",@"天",@"周",@"月", @"季", @"年",@"项目"];
     self.reduArray=@[@"最新",@"附近",@"最热"];
     
     [mysettings setObject: self.settlementwayArray forKey:FliterSettlementWay];

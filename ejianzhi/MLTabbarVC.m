@@ -126,7 +126,7 @@ static  MLTabbarVC *thisController=nil;
     
     tabBarItem1.title=@"首页";
     
-    tabBarItem2.title=@"最新兼职";
+    tabBarItem2.title=@"分类导航";
     
     //tabBarItem3.title=@"消息";
     
