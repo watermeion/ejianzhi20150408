@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -83,7 +84,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="00O-Dy-WYs" userLabel="账号文本框">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入求职者账户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="00O-Dy-WYs" userLabel="账号文本框">
                             <rect key="frame" x="123" y="125" width="150" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="c6V-WL-kVD"/>
@@ -340,10 +341,12 @@
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="UWH-Oc-hiy"/>
-                        <constraint firstAttribute="width" constant="100" id="c8X-Xs-jjZ"/>
+                        <constraint firstAttribute="width" constant="100" id="c8X-Xs-jjZ">
+                            <variation key="heightClass=regular-widthClass=compact" constant="134"/>
+                        </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="企业登录">
+                    <state key="normal" title="切换企业登录">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -367,7 +370,7 @@
             <color key="backgroundColor" red="0.094117647060000004" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="gtx-wV-vNx" firstAttribute="leading" secondItem="t9G-gM-53p" secondAttribute="trailing" constant="8" id="3pT-pb-xDH">
-                    <variation key="heightClass=regular-widthClass=compact" constant="-55"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="-72"/>
                 </constraint>
                 <constraint firstItem="t9G-gM-53p" firstAttribute="leading" secondItem="jZU-Pi-jxN" secondAttribute="trailing" constant="8" id="5Nk-1f-VC3"/>
                 <constraint firstAttribute="trailing" secondItem="fhv-w2-Wmf" secondAttribute="trailing" constant="25" id="89M-ke-wZw"/>

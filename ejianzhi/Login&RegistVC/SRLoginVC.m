@@ -273,7 +273,7 @@ static  SRLoginVC *thisController=nil;
     if ([self.navItem.title isEqualToString:@"求职者登录"]) {
         self.navItem.title=@"企业登录";
         self.userAccount.placeholder=@"请输入企业登录账户";
-        [self.otherLoginBtn setTitle:@"求职者登录" forState:UIControlStateNormal];
+        [self.otherLoginBtn setTitle:@"切换至求职者登录" forState:UIControlStateNormal];
         loginType=1;
         //    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 33/255.0, 174/255.0, 148/255.0, 1.0 });
         UIColor *comColor=[UIColor colorWithRed:232/255.0 green:192/255.0 blue:111/255.0 alpha:1.0];
@@ -284,7 +284,7 @@ static  SRLoginVC *thisController=nil;
     }else{
         self.userAccount.placeholder=@"请输入账户名";
         self.navItem.title=@"求职者登录";
-        [self.otherLoginBtn setTitle:@"企业登录" forState:UIControlStateNormal];
+        [self.otherLoginBtn setTitle:@"切换至企业登录" forState:UIControlStateNormal];
         loginType=0;
        
         UIColor *usrColor=[UIColor colorWithRed:33/255.0 green:174/255.0 blue:148/255.0 alpha:1.0f];
