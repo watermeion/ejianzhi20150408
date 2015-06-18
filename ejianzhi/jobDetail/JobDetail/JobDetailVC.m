@@ -165,18 +165,26 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     }
     
     if (self.fromEnterprise) {
+        
         self.btn1.hidden=YES;
         self.btn2.hidden=YES;
         self.btn3.hidden=YES;
         self.navigationItem.rightBarButtonItem=nil;
         self.scrollConstraint.constant=-44;
         
-        UIBarButtonItem *rightBarItem=[[UIBarButtonItem alloc]initWithTitle:@"确认发布" style:UIBarButtonItemStylePlain target:self action:@selector(publish)];
-        self.navigationItem.rightBarButtonItem=rightBarItem;
+        if (self.isPreview) {
+            UIBarButtonItem *rightBarItem=[[UIBarButtonItem alloc]initWithTitle:@"确认发布" style:UIBarButtonItemStylePlain target:self action:@selector(publish)];
+            self.navigationItem.rightBarButtonItem=rightBarItem;
+            
+            UIBarButtonItem *leftBarItem=[[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(pushBack)];
+            self.navigationItem.rightBarButtonItem=rightBarItem;
+            self.navigationItem.leftBarButtonItem=leftBarItem;
+
+        }else{
+            UIBarButtonItem *rightBarItem=[[UIBarButtonItem alloc]initWithTitle:@"再次发布" style:UIBarButtonItemStylePlain target:self action:@selector(publishAgain)];
+            self.navigationItem.rightBarButtonItem=rightBarItem;
+        }
         
-        UIBarButtonItem *leftBarItem=[[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(pushBack)];
-        self.navigationItem.rightBarButtonItem=rightBarItem;
-        self.navigationItem.leftBarButtonItem=leftBarItem;
     }else{
         CDIM* im=[CDIM sharedInstance];
         im.userDelegate=[CDIMService shareInstance];
@@ -616,4 +624,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.saveDelegate finishSave];
 }
+
+- (void)publishAgain{
+    
+}
+
+
 @end

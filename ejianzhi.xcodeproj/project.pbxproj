@@ -528,6 +528,8 @@
 		3B8D4AF61AE25B61001F5E7F /* notHandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D4AF31AE25B61001F5E7F /* notHandle.png */; };
 		3B8D4AFC1AE280B7001F5E7F /* MyFavorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFA1AE280B7001F5E7F /* MyFavorVC.m */; };
 		3B8D4AFD1AE280B7001F5E7F /* MyFavorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */; };
+		3B8DCACB1B31640800670CF4 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8DCAC91B31640800670CF4 /* Icon-57.png */; };
+		3B8DCACC1B31640800670CF4 /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8DCACA1B31640800670CF4 /* Icon-57@2x.png */; };
 		3B97F3D91AD9203600D5F0B5 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */; };
 		3BA364151AF0CDBB00D1EF03 /* resumeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA364131AF0CDBB00D1EF03 /* resumeListVC.m */; };
 		3BA364161AF0CDBB00D1EF03 /* resumeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA364141AF0CDBB00D1EF03 /* resumeListVC.xib */; };
@@ -1437,6 +1439,8 @@
 		3B8D4AF91AE280B7001F5E7F /* MyFavorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavorVC.h; sourceTree = "<group>"; };
 		3B8D4AFA1AE280B7001F5E7F /* MyFavorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavorVC.m; sourceTree = "<group>"; };
 		3B8D4AFB1AE280B7001F5E7F /* MyFavorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavorVC.xib; sourceTree = "<group>"; };
+		3B8DCAC91B31640800670CF4 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
+		3B8DCACA1B31640800670CF4 /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
 		3B97F3D71AD9203600D5F0B5 /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
 		3B97F3D81AD9203600D5F0B5 /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
 		3BA364121AF0CDBB00D1EF03 /* resumeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resumeListVC.h; sourceTree = "<group>"; };
@@ -2518,6 +2522,8 @@
 		045624851AD6211D006E159C /* newIcon */ = {
 			isa = PBXGroup;
 			children = (
+				3B8DCAC91B31640800670CF4 /* Icon-57.png */,
+				3B8DCACA1B31640800670CF4 /* Icon-57@2x.png */,
 				045624861AD6211D006E159C /* Icon-60.png */,
 				045624871AD6211D006E159C /* Icon-60@2x.png */,
 				045624881AD6211D006E159C /* Icon-60@3x.png */,
@@ -3745,6 +3751,7 @@
 				045625101AD6211D006E159C /* Icon-Spotlight-40@2x.png in Resources */,
 				3BBF702D1AD6D1CB00A33F5A /* input-bar-background.png in Resources */,
 				3BBF70171AD6D1CB00A33F5A /* u1f630.png in Resources */,
+				3B8DCACB1B31640800670CF4 /* Icon-57.png in Resources */,
 				045625491AD6211D006E159C /* btn_ts.jpg in Resources */,
 				3BBF6F651AD6D0F200A33F5A /* area.plist in Resources */,
 				045625AA1AD6211D006E159C /* protait2-Spotlight-40@2x.png in Resources */,
@@ -4043,6 +4050,7 @@
 				045625C31AD6211D006E159C /* protait4@2x.png in Resources */,
 				04B346CC1AEA95FA00A8A180 /* 10.png in Resources */,
 				045625801AD6211D006E159C /* zhiwei.png in Resources */,
+				3B8DCACC1B31640800670CF4 /* Icon-57@2x.png in Resources */,
 				3BBF6F431AD6D0E800A33F5A /* addCard.png in Resources */,
 				04B346D81AEA95FA00A8A180 /* 16.png in Resources */,
 				0443C1661AD553FE004F29A5 /* SRCityChooseVC.xib in Resources */,
@@ -4411,6 +4419,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4425,6 +4434,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a43513a7-36a3-4b2b-bdce-897e2df665c7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4437,6 +4447,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4451,6 +4462,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a43513a7-36a3-4b2b-bdce-897e2df665c7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -55,6 +55,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     QRadioButton *_radio1;
     QRadioButton *_radio2;
 }
+
 @property (weak, nonatomic) IBOutlet UIScrollView *picscrollview;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (strong, nonatomic) IBOutlet UIView *view3;

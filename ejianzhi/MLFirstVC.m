@@ -30,7 +30,7 @@
 #import "JobListWithDropDownListVCViewController.h"
 #import "AJLocationManager.h"
 
-#import "CheckNewVersionVC.h"
+
 #import <AVOSCloud/AVOSCloud.h>
 
 
@@ -98,14 +98,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *searchbarImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBarImage"]];
+//    UIImageView *searchbarImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBarImage"]];
     
-    searchbarImageView.userInteractionEnabled=YES;
+//    searchbarImageView.userInteractionEnabled=YES;
     //为searchBar添加操作
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchBarTapped)];
-    [searchbarImageView addGestureRecognizer:singleTap];
+//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchBarTapped)];
+//    [searchbarImageView addGestureRecognizer:singleTap];
     
-    self.navigationItem.titleView=searchbarImageView;
+//    self.navigationItem.titleView=searchbarImageView;
+    
+    self.navigationItem.title=@"e兼职";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
@@ -126,16 +128,7 @@
     [self searchCity];
     self.joblistTableVC.isFisrtView=YES;
     
-    AVQuery *query=[AVQuery queryWithClassName:@"Version"];
-    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-        if (!error&&object) {
-            NSString *vn=[object objectForKey:@"versionNumber"];
-            if (![vn isEqualToString:[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey]]) {
-                CheckNewVersionVC *checkVC=[[CheckNewVersionVC alloc]init];
-                [self presentViewController:checkVC animated:YES completion:nil];
-            }
-        }
-    }];
+    
 }
 
 -(void)searchBarTapped
@@ -348,18 +341,21 @@
 
 - (IBAction)itWorkBtnAction:(id)sender {
     JobListWithDropDownListVCViewController *joblistWithDrowList=[[JobListWithDropDownListVCViewController alloc]init];
-    [joblistWithDrowList setCurrentType:@"开发"];
+    
+    [joblistWithDrowList setCurrentType:@"实习"];
     [self.navigationController pushViewController:joblistWithDrowList animated:YES];
 }
 
 - (IBAction)modelBtnAction:(id)sender {
     JobListWithDropDownListVCViewController *joblistWithDrowList=[[JobListWithDropDownListVCViewController alloc]init];
-    [joblistWithDrowList setCurrentType:@"模特"];
+    
+    [joblistWithDrowList setCurrentType:@"派单"];
     [self.navigationController pushViewController:joblistWithDrowList animated:YES];
 }
 
 - (IBAction)homeTeacherBtnAction:(id)sender {
     JobListWithDropDownListVCViewController *joblistWithDrowList=[[JobListWithDropDownListVCViewController alloc]init];
+    
     [joblistWithDrowList setCurrentType:@"家教"];
     [self.navigationController pushViewController:joblistWithDrowList animated:YES];
 }

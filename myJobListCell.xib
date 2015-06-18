@@ -17,15 +17,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipt-s8-W69">
                         <rect key="frame" x="0.0" y="6" width="320" height="87"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘数学老师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2F-Rd-6tj">
-                                <rect key="frame" x="76" y="8" width="182" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="L26-hY-Ido"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已录用1人，还缺11人，浏览21次" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtu-bu-CwC">
                                 <rect key="frame" x="78" y="67" width="236" height="21"/>
                                 <constraints>
@@ -52,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="1" id="gQ3-4G-Ffi"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共收到0份简历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-pX-tKD">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共收到0份简历" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-pX-tKD">
                                 <rect key="frame" x="76" y="36" width="141" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4FZ-el-Lnn"/>
@@ -99,12 +90,21 @@
                                     <constraint firstAttribute="height" constant="60" id="oxR-il-dXd"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="招聘数学老师" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2F-Rd-6tj">
+                                <rect key="frame" x="76" y="11" width="182" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="L26-hY-Ido"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CkD-JG-88t" firstAttribute="leading" secondItem="P2F-Rd-6tj" secondAttribute="trailing" constant="8" id="3hG-JG-oF0"/>
-                            <constraint firstItem="P2F-Rd-6tj" firstAttribute="top" secondItem="ipt-s8-W69" secondAttribute="top" constant="8" id="5Dv-nq-b6a"/>
-                            <constraint firstItem="EY3-pX-tKD" firstAttribute="top" secondItem="P2F-Rd-6tj" secondAttribute="bottom" constant="7" id="7ed-AN-LCA"/>
+                            <constraint firstItem="P2F-Rd-6tj" firstAttribute="top" secondItem="ipt-s8-W69" secondAttribute="top" constant="11" id="5Dv-nq-b6a"/>
+                            <constraint firstItem="EY3-pX-tKD" firstAttribute="top" secondItem="P2F-Rd-6tj" secondAttribute="bottom" constant="4" id="7ed-AN-LCA"/>
                             <constraint firstItem="Dtu-bu-CwC" firstAttribute="leading" secondItem="pnP-WM-c9N" secondAttribute="trailing" constant="10" id="E1W-6w-Cdc"/>
                             <constraint firstItem="P2F-Rd-6tj" firstAttribute="leading" secondItem="pnP-WM-c9N" secondAttribute="trailing" constant="8" id="H2m-1O-hxY"/>
                             <constraint firstItem="RUz-wt-erm" firstAttribute="top" secondItem="EY3-pX-tKD" secondAttribute="bottom" constant="3" id="LbA-a5-YpD"/>
@@ -112,7 +112,7 @@
                             <constraint firstAttribute="trailing" secondItem="Eqy-Ow-DBC" secondAttribute="trailing" constant="8" id="Xr6-lL-spg"/>
                             <constraint firstAttribute="trailing" secondItem="Dtu-bu-CwC" secondAttribute="trailing" constant="6" id="brR-Hs-veR"/>
                             <constraint firstItem="CkD-JG-88t" firstAttribute="top" secondItem="ipt-s8-W69" secondAttribute="top" constant="8" id="cVN-uS-Oh7"/>
-                            <constraint firstItem="Eqy-Ow-DBC" firstAttribute="top" secondItem="P2F-Rd-6tj" secondAttribute="bottom" constant="6" id="hJy-hd-8Sr"/>
+                            <constraint firstItem="Eqy-Ow-DBC" firstAttribute="top" secondItem="P2F-Rd-6tj" secondAttribute="bottom" constant="3" id="hJy-hd-8Sr"/>
                             <constraint firstItem="pnP-WM-c9N" firstAttribute="leading" secondItem="ipt-s8-W69" secondAttribute="leading" constant="8" id="i3D-J6-D0q"/>
                             <constraint firstItem="RUz-wt-erm" firstAttribute="leading" secondItem="ipt-s8-W69" secondAttribute="leading" constant="78" id="jF8-L6-6EW"/>
                             <constraint firstItem="pnP-WM-c9N" firstAttribute="top" secondItem="ipt-s8-W69" secondAttribute="top" constant="14" id="nIp-bW-NbW"/>

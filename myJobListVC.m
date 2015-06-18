@@ -49,6 +49,11 @@
     [self tableViewInit];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self headerRereshing];
+}
+
 - (void)addNewJob{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -93,9 +98,9 @@
     [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    [self refreshData];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    
+//    [self refreshData];
 }
 
 -(void)refreshData{
