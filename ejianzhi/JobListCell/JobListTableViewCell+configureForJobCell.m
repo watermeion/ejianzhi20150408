@@ -29,7 +29,10 @@
     self.keyConditionLabel.text=@"该兼职长期有效";
   
     if (jianzhi.jianZhiTimeStart!=nil && jianzhi.jianZhiTimeEnd!=nil) {
-        NSString *dateString=[DateUtil stringFromDate3:jianzhi.jianZhiTimeStart];
+        NSString *dateString=@"时间:";
+        
+        
+        dateString=[dateString stringByAppendingString:[DateUtil stringFromDate3:jianzhi.jianZhiTimeStart]];
         
         
        dateString=[dateString stringByAppendingString:@"~"];
@@ -75,7 +78,7 @@
         NSNumber *disNumber=[MLMapManager calDistanceMeterWithPointA:jobP PointB:location];
         int threshold=[disNumber intValue];
         if (threshold >100000) {
-          return [NSString stringWithFormat:@">100km"];
+          return [NSString stringWithFormat:@"较远"];
         }else if(threshold>1000)
         {
             return [NSString stringWithFormat:@"%.2fkm",[disNumber doubleValue]/1000];

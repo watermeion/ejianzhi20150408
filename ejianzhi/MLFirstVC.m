@@ -44,6 +44,7 @@
     NSArray *collectionViewCellArray;
 }
 
+
 @property (weak, nonatomic) IBOutlet UIScrollView *middleScrollView;
 
 //@property (strong,nonatomic) MLJianZhiViewModel *jianzhiViewModel;
@@ -105,15 +106,31 @@
 //    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchBarTapped)];
 //    [searchbarImageView addGestureRecognizer:singleTap];
     
-//    self.navigationItem.titleView=searchbarImageView;
-    
     self.navigationItem.title=@"e兼职";
+//    self.navigationItem.titleView=;
+
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
+    UIImage *image=[UIImage imageNamed:@"Locationicon"];
+    
+    UIButton *locationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [locationBtn setImage:image forState:UIControlStateNormal];
+    locationBtn.tintColor=[UIColor whiteColor];
+    [locationBtn setTitle:@" 北京" forState:UIControlStateNormal];
+    locationBtn.frame =CGRectMake(0, 0, 80, 40);
+    
+//    [locationBtn setBackgroundImage:image forState:UIControlStateNormal];
+    
+    [locationBtn addTarget: self action: @selector(Location) forControlEvents: UIControlEventTouchUpInside];
+      UIBarButtonItem* locationBtnItem=[[UIBarButtonItem alloc]initWithCustomView:locationBtn];
+
+//     [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
+    
+    self.navigationItem.leftBarButtonItem=locationBtnItem;
+    
+    
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"附近兼职" style:UIBarButtonItemStylePlain target:self action:@selector(findJobWithLocationAction:)];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
-    
     self.viewModel=[[MLMainPageViewModel alloc]init];
     [self addChildViewController:self.joblistTableVC];
     //collectiveViewCell

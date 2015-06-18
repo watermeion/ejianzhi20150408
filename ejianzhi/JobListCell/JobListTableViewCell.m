@@ -17,6 +17,12 @@
     //设置圆角
     [self.IconView.layer setMasksToBounds:YES];
     [self.IconView.layer setCornerRadius:10.0f];
+    
+    //
+  
+    self.distanceLabelWithinUnitLabel.layer.masksToBounds=YES;
+    self.distanceLabelWithinUnitLabel.backgroundColor = [UIColor lightGrayColor];
+    self.distanceLabelWithinUnitLabel.layer.cornerRadius = 10;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

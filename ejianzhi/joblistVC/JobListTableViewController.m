@@ -83,7 +83,7 @@
 }
 
 - (void)tableViewInit{
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+
     self.tableView.scrollEnabled=YES;
 }
 
