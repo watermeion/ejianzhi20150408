@@ -25,6 +25,8 @@
 #import "MLTabbar1.h"
 #import "SRLoginVC.h"
 
+#import "CheckNewVersionVC.h"
+
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
 @interface AppDelegate ()
@@ -158,10 +160,25 @@
     //消除消息提示数字
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
-        
+    [self checkVersion];
+    
     return YES;
 }
 
+- (void)checkVersion{
+    AVQuery *query=[AVQuery queryWithClassName:@"Version"];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error&&object) {
+            NSString *vn=[object objectForKey:@"versionNumber"];
+            if (![vn isEqualToString:[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey]]) {
+                CheckNewVersionVC *checkVC=[[CheckNewVersionVC alloc]init];
+                
+                [self.window setRootViewController:checkVC];
+                
+            }
+        }
+    }];
+}
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {

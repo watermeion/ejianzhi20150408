@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -558,7 +559,7 @@ EOWutuaVmeS4k+Wcug
                         </mask>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猜你喜欢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoT-3x-0B8">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐兼职" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoT-3x-0B8">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="74" id="2AN-mi-3CY"/>
@@ -1044,7 +1045,7 @@ EOWutuaVmeS4k+Wcug
                         <action selector="modelBtnAction:" destination="-1" eventType="touchUpInside" id="wVz-Bk-54n"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="模特专场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-UO-dW9">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="派单专场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-UO-dW9">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="4WE-aL-iaF">
@@ -1104,7 +1105,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="60i-LD-kOP"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-96" y="-560"/>
+            <point key="canvasLocation" x="-195" y="-857"/>
         </view>
         <view contentMode="scaleToFill" id="Giv-w1-GwJ">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1141,7 +1142,7 @@ EOWutuaVmeS4k+Wcug
                         <action selector="itWorkBtnAction:" destination="-1" eventType="touchUpInside" id="sBw-fo-7WB"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IT专场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYy-JY-768">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实习专场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYy-JY-768">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="h8Q-fQ-41X">
@@ -1201,7 +1202,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="CQk-WX-oTK"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-282" y="-765"/>
+            <point key="canvasLocation" x="-551" y="-857"/>
         </view>
         <view contentMode="scaleToFill" id="7z6-Q8-P3K">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1298,7 +1299,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="t40-EU-yqh"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="146" y="-560"/>
+            <point key="canvasLocation" x="172" y="-857"/>
         </view>
         <view contentMode="scaleToFill" id="wb8-G6-61y">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1395,7 +1396,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="zNA-GD-4a1"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="243" y="-589"/>
+            <point key="canvasLocation" x="489" y="-871"/>
         </view>
     </objects>
     <resources>

@@ -26,6 +26,36 @@
                                 <color key="textColor" red="0.90196078430000004" green="0.3803921569" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="label_bx.png" translatesAutoresizingMaskIntoConstraints="NO" id="AYY-7c-TuR">
+                                <rect key="frame" x="205" y="51" width="27" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="IzJ-0J-arw"/>
+                                    <constraint firstAttribute="height" constant="17" id="VxC-mF-fuR"/>
+                                    <constraint firstAttribute="width" constant="27" id="bpQ-ZC-TnQ"/>
+                                    <constraint firstAttribute="height" constant="17" id="ruX-2A-Sx1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IzJ-0J-arw"/>
+                                        <exclude reference="ruX-2A-Sx1"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="label_yy.png" translatesAutoresizingMaskIntoConstraints="NO" id="CoG-1R-odP">
+                                <rect key="frame" x="135" y="51" width="27" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="2Bb-zp-2Jt"/>
+                                    <constraint firstAttribute="height" constant="17" id="BSO-Ma-tnw"/>
+                                    <constraint firstAttribute="width" constant="27" id="CNH-fA-jdq"/>
+                                    <constraint firstAttribute="height" constant="17" id="zeC-7I-624"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2Bb-zp-2Jt"/>
+                                        <exclude reference="BSO-Ma-tnw"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd8-Xp-ess">
                                 <rect key="frame" x="90" y="73" width="220" height="1"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,6 +95,13 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="label_zm.png" translatesAutoresizingMaskIntoConstraints="NO" id="gcP-KW-beT">
+                                <rect key="frame" x="170" y="51" width="27" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="ED3-LS-OSe"/>
+                                    <constraint firstAttribute="width" constant="27" id="zsR-ia-Dhq"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="ksL-YU-gky">
                                 <rect key="frame" x="109" y="76" width="55" height="20"/>
                                 <constraints>
@@ -92,7 +129,7 @@
                                     <constraint firstAttribute="width" constant="19" id="lSc-Wz-2oo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="连锁超市招聘礼仪模特" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrZ-PG-l8W">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="连锁超市招聘礼仪模特" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrZ-PG-l8W">
                                 <rect key="frame" x="94" y="0.0" width="226" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="pyb-UN-JcS"/>
@@ -117,6 +154,7 @@
                                     <constraint firstAttribute="width" constant="70" id="UXX-fw-oKl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -172,5 +210,8 @@
     </objects>
     <resources>
         <image name="icon_location.png" width="34" height="34"/>
+        <image name="label_bx.png" width="60" height="30"/>
+        <image name="label_yy.png" width="60" height="30"/>
+        <image name="label_zm.png" width="60" height="30"/>
     </resources>
 </document>

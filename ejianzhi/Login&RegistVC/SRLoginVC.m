@@ -82,13 +82,13 @@ static  SRLoginVC *thisController=nil;
         loginer.pwd=text;
     }];
     
-    [self.otherLoginBtn.layer setBorderWidth:1.0f];
+    //[self.otherLoginBtn.layer setBorderWidth:1.0f];
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 //    CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 33/255.0, 174/255.0, 148/255.0, 1.0 });
     CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 255/255.0, 255/255.0, 255/255.0, 1.0 });
     
-    [self.otherLoginBtn.layer setBorderColor:colorref];
-    [self.otherLoginBtn.layer setCornerRadius:5.0];
+//    [self.otherLoginBtn.layer setBorderColor:colorref];
+//    [self.otherLoginBtn.layer setCornerRadius:5.0];
 
     [self.lookAroundBtn.layer setBorderWidth:1.0f];
     [self.lookAroundBtn.layer setBorderColor:colorref];
