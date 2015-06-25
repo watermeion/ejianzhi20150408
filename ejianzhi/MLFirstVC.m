@@ -108,8 +108,6 @@
     
     self.navigationItem.title=@"e兼职";
 //    self.navigationItem.titleView=;
-
-    
     UIImage *image=[UIImage imageNamed:@"Locationicon"];
     
     UIButton *locationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
